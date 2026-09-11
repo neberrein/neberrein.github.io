@@ -1,9 +1,65 @@
-<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="IFAC 2026 RoboRacer 장애물 회피 시스템"><title>IFAC RoboRacer | 곽민재</title><link rel="icon" href="../assets/favicon.svg"><link rel="stylesheet" href="../assets/site.css"><script src="../assets/site.js" defer></script></head><body><a class="skip-link" href="#main">본문 바로가기</a><header class="site-header detail-header"><a class="brand" href="../index.html">곽민재 <span>PORTFOLIO</span></a><nav class="primary-nav"><a href="../index.html#projects">프로젝트</a><a href="../index.html#research">논문·특허</a></nav></header><main id="main">
-<section class="case-hero section-shell"><a class="back-link" href="../index.html#projects">← 프로젝트 목록</a><p class="case-label">IFAC 2026 · AUTONOMOUS RACING</p><h1>RoboRacer 장애물 인지·회피 경로계획</h1><p class="case-subtitle">LiDAR 점군에서 벽과 장애물을 분리하고, 최대 30개 Frenet 후보 경로 가운데 안전성과 복귀 가능성을 함께 평가하는 ROS 2 회피 모듈.</p><dl class="case-facts"><div><dt>기간</dt><dd>2026.07–08</dd></div><div><dt>담당</dt><dd>장애물 인지·로컬 경로계획 전체</dd></div><div><dt>기술</dt><dd>ROS 2 · Python · DBSCAN · RANSAC · Frenet</dd></div><div><dt>결과</dt><dd>56개 팀 중 16강</dd></div></dl><figure class="detail-cover"><img src="../assets/images/roboracer-hero.jpg" alt="IFAC RoboRacer MSCLAB 참가 차량"><figcaption>Hokuyo UST-10LX · Intel NUC 14 Pro · VN-300 기반 경기 차량</figcaption></figure></section>
-<section class="case-section"><div class="section-shell case-layout"><div><span class="case-section-label">01 / OWNERSHIP</span><h2>담당 범위</h2></div><div class="case-body"><p>5인 학생팀에서 장애물 회피 파이프라인 담당. 전역 주행과 위치추정 모듈의 출력을 입력으로 받아 LiDAR 인지, 회피 후보 생성, 경로 평가, 회피 후 복귀 판단까지 구현.</p><ul class="noun-list"><li><strong>인지</strong>DBSCAN 군집화와 순차 RANSAC 기반 벽·장애물 분리</li><li><strong>기하 처리</strong>차량 진행방향과 벽 방향을 반영한 동적 탐지 범위 산출</li><li><strong>경로 생성</strong>4차·5차 다항식 기반 Frenet 후보 최대 30개 생성</li><li><strong>경로 평가</strong>충돌·트랙 이탈 후보 제거와 비용 최소 경로 선택</li><li><strong>상태 관리</strong>NORMAL·AVOID·RETURN 3상태 전환과 복귀 조건 설계</li></ul></div></div></section>
-<section class="case-section"><div class="section-shell case-layout"><div><span class="case-section-label">02 / PERCEPTION</span><h2>벽·장애물 분리</h2></div><div class="case-body"><div class="figure-grid"><figure class="research-figure"><img src="../assets/images/roboracer-perception.png" alt="DBSCAN과 RANSAC을 이용한 벽과 장애물 분리"><figcaption>DBSCAN 군집화 · 67개 이상 장점군의 순차 RANSAC 벽 추정</figcaption></figure><figure class="research-figure"><img src="../assets/images/roboracer-track.jpg" alt="RoboRacer 경기 트랙과 차량"><figcaption>곡률이 큰 실내 트랙과 다중 차량 주행 조건</figcaption></figure></div><ul class="noun-list"><li><strong>벽 모델</strong>좌·우 점군의 선분 길이와 차량 진행방향을 반영한 안전여유 설정</li><li><strong>장애물 모델</strong>벽 영역을 제외한 군집의 위치·폭·추적 ID 유지</li><li><strong>범위 설정</strong>고정 숫자가 아닌 벽 기하에서 계산한 전방 탐지 범위</li></ul></div></div></section>
-<section class="case-section"><div class="section-shell case-layout"><div><span class="case-section-label">03 / PLANNING</span><h2>Frenet 후보 평가</h2></div><div class="case-body"><div class="figure-grid"><figure class="research-figure"><img src="../assets/images/roboracer-frenet.png" alt="Frenet 좌표계의 회피 후보 경로 생성"><figcaption>종방향 5차·횡방향 4차 다항식 기반 후보 경로 생성</figcaption></figure><figure class="research-figure"><img src="../assets/images/roboracer-cost.png" alt="Frenet 후보 경로의 비용 함수와 트랙 이탈 제거"><figcaption>장애물 거리·안전여유·곡률·복귀 가능성을 반영한 후보 평가</figcaption></figure></div><ul class="noun-list"><li><strong>후보 수</strong>횡방향 15개 × 종방향 2개, 최대 30개</li><li><strong>제외 조건</strong>벽·장애물 충돌, 안전여유 침범, 트랙 바깥 이탈</li><li><strong>선택 기준</strong>장애물과의 거리·기준선 편차·주행 부드러움의 가중 비용 최소화</li></ul></div></div></section>
-<section class="case-section"><div class="section-shell case-layout"><div><span class="case-section-label">04 / FIELD VIDEO</span><h2>실차 주행</h2></div><div class="case-body"><div class="video-grid"><figure class="video-card"><video controls muted playsinline preload="metadata" poster="../assets/images/roboracer-track.jpg" src="../assets/videos/roboracer-close.mp4"></video><figcaption>차량 근접 장면 · 코너 진입과 조향 반응 확인</figcaption></figure><figure class="video-card"><video controls muted playsinline preload="metadata" poster="../assets/images/roboracer-hero.jpg" src="../assets/videos/roboracer-wide.mp4"></video><figcaption>트랙 와이드 장면 · 코스 전체의 회피·복귀 흐름 확인</figcaption></figure></div><p style="margin-top:1rem">원본 촬영본과 발표자료 내장 영상을 비교한 뒤 차량·코스가 가장 분명하고 사람 얼굴 노출이 적은 두 구간 선별.</p></div></div></section>
-<section class="case-section"><div class="section-shell case-layout"><div><span class="case-section-label">05 / RESULT</span><h2>결과와 한계</h2></div><div class="case-body"><div class="result-callout"><strong>TOP 16</strong><div><h3>IFAC RoboRacer 56개 팀 중 16강</h3><p>대회 기간 2026.08.24–27 · 장애물 회피 모듈 개입 구간 충돌 없이 통과</p></div></div><ul class="noun-list"><li><strong>검증 결과</strong>장애물 회피 모듈이 개입한 시험·경기 구간의 충돌 없는 통과</li><li><strong>발생 실패</strong>차량 충돌 이후 Cartographer 위치추정 붕괴로 후속 주행 중단</li><li><strong>사전 판단</strong>고속화와 지도 안정성 사이의 trade-off를 팀 내 사전 인지</li><li><strong>개선 방향</strong>충돌·급격한 자세변화 이후 로컬라이제이션 건전성 판정과 복구 상태 추가</li></ul></div></div></section>
-<section class="case-section"><div class="section-shell case-layout"><div><span class="case-section-label">06 / SYSTEM</span><h2>차량 구성</h2></div><div class="case-body"><div class="figure-grid"><figure class="research-figure"><img src="../assets/images/roboracer-team.jpg" alt="RoboRacer MSCLAB 팀과 차량"><figcaption>학생 5인과 지도교수로 구성된 MSCLAB 참가팀</figcaption></figure><figure class="research-figure"><img src="../assets/images/roboracer-hero.jpg" alt="RoboRacer 차량 상부 센서와 컴퓨팅 시스템"><figcaption>LiDAR·산업용 PC·GNSS/INS를 탑재한 1/10 스케일 차량</figcaption></figure></div></div></div></section>
-<nav class="next-project"><a class="section-shell" href="imu-lstm-fsm.html"><span>다음 프로젝트</span><strong>IMU 기반 LSTM-FSM →</strong></a></nav></main><footer class="site-footer"><div class="section-shell"><span>© 2026 곽민재</span><a href="mailto:tkkwak4@naver.com">tkkwak4@naver.com</a></div></footer></body></html>
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="IFAC 2026 RoboRacer에서 수행한 LiDAR 장애물 인지와 Frenet 회피 경로계획">
+  <title>IFAC RoboRacer | 곽민재</title>
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../assets/site.css">
+  <script src="../assets/site.js" defer></script>
+</head>
+<body>
+<a class="skip-link" href="#main">본문 바로가기</a>
+<header class="site-header detail-header"><a class="brand" href="../index.html">곽민재 <span>PORTFOLIO</span></a><nav class="primary-nav" aria-label="상세 페이지 메뉴"><a href="../index.html#projects">프로젝트</a><a href="../index.html#research">논문·특허</a></nav></header>
+<main id="main">
+  <section class="case-hero section-shell">
+    <a class="back-link" href="../index.html#projects">← 프로젝트 목록</a>
+    <p class="case-label">29TH ROBORACER AUTONOMOUS RACING COMPETITION</p>
+    <h1>IFAC 2026 RoboRacer 장애물 인지와 회피 경로계획</h1>
+    <p class="case-subtitle">Hokuyo 2D LiDAR 점군에서 벽과 장애물을 분리하고, 최대 30개 Frenet 후보 가운데 충돌 여유와 경로 복귀 가능성을 함께 평가한 ROS 2 실차 모듈.</p>
+    <div class="headline-result"><strong>TOP 16</strong><span>국제 자율주행 경주<br>56개 팀 중 16강 진출</span></div>
+    <dl class="case-facts"><div><dt>대회</dt><dd>IFAC 2026, 부산 BEXCO</dd></div><div><dt>기간</dt><dd>2026.07–08</dd></div><div><dt>담당</dt><dd>LiDAR 인지, Frenet 로컬 경로계획</dd></div><div><dt>팀</dt><dd>학생 5인, 지도교수 1인</dd></div></dl>
+    <figure class="detail-cover editorial-cover"><img src="../assets/images/robo-track-side.jpg" alt="IFAC RoboRacer 트랙 위 MSCLAB 경기 차량"><figcaption>주황색 Hokuyo LiDAR, 후방 검은 피탐지 패널, Intel NUC를 탑재한 MSCLAB 경기 차량</figcaption></figure>
+  </section>
+
+  <section class="case-section"><div class="section-shell case-layout"><div><span class="case-section-label">01 / OWNERSHIP</span><h2>담당 구간</h2></div><div class="case-body">
+    <p>MATLAB로 검증된 인지와 경로계획 알고리즘을 Python으로 포팅해 ROS 2 실차 환경에 연결하고, 경기장 시험에서 발생한 인지 단절과 정지 교착 문제를 보완했다. 담당 범위는 LiDAR 점군 입력부터 최종 회피 궤적 선택까지다.</p>
+    <div class="system-flow robo-flow" aria-label="RoboRacer 담당 처리 흐름"><article class="flow-node"><span>HOKUYO LiDAR</span><strong>LaserScan 전처리</strong><small>전방 ±70도 점군</small></article><b class="flow-arrow">→</b><article class="flow-node"><span>PERCEPTION</span><strong>DBSCAN + 순차 RANSAC</strong><small>벽과 장애물 barrier</small></article><b class="flow-arrow">→</b><article class="flow-node emphasis"><span>FRENET</span><strong>최대 30개 후보 평가</strong><small>충돌, 여유, 복귀 가능성</small></article><b class="flow-arrow">→</b><article class="flow-node"><span>OUTPUT</span><strong>최적 회피 궤적</strong><small>제어 모듈 전달</small></article></div>
+    <div class="boundary-note"><strong>담당 경계</strong><span>Perception과 FrenetPlanner 담당. Pure Pursuit 제어, CBF 안전층, Cartographer 위치추정, 차량 셋업은 팀원 담당.</span></div>
+  </div></div></section>
+
+  <section class="case-section alt-section"><div class="section-shell case-layout"><div><span class="case-section-label">02 / VEHICLE</span><h2>경기 차량 구성</h2></div><div class="case-body">
+    <div class="vehicle-grid"><figure><img src="../assets/images/robo-vehicle-top.jpg" alt="RoboRacer 차량 상부의 Hokuyo LiDAR와 연산장치"><figcaption><strong>인지</strong><span>차체 상단 Hokuyo UST-10LX 2D LiDAR</span></figcaption></figure><figure><img src="../assets/images/robo-wiring.jpg" alt="RoboRacer 차량 내부 배선과 연산장치"><figcaption><strong>연산</strong><span>Intel NUC 14 Pro와 센서 연결 배선</span></figcaption></figure><figure><img src="../assets/images/robo-drivetrain.jpg" alt="RoboRacer 차량 구동부와 LiDAR 각인"><figcaption><strong>구동</strong><span>1:10 RC 섀시, 조향과 후륜 구동부</span></figcaption></figure><figure><img src="../assets/images/robo-front.jpg" alt="RoboRacer 차량 정면의 피탐지 패널과 원격 연결 장치"><figcaption><strong>운용</strong><span>후방 피탐지 패널과 원격 접속 네트워크</span></figcaption></figure></div>
+  </div></div></section>
+
+  <section class="case-section"><div class="section-shell case-layout"><div><span class="case-section-label">03 / PERCEPTION</span><h2>유령 벽을 없앤 인지</h2></div><div class="case-body">
+    <p>RANSAC은 점이 한 직선 위에 있는지만 판단하고, 그 직선이 실제로 이어져 있는지는 확인하지 않는다. 경기장 안전펜스 사이의 빈 통로가 하나의 긴 선분으로 연결되면서 존재하지 않는 벽이 생성됐고, 플래너는 통로 전체를 막힌 공간으로 판단했다.</p>
+    <div class="before-after"><article><span>기존</span><strong>한 직선 위 인라이어를 단일 선분 처리</strong><div class="line-demo ghost"><i></i><i></i><i></i><i></i><b></b></div><p>점 사이의 큰 공백까지 barrier로 연결</p></article><b aria-hidden="true">→</b><article><span>개선</span><strong>인접 점 간격 0.35 m 초과 시 선분 분할</strong><div class="line-demo fixed"><i></i><i></i><i></i><i></i><b></b><b></b></div><p>실제 통로를 보존한 벽과 장애물 표현</p></article></div>
+    <ul class="noun-list"><li><strong>군집화</strong>cKDTree 기반 DBSCAN 직접 구현으로 배포 의존성 축소</li><li><strong>형상 추출</strong>순차 RANSAC으로 직선과 L자 코너의 두 면 추정</li><li><strong>분류 기준</strong>0.45 m 이상 선분은 벽, 짧은 선분은 장애물로 구분</li><li><strong>안전여유</strong>벽은 얇게, 장애물은 두껍게 확장해 좁은 통로 유지</li></ul>
+  </div></div></section>
+
+  <section class="case-section alt-section"><div class="section-shell case-layout"><div><span class="case-section-label">04 / PLANNING</span><h2>Frenet 후보 선택</h2></div><div class="case-body">
+    <div class="frenet-board" aria-label="Frenet 회피 후보 개념도"><div class="track-line left"></div><div class="track-line right"></div><div class="reference-line"></div><div class="obstacle"></div><i class="candidate c1"></i><i class="candidate c2"></i><i class="candidate c3 selected"></i><i class="candidate c4"></i><span class="start">차량</span><span class="target">복귀</span></div>
+    <div class="decision-strip"><article><span>생성</span><strong>횡 15개 × 지평선 2개</strong></article><article><span>주기</span><strong>5 Hz, 0.2초 간격 계획</strong></article><article><span>제외</span><strong>충돌, 곡률, 횡가속 위반</strong></article><article><span>선택</span><strong>최소 0.05 m 여유 우선</strong></article></div>
+    <table class="metric-table"><thead><tr><th>평가 항목</th><th>목적</th><th>설계 판단</th></tr></thead><tbody><tr><td>안전 비용</td><td>장애물과 가까운 후보 억제</td><td>가중치 10.0으로 최우선 반영</td></tr><tr><td>횡 편차</td><td>기준 경로 복귀</td><td>현재와 종점 편차 분리 평가</td></tr><tr><td>Jerk</td><td>급격한 조향 변화 억제</td><td>궤적 부드러움 비용 반영</td></tr><tr><td>계획 시간</td><td>계산량과 미래 가시성 균형</td><td>1.5초, 2.5초 지평선 사용</td></tr></tbody></table>
+  </div></div></section>
+
+  <section class="case-section"><div class="section-shell case-layout"><div><span class="case-section-label">05 / FIELD VIDEO</span><h2>실차 주행</h2></div><div class="case-body">
+    <figure class="video-card wide-video"><video controls muted playsinline preload="metadata" poster="../assets/images/robo-track-action.jpg"><source src="../assets/videos/roboracer-highlight.mp4" type="video/mp4">브라우저에서 영상을 재생할 수 없습니다.</video><figcaption>원본 촬영본에서 차량 식별이 쉬운 근접 주행 13초와 경기 코너링 7초를 선별한 20초 영상</figcaption></figure>
+    <p class="method-note">주황색 LiDAR와 후방 검은 수직 패널이 MSCLAB 차량 식별 기준. 전체 트랙 와이드 영상 대신 차량의 조향과 코너 통과가 보이는 구간 중심 편집.</p>
+  </div></div></section>
+
+  <section class="case-section alt-section"><div class="section-shell case-layout"><div><span class="case-section-label">06 / TROUBLESHOOTING</span><h2>실차에서 바뀐 설계</h2></div><div class="case-body">
+    <div class="failure-grid"><article><span>01</span><h3>유령 벽</h3><p>서로 떨어진 안전펜스 점군이 하나의 RANSAC 선분으로 연결돼 통로 폐쇄.</p><strong>인라이어 간격 기반 선분 분할</strong></article><article><span>02</span><h3>영구 EMERGENCY</h3><p>경로 밖 정지 상태에서 후보가 모두 탈락하고, 움직이지 못해 복귀 조건도 충족하지 못하는 교착.</p><strong>복귀 전용 장기 지평선과 raw LiDAR creep</strong></article><article><span>03</span><h3>코너 안쪽 충돌</h3><p>기준 경로 corridor와 Pure Pursuit 실제 커팅 궤적 사이의 사각지대 발생.</p><strong>장애물 corridor 0.25 m에서 0.40 m로 확대</strong></article><article><span>04</span><h3>계획 주기 부족</h3><p>후보 39개와 RANSAC 120회 구성에서 계획시간 약 160 ms 발생.</p><strong>후보 30개와 RANSAC 60회로 축소</strong></article></div>
+  </div></div></section>
+
+  <section class="case-section"><div class="section-shell case-layout"><div><span class="case-section-label">07 / RESULT</span><h2>결과와 경계</h2></div><div class="case-body">
+    <div class="result-callout"><strong>16강</strong><div><h3>56개 팀 참가 국제 경주</h3><p>2026년 8월 24일부터 27일까지 부산 BEXCO에서 대면 실차 경쟁</p></div></div>
+    <ul class="noun-list"><li><strong>성과</strong>예선 통과와 16강 진출, 실차 인지와 경로계획 모듈 운용</li><li><strong>포팅 원칙</strong>개선 기능의 기본값을 끄면 MATLAB 원본 동작과 동일하도록 설정</li><li><strong>경기 한계</strong>충돌 이후 Cartographer 위치추정 붕괴로 후속 주행 중단</li><li><strong>후속 설계</strong>급격한 자세변화 이후 위치추정 건전성 판정과 복구 상태 필요</li></ul>
+  </div></div></section>
+  <nav class="next-project"><a class="section-shell" href="imu-lstm-fsm.html"><span>다음 프로젝트</span><strong>IMU 기반 LSTM-FSM →</strong></a></nav>
+</main>
+<footer class="site-footer"><div class="section-shell"><span>© 2026 곽민재</span><a href="mailto:tkkwak4@naver.com">tkkwak4@naver.com</a></div></footer>
+</body>
+</html>

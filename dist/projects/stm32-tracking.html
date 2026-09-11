@@ -1,7 +1,59 @@
-<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="STM32 기반 초음파 표적탐지 추적 프로젝트"><title>STM32 표적탐지·추적 | 곽민재</title><link rel="icon" href="../assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="../assets/site.css"></head><body><a class="skip-link" href="#main">본문 바로가기</a><header class="site-header detail-header"><a class="brand" href="../index.html">곽민재 <span>PORTFOLIO</span></a><nav class="primary-nav" aria-label="상세 페이지 메뉴"><a href="../index.html#projects">프로젝트</a><a href="../index.html#research">논문·특허</a></nav></header>
-<main id="main" class="detail-main"><section class="detail-hero section-shell"><a class="back-link" href="../index.html#projects">← 대표 프로젝트</a><p class="detail-kicker">EMBEDDED · REAL-TIME SYSTEM</p><h1>STM32 기반 초음파 표적탐지·추적</h1><p class="detail-lead">HC-SR04와 서보모터로 주변을 왕복 스캔하고, 접근 후보를 재검증한 뒤 추적·소실·재탐색을 반복하는 FreeRTOS 시스템.</p><dl class="detail-meta"><div><dt>플랫폼</dt><dd>STM32F429</dd></div><div><dt>역할</dt><dd>개인 프로젝트</dd></div><div><dt>기술</dt><dd>C·FreeRTOS·HAL·TouchGFX</dd></div><div><dt>결과</dt><dd>7상태 자동 순환</dd></div></dl><figure class="detail-cover"><img src="../assets/images/stm32-highlight.jpg" alt="STM32 초음파 추적 시스템의 하드웨어와 GUI"><figcaption>초음파 센서, 서보모터, STM32F429, TouchGFX 운용 화면 통합</figcaption></figure></section>
-<section class="detail-section"><div class="section-shell detail-section-grid"><div class="detail-section-title"><p>01 / ARCHITECTURE</p><h2>실시간 구조</h2></div><div class="detail-copy"><p>센서 측정, 서보 구동, 프레임 비교, 상태 판단, GUI 갱신을 분리하고 메시지 큐로 연결한 구조.</p><ul class="fact-list"><li><strong>태스크</strong><span>Scan·Servo·Ultrasonic·Tracking·Led 5개</span></li><li><strong>측정</strong><span>20–160도, 10도 간격 15포인트 왕복 스캔</span></li><li><strong>상태</strong><span>SCANNING·CANDIDATE·DETECTED·TRACKING·LOST·STOPPED·MANUAL</span></li></ul></div></div></section>
-<section class="detail-section"><div class="section-shell detail-section-grid"><div class="detail-section-title"><p>02 / DESIGN</p><h2>핵심 설계</h2></div><div class="detail-copy"><div class="decision-list"><article class="decision"><span>01</span><h3>구동 후 측정</h3><p>서보 안정화 이후 초음파 에코 취득과 각도·거리 정합성 확보.</p></article><article class="decision"><span>02</span><h3>프레임 기반 변화량</h3><p>동일 방향 15포인트 프레임 비교를 통한 접근 물체 탐지.</p></article><article class="decision"><span>03</span><h3>공간·시간 이중 검증</h3><p>인접 각도 연속성과 후보 위치 3회 재측정 기반 단발 노이즈 억제.</p></article><article class="decision"><span>04</span><h3>최신 상태 우선 GUI</h3><p>밀린 표시값 폐기와 최신 상태 우선 반영.</p></article></div></div></div></section>
-<section class="detail-section"><div class="section-shell"><div class="outcome-banner"><strong>7</strong><div><h3>자동 상태 순환</h3><p>스캔, 후보 검증, 표적 확정, 추적, 소실 판정, 재스캔까지 사람 개입 없는 동작.</p></div></div></div></section>
-<section class="detail-section"><div class="section-shell detail-section-grid"><div class="detail-section-title"><p>03 / EVIDENCE</p><h2>동작 결과</h2></div><div class="detail-copy"><figure class="video-card"><video controls muted playsinline preload="metadata" poster="../assets/images/stm32-highlight.jpg"><source src="../assets/videos/stm32-highlight.mp4" type="video/mp4"></video><figcaption>탐지·추적·소실·재탐색의 30초 통합 동작</figcaption></figure><div class="evidence-grid"><figure class="evidence-item"><img src="../assets/images/stm32-tracking.png" alt="STM32 표적 추적 상태 화면"><figcaption>표적 각도와 거리, TRACKING 상태를 표시한 TouchGFX 화면</figcaption></figure><figure class="evidence-item"><img src="../assets/images/stm32-uart.png" alt="STM32 UART 스캔 로그"><figcaption>왕복 스캔과 프레임 유효값을 확인한 UART 로그</figcaption></figure><figure class="evidence-item"><img src="../assets/images/stm32-highlight.jpg" alt="STM32 시스템 전체 구성"><figcaption>센서·구동기·보드·운용 화면 통합 구성</figcaption></figure></div></div></div></section>
-<nav class="next-project"><a class="section-shell" href="manta.html"><span>다음 프로젝트</span><strong>MANTA 수중 무인체계 회피 경로계획 →</strong></a></nav></main><footer class="site-footer"><div class="section-shell"><span>© 2026 곽민재</span><a href="mailto:tkkwak4@naver.com">tkkwak4@naver.com</a></div></footer></body></html>
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="STM32F429와 FreeRTOS 기반 초음파 표적 탐지, 추적, 재탐색 시스템">
+  <title>STM32 초음파 표적탐지·추적 | 곽민재</title>
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../assets/site.css">
+  <script src="../assets/site.js" defer></script>
+</head>
+<body>
+<a class="skip-link" href="#main">본문 바로가기</a>
+<header class="site-header detail-header"><a class="brand" href="../index.html">곽민재 <span>PORTFOLIO</span></a><nav class="primary-nav" aria-label="상세 페이지 메뉴"><a href="../index.html#projects">프로젝트</a><a href="../index.html#research">논문·특허</a></nav></header>
+<main id="main">
+  <section class="case-hero section-shell">
+    <a class="back-link" href="../index.html#projects">← 프로젝트 목록</a>
+    <p class="case-label">EMBEDDED SOFTWARE · REAL-TIME SYSTEM</p>
+    <h1>STM32 기반 초음파 표적탐지와 추적</h1>
+    <p class="case-subtitle">HC-SR04 한 개를 서보모터로 왕복 구동해 각도별 거리 프레임을 만들고, 공간 연속성과 시간 재검증을 통과한 접근 물체만 표적으로 확정한 FreeRTOS 개인 프로젝트.</p>
+    <dl class="case-facts"><div><dt>플랫폼</dt><dd>STM32F429, HC-SR04, SG90</dd></div><div><dt>담당</dt><dd>개인 프로젝트, 전체 설계와 구현</dd></div><div><dt>기술</dt><dd>C · FreeRTOS · HAL · TouchGFX</dd></div><div><dt>결과</dt><dd>탐지, 추적, 소실, 재탐색 자동 순환</dd></div></dl>
+    <figure class="detail-cover editorial-cover"><img src="../assets/images/stm32-scanning.png" alt="STM32F429 보드, 초음파 센서, 서보모터, TouchGFX 화면"><figcaption>STM32F429, HC-SR04, SG90, RGB LED, TouchGFX 화면을 통합한 자동 스캔 시스템</figcaption></figure>
+  </section>
+
+  <section class="case-section"><div class="section-shell case-layout"><div><span class="case-section-label">01 / PURPOSE</span><h2>구현 목표</h2></div><div class="case-body">
+    <p>단일 거리 측정값을 화면에 표시하는 데서 끝내지 않고, 제한된 센서와 MCU 자원으로 주변 탐색부터 표적 확정, 추적, 소실 판정, 재탐색까지 하나의 운용 사이클로 완성하는 것이 목표였다.</p>
+    <div class="issue-grid"><article><span>센서</span><strong>넓은 빔과 반사 노이즈</strong><p>한 각도의 거리 변화만으로는 실제 물체와 단발 이상치 구분 곤란</p></article><article><span>구동</span><strong>서보 위치 피드백 부재</strong><p>이동 중 측정 시 실제 각도와 거리 데이터의 시점 불일치</p></article><article><span>동시성</span><strong>측정, 구동, 화면 갱신의 충돌</strong><p>여러 기능이 GPIO와 타이머를 동시에 제어할 가능성</p></article><article><span>운용</span><strong>현재 상태의 즉시 확인</strong><p>스캔, 추적, 소실 상태와 거리값의 실시간 표시 필요</p></article></div>
+  </div></div></section>
+
+  <section class="case-section alt-section"><div class="section-shell case-layout"><div><span class="case-section-label">02 / ARCHITECTURE</span><h2>RTOS 구조</h2></div><div class="case-body">
+    <div class="rtos-map" aria-label="STM32 FreeRTOS 태스크와 메시지 큐 구조"><div class="rtos-input"><span>INPUT</span><strong>TouchGFX</strong><strong>HC-SR04 Echo</strong></div><div class="rtos-core"><span>CONTROL</span><strong>ScanControllerTask</strong><small>상태전이와 전체 순서 관리</small></div><div class="rtos-workers"><span>WORKERS</span><strong>ServoTask</strong><strong>UltrasonicTask</strong><strong>TrackingTask</strong><strong>LedTask</strong></div><div class="rtos-output"><span>OUTPUT</span><strong>PWM / GPIO</strong><strong>GUI / UART</strong></div></div>
+    <ul class="noun-list"><li><strong>태스크</strong>Scan, Servo, Ultrasonic, Tracking, Led의 다섯 실행 주체 분리</li><li><strong>메시지</strong>요청과 응답을 열 개 큐로 전달하고 sequence 번호로 매칭</li><li><strong>제어권</strong>하드웨어별 전용 태스크만 GPIO, PWM, 입력 캡처 접근</li><li><strong>GUI 정책</strong>밀린 상태는 폐기하고 가장 최근 상태만 TouchGFX에 반영</li></ul>
+  </div></div></section>
+
+  <section class="case-section"><div class="section-shell case-layout"><div><span class="case-section-label">03 / STATE MACHINE</span><h2>탐지와 추적 흐름</h2></div><div class="case-body">
+    <div class="state-flow" aria-label="표적 탐지와 추적 상태 흐름"><article><span>01</span><strong>SCANNING</strong><small>20–160도, 15포인트 왕복</small></article><b>→</b><article><span>02</span><strong>CANDIDATE</strong><small>인접 2포인트 변화 확인</small></article><b>→</b><article><span>03</span><strong>DETECTED</strong><small>3회 중 2회 재검증</small></article><b>→</b><article><span>04</span><strong>TRACKING</strong><small>좌, 중, 우 거리 비교</small></article><b>→</b><article><span>05</span><strong>LOST</strong><small>연속 3회 이탈 판정</small></article><b>→</b><article><span>06</span><strong>RESCAN</strong><small>20도로 복귀 후 재탐색</small></article></div>
+    <div class="decision-strip"><article><span>각도 범위</span><strong>20–160도</strong></article><article><span>해상도</span><strong>10도 간격, 15포인트</strong></article><article><span>후보 검증</span><strong>3회 중 2회</strong></article><article><span>상태 표시</span><strong>GUI와 RGB LED 동기</strong></article></div>
+  </div></div></section>
+
+  <section class="case-section alt-section"><div class="section-shell case-layout"><div><span class="case-section-label">04 / DEMO</span><h2>통합 동작</h2></div><div class="case-body">
+    <figure class="video-card wide-video"><video controls muted playsinline preload="metadata" poster="../assets/images/stm32-tracking-clean.png"><source src="../assets/videos/stm32-demo-h264.mp4" type="video/mp4">브라우저에서 영상을 재생할 수 없습니다.</video><figcaption>브라우저 호환 H.264로 다시 제작한 30초 시연. 자동 스캔, 표적 추적, 수동 터치 조작, UART 검증 포함</figcaption></figure>
+  </div></div></section>
+
+  <section class="case-section"><div class="section-shell case-layout"><div><span class="case-section-label">05 / EVIDENCE</span><h2>기능별 결과</h2></div><div class="case-body">
+    <div class="vehicle-grid evidence-photos"><figure><img src="../assets/images/stm32-scan-evidence.png" alt="STM32 자동 스캔 상태의 원본 화면"><figcaption><strong>자동 스캔</strong><span>현재 각도와 거리, SCANNING 상태 확인</span></figcaption></figure><figure><img src="../assets/images/stm32-track-evidence.png" alt="STM32 표적 추적 상태의 원본 화면"><figcaption><strong>표적 추적</strong><span>표적 각도와 거리, 녹색 상태 표시 확인</span></figcaption></figure><figure><img src="../assets/images/stm32-manual.png" alt="TouchGFX 수동 조작 화면"><figcaption><strong>수동 운용</strong><span>화면 버튼 명령을 RTOS 큐로 전달</span></figcaption></figure><figure><img src="../assets/images/stm32-hardware-detail.jpg" alt="HC-SR04, SG90, RGB LED를 장착한 STM32 하드웨어"><figcaption><strong>하드웨어</strong><span>초음파 센서, 서보, RGB LED, 3D 프린팅 브래킷</span></figcaption></figure></div>
+    <figure class="research-figure uart-figure"><img src="../assets/images/stm32-uart-readable.png" alt="15포인트 왕복 스캔과 valid 15/15가 표시된 UART 로그"><figcaption>UART 원본 화면. FORWARD와 REVERSE 왕복 프레임, 각도별 거리, 여러 프레임의 valid=15/15 확인</figcaption></figure>
+  </div></div></section>
+
+  <section class="case-section alt-section"><div class="section-shell case-layout"><div><span class="case-section-label">06 / DESIGN DECISIONS</span><h2>핵심 판단</h2></div><div class="case-body">
+    <div class="failure-grid"><article><span>01</span><h3>이동 후 측정</h3><p>SG90의 실제 위치 피드백 부재를 고려해 PWM 변경 뒤 100 ms 안정화 후 Echo 취득.</p><strong>각도와 거리의 시점 정합</strong></article><article><span>02</span><h3>프레임 비교</h3><p>개별 거리 대신 같은 방향의 15포인트 프레임을 비교해 시간 변화 추출.</p><strong>접근 물체와 정지 배경 분리</strong></article><article><span>03</span><h3>공간과 시간 이중 조건</h3><p>인접 각도 연속성 통과 뒤 후보 위치에서 다시 3회 측정.</p><strong>단발 반사 노이즈 억제</strong></article><article><span>04</span><h3>최신 상태 우선 큐</h3><p>화면 갱신 큐가 가득 차면 오래된 상태를 버리고 현재값 반영.</p><strong>실제 동작과 GUI 지연 차단</strong></article></div>
+    <p class="method-note">설계상 한 프레임 약 1.7초, 추적 갱신 약 0.68초. 실제 계측값이 아니라 코드 상수와 타이밍 예산으로 계산한 값이며, 최대 병목은 센서가 아닌 서보 안정화 100 ms.</p>
+  </div></div></section>
+
+  <section class="case-section"><div class="section-shell case-layout"><div><span class="case-section-label">07 / RESULT</span><h2>완성 범위</h2></div><div class="case-body"><div class="result-callout"><strong>7</strong><div><h3>운용 상태 구현</h3><p>SCANNING, CANDIDATE, DETECTED, TRACKING, LOST, STOPPED, MANUAL</p></div></div><ul class="noun-list"><li><strong>센서 드라이버</strong>HC-SR04 입력 캡처와 거리 환산, SG90 PWM 제어</li><li><strong>실시간 구조</strong>FreeRTOS 태스크와 큐, 타임아웃, sequence 응답 매칭</li><li><strong>판단 로직</strong>왕복 프레임 비교, 접근 후보 검증, 표적 추적과 소실 판정</li><li><strong>운용 화면</strong>TouchGFX AUTO, MANUAL, START, STOP 명령과 상태 표시</li><li><strong>검증 근거</strong>동작 영상, 상태별 화면, UART 왕복 스캔 로그 확보</li></ul></div></div></section>
+  <nav class="next-project"><a class="section-shell" href="manta.html"><span>다음 프로젝트</span><strong>MANTA 수중 무인체계 회피 경로계획 →</strong></a></nav>
+</main>
+<footer class="site-footer"><div class="section-shell"><span>© 2026 곽민재</span><a href="mailto:tkkwak4@naver.com">tkkwak4@naver.com</a></div></footer>
+</body>
+</html>
