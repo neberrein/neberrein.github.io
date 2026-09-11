@@ -42,3 +42,21 @@ if ('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-mot
 } else {
   revealItems.forEach((item) => item.classList.add('is-visible'));
 }
+
+document.querySelectorAll('[data-sync-group]').forEach((video) => {
+  const group = video.dataset.syncGroup;
+  const peers = [...document.querySelectorAll(`[data-sync-group="${group}"]`)];
+  let syncing = false;
+  const withPeers = (action) => {
+    if (syncing) return;
+    syncing = true;
+    peers.filter((peer) => peer !== video).forEach(action);
+    syncing = false;
+  };
+  video.addEventListener('play', () => withPeers((peer) => {
+    peer.currentTime = video.currentTime;
+    peer.play().catch(() => {});
+  }));
+  video.addEventListener('pause', () => withPeers((peer) => peer.pause()));
+  video.addEventListener('seeking', () => withPeers((peer) => { peer.currentTime = video.currentTime; }));
+});

@@ -1,260 +1,57 @@
 <!doctype html>
 <html lang="ko">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="곽민재의 자율주행·센서융합·임베디드 소프트웨어 연구개발 포트폴리오">
-  <title>곽민재 | 자율주행·임베디드 SW 연구개발</title>
-  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="assets/site.css">
-  <script src="assets/site.js" defer></script>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="곽민재의 센서융합, 자율주행, 임베디드 소프트웨어 연구개발 포트폴리오">
+  <title>곽민재 | 연구개발 포트폴리오</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="assets/site.css"><script src="assets/site.js" defer></script>
 </head>
-<body>
+<body class="portfolio-home">
   <a class="skip-link" href="#main">본문 바로가기</a>
-  <header class="site-header" data-header>
-    <a class="brand" href="#top" aria-label="곽민재 포트폴리오 처음으로">KMJ<span>R&amp;D</span></a>
-    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" data-nav-toggle>
-      <span class="sr-only">메뉴 열기</span><span></span><span></span>
-    </button>
-    <nav id="primary-nav" class="primary-nav" aria-label="주요 메뉴" data-nav>
-      <a href="#profile">프로필</a>
-      <a href="#projects">프로젝트</a>
-      <a href="#research">연구 성과</a>
-      <a href="#education">이력</a>
-      <a href="#contact">연락</a>
-    </nav>
-  </header>
-
+  <header class="site-header" data-header><a class="brand" href="#top">곽민재 <span>PORTFOLIO</span></a><button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" data-nav-toggle><span class="sr-only">메뉴 열기</span><span></span><span></span></button><nav id="primary-nav" class="primary-nav" aria-label="주요 메뉴" data-nav><a href="#expertise">전문분야</a><a href="#projects">프로젝트</a><a href="#research">논문·특허</a><a href="#background">학력·경험</a></nav></header>
   <main id="main">
-    <section id="top" class="hero section-shell">
-      <div class="hero-copy reveal">
-        <p class="eyebrow">AUTONOMOUS SYSTEMS · EMBEDDED SOFTWARE</p>
-        <h1>곽민재</h1>
-        <p class="hero-role">자율주행·임베디드 SW 연구개발</p>
-        <p class="hero-summary">카메라, LiDAR, IMU 기반 상태추정과 경로계획. MATLAB·ROS 환경의 알고리즘을 실차와 STM32 시스템까지 연결한 연구 경험.</p>
-        <div class="hero-actions">
-          <a class="button button-primary" href="#projects">대표 프로젝트</a>
-          <a class="button button-ghost" href="assets/docs/master-thesis.pdf" target="_blank" rel="noopener">석사학위논문</a>
-        </div>
-      </div>
-      <div class="hero-portrait reveal" aria-label="곽민재 프로필">
-        <img src="assets/images/profile.jpg" alt="곽민재 증명사진" width="898" height="1121">
-        <div class="portrait-caption">
-          <strong>중앙대학교 전자전기공학 석사</strong>
-          <span>Mobility System and Control Laboratory</span>
-        </div>
-      </div>
-      <dl class="hero-metrics reveal">
-        <div><dt>대표 연구</dt><dd>센서융합 객체추적</dd></div>
-        <div><dt>현장 위치 RMSE</dt><dd><strong>20.6%</strong> 감소</dd></div>
-        <div><dt>연구 성과</dt><dd>SCIE · 특허 · 학위논문</dd></div>
-        <div><dt>실차 검증</dt><dd>IFAC 56개 팀 중 16강</dd></div>
-      </dl>
+    <section id="top" class="intro section-shell">
+      <div class="intro-copy"><p class="overline">AUTONOMOUS SYSTEMS · SENSOR FUSION · EMBEDDED SW</p><h1>센서 데이터를 판단으로,<br>알고리즘을 실기기로 연결하는 연구개발자</h1><p class="intro-name">곽민재 <span>전자전기공학 석사</span></p><p class="intro-summary">카메라·LiDAR·IMU 기반 상태추정, 자율주행 경로계획, STM32·RTOS 시스템 구현. 시뮬레이션에서 끝나지 않고 현장·실차·하드웨어 검증까지 수행.</p><div class="intro-links"><a href="#projects">프로젝트 한눈에 보기</a><a href="assets/docs/master-thesis.pdf" target="_blank" rel="noopener">석사학위논문 원문</a></div></div>
+      <aside class="identity-card" aria-label="곽민재 프로필"><img src="assets/images/profile.jpg" alt="곽민재 프로필 사진" width="898" height="1121"><div><strong>곽민재</strong><span>Autonomous Systems / Embedded SW</span></div></aside>
+      <dl class="proof-strip"><div><dt>연구</dt><dd>석사학위논문 · 학술대회 주저자 2편</dd></div><div><dt>성과</dt><dd>SCIE 공동저자 · 특허 공동발명</dd></div><div><dt>현장</dt><dd>교차로·트랙터·자율주행 경주 실증</dd></div><div><dt>구현</dt><dd>MATLAB · ROS 2 · C/C++ · STM32</dd></div></dl>
     </section>
-
-    <section id="profile" class="section section-shell profile-section">
-      <header class="section-heading reveal">
-        <p class="section-index">01 / PROFILE</p>
-        <h2>연구개발 프로필</h2>
-        <p>센서 데이터에서 상태를 추정하고, 판단 알고리즘을 실제 시스템에서 검증하는 연구개발 경험.</p>
-      </header>
-      <div class="capability-grid">
-        <article class="capability reveal">
-          <span class="capability-number">01</span>
-          <h3>센서융합·상태추정</h3>
-          <p>카메라·LiDAR·IMU 관측 처리, DQN 기반 관측 선택, IMM·Kalman Filter 상태추정</p>
-          <ul class="tag-list" aria-label="센서융합 기술"><li>DQN</li><li>IMM</li><li>YOLO</li><li>Kalman Filter</li></ul>
-        </article>
-        <article class="capability reveal">
-          <span class="capability-number">02</span>
-          <h3>자율주행·경로계획</h3>
-          <p>LiDAR 인지부터 A-star·Dynamic VO·Frenet 후보경로 생성, 폐루프·실차 검증</p>
-          <ul class="tag-list" aria-label="자율주행 기술"><li>ROS 2</li><li>DBSCAN</li><li>RANSAC</li><li>Frenet</li></ul>
-        </article>
-        <article class="capability reveal">
-          <span class="capability-number">03</span>
-          <h3>임베디드·시스템 SW</h3>
-          <p>STM32·FreeRTOS 센서 제어, 상태기계, TouchGFX GUI, WPF MVVM 시스템 통합</p>
-          <ul class="tag-list" aria-label="임베디드 기술"><li>C/C++</li><li>STM32</li><li>FreeRTOS</li><li>WPF</li></ul>
-        </article>
-      </div>
-      <div class="work-principles reveal">
-        <div><strong>검증 환경 선행 구축</strong><span>알고리즘 구현 전 센서 기하와 운동 모델을 반영한 폐루프 환경 구성</span></div>
-        <div><strong>실패 조건 중심 설계</strong><span>가림, 통신 두절, 표적 소실, 위치추정 실패와 복구 조건 명시</span></div>
-        <div><strong>데이터와 로직 분리</strong><span>순수 알고리즘 계층과 입출력 계층 분리, 반복 시험과 이식성 확보</span></div>
+    <section id="expertise" class="editorial-section section-shell">
+      <header class="editorial-heading"><span>01</span><div><h2>전문분야</h2><p>논문, 프로젝트, 실험 결과로 확인된 세 가지 축</p></div></header>
+      <div class="expertise-list">
+        <article><h3>센서융합·상태추정</h3><p>카메라·LiDAR·IMU 관측 처리와 차량 상태 연속 추정</p><ul><li>DQN 기반 5개 관측 후보 선택</li><li>IMM·Kalman Filter 기반 위치·속도·방위각 추정</li><li>가림·GPS 열화·센서 노이즈 대응</li></ul><strong>현장 위치 RMSE 20.6% 감소</strong></article>
+        <article><h3>자율주행·경로계획</h3><p>인지 결과에서 안전한 후보 경로 선택까지의 폐루프 구성</p><ul><li>DBSCAN·RANSAC 벽/장애물 분리</li><li>Frenet 최대 30개 후보 궤적 평가</li><li>A-star·Dynamic VO·Pure Pursuit 적용</li></ul><strong>IFAC RoboRacer 56개 팀 중 16강</strong></article>
+        <article><h3>임베디드·시스템 SW</h3><p>알고리즘의 실시간 태스크·상태기계·운용 화면 구현</p><ul><li>FreeRTOS 5개 태스크·10개 큐 설계</li><li>탐지-추적-재탐색 7상태 자동 순환</li><li>WPF MVVM 지휘통제 시나리오 통합</li></ul><strong>STM32 센서 제어·TouchGFX 실기기 검증</strong></article>
       </div>
     </section>
-
-    <section id="projects" class="section section-shell projects-section">
-      <header class="section-heading reveal">
-        <p class="section-index">02 / SELECTED WORK</p>
-        <h2>대표 연구 및 프로젝트</h2>
-        <p>담당 범위와 검증 결과가 명확한 6개 경험.</p>
-      </header>
-      <div class="project-filters reveal" role="group" aria-label="프로젝트 분야 필터">
-        <button class="filter-button is-active" type="button" data-filter="all" aria-pressed="true">전체</button>
-        <button class="filter-button" type="button" data-filter="sensor">센서융합</button>
-        <button class="filter-button" type="button" data-filter="autonomy">자율주행</button>
-        <button class="filter-button" type="button" data-filter="embedded">임베디드</button>
-        <button class="filter-button" type="button" data-filter="system">시스템 SW</button>
+    <section id="projects" class="editorial-section projects-overview"><div class="section-shell">
+      <header class="editorial-heading light"><span>02</span><div><h2>프로젝트</h2><p>제목만 눌러도 분야, 담당 범위, 사용 기술, 대표 결과를 바로 확인</p></div></header>
+      <div class="project-table" role="list"><div class="project-table-head" aria-hidden="true"><span>프로젝트</span><span>관련 분야</span><span>담당 범위</span><span>대표 결과</span></div>
+        <a class="project-row featured" href="projects/sensor-fusion.html" role="listitem"><span><b>01</b><strong>강화학습 기반 카메라-LiDAR 센서융합 객체추적</strong><small>2024.09–2025.08</small></span><span>센서융합·상태추정</span><span>1인 연구책임 · DQN/IMM 전체 설계</span><span>현장 위치 RMSE 20.6% 감소</span></a>
+        <a class="project-row" href="projects/roboracer.html" role="listitem"><span><b>02</b><strong>IFAC 2026 RoboRacer 장애물 회피</strong><small>2026.07–08</small></span><span>자율주행·로컬 플래닝</span><span>LiDAR 인지·Frenet 경로계획</span><span>56개 팀 중 16강</span></a>
+        <a class="project-row" href="projects/imu-lstm-fsm.html" role="listitem"><span><b>03</b><strong>IMU 기반 LSTM-FSM 주행상태 판별</strong><small>2024.06–2025.08</small></span><span>시계열 AI·항법</span><span>LSTM 학습·FSM·ROS 연동</span><span>평균 F1 99.25%</span></a>
+        <a class="project-row" href="projects/stm32-tracking.html" role="listitem"><span><b>04</b><strong>STM32 초음파 표적탐지·추적</strong><small>2026</small></span><span>임베디드·실시간 SW</span><span>센서 제어·RTOS·GUI 전체 구현</span><span>탐지·추적·재탐색 7상태</span></a>
+        <a class="project-row" href="projects/manta.html" role="listitem"><span><b>05</b><strong>MANTA 수중 무인체계 회피 경로계획</strong><small>2026.07–08</small></span><span>수중무인체계·경로계획</span><span>회피 판단·A*/DVO 설계</span><span>A* 평균 2.1–2.9 ms</span></a>
+        <a class="project-row" href="projects/mosaic-c2.html" role="listitem"><span><b>06</b><strong>MOSAIC C2 지휘통제 시뮬레이터</strong><small>2026.07</small></span><span>시스템 SW·C2</span><span>팀장 · 구조·판단·시나리오</span><span>정적·구조 검사 64항목 PASS</span></a>
       </div>
-
-      <div class="project-grid" data-project-grid>
-        <article class="project-card project-card-featured reveal" data-category="sensor">
-          <div class="project-image"><img src="assets/images/sensor-fusion-field.png" alt="마곡 교차로 현장 차량 검출 결과" loading="lazy"></div>
-          <div class="project-content">
-            <p class="project-meta"><span>01 / MASTER'S THESIS</span><span>2024.09–2025.08</span></p>
-            <h3>강화학습 기반 카메라-LiDAR 센서융합 객체추적</h3>
-            <p>DQN이 5개 관측 후보를 선택하고 IMM이 위치·속도·방위각을 추정하는 도로변 센서 시스템. 시뮬레이션 학습 정책을 재학습 없이 실제 교차로에 적용.</p>
-            <dl class="result-row"><div><dt>역할</dt><dd>1인 연구책임</dd></div><div><dt>현장 결과</dt><dd>위치 RMSE 20.6% 감소</dd></div></dl>
-            <ul class="tag-list"><li>DQN</li><li>IMM</li><li>YOLO</li><li>MATLAB</li></ul>
-            <a class="project-link" href="projects/sensor-fusion.html">프로젝트 상세</a>
-          </div>
-        </article>
-
-        <article class="project-card reveal" data-category="sensor">
-          <div class="project-image"><img src="assets/images/imu-hardware.png" alt="트랙터에 설치한 IMU와 GPS 장비" loading="lazy"></div>
-          <div class="project-content">
-            <p class="project-meta"><span>02 / SCIE JOURNAL</span><span>2024.06–2025.08</span></p>
-            <h3>IMU 기반 LSTM-FSM 주행상태 판별</h3>
-            <p>IMU 시계열 분류와 상태 전이 규칙을 결합한 반자율 트랙터 항법 시스템. 순간 오분류가 위치추정 전환 오류로 이어지는 문제를 FSM으로 억제.</p>
-            <dl class="result-row"><div><dt>담당</dt><dd>LSTM·FSM·ROS 연동</dd></div><div><dt>성능</dt><dd>평균 F1 99.25%</dd></div></dl>
-            <ul class="tag-list"><li>LSTM</li><li>FSM</li><li>IMU</li><li>ROS</li></ul>
-            <a class="project-link" href="projects/imu-lstm-fsm.html">프로젝트 상세</a>
-          </div>
-        </article>
-
-        <article class="project-card reveal" data-category="embedded">
-          <div class="project-image"><img src="assets/images/stm32-highlight.jpg" alt="STM32 초음파 표적추적 시스템 구성" loading="lazy"></div>
-          <div class="project-content">
-            <p class="project-meta"><span>03 / EMBEDDED</span><span>2026</span></p>
-            <h3>STM32 기반 초음파 표적탐지·추적</h3>
-            <p>서보 스캔, 초음파 입력 캡처, 후보 재검증, 표적 추적, 소실 후 재탐색을 5개 RTOS 태스크와 메시지 큐로 구현.</p>
-            <dl class="result-row"><div><dt>구성</dt><dd>5개 태스크·10개 큐</dd></div><div><dt>동작</dt><dd>7상태 자동 순환</dd></div></dl>
-            <ul class="tag-list"><li>STM32F429</li><li>FreeRTOS</li><li>TouchGFX</li></ul>
-            <a class="project-link" href="projects/stm32-tracking.html">프로젝트 상세</a>
-          </div>
-        </article>
-
-        <article class="project-card reveal" data-category="autonomy">
-          <div class="project-image"><img src="assets/images/manta-pipeline.png" alt="MANTA 수중 무인체계 회피 파이프라인" loading="lazy"></div>
-          <div class="project-content">
-            <p class="project-meta"><span>04 / PATH PLANNING</span><span>2026.07–08</span></p>
-            <h3>MANTA 수중 무인체계 회피 경로계획</h3>
-            <p>유도어뢰의 예측 통로를 반영한 A-star, Dynamic VO, 하이브리드 회피 모드와 재공격 판정·반복실험 자동화.</p>
-            <dl class="result-row"><div><dt>담당</dt><dd>회피 판단·경로계획</dd></div><div><dt>성능</dt><dd>A-star 평균 2.1–2.9 ms</dd></div></dl>
-            <ul class="tag-list"><li>ROS 2</li><li>C++17</li><li>A-star</li><li>DVO</li></ul>
-            <a class="project-link" href="projects/manta.html">프로젝트 상세</a>
-          </div>
-        </article>
-
-        <article class="project-card project-card-wide reveal" data-category="autonomy">
-          <div class="project-image"><img src="assets/images/roboracer-hero.jpg" alt="IFAC RoboRacer 참가 차량과 팀 식별 사진" loading="lazy"></div>
-          <div class="project-content">
-            <p class="project-meta"><span>05 / AUTONOMOUS RACING</span><span>2026.07–08</span></p>
-            <h3>IFAC RoboRacer 장애물 회피</h3>
-            <p>LiDAR 점군에서 DBSCAN과 순차 RANSAC으로 벽·장애물을 분리하고, Frenet 후보 궤적을 생성·평가하는 ROS 2 모듈 담당.</p>
-            <dl class="result-row"><div><dt>담당</dt><dd>인지·로컬 경로계획</dd></div><div><dt>결과</dt><dd>56개 팀 중 16강</dd></div></dl>
-            <ul class="tag-list"><li>Python</li><li>ROS 2</li><li>RANSAC</li><li>Frenet</li></ul>
-            <a class="project-link" href="projects/roboracer.html">프로젝트 상세</a>
-          </div>
-        </article>
-
-        <article class="project-card reveal" data-category="system">
-          <div class="project-image project-image-map"><img src="assets/images/mosaic-incheon.png" alt="MOSAIC C2 인천항 시나리오 지도" loading="lazy"><span>INCHEON PORT / SCENARIO 03</span></div>
-          <div class="project-content">
-            <p class="project-meta"><span>06 / SYSTEM SOFTWARE</span><span>2026.07</span></p>
-            <h3>MOSAIC C2 지휘통제 시뮬레이터</h3>
-            <p>다영역 무인체계의 탐지, 추천, 기동, 교전, 재교전을 통합한 WPF 시뮬레이터. 팀장으로 구조와 판단 로직, 시나리오 설계 담당.</p>
-            <dl class="result-row"><div><dt>산출물</dt><dd>운용 화면 7개·시나리오 3종</dd></div><div><dt>검증</dt><dd>34개 항목 PASS</dd></div></dl>
-            <ul class="tag-list"><li>C#</li><li>WPF</li><li>MVVM</li><li>JSON</li></ul>
-            <a class="project-link" href="projects/mosaic-c2.html">프로젝트 상세</a>
-          </div>
-        </article>
+      <div class="selected-cases">
+        <article class="case-lead"><a href="projects/sensor-fusion.html"><img src="assets/images/sensor-field-detection.png" alt="카메라와 LiDAR를 함께 사용한 교차로 현장 차량 검출"><div><span>대표 연구 01</span><h3>교차로 가림 상황에서도 차량 상태를 놓치지 않는 센서융합</h3><p>고정 임계값 대신 강화학습으로 관측 후보를 선택하고, IMM 예측으로 관측 단절 구간을 연결. 시뮬레이션 학습 정책의 추가 학습 없는 현장 적용.</p><ul><li>석사학위논문 · ICROS 2025 · 특허</li><li>YOLO · DBSCAN · RANSAC · DQN · IMM</li></ul></div></a></article>
+        <article><a href="projects/roboracer.html"><img src="assets/images/roboracer-track.jpg" alt="IFAC RoboRacer 경기 트랙 주행"><div><span>실차 프로젝트 02</span><h3>LiDAR 인지부터 회피 경로까지 직접 연결한 RoboRacer</h3><p>벽·장애물 분리, 최대 30개 Frenet 후보 생성, 복귀 조건을 포함한 3상태 FSM 구현.</p></div></a></article>
+        <article><a href="projects/imu-lstm-fsm.html"><img src="assets/images/imu-lstm-fsm.png" alt="LSTM과 FSM을 결합한 주행상태 판별 구조"><div><span>공동 연구 03</span><h3>순간 분류값을 물리적 상태전이로 검증한 LSTM-FSM</h3><p>후진 F1 10–37% 수준의 불안정 구간을 FSM으로 보정, 세 상태 평균 F1 99.25% 확보.</p></div></a></article>
       </div>
-
-      <div class="additional-work reveal" aria-labelledby="additional-work-title">
-        <h3 id="additional-work-title">추가 연구·개발 경험</h3>
-        <div class="additional-work-list">
-          <div><span>TRACKING SIMULATION</span><strong>카메라-LiDAR 차량추적 시뮬레이션</strong><em>추적 RMSE 0.019 m · ICROS 2024</em></div>
-          <div><span>AUTONOMOUS KIT</span><strong>YOLO–A-star–PID 자율주행 키트</strong><em>횡방향 오차 0.17 m → 0.05 m 이하</em></div>
-          <div><span>COMPUTER VISION</span><strong>RGB 색상분류 모델 비교</strong><em>21,054장 · CNN 정확도 99.91%</em></div>
-          <div><span>TRANSPORTATION</span><strong>비신호 횡단보도 임계간격 연구</strong><em>17시간 영상 · 916건 분석 · 졸업작품전 1위</em></div>
-          <div><span>C++ DESIGN</span><strong>C++ 교전통제 구조 설계 실습</strong><em>인터페이스 · 다형성 · 팩토리 · 객체 수명관리</em></div>
-        </div>
-      </div>
-    </section>
-
-    <section id="research" class="section section-dark">
-      <div class="section-shell research-layout">
-        <header class="section-heading reveal">
-          <p class="section-index">03 / RESEARCH OUTPUT</p>
-          <h2>논문·특허</h2>
-          <p>연구 결과와 원문을 함께 제시한 공개 자료.</p>
-        </header>
-        <div class="publication-list">
-          <a class="publication reveal" href="assets/docs/master-thesis.pdf" target="_blank" rel="noopener">
-            <span class="publication-year">2025</span><span class="publication-type">M.S. THESIS</span>
-            <strong>교차로 도로변 센서 시스템을 위한 강화학습 기반의 단안 카메라와 2D 라이다 센서 융합 알고리즘</strong>
-            <span class="publication-link">원문 PDF</span>
-          </a>
-          <a class="publication reveal" href="assets/docs/measurement-2026.pdf" target="_blank" rel="noopener">
-            <span class="publication-year">2026</span><span class="publication-type">SCIE JOURNAL</span>
-            <strong>A novel navigation system using driving state classification algorithm for semi-autonomous tractors</strong>
-            <span class="publication-link">논문 PDF</span>
-          </a>
-          <a class="publication reveal" href="assets/docs/icros-2025.pdf" target="_blank" rel="noopener">
-            <span class="publication-year">2025</span><span class="publication-type">CONFERENCE</span>
-            <strong>차량 추적을 위한 강화학습 기반 도로변 센서 시스템</strong>
-            <span class="publication-link">ICROS 원문</span>
-          </a>
-          <a class="publication reveal" href="assets/docs/icros-2024.pdf" target="_blank" rel="noopener">
-            <span class="publication-year">2024</span><span class="publication-type">CONFERENCE</span>
-            <strong>도로변 라이다와 카메라를 활용한 차량 추적 시뮬레이션</strong>
-            <span class="publication-link">ICROS 원문</span>
-          </a>
-          <a class="publication reveal" href="assets/docs/bachelor-thesis.pdf" target="_blank" rel="noopener">
-            <span class="publication-year">2023</span><span class="publication-type">B.S. THESIS</span>
-            <strong>비신호 횡단보도 보행자 임계간격 연구</strong>
-            <span class="publication-link">원문 PDF</span>
-          </a>
-          <div class="publication reveal">
-            <span class="publication-year">2025</span><span class="publication-type">PATENT</span>
-            <strong>차량 상태 추정 방법 및 이를 수행하는 컴퓨팅 시스템</strong>
-            <span class="publication-link">10-2025-0136289</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="education" class="section section-shell history-section">
-      <header class="section-heading reveal">
-        <p class="section-index">04 / BACKGROUND</p>
-        <h2>학력·연구경력</h2>
-      </header>
-      <div class="timeline">
-        <article class="timeline-item reveal"><time>2026.05–2026.11</time><div><h3>LIG D&amp;A The SSEN 임베디드 SW 스쿨 4기</h3><p>C/C++·STM32·RTOS·Linux·요구사항·검증, 1,000시간</p></div></article>
-        <article class="timeline-item reveal"><time>2023.09–2025.08</time><div><h3>중앙대학교 대학원</h3><p>전자전기공학 석사, GPA 4.29/4.5<br>Mobility System and Control Laboratory 연구조교</p></div></article>
-        <article class="timeline-item reveal"><time>2022.06–2023.08</time><div><h3>중앙대학교 MSCLAB</h3><p>학부연구생, 차량추적 시뮬레이션·ROS 항법·AI 색상분류</p></div></article>
-        <article class="timeline-item reveal"><time>2019.03–2023.08</time><div><h3>중앙대학교</h3><p>도시시스템공학·전자전기공학 복수전공, GPA 3.79/4.5</p></div></article>
-      </div>
-      <div class="skills-strip reveal" aria-label="주요 기술">
-        <span>MATLAB</span><span>Python</span><span>C/C++</span><span>ROS 2</span><span>STM32</span><span>FreeRTOS</span><span>C#</span><span>WPF</span>
-      </div>
-      <div class="collaboration-grid reveal">
-        <article><span>TEACHING ASSISTANT</span><h3>임베디드 리눅스 교육조교</h3><p>장치 변경에 맞춰 실습자료 재작성, 매주 사전 검증, 보충 프로젝트 운영</p><strong>해당 학기 강의평가 1위</strong></article>
-        <article><span>PROGRAM LEAD</span><h3>외국인 대상 프로그램 기획·운영</h3><p>팀장으로 영어 안내, 참가 인원, 동선, 일정 조율</p><strong>36명 중 27명 후속 참여</strong></article>
-      </div>
-    </section>
-
-    <section id="contact" class="contact-section">
-      <div class="section-shell contact-layout reveal">
-        <div><p class="section-index">05 / CONTACT</p><h2>곽민재</h2><p>자율주행·센서융합·임베디드 소프트웨어 연구개발<br>TOEIC 905 · OPIc IH</p></div>
-        <a class="contact-email" href="mailto:tkkwak4@naver.com">tkkwak4@naver.com</a>
-      </div>
-    </section>
+      <div class="compact-work"><h3>추가 연구·개발 경험</h3><div><span>차량추적 시뮬레이션</span><b>MATLAB · RANSAC · Pure Pursuit</b><strong>추적 RMSE 0.019 m · ICROS 2024</strong></div><div><span>YOLO-A-star-PID 자율주행 키트</span><b>팀장 · 인지·경로·제어 통합</b><strong>횡오차 0.17 m → 0.05 m 이하</strong></div><div><span>RGB 색상분류 모델 비교</span><b>CNN · 21,054장 데이터셋</b><strong>정확도 99.91% · ROC-AUC 0.9993</strong></div><div><span>비신호 횡단보도 임계간격 연구</span><b>17시간 영상 · 916건 분석</b><strong>학사논문 · 2개 수상 · 졸업작품전 1위</strong></div></div>
+    </div></section>
+    <section id="research" class="editorial-section section-shell"><header class="editorial-heading"><span>03</span><div><h2>논문·특허</h2><p>제목과 기여 범위, 원문을 함께 제시</p></div></header><div class="research-records">
+      <a href="assets/docs/master-thesis.pdf" target="_blank" rel="noopener"><time>2025</time><span>석사학위논문 · 제1저자</span><strong>교차로 도로변 센서 시스템을 위한 강화학습 기반의 단안 카메라와 2D LiDAR 센서 융합 알고리즘</strong><em>원문 PDF</em></a>
+      <a href="assets/docs/measurement-2026.pdf" target="_blank" rel="noopener"><time>2026</time><span>Measurement · 공동저자</span><strong>A novel navigation system using driving state classification algorithm for semi-autonomous tractors</strong><em>원문 PDF</em></a>
+      <a href="assets/docs/icros-2025.pdf" target="_blank" rel="noopener"><time>2025</time><span>ICROS · 제1저자·구두발표</span><strong>차량 추적을 위한 강화학습 기반 도로변 센서 시스템</strong><em>원문 PDF</em></a>
+      <a href="assets/docs/icros-2024.pdf" target="_blank" rel="noopener"><time>2024</time><span>ICROS · 제1저자</span><strong>도로변 LiDAR와 카메라 기반 차량 추적 시뮬레이션</strong><em>원문 PDF</em></a>
+      <div><time>2025</time><span>특허 · 공동발명</span><strong>차량 상태 추정 방법, 이를 수행하는 장치 및 기록매체</strong><em>10-2025-0136289</em></div>
+    </div></section>
+    <section id="background" class="editorial-section background-section"><div class="section-shell"><header class="editorial-heading"><span>04</span><div><h2>학력·경험</h2><p>제어 연구에서 실시간 임베디드 구현까지의 확장</p></div></header><div class="background-grid">
+      <div class="background-column"><h3>Education</h3><article><time>2023.09–2025.08</time><div><strong>중앙대학교 대학원 전자전기공학과</strong><p>석사 · GPA 4.29/4.5 · Mobility System and Control Laboratory</p></div></article><article><time>2019.03–2023.08</time><div><strong>중앙대학교</strong><p>도시시스템공학·전자전기공학 복수전공 · GPA 3.79/4.5</p></div></article><article><time>2017.03–2019.02</time><div><strong>대진대학교 전기공학과</strong><p>73학점 · GPA 4.31/4.5 · 제어 분야 심화를 위한 편입</p></div></article></div>
+      <div class="background-column"><h3>Engineering experience</h3><article><time>2026.05–11</time><div><strong>LIG D&amp;A The SSEN 임베디드 SW 스쿨</strong><p>C/C++ · STM32 · RTOS · Linux · 요구사항·검증 · 1,000시간</p></div></article><article><time>2022.06–2025.08</time><div><strong>중앙대학교 MSCLAB</strong><p>학부연구생·연구조교 · 센서융합·항법·자율주행 연구</p></div></article><article><time>2022–2023</time><div><strong>임베디드 리눅스 교육조교</strong><p>실습자료 재구성·매주 사전검증·보충 프로젝트 운영 · 강의평가 1위</p></div></article></div>
+    </div><div class="skill-evidence"><span><b>Algorithm</b>DQN · LSTM · FSM · IMM · Kalman Filter</span><span><b>Autonomy</b>YOLO · DBSCAN · RANSAC · A* · DVO · Frenet</span><span><b>Software</b>MATLAB · Python · C/C++ · C# · ROS 2</span><span><b>Embedded</b>STM32 · FreeRTOS · TouchGFX · UART · Timer/ISR</span></div></div></section>
+    <section class="contact-minimal"><div class="section-shell"><div><span>CONTACT</span><h2>곽민재</h2><p>TOEIC 905 · OPIc IH</p></div><a href="mailto:tkkwak4@naver.com">tkkwak4@naver.com</a></div></section>
   </main>
-
   <footer class="site-footer"><div class="section-shell"><span>© 2026 곽민재</span><span>Research &amp; Engineering Portfolio</span></div></footer>
-</body>
-</html>
+</body></html>
