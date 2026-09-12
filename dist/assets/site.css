@@ -802,6 +802,15 @@ a.publication:hover strong, a.publication:focus-visible strong { color: #9ed0ff;
 .source-plot-body { overflow:hidden; background:#fff; }
 .source-plot-body img { display:block; width:100%; height:auto; aspect-ratio:auto; max-height:none; margin-top:-5.5%; }
 .navigation-result-title { margin-top:2rem; }
+.roboracer-page .problem-chain small,.roboracer-page .failure-grid small { display:block; margin-top:.65rem; color:var(--slate); font-size:.75rem; line-height:1.6; }
+.roboracer-page .ownership-strip { border-left:3px solid var(--signal); }
+.roboracer-page .robo-team-figure { margin-top:1.5rem; }
+.roboracer-page .robo-team-figure img { max-height:480px; }
+.robo-failure-flow { display:grid; grid-template-columns:repeat(3,minmax(0,1fr) auto) minmax(0,1fr); gap:.6rem; align-items:stretch; margin-top:1.5rem; }
+.robo-failure-flow article { padding:1rem; border:1px solid var(--rule); background:#fff; }
+.robo-failure-flow article span { display:block; margin-bottom:.5rem; color:var(--signal); font-size:.7rem; font-weight:800; }
+.robo-failure-flow article strong { font-size:.85rem; line-height:1.6; }
+.robo-failure-flow > b { align-self:center; color:var(--signal); }
 
 @media (max-width:900px) {
   .manta-hero-flow, .robo-system-map.manta-map, .execution-flow { grid-template-columns:1fr; overflow:visible; }
@@ -809,6 +818,8 @@ a.publication:hover strong, a.publication:focus-visible strong { color: #9ed0ff;
 }
 
 @media (max-width:680px) {
+  .robo-failure-flow { grid-template-columns:1fr; }
+  .robo-failure-flow > b { transform:rotate(90deg); justify-self:center; }
   .sensor-fusion-page .candidate-visual-grid { grid-template-columns:minmax(0,1fr); }
   .sensor-fusion-page .candidate-visual-grid article { grid-column:1; }
   .sensor-fusion-page .credential-panel > div { padding:.85rem 1rem; }
