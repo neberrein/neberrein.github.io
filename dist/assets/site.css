@@ -797,6 +797,18 @@ a.publication:hover strong, a.publication:focus-visible strong { color: #9ed0ff;
 .selection-note h3 { margin:0 0 .5rem; font-size:1rem; }
 .selection-note p { margin:0; }
 .sensor-fusion-page .simulation-environment img { max-height:400px; }
+.sensor-fusion-page .observation-layout { align-items:start; grid-template-columns:minmax(220px,.7fr) minmax(0,1.3fr); }
+.sensor-fusion-page .observation-layout .research-figure img { width:100%; height:auto; min-height:0; max-height:270px; }
+.sensor-fusion-page .observation-copy { padding:1.25rem; }
+.sensor-fusion-page .observation-copy p + p { margin-top:.9rem; }
+.sensor-fusion-page .candidate-visual-grid svg { height:190px; aspect-ratio:auto; background:#fff; }
+.sensor-fusion-page .candidate-visual-grid strong { font-size:.95rem; }
+.sensor-fusion-page .candidate-visual-grid p { font-size:.875rem; }
+.sensor-fusion-page .candidate-legend { margin-top:1rem; font-size:.875rem; color:var(--slate); }
+.sensor-fusion-page .simulation-more { margin-block:1.5rem; border-block:1px solid var(--rule); }
+.sensor-fusion-page .simulation-more summary { min-height:44px; padding:1rem .25rem; cursor:pointer; color:var(--signal); font-weight:650; }
+.sensor-fusion-page .simulation-more .plot-grid { margin:0 0 1.5rem; }
+.sensor-fusion-page .plot-card img { height:auto; max-height:none; aspect-ratio:auto; background:#fff; }
 .sensor-fusion-page .source-links strong small { display:block; margin-top:.5rem; color:var(--slate); font-size:.8rem; font-weight:400; line-height:1.6; }
 .sensor-fusion-page .source-links a,.sensor-fusion-page .source-links > div { grid-template-columns:120px minmax(0,1fr) 170px; }
 .source-plot-body { overflow:hidden; background:#fff; }
@@ -874,6 +886,7 @@ a.publication:hover strong, a.publication:focus-visible strong { color: #9ed0ff;
   .robo-failure-flow { grid-template-columns:1fr; }
   .robo-failure-flow > b { transform:rotate(90deg); justify-self:center; }
   .sensor-fusion-page .candidate-visual-grid { grid-template-columns:minmax(0,1fr); }
+  .sensor-fusion-page .observation-layout { grid-template-columns:minmax(0,1fr); }
   .sensor-fusion-page .candidate-visual-grid article { grid-column:1; }
   .sensor-fusion-page .credential-panel > div { padding:.85rem 1rem; }
   .sensor-fusion-page .credential-panel dl div { padding:.65rem 1rem; }
