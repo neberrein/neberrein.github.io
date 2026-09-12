@@ -729,3 +729,34 @@ a.publication:hover strong, a.publication:focus-visible strong { color: #9ed0ff;
   .manta-hero-flow,.perception-chain-five,.execution-flow,.mosaic-proof-grid { grid-template-columns:1fr; overflow:visible; }
   .manta-hero-flow>b,.execution-flow>b { transform:rotate(90deg); justify-self:center; }
 }
+
+/* 2026 portfolio guide alignment */
+.selected-cases a { position:relative; }
+.case-number { position:absolute; z-index:3; top:1rem; left:1rem; display:grid; place-items:center; width:2.35rem; height:2.35rem; border:1px solid rgba(255,255,255,.8); background:rgba(10,35,52,.9); color:#fff !important; font-size:.72rem !important; letter-spacing:.06em; }
+.selected-cases .diagram-card img { object-fit:contain; background:#fff; padding:1rem; }
+.noun-list li { display:grid; grid-template-columns:150px minmax(0,1fr); gap:1rem; align-items:start; }
+.noun-list li > strong { min-width:0; }
+.pipeline-row.five-step { grid-template-columns:1fr auto 1fr auto 1fr auto 1fr auto 1fr; }
+.decision-strip.four { grid-template-columns:repeat(4,1fr); }
+.table-wrap { width:100%; overflow-x:auto; }
+.mode-note { display:flex; gap:1rem; margin-top:1rem; padding:1rem; border:1px solid var(--rule); background:#fff; }
+.mode-note strong { color:var(--signal); font-size:.76rem; }
+.mode-note span { color:var(--slate); font-size:.76rem; }
+.research-records > div { color:inherit; }
+
+@media (max-width:680px) {
+  html,body { max-width:100%; overflow-x:hidden; }
+  .case-hero { padding-bottom:2.5rem; }
+  .case-section { padding-block:3rem; }
+  .state-flow { display:grid; grid-template-columns:1fr; width:100%; min-width:0; overflow:visible; }
+  .state-flow > b { justify-self:center; transform:rotate(90deg); }
+  .noun-list li { grid-template-columns:1fr; gap:.25rem; }
+  .research-records a,.research-records > div,.publication { display:grid; grid-template-columns:1fr; gap:.35rem; }
+  .research-records strong,.research-records em { grid-column:1; }
+  .publication-link { text-align:left; }
+  .issue-grid article,.failure-grid article,.skill-card,.rtos-map > div { min-height:0; }
+  .next-project strong { font-family:inherit; }
+  .pipeline-row.five-step,.decision-strip.four { grid-template-columns:1fr; }
+  .pipeline-row.five-step > b { transform:rotate(90deg); justify-self:center; }
+  .mode-note { display:grid; gap:.3rem; }
+}

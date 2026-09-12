@@ -3,40 +3,111 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="description" content="MOSAIC C2 다영역 무인체계 지휘통제 시뮬레이터">
-  <title>MOSAIC C2 | 곽민재</title>
+  <meta name="description" content="공중, 수상, 수중, 지상 무인체계의 탐지와 자동 대응을 통합한 MOSAIC C2 WPF 시뮬레이터">
+  <title>MOSAIC C2 지휘통제 시뮬레이터 | 곽민재</title>
+  <link rel="canonical" href="https://neberrein.github.io/projects/mosaic-c2.html">
+  <meta property="og:type" content="website"><meta property="og:title" content="MOSAIC C2 다영역 무인체계 지휘통제 시뮬레이터 | 곽민재"><meta property="og:description" content="탐지, 대응수단 추천, 기동, 교전과 재교전을 통합한 WPF 시뮬레이터"><meta property="og:url" content="https://neberrein.github.io/projects/mosaic-c2.html"><meta property="og:image" content="https://neberrein.github.io/assets/images/mosaic-hanriver-t8.png">
   <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="../assets/site.css">
+  <script src="../assets/site.js" defer></script>
 </head>
 <body>
 <a class="skip-link" href="#main">본문 바로가기</a>
 <header class="site-header detail-header"><a class="brand" href="../index.html">곽민재 <span>PORTFOLIO</span></a><nav class="primary-nav" aria-label="상세 페이지 메뉴"><a href="../index.html#projects">프로젝트</a><a href="../index.html#research">논문, 특허</a></nav></header>
-<main id="main" class="detail-main">
-  <section class="detail-hero section-shell">
+<main id="main">
+  <section class="case-hero section-shell">
     <a class="back-link" href="../index.html#projects">← 프로젝트 목록</a>
-    <p class="detail-kicker">SYSTEM SOFTWARE, COMMAND AND CONTROL</p>
-    <h1>MOSAIC C2 지휘통제 시뮬레이터</h1>
-    <p class="detail-lead">공중, 수상, 수중, 지상 무인체계의 탐지부터 대응수단 선정, 명령, 발사, 명중과 재교전까지 하나의 시간축에서 검증한 WPF 기반 시뮬레이터.</p>
-    <dl class="detail-meta"><div><dt>기간</dt><dd>2026.07.23–07.24</dd></div><div><dt>역할</dt><dd>4인 팀, 팀장</dd></div><div><dt>기술</dt><dd>C#, .NET 8, WPF, MVVM, JSON</dd></div><div><dt>구현</dt><dd>시뮬레이션 엔진, 추천 로직, 시나리오 통합</dd></div></dl>
-    <figure class="detail-cover mosaic-live-cover"><img src="../assets/images/mosaic-hanriver-t8.png" alt="MOSAIC C2 한강 다영역 통합방어 시나리오 실행 화면"><figcaption><strong>실행 화면 T+8 s</strong> 시나리오 1 한강 다영역 통합방어. 수상 표적 피격, 공중 표적에 유도무기 2발 비행 중, RADAR-G01 선택으로 탐지범위 표시</figcaption></figure>
+    <p class="case-label">SYSTEM SOFTWARE, COMMAND AND CONTROL</p>
+    <h1>MOSAIC C2 다영역 무인체계 지휘통제 시뮬레이터</h1>
+    <p class="case-subtitle">공중, 수상, 수중과 지상 무인체계의 탐지, 대응수단 추천, 기동, 교전과 재교전을 하나의 WPF 시뮬레이터로 통합했습니다. 외부 JSON 시나리오와 실행 로직을 분리하고 통신 상태와 가용 자산에 따라 판단을 다시 수행하도록 구성했습니다.</p>
+    <div class="headline-result"><strong>3 SCENARIOS</strong><span>운용자 개입 없이<br>자동 실행</span></div>
+    <dl class="case-facts"><div><dt>기간</dt><dd>2026.07.23–2026.07.24</dd></div><div><dt>맥락</dt><dd>The SSEN 과정 2일 미니 프로젝트</dd></div><div><dt>역할</dt><dd>4인 팀, 팀장</dd></div><div><dt>기술</dt><dd>C#, WPF, MVVM, JSON</dd></div></dl>
+    <figure class="detail-cover mosaic-live-cover"><img src="../assets/images/mosaic-hanriver-t8.png" alt="MOSAIC C2 한강 다영역 통합방어 WPF 실행 화면"><figcaption><strong>실행 화면 T+8 s</strong> 시나리오 1 한강 다영역 통합방어. 수상 표적 피격, 공중 표적에 유도무기 2발 비행 중, RADAR-G01 선택으로 탐지범위 표시</figcaption></figure>
   </section>
 
-  <section class="detail-section"><div class="section-shell detail-section-grid"><div class="detail-section-title"><p>01 / SYSTEM</p><h2>시스템 구조와 담당 범위</h2></div><div class="detail-copy"><p>외부 JSON으로 자산, 센서, 무장과 시나리오를 정의하고, 0.1초 주기의 엔진이 각 자산의 상태를 갱신한다. 탐지 결과가 들어오면 가용 플랫폼과 무장을 평가해 명령을 만들고, 발사체 비행과 명중 판정까지 이어지도록 구현했다.</p><ul class="fact-list"><li><strong>시뮬레이션 엔진</strong><span>시간 진행, 자산 이동, 탐지, 교전, 피해 상태 갱신</span></li><li><strong>대응수단 추천</strong><span>영역, 사거리, 잔탄, 통신, 위협도 조건을 점수화</span></li><li><strong>데이터 분리</strong><span>무장, 센서, 플랫폼, 시나리오를 JSON으로 관리</span></li><li><strong>운용 화면</strong><span>지도, 선택 자산 제원, 교전 요약, 이벤트 로그 동기화</span></li></ul></div></div></section>
-
-  <section class="detail-section"><div class="section-shell detail-section-grid"><div class="detail-section-title"><p>02 / EXECUTION</p><h2>자동 대응이 실제로 이어지는 과정</h2></div><div class="detail-copy">
-    <div class="mosaic-proof-grid"><figure class="evidence-item"><img src="../assets/images/mosaic-hanriver-t8.png" alt="한강 다영역 통합방어 실행 화면"><figcaption>지도에서 자산 이동, 표적 건전성, 비행 중 유도무기와 선택 레이더 탐지범위를 동시에 확인</figcaption></figure><figure class="evidence-item mosaic-log-shot"><img src="../assets/images/mosaic-auto-log.png" alt="MOSAIC C2 자동 대응 이벤트 로그"><figcaption><strong>자동 대응 로그</strong> 탐지 → 최적 수단 선정 → 명령 → 발사 → 명중. 시뮬레이션 엔진 본인 구현</figcaption></figure></div>
-    <div class="execution-flow" aria-label="MOSAIC C2 자동 대응 순서"><article><span>01</span><strong>탐지</strong><small>센서 범위와 표적 영역 확인</small></article><b>→</b><article><span>02</span><strong>수단 선정</strong><small>가용 플랫폼과 무장 점수 비교</small></article><b>→</b><article><span>03</span><strong>명령</strong><small>C2 명령 생성과 통신 상태 확인</small></article><b>→</b><article><span>04</span><strong>발사</strong><small>잔탄 감소와 유도무기 비행 시작</small></article><b>→</b><article><span>05</span><strong>명중</strong><small>확률 판정과 표적 건전성 갱신</small></article></div>
+  <section class="case-section"><div class="section-shell case-layout"><div><span class="case-section-label">01 / SYSTEM</span><h2>시스템 구조와 담당 범위</h2></div><div class="case-body">
+    <p>외부 JSON으로 자산, 센서, 무장과 시나리오를 정의하고, 시뮬레이션 엔진이 시간에 따라 상태를 갱신합니다. 탐지 결과가 들어오면 가용 플랫폼과 무장을 평가해 명령을 만들고, 발사체 비행과 명중 판정까지 이어지도록 구현했습니다.</p>
+    <ul class="noun-list"><li><strong>시뮬레이션 엔진</strong>시간 진행, 자산 이동, 탐지, 교전과 피해 상태 갱신</li><li><strong>대응수단 추천</strong>영역, 사거리, 잔탄, 통신 상태와 위협도 조건 평가</li><li><strong>데이터 분리</strong>무장, 센서, 플랫폼과 시나리오를 외부 JSON으로 관리</li><li><strong>운용 화면</strong>지도, 선택 자산 제원, 교전 요약과 이벤트 로그 동기화</li></ul>
+    <div class="execution-flow" aria-label="MOSAIC C2 자동 대응 순서"><article><span>01</span><strong>탐지</strong><small>센서 범위와 표적 영역 확인</small></article><b>→</b><article><span>02</span><strong>수단 선정</strong><small>가용 플랫폼과 무장 평가</small></article><b>→</b><article><span>03</span><strong>명령</strong><small>C2 명령 생성과 통신 확인</small></article><b>→</b><article><span>04</span><strong>발사</strong><small>잔탄 감소와 비행 시작</small></article><b>→</b><article><span>05</span><strong>명중</strong><small>표적 건전성 갱신</small></article></div>
   </div></div></section>
 
-  <section class="detail-section"><div class="section-shell detail-section-grid"><div class="detail-section-title"><p>03 / MODELING</p><h2>무기와 센서 제원을 실행 변수로</h2></div><div class="detail-copy"><p>LIG 계열 유도무기와 감시체계의 공개 제원을 학습하고, 사거리, 명중확률, 잔탄, 대응 가능 영역을 JSON 속성으로 구성했다. 레이더 탐지범위도 시나리오 규모에 맞춘 근사값으로 설정해 지도 위 범위와 추천 판단이 같은 데이터를 사용하도록 했다.</p><div class="decision-list"><article class="decision"><span>01</span><h3>무장</h3><p>대응 영역, 사거리, 명중확률, 잔탄과 재교전 가능 여부</p></article><article class="decision"><span>02</span><h3>센서</h3><p>탐지 영역, 범위, 통신 상태와 표적 탐지 결과</p></article><article class="decision"><span>03</span><h3>플랫폼</h3><p>공중, 수상, 수중, 지상별 이동 제약과 탑재 무장</p></article><article class="decision"><span>04</span><h3>시나리오</h3><p>표적 출현, 통신 두절, 기동, 교전 이벤트의 시간 조건</p></article></div></div></div></section>
+  <section class="case-section alt-section"><div class="section-shell case-layout"><div><span class="case-section-label">02 / WPF EVIDENCE</span><h2>자동 대응 실행 증빙</h2></div><div class="case-body">
+    <div class="mosaic-proof-grid"><figure class="research-figure"><img loading="lazy" decoding="async" src="../assets/images/mosaic-hanriver-t8.png" alt="한강 다영역 통합방어 WPF 실행 화면"><figcaption>자산 이동, 표적 건전성, 비행 중 유도무기와 선택 레이더 탐지범위를 한 화면에서 확인</figcaption></figure><figure class="research-figure mosaic-log-shot"><img loading="lazy" decoding="async" src="../assets/images/mosaic-auto-log.png" alt="MOSAIC C2 자동 대응 이벤트 로그"><figcaption><strong>자동 대응 로그</strong> 탐지 → 최적 수단 선정 → 명령 → 발사 → 명중. 시뮬레이션 엔진 구현</figcaption></figure></div>
+  </div></div></section>
 
-  <section class="detail-section"><div class="section-shell detail-section-grid"><div class="detail-section-title"><p>04 / DECISION</p><h2>판단 로직</h2></div><div class="detail-copy"><div class="decision-list"><article class="decision"><span>01</span><h3>통신 계층 분리</h3><p>플랫폼 통신은 추천 점수에 반영하고 지휘통신 링크는 명령 보류와 재전송 조건으로 처리했다.</p></article><article class="decision"><span>02</span><h3>재교전 재평가</h3><p>이전 플랫폼에 고정하지 않고 잔존 표적의 건전성과 모든 가용 수단을 다시 평가했다.</p></article><article class="decision"><span>03</span><h3>영역 제약 기동</h3><p>UAV는 직선, USV와 UUV는 수로, UGV는 도로 경로망을 따라 이동하도록 분리했다.</p></article><article class="decision"><span>04</span><h3>실행 전 검증</h3><p>ID 고유성, 참조 정합성, 좌표 범위, 경로망 영역과 화면 구조를 먼저 검사했다.</p></article></div></div></div></section>
+  <section class="case-section"><div class="section-shell case-layout"><div><span class="case-section-label">03 / WEB REPLAY</span><h2>실행 로그 기반 웹 재현</h2></div><div class="case-body">
+    <p>JSON 이벤트 타임라인을 이용해 탐지, 통신 두절, 자산 재배정과 대응 순서를 웹에서 재생했습니다.</p>
+    <div class="mosaic-replay" data-mosaic-replay>
+      <div class="mosaic-stage">
+        <img loading="lazy" decoding="async" src="../assets/images/mosaic-busan.png" alt="웹 재현 배경으로 사용한 설명용 시나리오 지도">
+        <svg viewBox="0 0 1200 700" aria-label="공중, 수상, 지상 자산과 표적의 이동 재현">
+          <path class="replay-route" d="M90 110 C330 45 520 210 850 170"/><path class="replay-route surface" d="M170 520 C390 450 570 400 760 340"/><path class="replay-route ground" d="M310 655 C520 640 650 615 760 610"/>
+          <circle class="replay-asset air" cx="90" cy="110" r="12"/><circle class="replay-asset surface" cx="170" cy="520" r="12"/><circle class="replay-asset ground" cx="310" cy="655" r="12"/><circle class="replay-target" cx="1010" cy="280" r="14"/>
+        </svg><span class="stage-badge">설명용 웹 재현</span>
+      </div>
+      <div class="replay-controls"><button type="button" data-replay-toggle>일시정지</button><label>시나리오 시간 <input data-replay-scrubber type="range" min="0" max="52" step="0.1" value="0"></label><output data-replay-time>00:00</output></div>
+      <ol class="replay-log"><li data-at="4"><time>T+04 s</time><span>다영역 자산 이동 시작</span></li><li data-at="12"><time>T+12 s</time><span>표적 탐지와 위협도 평가</span></li><li data-at="23"><time>T+23 s</time><span>통신 두절로 명령 보류</span></li><li data-at="34"><time>T+34 s</time><span>가용 자산 재평가와 재배정</span></li><li data-at="43"><time>T+43 s</time><span>대응수단 발사</span></li><li data-at="49"><time>T+49 s</time><span>명중 판정과 결과 갱신</span></li></ol>
+    </div>
+  </div></div></section>
 
-  <section class="detail-section"><div class="section-shell"><div class="outcome-banner"><strong>0</strong><div><h3>Release 빌드 오류와 경고</h3><p>.NET 8 Release 빌드에서 오류 0개, 경고 0개를 확인하고, 별도의 정적 검증 64항목으로 데이터 정합성과 구조를 검사했다.</p></div></div></div></section>
+  <section class="case-section alt-section"><div class="section-shell case-layout"><div><span class="case-section-label">04 / MODELING</span><h2>무기와 센서 제원을 실행 변수로</h2></div><div class="case-body">
+    <p>LIG 계열 유도무기와 감시체계의 공개 제원을 학습하고, 사거리, 명중확률, 잔탄과 대응 가능 영역을 JSON 속성으로 구성했습니다. 레이더 탐지범위는 시나리오 규모에 맞춘 근사값으로 설정해 지도 표시와 추천 판단이 같은 데이터를 사용하도록 했습니다.</p>
+    <div class="decision-strip"><article><span>무장</span><strong>영역, 사거리, 명중확률, 잔탄</strong></article><article><span>센서</span><strong>탐지 영역, 범위, 통신 상태</strong></article><article><span>플랫폼</span><strong>영역별 이동 제약과 탑재 무장</strong></article><article><span>시나리오</span><strong>출현, 통신 두절, 기동, 교전</strong></article></div>
+  </div></div></section>
 
-  <section class="detail-section"><div class="section-shell detail-section-grid"><div class="detail-section-title"><p>05 / SCENARIOS</p><h2>검증 시나리오</h2></div><div class="evidence-grid"><figure class="evidence-item"><img src="../assets/images/mosaic-busan.png" alt="부산 연안 다영역 방어 시나리오"><figcaption>다영역 자산 동시 표시와 영역별 기동 경로 검증</figcaption></figure><figure class="evidence-item"><img src="../assets/images/mosaic-jeju.png" alt="제주 도서지역 다중표적 시나리오"><figcaption>위협도 기반 자원 배분과 필수교전 예외 검증</figcaption></figure><figure class="evidence-item"><img src="../assets/images/mosaic-incheon.png" alt="인천항 복합침투 시나리오"><figcaption>지휘통신 두절 중 명령 보류와 복구 후 재전송 검증</figcaption></figure></div></div></section>
-  <nav class="next-project"><a class="section-shell" href="sensor-fusion.html"><span>첫 프로젝트로</span><strong>강화학습 기반 센서융합 객체추적 →</strong></a></nav>
+  <section class="case-section"><div class="section-shell case-layout"><div><span class="case-section-label">05 / DECISION</span><h2>상태가 바뀌면 판단을 다시 수행</h2></div><div class="case-body">
+    <div class="failure-grid"><article><span>01</span><h3>통신 계층 분리</h3><p>플랫폼 통신은 추천 판단에 반영하고 지휘통신 링크는 명령 보류와 재전송 조건으로 처리했습니다.</p></article><article><span>02</span><h3>재교전 재평가</h3><p>이전 플랫폼에 고정하지 않고 잔존 표적의 건전성과 모든 가용 수단을 다시 평가했습니다.</p></article><article><span>03</span><h3>영역 제약 기동</h3><p>UAV는 직선, USV와 UUV는 수로, UGV는 도로 경로망을 따라 이동하도록 분리했습니다.</p></article><article><span>04</span><h3>실행 전 검증</h3><p>ID 고유성, 참조 정합성, 좌표 범위, 경로망 영역과 화면 구조를 먼저 검사했습니다.</p></article></div>
+  </div></div></section>
+
+  <section class="case-section alt-section"><div class="section-shell case-layout"><div><span class="case-section-label">06 / RESULT</span><h2>검증 결과</h2></div><div class="case-body">
+    <div class="result-callout"><strong>3개</strong><div><h3>시나리오 무개입 자동 실행</h3><p>한강 다영역 통합방어를 포함한 시나리오에서 탐지부터 교전 결과까지 연속 실행</p></div></div>
+    <div class="decision-strip"><article><span>운용 화면</span><strong>7개</strong></article><article><span>정적 검증</span><strong>64항목 통과</strong></article><article><span>Release 빌드</span><strong>오류 0개, 경고 0개</strong></article></div>
+    <div class="evidence-grid"><figure class="evidence-item"><img loading="lazy" decoding="async" src="../assets/images/mosaic-busan.png" alt="부산 연안 다영역 방어 설명용 시나리오 지도"><figcaption>설명용 시나리오 지도. 다영역 자산과 영역별 기동 경로 검증</figcaption></figure><figure class="evidence-item"><img loading="lazy" decoding="async" src="../assets/images/mosaic-jeju.png" alt="제주 도서지역 다중표적 설명용 시나리오 지도"><figcaption>설명용 시나리오 지도. 위협도 기반 자원 배분 검증</figcaption></figure><figure class="evidence-item"><img loading="lazy" decoding="async" src="../assets/images/mosaic-incheon.png" alt="인천항 복합침투 설명용 시나리오 지도"><figcaption>설명용 시나리오 지도. 통신 두절과 복구 후 재전송 검증</figcaption></figure></div>
+  </div></div></section>
+  <nav class="next-project"><a class="section-shell" href="davinci-autonomous.html"><span>다음 프로젝트</span><strong>카메라 기반 장애물 회피 자율주행 →</strong></a></nav>
 </main>
 <footer class="site-footer"><div class="section-shell"><span>© 2026 곽민재</span><div class="footer-links"><a href="mailto:tkkwak4@naver.com">tkkwak4@naver.com</a><a href="https://github.com/neberrein" target="_blank" rel="noopener">GitHub ↗</a></div></div></footer>
+<script>
+(function () {
+  const root = document.querySelector('[data-mosaic-replay]');
+  if (!root) return;
+  const toggle = root.querySelector('[data-replay-toggle]');
+  const range = root.querySelector('[data-replay-scrubber]');
+  const out = root.querySelector('[data-replay-time]');
+  const air = root.querySelector('.replay-asset.air');
+  const surface = root.querySelector('.replay-asset.surface');
+  const ground = root.querySelector('.replay-asset.ground');
+  const target = root.querySelector('.replay-target');
+  const items = [...root.querySelectorAll('.replay-log li')];
+  let t = 0;
+  let playing = !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let last = null;
+  toggle.textContent = playing ? '일시정지' : '재생';
+  const fmt = (value) => { const safe = Math.max(0, Math.floor(value)); return `00:${String(safe).padStart(2, '0')}`; };
+  function interp(points, progress) {
+    const p = Math.max(0, Math.min(1, progress));
+    const pos = p * (points.length - 1);
+    const i = Math.max(0, Math.min(points.length - 2, Math.floor(pos)));
+    const q = pos - i;
+    const a = points[i]; const b = points[i + 1];
+    return {x:a[0] + (b[0] - a[0]) * q, y:a[1] + (b[1] - a[1]) * q};
+  }
+  function frame(now) {
+    if (last === null) last = now;
+    const dt = Math.max(0, (now - last) / 1000); last = now;
+    if (playing) { t += dt; if (t > 52) t = 0; t = Math.max(0, t); range.value = t; out.textContent = fmt(t); }
+    const a = interp([[90,110],[280,90],[450,155],[650,205],[850,170]], Math.min(1,t/52));
+    const s = interp([[170,520],[350,470],[560,410],[760,340]], Math.min(1,Math.max(0,(t-4)/40)));
+    const g = interp([[310,655],[520,640],[760,610]], Math.min(1,Math.max(0,(t-2)/45)));
+    const tr = interp([[1010,280],[900,315],[790,345],[680,380]], Math.min(1,Math.max(0,(t-8)/41)));
+    [[air,a],[surface,s],[ground,g],[target,tr]].forEach(([el,p]) => { el.setAttribute('cx',p.x); el.setAttribute('cy',p.y); });
+    items.forEach((li) => li.classList.toggle('is-active',t >= Number(li.dataset.at)));
+    requestAnimationFrame(frame);
+  }
+  range.addEventListener('input',() => { t=Math.max(0,Number(range.value)); playing=false; toggle.textContent='재생'; out.textContent=fmt(t); });
+  toggle.addEventListener('click',() => { playing=!playing; toggle.textContent=playing?'일시정지':'재생'; last=null; });
+  out.textContent=fmt(t); requestAnimationFrame(frame);
+})();
+</script>
 </body>
 </html>

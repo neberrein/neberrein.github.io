@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="description" content="과학기술정보통신부 오프로드 자율주행 항법 연구과제의 IMU 기반 LSTM-FSM 주행상태 판별 모듈">
   <title>IMU LSTM-FSM 주행상태 판별 | 곽민재</title>
+  <link rel="canonical" href="https://neberrein.github.io/projects/imu-lstm-fsm.html">
+  <meta property="og:type" content="website"><meta property="og:title" content="IMU 기반 LSTM-FSM 주행상태 판별 | 곽민재"><meta property="og:description" content="차량 내부 신호 없이 IMU 시계열로 전진, 후진, 정지를 판별한 실차 연구"><meta property="og:url" content="https://neberrein.github.io/projects/imu-lstm-fsm.html"><meta property="og:image" content="https://neberrein.github.io/assets/images/imu-lstm-fsm-pipeline.png">
   <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="../assets/site.css">
   <script src="../assets/site.js" defer></script>
@@ -19,7 +21,7 @@
     <h1>IMU 기반 LSTM-FSM 주행상태 판별</h1>
     <p class="case-subtitle">기어, 브레이크, 차량 CAN 신호를 사용할 수 없는 반자율주행 트랙터에서 IMU 시계열만으로 전진, 후진, 정지를 판별한 항법 모듈. LSTM의 순간 예측에 FSM 상태전이 규칙을 결합해 실차 진동과 상태전환 오분류를 억제.</p>
     <aside class="credential-panel" aria-label="연구과제 정보"><div><span>국가연구개발과제</span><strong>오프로드 자율주행을 위한 제어이론과 기계학습 융합 기반 항법 시스템 개발</strong></div><dl><div><dt>참여기간</dt><dd>2024.06–2025.08</dd></div><div><dt>역할</dt><dd>학생연구원</dd></div><div><dt>담당 모듈</dt><dd>주행상태 판별</dd></div><div><dt>실증 플랫폼</dt><dd>반자율주행 농기계(트랙터)</dd></div></dl></aside>
-    <dl class="case-facts"><div><dt>담당</dt><dd>LSTM 학습, FSM 설계, ROS 통합, 실차검증</dd></div><div><dt>기술</dt><dd>IMU, LSTM, FSM, ROS, Kalman Filter</dd></div><div><dt>실험</dt><dd>농로와 농지, 세 실차 경로</dd></div><div><dt>성과</dt><dd>평균 후진 F1 99.52%, SCIE 공동저자</dd></div></dl>
+    <dl class="case-facts"><div><dt>기간</dt><dd>2024.06–2025.08</dd></div><div><dt>담당</dt><dd>LSTM 학습, FSM 설계, ROS 통합, 실차검증</dd></div><div><dt>실증</dt><dd>반자율주행 농기계, 세 실차 경로</dd></div><div><dt>성과</dt><dd>평균 후진 F1-score 99.52%, SCIE 공동저자</dd></div></dl>
   </section>
 
   <section class="case-section"><div class="section-shell case-layout"><div><span class="case-section-label">01 / CONSTRAINT</span><h2>판별이 필요한 이유</h2></div><div class="case-body">
@@ -39,19 +41,20 @@
   </div></div></section>
 
   <section class="case-section alt-section"><div class="section-shell case-layout"><div><span class="case-section-label">04 / FIELD TEST</span><h2>실차 실험</h2></div><div class="case-body">
-    <div class="media-pair"><figure class="research-figure"><img src="../assets/images/imu-hardware-labeled.png" alt="트랙터와 GPS IMU Raspberry Pi 설치 구성"><figcaption>반자율주행 트랙터, GPS, OpenIMU 330BI, Raspberry Pi 4 설치</figcaption></figure><figure class="research-figure"><img src="../assets/images/imu-farm-road-field.png" alt="농로와 농작지에서 수행한 트랙터 주행시험"><figcaption>세 주행경로 검증, 실제 작업 조건의 농로와 농지</figcaption></figure></div>
+    <div class="media-pair"><figure class="research-figure"><img loading="lazy" decoding="async" src="../assets/images/imu-hardware-labeled.png" alt="트랙터와 GPS IMU Raspberry Pi 설치 구성"><figcaption>반자율주행 농기계, GPS, OpenIMU 330BI, Raspberry Pi 4 설치</figcaption></figure><figure class="research-figure"><img loading="lazy" decoding="async" src="../assets/images/imu-farm-road-field.png" alt="농로와 농작지에서 수행한 트랙터 주행시험"><figcaption>세 주행경로 검증, 실제 작업 조건의 농로와 농지</figcaption></figure></div>
+    <!-- TODO: 원본 사진 편집 시 보드 표기를 Raspberry Pi 4로 통일 -->
   </div></div></section>
 
   <section class="case-section"><div class="section-shell case-layout"><div><span class="case-section-label">05 / CLASSIFICATION</span><h2>분류 결과</h2></div><div class="case-body">
-    <div class="result-callout"><strong>99.52%</strong><div><h3>세 실차 경로 평균 후진 F1</h3><p>LSTM-FSM 기준. 농로와 농지의 실제 주행 진동을 포함한 결과</p></div></div>
+    <div class="result-callout"><strong>99.52%</strong><div><h3>세 실차 경로 평균 후진 F1-score</h3><p>LSTM-FSM 기준. 농로와 농지의 실제 주행 진동을 포함한 결과</p></div></div>
     <div class="plot-grid"><figure class="plot-card"><img src="../assets/images/imu-source-61.png" alt="대표 시험경로의 주행상태 혼동행렬"><figcaption><strong>대표 경로 분류결과</strong> 전진, 후진, 정지 혼동행렬</figcaption></figure><figure class="plot-card"><img src="../assets/images/imu-route-example.png" alt="농로와 농작지를 포함한 대표 주행경로의 GPS 기준 궤적"><figcaption><strong>대표 주행경로</strong> 농로 진입과 농작지 반복 주행을 포함한 GPS 기준 궤적</figcaption></figure></div>
-    <p class="metric-source">논문에 수록된 세 실차 경로의 후진 F1을 산술평균한 값.</p>
+    <p class="metric-source">논문에 수록된 세 실차 경로의 후진 F1-score를 산술평균한 값.</p>
   </div></div></section>
 
   <section class="case-section alt-section"><div class="section-shell case-layout"><div><span class="case-section-label">06 / OWNERSHIP</span><h2>담당 범위</h2></div><div class="case-body"><ul class="noun-list"><li><strong>데이터</strong>IMU 전처리, 학습 시퀀스 구성, 주행상태 라벨 정의</li><li><strong>모델</strong>LSTM 구조 선정과 학습, 비교 분류기 평가</li><li><strong>판단</strong>전진, 후진, 정지 FSM 전환 규칙 설계</li><li><strong>통합</strong>ROS 기반 분류결과와 항법 모듈 연결</li><li><strong>검증</strong>농로와 농지 세 실차 경로 평가</li></ul></div></div></section>
 
   <section class="case-section"><div class="section-shell case-layout"><div><span class="case-section-label">07 / PAPER</span><h2>연구 성과</h2></div><div class="case-body source-links"><a href="../assets/docs/measurement-2026.pdf" target="_blank" rel="noopener"><span>Measurement 278</span><strong>A novel navigation system using driving state classification algorithm for semi-autonomous tractors</strong><em>2026, 공동저자 2/6</em></a><div><span>ICROS 2024</span><strong>주행상태 판별 알고리즘 기반 반자율 트랙터 항법 연구</strong><em>구두발표, 공동저자 2/5</em></div></div></div></section>
-  <nav class="next-project"><a class="section-shell" href="stm32-tracking.html"><span>다음 프로젝트</span><strong>STM32 초음파 표적탐지, 추적 →</strong></a></nav>
+  <nav class="next-project"><a class="section-shell" href="stm32-tracking.html"><span>다음 프로젝트</span><strong>STM32 기반 초음파 표적 탐지 및 추적 →</strong></a></nav>
 </main>
 <footer class="site-footer"><div class="section-shell"><span>© 2026 곽민재</span><div class="footer-links"><a href="mailto:tkkwak4@naver.com">tkkwak4@naver.com</a><a href="https://github.com/neberrein" target="_blank" rel="noopener">GitHub ↗</a></div></div></footer>
 </body>

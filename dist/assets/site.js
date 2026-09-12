@@ -29,7 +29,8 @@ document.querySelectorAll('[data-filter]').forEach((button) => {
 });
 
 const revealItems = document.querySelectorAll('.reveal');
-if ('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+if ('IntersectionObserver' in window && !reduceMotion) {
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
@@ -78,7 +79,8 @@ syncGroups.forEach((videos) => {
   };
 
   const tryAutoplayGroup = () => {
-    if (groupStarted || videos.some((video) => video.readyState < 2)) return;
+    const wantsAutoplay = videos.some((video) => video.hasAttribute('autoplay'));
+    if (reduceMotion || !wantsAutoplay || groupStarted || videos.some((video) => video.readyState < 2)) return;
     groupStarted = true;
     playGroup(0);
   };
@@ -117,6 +119,7 @@ syncGroups.forEach((videos) => {
 
 const autoplayVideos = [...document.querySelectorAll('video[autoplay]')];
 const playMuted = (video) => {
+  if (reduceMotion) return;
   video.muted = true;
   video.defaultMuted = true;
   video.play().catch(() => {});
@@ -142,7 +145,11 @@ if ('IntersectionObserver' in window) {
   const videoObserver = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
       const video = entry.target;
-      if (entry.isIntersecting) playMuted(video);
+      if (entry.isIntersecting && !reduceMotion) {
+        playMuted(video);
+      } else {
+        video.pause();
+      }
     });
   }, { threshold: 0.25 });
   autoplayVideos.forEach((video) => videoObserver.observe(video));

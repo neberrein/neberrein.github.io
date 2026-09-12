@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="YOLO 인지, A* 경로계획과 PID 제어를 연결한 장애물 회피 자율주행 키트 프로젝트">
+  <link rel="canonical" href="https://neberrein.github.io/projects/davinci-autonomous.html">
+  <meta property="og:type" content="website"><meta property="og:title" content="카메라 기반 장애물 회피 자율주행 | 곽민재 포트폴리오"><meta property="og:description" content="YOLO, A*, PID를 연결해 차선과 장애물을 구분하고 회피 주행을 구현한 프로젝트"><meta property="og:url" content="https://neberrein.github.io/projects/davinci-autonomous.html"><meta property="og:image" content="https://neberrein.github.io/assets/images/profile.jpg"><meta name="twitter:card" content="summary_large_image">
+  <title>카메라 기반 장애물 회피 자율주행 | 곽민재</title>
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="../assets/site.css"><script src="../assets/site.js" defer></script>
+</head>
+<body><a class="skip-link" href="#main">본문 바로가기</a><header class="site-header detail-header"><a class="brand" href="../index.html">곽민재 <span>PORTFOLIO</span></a><nav class="primary-nav" aria-label="상세 페이지 메뉴"><a href="../index.html#projects">프로젝트</a><a href="../index.html#research">논문, 특허</a></nav></header>
+<main id="main">
+  <section class="case-hero section-shell">
+    <a class="back-link" href="../index.html#projects">← 프로젝트 목록</a>
+    <p class="case-label">AUTONOMOUS DRIVING, PERCEPTION, PLANNING, CONTROL</p>
+    <h1>카메라 기반 장애물 회피 자율주행</h1>
+    <p class="case-subtitle">장애물이 차선을 가리면 그대로 충돌하던 자율주행 키트에서 문제를 차선 인식 성능이 아닌 차선과 장애물의 구분 문제로 다시 정의했습니다. YOLO로 두 대상을 구분하고 A* 회피 경로와 PID 제어를 연결해 인지, 판단, 제어 흐름을 완성했습니다.</p>
+    <dl class="case-facts"><div><dt>기간</dt><dd>2022.07–2022.08</dd></div><div><dt>소속</dt><dd>중앙대학교 다빈치 창의학점제</dd></div><div><dt>역할</dt><dd>팀장, 인지, 경로계획, 제어 알고리즘 설계</dd></div><div><dt>기술</dt><dd>Python, YOLO, A*, PID</dd></div></dl>
+  </section>
+  <section class="case-section"><div class="section-shell case-layout"><div><span class="case-section-label">01 / PROBLEM</span><h2>장애물이 차선을 가리면 주행 전체가 실패했다</h2></div><div class="case-body"><p>초기 시스템은 카메라로 차선을 인식해 주행했지만 장애물이 차선을 가리면 인식 결과가 흔들리고 차량이 그대로 장애물과 충돌했습니다. 문제를 단순한 차선 검출 성능 저하가 아니라 차선과 장애물을 서로 다른 대상으로 구분하지 못하는 구조적 문제로 좁혔습니다.</p><div class="decision-grid"><article><span>기존 입력</span><h3>카메라 기반 차선 인식</h3></article><article><span>실패 조건</span><h3>장애물이 차선을 가리면 인식 불안정</h3></article><article><span>문제 재정의</span><h3>차선과 장애물 구분 부재</h3></article></div></div></div></section>
+  <section class="case-section alt-section"><div class="section-shell case-layout"><div><span class="case-section-label">02 / PIPELINE</span><h2>인지, 판단, 제어를 다시 연결했다</h2></div><div class="case-body"><div class="pipeline-row five-step"><article><span>입력</span><strong>카메라</strong><p>주행 영상 취득</p></article><b>→</b><article><span>인지</span><strong>YOLO</strong><p>차선과 장애물 구분</p></article><b>→</b><article><span>판단</span><strong>A*</strong><p>장애물 회피 경로 탐색</p></article><b>→</b><article><span>제어</span><strong>PID</strong><p>생성 경로 추종</p></article><b>→</b><article><span>출력</span><strong>차량 조향</strong><p>회피 주행 실행</p></article></div></div></div></section>
+  <section class="case-section"><div class="section-shell case-layout"><div><span class="case-section-label">03 / RESULT</span><h2>장애물 환경에서 주행 결과로 검증했다</h2></div><div class="case-body"><div class="headline-result"><span>평균 횡오차</span><strong>0.17 m → 0.05 m 이하</strong><p>장애물이 포함된 주행 조건에서 반복 검증한 결과 평균 횡오차를 줄였으며, 장애물과 충돌하지 않고 회피 주행하도록 개선했습니다.</p></div><div class="decision-strip"><article><span>검증 결과</span><strong>장애물 환경 충돌 0회</strong></article><article><span>비교 기준</span><strong>개선 전후 평균 횡오차</strong></article></div></div></div></section>
+  <section class="case-section alt-section"><div class="section-shell case-layout"><div><span class="case-section-label">04 / OWNERSHIP</span><h2>담당 범위</h2></div><div class="case-body"><ul class="noun-list"><li><strong>문제 정의</strong>장애물에 의한 차선 인식 실패 원인 분석</li><li><strong>인지</strong>YOLO 기반 차선과 장애물 구분</li><li><strong>판단</strong>A* 기반 회피 경로 탐색</li><li><strong>제어</strong>PID 기반 경로 추종</li></ul><p class="method-note">팀장으로 인지, 판단, 제어 알고리즘 설계와 팀 역할 분배를 담당했습니다.</p></div></div></section>
+  <section class="case-section"><div class="section-shell case-layout"><div><span class="case-section-label">05 / CONNECTION</span><h2>제어 문제에서 인지 문제로 관심이 확장됐다</h2></div><div class="case-body"><p>경로계획과 제어를 구현해도 입력되는 인지 정보가 불안정하면 전체 시스템의 판단과 제어가 함께 무너진다는 것을 경험했습니다. 이후 차량 상태를 더 안정적으로 관측하고 추정하는 문제에 관심을 갖게 되었고, 대학원에서는 카메라와 라이다 기반 차량 추적과 센서융합 연구로 확장했습니다.</p><a class="text-link" href="sensor-fusion.html">연결 연구 → 강화학습 기반 카메라-라이다 센서융합 차량 추적</a></div></div></section>
+  <nav class="next-project"><a class="section-shell" href="rgb-classification.html"><span>다음 프로젝트</span><strong>오렌지파이 기반 RGB 색상 분류 모델 개발 →</strong></a></nav>
+</main><footer class="site-footer"><div class="section-shell"><span>© 2026 곽민재</span><div class="footer-links"><a href="mailto:tkkwak4@naver.com">tkkwak4@naver.com</a><a href="https://github.com/neberrein" target="_blank" rel="noopener">GitHub ↗</a></div></div></footer></body></html>

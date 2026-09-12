@@ -4,7 +4,9 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="description" content="STM32F429와 FreeRTOS 기반 초음파 표적 탐지, 추적, 재탐색 시스템">
-  <title>STM32 초음파 표적탐지, 추적 | 곽민재</title>
+  <link rel="canonical" href="https://neberrein.github.io/projects/stm32-tracking.html">
+  <meta property="og:type" content="website"><meta property="og:title" content="STM32 기반 초음파 표적 탐지 및 추적 | 곽민재 포트폴리오"><meta property="og:description" content="HC-SR04, SG90, FreeRTOS와 TouchGFX를 통합한 자동 스캔 및 표적 추적 시스템"><meta property="og:url" content="https://neberrein.github.io/projects/stm32-tracking.html"><meta property="og:image" content="https://neberrein.github.io/assets/images/stm32-system-overview.jpg"><meta name="twitter:card" content="summary_large_image">
+  <title>STM32 기반 초음파 표적 탐지 및 추적 | 곽민재</title>
   <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="../assets/site.css">
   <script src="../assets/site.js" defer></script>
@@ -16,9 +18,9 @@
   <section class="case-hero section-shell">
     <a class="back-link" href="../index.html#projects">← 프로젝트 목록</a>
     <p class="case-label">EMBEDDED SOFTWARE, REAL-TIME SYSTEM</p>
-    <h1>STM32 기반 초음파 표적탐지와 추적</h1>
-    <p class="case-subtitle">HC-SR04 한 개를 서보모터로 왕복 구동해 각도별 거리 프레임을 만들고, 공간 연속성과 시간 재검증을 통과한 접근 물체만 표적으로 확정한 FreeRTOS 개인 프로젝트.</p>
-    <dl class="case-facts"><div><dt>플랫폼</dt><dd>STM32F429, HC-SR04, SG90</dd></div><div><dt>담당</dt><dd>개인 프로젝트, 전체 설계와 구현</dd></div><div><dt>기술</dt><dd>C, FreeRTOS, HAL, TouchGFX</dd></div><div><dt>결과</dt><dd>탐지, 추적, 소실, 재탐색 자동 순환</dd></div></dl>
+    <h1>STM32 기반 초음파 표적 탐지 및 추적</h1>
+    <p class="case-subtitle">HC-SR04 한 개를 서보모터로 왕복 구동해 각도별 거리 프레임을 만들고, 공간 연속성과 반복 검증을 통과한 접근 물체만 표적으로 확정한 FreeRTOS 개인 프로젝트입니다.</p>
+    <dl class="case-facts"><div><dt>기간</dt><dd>2026.06–2026.08</dd></div><div><dt>플랫폼</dt><dd>STM32F429, HC-SR04, SG90</dd></div><div><dt>담당</dt><dd>개인 프로젝트, 전체 설계와 구현</dd></div><div><dt>기술</dt><dd>C, FreeRTOS, HAL, TouchGFX</dd></div></dl>
     <figure class="detail-cover editorial-cover stm32-overview"><div class="stm32-photo"><img src="../assets/images/stm32-system-overview.jpg" alt="STM32F429 보드, 초음파 센서, 서보모터, RGB LED를 통합한 자동 스캔 시스템"><svg class="stm32-connectors" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><line x1="25" y1="79" x2="43" y2="78"/><circle cx="43" cy="78" r="0.65"/><line x1="76" y1="45" x2="63" y2="46"/><circle cx="63" cy="46" r="0.65"/><line x1="76" y1="57" x2="65" y2="52.5"/><circle cx="65" cy="52.5" r="0.65"/><line x1="51" y1="31" x2="62" y2="39"/><circle cx="62" cy="39" r="0.65"/></svg><span class="stm32-label board-label">STM32F429I-DISC1, TouchGFX</span><span class="stm32-label sensor-label">HC-SR04 초음파 센서</span><span class="stm32-label servo-label">SG90 서보모터</span><span class="stm32-label led-label">RGB LED</span></div><figcaption>STM32F429, HC-SR04, SG90, RGB LED, TouchGFX 화면을 통합한 자동 스캔 시스템</figcaption></figure>
   </section>
 
@@ -33,19 +35,21 @@
   </div></div></section>
 
   <section class="case-section"><div class="section-shell case-layout"><div><span class="case-section-label">03 / STATE MACHINE</span><h2>탐지와 추적 흐름</h2></div><div class="case-body">
-    <div class="state-flow" aria-label="표적 탐지와 추적 상태 흐름"><article><span>01</span><strong>SCANNING</strong><small>20–160도, 15포인트 왕복</small></article><b>→</b><article><span>02</span><strong>CANDIDATE</strong><small>인접 2포인트 변화 확인</small></article><b>→</b><article><span>03</span><strong>DETECTED</strong><small>3회 중 2회 재검증</small></article><b>→</b><article><span>04</span><strong>TRACKING</strong><small>좌, 중, 우 거리 비교</small></article><b>→</b><article><span>05</span><strong>LOST</strong><small>연속 3회 이탈 판정</small></article><b>→</b><article><span>06</span><strong>RESCAN</strong><small>20도로 복귀 후 재탐색</small></article></div>
+    <div class="state-flow" aria-label="표적 탐지와 추적 상태 흐름"><article><span>01</span><strong>SCANNING</strong><small>20–160도, 15포인트 왕복 스캔</small></article><b>→</b><article><span>02</span><strong>CANDIDATE</strong><small>인접 각도에서 접근 변화 확인</small></article><b>→</b><article><span>03</span><strong>DETECTED</strong><small>후보 위치 반복 측정으로 표적 확정</small></article><b>→</b><article><span>04</span><strong>TRACKING</strong><small>좌, 중, 우 거리 비교로 추적</small></article><b>→</b><article><span>05</span><strong>LOST</strong><small>표적 소실 판단 후 SCANNING으로 복귀</small></article></div>
+    <div class="mode-note"><strong>운용 상태</strong><span>STOPPED, MANUAL은 자동 탐지 흐름과 별도의 사용자 운용 상태</span></div>
     <div class="decision-strip"><article><span>각도 범위</span><strong>20–160도</strong></article><article><span>해상도</span><strong>10도 간격, 15포인트</strong></article><article><span>후보 검증</span><strong>3회 중 2회</strong></article><article><span>상태 표시</span><strong>GUI와 RGB LED 동기</strong></article></div>
   </div></div></section>
 
   <section class="case-section alt-section"><div class="section-shell case-layout"><div><span class="case-section-label">04 / DEMO</span><h2>통합 동작</h2></div><div class="case-body">
-    <figure class="video-card wide-video"><video autoplay muted loop playsinline controls preload="auto" data-start="15" poster="../assets/images/stm32-tracking-clean.png"><source src="../assets/videos/stm32-demo-h264.mp4" type="video/mp4">브라우저에서 영상을 재생할 수 없습니다.</video><figcaption>15초부터 자동 스캔, 표적 추적, 수동 터치 조작과 UART 검증이 이어지는 시연. 재생 막대에서 일시정지와 구간 이동 가능</figcaption></figure>
+    <figure class="video-card wide-video"><video autoplay muted loop playsinline controls preload="metadata" data-start="15" poster="../assets/images/stm32-tracking-clean.png"><source src="../assets/videos/stm32-demo-h264.mp4" type="video/mp4">브라우저에서 영상을 재생할 수 없습니다.</video><figcaption>15초부터 자동 스캔, 표적 추적, 수동 터치 조작과 UART 검증이 이어지는 시연. 재생 막대에서 일시정지와 구간 이동 가능</figcaption></figure>
   </div></div></section>
 
   <section class="case-section"><div class="section-shell case-layout"><div><span class="case-section-label">05 / EVIDENCE</span><h2>기능별 결과</h2></div><div class="case-body">
     <div class="vehicle-grid evidence-photos horizontal-evidence"><figure><img src="../assets/images/stm32-scan-evidence.png" alt="STM32 자동 스캔 상태의 원본 화면"><figcaption><strong>자동 스캔</strong><span>현재 각도와 거리, SCANNING 상태 확인</span></figcaption></figure><figure><img src="../assets/images/stm32-track-evidence.png" alt="STM32 표적 추적 상태의 원본 화면"><figcaption><strong>표적 추적</strong><span>표적 각도와 거리, 녹색 상태 표시 확인</span></figcaption></figure><figure><img src="../assets/images/stm32-manual.png" alt="TouchGFX 수동 조작 화면"><figcaption><strong>수동 운용</strong><span>화면 버튼 명령을 RTOS 큐로 전달</span></figcaption></figure><figure><img src="../assets/images/stm32-sensor-closeup.jpg" alt="HC-SR04 초음파 센서, SG90 서보모터와 RGB LED"><figcaption><strong>센서 구성</strong><span>HC-SR04, SG90, RGB LED의 실제 장착 상태</span></figcaption></figure></div>
+    <figure class="research-figure"><img src="../assets/images/stm32-uart-readable.png" alt="STM32 USART3 데이터를 PuTTY에서 수신한 실제 UART 로그" loading="lazy" decoding="async"><figcaption>실제 UART 로그 캡처. USART3, 115200 bps로 전송한 왕복 스캔 프레임과 변화량을 PuTTY에서 확인</figcaption></figure>
     <figure class="uart-terminal-figure" aria-labelledby="uart-log-caption">
       <div class="uart-terminal" role="img" aria-label="STM32 자동 스캔 UART 로그 화면">
-        <div class="uart-terminal-bar"><span>PuTTY 수신 화면</span><span>USART3 / 115200 bps</span></div>
+        <div class="uart-terminal-bar"><span>UART 로그 항목 설명</span><span>USART3 / 115200 bps</span></div>
         <pre><code><span class="uart-accent">[FRAME COMPLETE]</span> number=19  direction=FORWARD
 <span class="uart-muted">[DISTANCE]</span>       20 deg = 9.1 cm
                  30 deg = 9.8 cm
@@ -57,18 +61,18 @@
 <span class="uart-accent">[COMPARE]</span>        frame 17 FORWARD &lt;-&gt; frame 19 FORWARD
                  delta_mm = previous - current</code></pre>
       </div>
-      <figcaption id="uart-log-caption">STM32의 USART3 송신 데이터를 USB 시리얼로 연결한 PC의 PuTTY에서 수신. 한 프레임의 각도별 거리와 같은 방향 다음 프레임의 변화량을 확인</figcaption>
+      <figcaption id="uart-log-caption">UART 로그 항목 설명용 구성. 한 프레임의 각도별 거리와 같은 방향 다음 프레임의 변화량을 확인</figcaption>
     </figure>
     <div class="uart-evidence" aria-label="UART 로그 항목 설명"><article><strong>20–160도</strong><p>초음파 센서가 좌우로 탐색하는 전체 각도 범위</p></article><article><strong>15포인트</strong><p>10도 간격으로 한 프레임에 취득한 거리값 개수</p></article><article><strong>valid 15/15</strong><p>15개 각도에서 모두 Echo 응답을 받은 정상 프레임</p></article><article><strong>FORWARD ↔ FORWARD</strong><p>스캔 방향이 같은 프레임끼리 비교해 동일 각도의 접근 변화량 계산</p></article></div>
   </div></div></section>
 
   <section class="case-section alt-section"><div class="section-shell case-layout"><div><span class="case-section-label">06 / DESIGN DECISIONS</span><h2>오동작을 줄인 네 가지 설계</h2></div><div class="case-body">
     <div class="failure-grid"><article><span>01</span><h3>서보가 멈춘 뒤 측정</h3><p>SG90에는 실제 각도 피드백이 없으므로 PWM 변경 직후가 아니라 100 ms 안정화 뒤 Echo를 취득했다.</p><strong>표시 각도와 거리 측정 시점을 일치</strong></article><article><span>02</span><h3>같은 방향 프레임끼리 비교</h3><p>정방향과 역방향 스캔의 시간차를 섞지 않고, 동일 각도의 거리 변화만 계산했다.</p><strong>접근 물체의 변화량을 일관되게 판단</strong></article><article><span>03</span><h3>공간 연속성과 반복 측정 결합</h3><p>인접한 두 각도에서 변화가 이어질 때만 후보로 만들고, 같은 위치에서 3회 중 2회 확인되면 표적으로 확정했다.</p><strong>넓은 빔과 단발 반사에 의한 오탐 억제</strong></article><article><span>04</span><h3>화면에는 최신 상태만 전달</h3><p>GUI 큐가 밀리면 오래된 화면 데이터를 버리고 현재 상태를 우선 반영했다.</p><strong>실제 센서 동작과 TouchGFX 표시의 지연 방지</strong></article></div>
-    <p class="method-note">설계상 한 프레임 약 1.7초, 추적 갱신 약 0.68초. 실제 계측값이 아니라 코드 상수와 타이밍 예산으로 계산한 값이며, 최대 병목은 센서가 아닌 서보 안정화 100 ms.</p>
+    <p class="method-note">서보 위치 피드백이 없어 PWM 변경 후 안정화 시간을 둔 뒤 초음파 Echo를 취득했습니다. 스캔 주기에서는 서보 안정화 시간이 주요 지연 요소였습니다.</p>
   </div></div></section>
 
   <section class="case-section"><div class="section-shell case-layout"><div><span class="case-section-label">07 / RESULT</span><h2>완성 범위</h2></div><div class="case-body"><div class="result-callout"><strong>7</strong><div><h3>운용 상태 구현</h3><p>SCANNING, CANDIDATE, DETECTED, TRACKING, LOST, STOPPED, MANUAL</p></div></div><ul class="noun-list"><li><strong>센서 드라이버</strong>HC-SR04 입력 캡처와 거리 환산, SG90 PWM 제어</li><li><strong>실시간 구조</strong>FreeRTOS 태스크와 큐, 타임아웃, sequence 응답 매칭</li><li><strong>판단 로직</strong>왕복 프레임 비교, 접근 후보 검증, 표적 추적과 소실 판정</li><li><strong>운용 화면</strong>TouchGFX AUTO, MANUAL, START, STOP 명령과 상태 표시</li><li><strong>검증 근거</strong>동작 영상, 상태별 화면, UART 왕복 스캔 로그 확보</li></ul></div></div></section>
-  <nav class="next-project"><a class="section-shell" href="manta.html"><span>다음 프로젝트</span><strong>MANTA 수중 무인체계 회피 경로계획 →</strong></a></nav>
+  <nav class="next-project"><a class="section-shell" href="manta.html"><span>다음 프로젝트</span><strong>MANTA 수중 무인체계 회피 판단 및 경로계획 →</strong></a></nav>
 </main>
 <footer class="site-footer"><div class="section-shell"><span>© 2026 곽민재</span><div class="footer-links"><a href="mailto:tkkwak4@naver.com">tkkwak4@naver.com</a><a href="https://github.com/neberrein" target="_blank" rel="noopener">GitHub ↗</a></div></div></footer>
 </body>

@@ -3,8 +3,10 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="description" content="교육부와 한국연구재단 석사과정생 연구장려금으로 수행한 강화학습 기반 카메라-라이다 센서융합 객체추적 연구">
-  <title>카메라-라이다 센서융합 객체추적 | 곽민재</title>
+  <meta name="description" content="교육부와 한국연구재단 석사과정생 연구장려금으로 수행한 강화학습 기반 카메라-라이다 센서융합 차량 추적 연구">
+  <title>카메라-라이다 센서융합 차량 추적 | 곽민재</title>
+  <link rel="canonical" href="https://neberrein.github.io/projects/sensor-fusion.html">
+  <meta property="og:type" content="website"><meta property="og:title" content="강화학습 기반 카메라-라이다 센서융합 차량 추적 | 곽민재"><meta property="og:description" content="상황별 관측 후보를 DQN으로 선택하고 IMM으로 차량 상태를 추정한 석사 연구"><meta property="og:url" content="https://neberrein.github.io/projects/sensor-fusion.html"><meta property="og:image" content="https://neberrein.github.io/assets/images/sensor-fusion-field.png">
   <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="../assets/site.css">
   <script src="../assets/site.js" defer></script>
@@ -16,7 +18,7 @@
   <section class="case-hero section-shell">
     <a class="back-link" href="../index.html#projects">← 프로젝트 목록</a>
     <p class="case-label">교육부, 한국연구재단 석사과정생 연구장려금</p>
-    <h1>강화학습 기반 카메라-라이다 센서융합 객체추적</h1>
+    <h1>강화학습 기반 카메라-라이다 센서융합 차량 추적</h1>
     <p class="case-subtitle">교차로 도로변의 단안 카메라와 2D 라이다로 차량을 검출하고, 센서 상태에 따라 가장 신뢰할 수 있는 코너점을 골라 중심 위치와 속도, 진행방향을 추정한 연구.</p>
     <aside class="credential-panel" aria-label="연구과제 정보">
       <div><span>연구과제</span><strong>교차로 차량 움직임 추정을 위한 강화학습 기반의 단안 카메라와 2D 라이다 센서 융합 알고리즘 개발</strong></div>
@@ -31,8 +33,8 @@
   </div></div></section>
 
   <section class="case-section"><div class="section-shell case-layout"><div><span class="case-section-label">02 / SYSTEM</span><h2>판단 구조</h2></div><div class="case-body">
-    <figure class="research-figure framework-figure"><img src="../assets/images/sensor-framework.png" alt="카메라와 라이다 관측 후보를 DQN이 선택하고 IMM이 차량 상태를 추정하는 전체 프레임워크"><figcaption>제안 프레임워크. DQN의 관측 선택 결과로 IMM의 CVP와 CTP 운동모델을 갱신</figcaption></figure>
-    <div class="flow-ribbon" aria-label="센서융합 객체추적 처리 흐름"><article><span>01</span><strong>차량 검출</strong><small>YOLO와 2D 라이다</small></article><b>→</b><article><span>02</span><strong>코너점 계산</strong><small>센서와 예측 기반 5개</small></article><b>→</b><article><span>03</span><strong>기준점 선택</strong><small>DQN의 상황별 판단</small></article><b>→</b><article><span>04</span><strong>연속 추정</strong><small>IMM의 CVP, CTP 결합</small></article><b>→</b><article><span>05</span><strong>차량 상태</strong><small>중심, 속도, 진행방향</small></article></div>
+    <figure class="research-figure framework-figure"><img loading="lazy" decoding="async" src="../assets/images/sensor-framework.png" alt="카메라와 라이다 관측 후보를 DQN이 선택하고 IMM이 차량 상태를 추정하는 전체 프레임워크"><figcaption>제안 프레임워크. DQN의 관측 선택 결과로 IMM의 CVP와 CTP 운동모델을 갱신</figcaption></figure>
+    <div class="flow-ribbon" aria-label="센서융합 차량 추적 처리 흐름"><article><span>01</span><strong>차량 검출</strong><small>YOLO와 2D 라이다</small></article><b>→</b><article><span>02</span><strong>코너점 계산</strong><small>센서와 예측 기반 5개</small></article><b>→</b><article><span>03</span><strong>기준점 선택</strong><small>DQN의 상황별 판단</small></article><b>→</b><article><span>04</span><strong>연속 추정</strong><small>IMM의 CVP, CTP 결합</small></article><b>→</b><article><span>05</span><strong>차량 상태</strong><small>중심, 속도, 진행방향</small></article></div>
     <div class="media-pair sensor-setup-pair"><figure class="research-figure"><img src="../assets/images/sensor-roadside-system.png" alt="상단 단안 카메라와 하단 2D 라이다로 구성한 도로변 센서 플랫폼"><figcaption>도로변 센서 플랫폼. 상단 단안 카메라, 하단 Slamtec Mapper 2D 라이다</figcaption></figure><figure class="research-figure"><img src="../assets/images/sensor-ground-truth-system.png" alt="차량 지붕 중앙 RTK-GPS 안테나와 수신기 구성"><figcaption>시험차량. 지붕 중앙 RTK-GPS 안테나로 차량 중심 기준값 취득</figcaption></figure></div>
   </div></div></section>
 
@@ -74,7 +76,7 @@
 
   <section class="case-section"><div class="section-shell case-layout"><div><span class="case-section-label">05 / FIELD TEST</span><h2>현장검증</h2></div><div class="case-body">
     <div class="field-context"><figure class="research-figure"><img src="../assets/images/sensor-roadside-system.png" alt="교차로 현장에 설치한 카메라와 2D 라이다 센서 시스템"><figcaption>현장 센서 시스템</figcaption></figure><figure class="research-figure"><img src="../assets/images/sensor-ground-truth-system.png" alt="RTK-GPS를 설치한 현장 시험차량"><figcaption>RTK-GPS 기준 시험차량</figcaption></figure><figure class="research-figure"><img src="../assets/images/sensor-test-site.png" alt="서울 마곡동 교차로 시험구간의 차량 진행경로"><figcaption>서울 마곡동 교차로. 직진, 좌회전, 연속 다중차량 시나리오</figcaption></figure></div>
-    <div class="stacked-field-video synced-video-grid"><figure class="video-card"><video autoplay muted loop playsinline controls preload="auto" data-sync-group="sensor-field-icros" poster="../assets/images/sensor-field-detection.png"><source src="../assets/videos/sensor-camera-icros.mp4" type="video/mp4">브라우저에서 영상을 재생할 수 없습니다.</video><figcaption><strong>상단 단안 카메라</strong> YOLO 차량 검출과 바운딩박스 방위각</figcaption></figure><figure class="video-card"><video autoplay muted loop playsinline controls preload="auto" data-sync-group="sensor-field-icros" poster="../assets/images/sensor-field-corner.png"><source src="../assets/videos/sensor-lidar-icros.mp4" type="video/mp4">브라우저에서 영상을 재생할 수 없습니다.</video><figcaption><strong>하단 2D 라이다</strong> 점군, 차량 면과 코너점 추정</figcaption></figure></div>
+    <div class="stacked-field-video synced-video-grid"><figure class="video-card"><video autoplay muted loop playsinline controls preload="metadata" data-sync-group="sensor-field-icros" poster="../assets/images/sensor-field-detection.png"><source src="../assets/videos/sensor-camera-icros.mp4" type="video/mp4">브라우저에서 영상을 재생할 수 없습니다.</video><figcaption><strong>상단 단안 카메라</strong> YOLO 차량 검출과 바운딩박스 방위각</figcaption></figure><figure class="video-card"><video autoplay muted loop playsinline controls preload="metadata" data-sync-group="sensor-field-icros" poster="../assets/images/sensor-field-corner.png"><source src="../assets/videos/sensor-lidar-icros.mp4" type="video/mp4">브라우저에서 영상을 재생할 수 없습니다.</video><figcaption><strong>하단 2D 라이다</strong> 점군, 차량 면과 코너점 추정</figcaption></figure></div>
     <div class="plot-grid three"><figure class="plot-card"><img src="../assets/images/sensor-field-corner.png" alt="현장검증 차량 코너점 추정 결과"><figcaption><strong>선택된 코너점</strong> 현장 기준값과 프레임별 선택 결과</figcaption></figure><figure class="plot-card"><img src="../assets/images/sensor-field-center.png" alt="현장검증 차량 중심 위치 추정 결과"><figcaption><strong>IMM 위치추정</strong> RTK-GPS 기준 궤적과 차량 중심 추정</figcaption></figure><figure class="plot-card"><img src="../assets/images/sensor-field-state.png" alt="현장검증 차량 속도와 진행방향 추정 결과"><figcaption><strong>상태추정</strong> 속도와 진행방향의 시간축 비교</figcaption></figure></div>
     <div class="table-wrap"><table class="metric-table"><thead><tr><th>현장 시나리오</th><th>위치 RMSE</th><th>속도 RMSE</th><th>진행방향 RMSE</th></tr></thead><tbody><tr><td>좌회전</td><td><strong>0.092 m</strong></td><td>0.224 m/s</td><td>3.507°</td></tr><tr><td>직진</td><td><strong>0.078 m</strong></td><td>0.401 m/s</td><td>2.554°</td></tr><tr><td>연속 다중차량 좌회전</td><td><strong>0.147 m</strong></td><td>0.397 m/s</td><td>3.074°</td></tr></tbody></table></div>
   </div></div></section>
@@ -91,7 +93,7 @@
     <p class="method-note">비교 방법 수치는 학위논문 표의 직접 기재값이 아니라 동일 데이터로 별도 계산한 평균. 시뮬레이션에서 학습한 DQN 정책은 현장 데이터에 추가 학습 없이 적용했으며, 도메인별로 IMM 잡음 공분산만 조정.</p>
   </div></div></section>
 
-  <section class="case-section"><div class="section-shell case-layout"><div><span class="case-section-label">08 / OWNERSHIP</span><h2>수행 범위</h2></div><div class="case-body"><ul class="noun-list"><li><strong>기획</strong>연구 질문 설정, 선행연구 분석, 과제계획 수립</li><li><strong>알고리즘</strong>차량 코너점 계산 방법 정의, DQN 상태, 행동, 보상 설계, IMM 결합</li><li><strong>환경</strong>MATLAB 시뮬레이션 구축, 센서 플랫폼 설치, 실험차량 운전</li><li><strong>검증</strong>RTK-GPS 기준 데이터 수집, 시뮬레이션과 현장 로그 분석</li><li><strong>성과화</strong>석사학위논문 작성, ICROS 제1저자 구두발표, 특허 공동발명</li><li><strong>후속 연구</strong>Decision Transformer 기반 시계열 의사결정 구조로 확장, 후속 논문 작성 중</li></ul></div></div></section>
+  <section class="case-section"><div class="section-shell case-layout"><div><span class="case-section-label">08 / OWNERSHIP</span><h2>수행 범위</h2></div><div class="case-body"><ul class="noun-list"><li><strong>기획</strong>연구 질문 설정, 선행연구 분석, 과제계획 수립</li><li><strong>알고리즘</strong>차량 코너점 계산 방법 정의, DQN 상태, 행동, 보상 설계, IMM 결합</li><li><strong>환경</strong>MATLAB 시뮬레이션 구축, 센서 플랫폼 설치, 실험차량 운전</li><li><strong>검증</strong>RTK-GPS 기준 데이터 수집, 시뮬레이션과 현장 로그 분석</li><li><strong>성과화</strong>석사학위논문 작성, ICROS 제1저자 구두발표, 특허 출원 공동발명</li></ul></div></div></section>
 
   <section class="case-section"><div class="section-shell case-layout"><div><span class="case-section-label">09 / OUTPUT</span><h2>논문, 특허</h2></div><div class="case-body source-links"><a href="../assets/docs/master-thesis.pdf" target="_blank" rel="noopener"><span>석사학위논문</span><strong>교차로 도로변 센서 시스템을 위한 강화학습 기반의 단안 카메라와 2D 라이다 센서 융합 알고리즘</strong><em>98쪽 원문</em></a><a href="../assets/docs/icros-2025.pdf" target="_blank" rel="noopener"><span>ICROS 2025</span><strong>차량 추적을 위한 강화학습 기반 도로변 센서 시스템</strong><em>제1저자, 구두발표</em></a><div><span>특허</span><strong>차량 상태 추정 방법, 이를 수행하는 장치 및 기록매체</strong><em>10-2025-0136289</em></div></div></div></section>
   <nav class="next-project"><a class="section-shell" href="roboracer.html"><span>다음 프로젝트</span><strong>IFAC 2026 RoboRacer →</strong></a></nav>
