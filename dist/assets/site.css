@@ -825,12 +825,32 @@ a.publication:hover strong, a.publication:focus-visible strong { color: #9ed0ff;
 .system-validation p { margin:0 0 .6rem; font-size:.9rem; }
 .system-validation > small { color:var(--slate); font-size:.75rem; }
 
+/* STM32: clean overview, user-controlled demo, and actual evidence. */
+.stm32-page .stm32-hero img { width:100%; height:auto; aspect-ratio:16/9; object-fit:contain; max-height:none; }
+.stm32-state-evidence { grid-template-columns:repeat(3,minmax(0,1fr)); }
+.stm32-state-frame { aspect-ratio:16/10; overflow:hidden; background:#fff; }
+.stm32-page .stm32-state-frame img { display:block; width:200%; max-width:none; max-height:none; height:auto; aspect-ratio:auto; object-fit:contain; }
+.scanning-frame img { margin-left:-68.75%; margin-top:-48.125%; }
+.stm32-page .tracking-frame img { width:266.667%; margin-left:-71.667%; margin-top:-53.333%; }
+.manual-frame img { margin-left:-35%; margin-top:-52.5%; }
+.stm32-state-evidence figcaption { display:block; }
+.stm32-state-evidence figcaption strong,.stm32-state-evidence figcaption span { display:block; }
+.stm32-state-evidence figcaption strong { margin-bottom:.35rem; }
+.stm32-state-evidence figcaption small { display:block; margin-bottom:.45rem; color:var(--signal); font-size:.7rem; font-weight:800; }
+.stm32-uart-evidence { margin-top:1.5rem; }
+.stm32-uart-window { aspect-ratio:1350/950; overflow:hidden; background:#101820; }
+.stm32-page .stm32-uart-window img { display:block; width:189.63%; max-width:none; max-height:none; height:auto; aspect-ratio:auto; object-fit:contain; margin-left:-85.185%; margin-top:-22.222%; }
+.stm32-page .video-card figcaption strong,.stm32-uart-evidence figcaption strong { display:block; margin-bottom:.35rem; }
+.stm32-page .video-card figcaption span,.stm32-uart-evidence figcaption span { display:block; }
+.stm32-page .result-callout > strong { font-size:clamp(2rem,4.2vw,3.5rem); white-space:nowrap; }
+
 @media (max-width:900px) {
   .manta-hero-flow, .robo-system-map.manta-map, .execution-flow { grid-template-columns:1fr; overflow:visible; }
   .manta-hero-flow > b, .robo-system-map.manta-map > b, .execution-flow > b { transform:rotate(90deg); justify-self:center; }
 }
 
 @media (max-width:680px) {
+  .stm32-state-evidence { grid-template-columns:1fr; }
   .system-validation { padding:1.1rem; }
   .system-validation-heading { display:grid; gap:.75rem; }
   .system-validation dl { grid-template-columns:1fr; gap:.65rem; }
