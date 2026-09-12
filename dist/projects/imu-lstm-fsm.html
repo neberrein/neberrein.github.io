@@ -11,19 +11,19 @@
 </head>
 <body>
 <a class="skip-link" href="#main">본문 바로가기</a>
-<header class="site-header detail-header"><a class="brand" href="../index.html">곽민재 <span>PORTFOLIO</span></a><nav class="primary-nav" aria-label="상세 페이지 메뉴"><a href="../index.html#projects">프로젝트</a><a href="../index.html#research">논문·특허</a></nav></header>
+<header class="site-header detail-header"><a class="brand" href="../index.html">곽민재 <span>PORTFOLIO</span></a><nav class="primary-nav" aria-label="상세 페이지 메뉴"><a href="../index.html#projects">프로젝트</a><a href="../index.html#research">논문, 특허</a></nav></header>
 <main id="main">
   <section class="case-hero section-shell">
     <a class="back-link" href="../index.html#projects">← 프로젝트 목록</a>
-    <p class="case-label">과학기술정보통신부 국가 R&amp;D · OFF-ROAD NAVIGATION</p>
+    <p class="case-label">과학기술정보통신부 국가 R&amp;D , OFF-ROAD NAVIGATION</p>
     <h1>IMU 기반 LSTM-FSM 주행상태 판별</h1>
     <p class="case-subtitle">기어, 브레이크, 차량 CAN 신호를 사용할 수 없는 반자율주행 트랙터에서 IMU 시계열만으로 전진, 후진, 정지를 판별한 항법 모듈. LSTM의 순간 예측에 FSM 상태전이 규칙을 결합해 실차 진동과 상태전환 오분류를 억제.</p>
     <aside class="credential-panel" aria-label="연구과제 정보"><div><span>국가연구개발과제</span><strong>오프로드 자율주행을 위한 제어이론과 기계학습 융합 기반 항법 시스템 개발</strong></div><dl><div><dt>참여기간</dt><dd>2024.06–2025.08</dd></div><div><dt>역할</dt><dd>학생연구원</dd></div><div><dt>담당 모듈</dt><dd>주행상태 판별</dd></div><div><dt>실증 플랫폼</dt><dd>반자율 농용 트랙터</dd></div></dl></aside>
-    <dl class="case-facts"><div><dt>담당</dt><dd>LSTM 학습, FSM 설계, ROS 통합, 실차검증</dd></div><div><dt>기술</dt><dd>IMU · LSTM · FSM · ROS · Kalman Filter</dd></div><div><dt>실험</dt><dd>농로와 농지, 세 실차 경로</dd></div><div><dt>성과</dt><dd>평균 F1 99% 이상, SCIE 공동저자</dd></div></dl>
+    <dl class="case-facts"><div><dt>담당</dt><dd>LSTM 학습, FSM 설계, ROS 통합, 실차검증</dd></div><div><dt>기술</dt><dd>IMU , LSTM , FSM , ROS , Kalman Filter</dd></div><div><dt>실험</dt><dd>농로와 농지, 세 실차 경로</dd></div><div><dt>성과</dt><dd>평균 F1 99% 이상, SCIE 공동저자</dd></div></dl>
   </section>
 
   <section class="case-section"><div class="section-shell case-layout"><div><span class="case-section-label">01 / CONSTRAINT</span><h2>판별이 필요한 이유</h2></div><div class="case-body">
-    <p>항법 시스템은 트랙터가 정지했는지, 전진을 시작했는지, 후진을 시작했는지 알아야 했다. 그러나 차량 내부의 기어·브레이크·CAN 신호를 받을 수 없었다. 후진을 전진으로 판단하면 초기 진행방향이 반대로 잡히고, 정지를 놓치면 움직이지 않는 동안에도 관성오차가 누적된다. 추가 센서 없이 기존 IMU만으로 전진·후진·정지를 판별한 이유다.</p>
+    <p>항법 시스템은 트랙터가 정지했는지, 전진을 시작했는지, 후진을 시작했는지 알아야 했다. 그러나 차량 내부의 기어, 브레이크, CAN 신호를 받을 수 없었다. 후진을 전진으로 판단하면 초기 진행방향이 반대로 잡히고, 정지를 놓치면 움직이지 않는 동안에도 관성오차가 누적된다. 추가 센서 없이 기존 IMU만으로 전진, 후진, 정지를 판별한 이유다.</p>
     <div class="issue-grid"><article><span>차량 신호</span><strong>기어, 브레이크, CAN 정보 비접근</strong><p>내부 제어기에 연결하지 않고 외부 센서만으로 상태 판별</p></article><article><span>센서 제약</span><strong>추가 센서 장착 제한</strong><p>비용과 시스템 변경을 줄이기 위해 기존 IMU 데이터만 사용</p></article><article><span>주행 환경</span><strong>농지 진동과 바퀴 슬립</strong><p>임계값 기반 정지 검출이 지면 조건에 따라 불안정</p></article><article><span>관측 한계</span><strong>등속 전진과 후진의 파형 중첩</strong><p>한 시점의 가속도만으로 진행방향 직접 구분 곤란</p></article></div>
   </div></div></section>
 
@@ -33,26 +33,26 @@
   </div></div></section>
 
   <section class="case-section"><div class="section-shell case-layout"><div><span class="case-section-label">03 / DESIGN</span><h2>LSTM-FSM 결합</h2></div><div class="case-body">
-    <figure class="research-figure framework-figure"><img src="../assets/images/imu-lstm-fsm-pipeline.png" alt="IMU 가속도와 각속도 시퀀스를 LSTM과 FSM으로 처리하는 주행상태 판별 구조"><figcaption>IMU 3축 가속도·3축 각속도 시퀀스 → LSTM 동적 상태 분류 → Finite State Machine 기반 전진·후진·정지 판정</figcaption></figure>
-    <div class="decision-strip"><article><span>입력</span><strong>IMU 가속도·각속도 시퀀스</strong></article><article><span>LSTM</span><strong>정지·이동·전진 시작·후진 시작 분류</strong></article><article><span>FINITE STATE MACHINE</span><strong>이전 상태와 출발 이벤트 연결</strong></article><article><span>출력</span><strong>전진·후진·정지 지속 상태</strong></article></div>
+    <figure class="research-figure framework-figure"><img src="../assets/images/imu-lstm-fsm-pipeline.png" alt="IMU 가속도와 각속도 시퀀스를 LSTM과 FSM으로 처리하는 주행상태 판별 구조"><figcaption>IMU 3축 가속도, 3축 각속도 시퀀스 → LSTM 동적 상태 분류 → Finite State Machine 기반 전진, 후진, 정지 판정</figcaption></figure>
+    <div class="decision-strip"><article><span>입력</span><strong>IMU 가속도, 각속도 시퀀스</strong></article><article><span>LSTM</span><strong>정지, 이동, 전진 시작, 후진 시작 분류</strong></article><article><span>FINITE STATE MACHINE</span><strong>이전 상태와 출발 이벤트 연결</strong></article><article><span>출력</span><strong>전진, 후진, 정지 지속 상태</strong></article></div>
     <p class="method-note">전진과 후진은 등속 구간의 파형만으로 구분하기 어렵다. LSTM이 출발 순간의 시간 패턴을 찾고, FSM이 그 이벤트를 이후의 지속 상태로 유지하도록 역할을 분리했다. 같은 분류기라도 FSM 결합 뒤 후진 F1이 98.77–99.50%로 상승.</p>
   </div></div></section>
 
   <section class="case-section alt-section"><div class="section-shell case-layout"><div><span class="case-section-label">04 / FIELD TEST</span><h2>실차 실험</h2></div><div class="case-body">
-    <div class="media-pair"><figure class="research-figure"><img src="../assets/images/imu-hardware-labeled.png" alt="트랙터와 GPS IMU Raspberry Pi 설치 구성"><figcaption>반자율주행 트랙터 · GPS, OpenIMU 330BI, Raspberry Pi 4 설치</figcaption></figure><figure class="research-figure"><img src="../assets/images/imu-farm-road-field.png" alt="농로와 농작지에서 수행한 트랙터 주행시험"><figcaption>세 주행경로 검증 · 실제 작업 조건의 농로와 농지</figcaption></figure></div>
+    <div class="media-pair"><figure class="research-figure"><img src="../assets/images/imu-hardware-labeled.png" alt="트랙터와 GPS IMU Raspberry Pi 설치 구성"><figcaption>반자율주행 트랙터 , GPS, OpenIMU 330BI, Raspberry Pi 4 설치</figcaption></figure><figure class="research-figure"><img src="../assets/images/imu-farm-road-field.png" alt="농로와 농작지에서 수행한 트랙터 주행시험"><figcaption>세 주행경로 검증 , 실제 작업 조건의 농로와 농지</figcaption></figure></div>
   </div></div></section>
 
   <section class="case-section"><div class="section-shell case-layout"><div><span class="case-section-label">05 / CLASSIFICATION</span><h2>분류 결과</h2></div><div class="case-body">
-    <div class="result-callout"><strong>99%+</strong><div><h3>세 경로의 전진·후진·정지 F1</h3><p>LSTM-FSM 기준. 농로와 농지의 실제 주행 진동을 포함한 결과</p></div></div>
-    <div class="plot-grid"><figure class="plot-card"><img src="../assets/images/imu-source-61.png" alt="대표 시험경로의 주행상태 혼동행렬"><figcaption><strong>대표 경로 분류결과</strong> 전진·후진·정지 혼동행렬</figcaption></figure><figure class="plot-card"><img src="../assets/images/imu-route-example.png" alt="농로와 농작지를 포함한 대표 주행경로의 GPS 기준 궤적"><figcaption><strong>대표 주행경로</strong> 농로 진입과 농작지 반복 주행을 포함한 GPS 기준 궤적</figcaption></figure></div>
+    <div class="result-callout"><strong>99%+</strong><div><h3>세 경로의 전진, 후진, 정지 F1</h3><p>LSTM-FSM 기준. 농로와 농지의 실제 주행 진동을 포함한 결과</p></div></div>
+    <div class="plot-grid"><figure class="plot-card"><img src="../assets/images/imu-source-61.png" alt="대표 시험경로의 주행상태 혼동행렬"><figcaption><strong>대표 경로 분류결과</strong> 전진, 후진, 정지 혼동행렬</figcaption></figure><figure class="plot-card"><img src="../assets/images/imu-route-example.png" alt="농로와 농작지를 포함한 대표 주행경로의 GPS 기준 궤적"><figcaption><strong>대표 주행경로</strong> 농로 진입과 농작지 반복 주행을 포함한 GPS 기준 궤적</figcaption></figure></div>
     <div class="table-wrap"><table class="metric-table"><thead><tr><th>주행상태</th><th>경로 1</th><th>경로 2</th><th>경로 3</th></tr></thead><tbody><tr><td>전진 F1</td><td>99.84%</td><td>99.84%</td><td><strong>99.95%</strong></td></tr><tr><td>후진 F1</td><td><strong>99.75%</strong></td><td><strong>99.80%</strong></td><td>99.00%</td></tr><tr><td>정지 F1</td><td><strong>99.53%</strong></td><td>99.02%</td><td>98.80%</td></tr></tbody></table></div>
     <table class="metric-table comparison-table"><thead><tr><th>비교</th><th>후진 F1 범위</th><th>의미</th></tr></thead><tbody><tr><td>SVM 또는 Random Forest 단독</td><td>10.00–36.64%</td><td>등속 전진과 후진 혼동 지속</td></tr><tr><td>동일 모델 + FSM</td><td><strong>98.77–99.50%</strong></td><td>상태전이 규칙으로 방향 판별 안정화</td></tr><tr><td>제안 LSTM + FSM</td><td><strong>99.00–99.80%</strong></td><td>시계열 특징과 물리 상태 규칙 결합</td></tr></tbody></table>
   </div></div></section>
 
-  <section class="case-section alt-section"><div class="section-shell case-layout"><div><span class="case-section-label">06 / OWNERSHIP</span><h2>담당 범위</h2></div><div class="case-body"><ul class="noun-list"><li><strong>데이터</strong>IMU 전처리, 학습 시퀀스 구성, 주행상태 라벨 정의</li><li><strong>모델</strong>LSTM 구조 선정과 학습, 비교 분류기 평가</li><li><strong>판단</strong>전진·후진·정지 FSM 전환 규칙 설계</li><li><strong>통합</strong>ROS 기반 분류결과와 항법 모듈 연결</li><li><strong>검증</strong>농로와 농지 세 실차 경로 평가</li></ul></div></div></section>
+  <section class="case-section alt-section"><div class="section-shell case-layout"><div><span class="case-section-label">06 / OWNERSHIP</span><h2>담당 범위</h2></div><div class="case-body"><ul class="noun-list"><li><strong>데이터</strong>IMU 전처리, 학습 시퀀스 구성, 주행상태 라벨 정의</li><li><strong>모델</strong>LSTM 구조 선정과 학습, 비교 분류기 평가</li><li><strong>판단</strong>전진, 후진, 정지 FSM 전환 규칙 설계</li><li><strong>통합</strong>ROS 기반 분류결과와 항법 모듈 연결</li><li><strong>검증</strong>농로와 농지 세 실차 경로 평가</li></ul></div></div></section>
 
   <section class="case-section"><div class="section-shell case-layout"><div><span class="case-section-label">07 / PAPER</span><h2>연구 성과</h2></div><div class="case-body source-links"><a href="../assets/docs/measurement-2026.pdf" target="_blank" rel="noopener"><span>Measurement 278</span><strong>A novel navigation system using driving state classification algorithm for semi-autonomous tractors</strong><em>2026, 공동저자 2/6</em></a><div><span>ICROS 2024</span><strong>주행상태 판별 알고리즘 기반 반자율 트랙터 항법 연구</strong><em>구두발표, 공동저자 2/5</em></div></div></div></section>
-  <nav class="next-project"><a class="section-shell" href="stm32-tracking.html"><span>다음 프로젝트</span><strong>STM32 초음파 표적탐지·추적 →</strong></a></nav>
+  <nav class="next-project"><a class="section-shell" href="stm32-tracking.html"><span>다음 프로젝트</span><strong>STM32 초음파 표적탐지, 추적 →</strong></a></nav>
 </main>
 <footer class="site-footer"><div class="section-shell"><span>© 2026 곽민재</span><a href="mailto:tkkwak4@naver.com">tkkwak4@naver.com</a></div></footer>
 </body>

@@ -67,11 +67,23 @@ document.querySelectorAll('[data-sync-group]').forEach((video) => {
 const autoplayVideos = [...document.querySelectorAll('video[autoplay]')];
 const playMuted = (video) => {
   video.muted = true;
+  video.defaultMuted = true;
   video.play().catch(() => {});
 };
 
 autoplayVideos.forEach((video) => {
+  const start = Number(video.dataset.start || 0);
+  if (start > 0) {
+    video.addEventListener('loadedmetadata', () => {
+      video.currentTime = Math.min(start, Math.max(0, video.duration - 0.05));
+      playMuted(video);
+    }, { once: true });
+    video.addEventListener('timeupdate', () => {
+      if (video.currentTime < start - 0.25) video.currentTime = Math.min(start, Math.max(0, video.duration - 0.05));
+    });
+  }
   if (video.readyState >= 2) playMuted(video);
+  video.addEventListener('loadeddata', () => playMuted(video), { once: true });
   video.addEventListener('canplay', () => playMuted(video), { once: true });
 });
 

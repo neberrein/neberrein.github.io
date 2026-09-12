@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="description" content="한국연구재단 석사과정생 연구장려금으로 수행한 강화학습 기반 카메라-LiDAR 센서융합 객체추적 연구">
+  <meta name="description" content="교육부와 한국연구재단 석사과정생 연구장려금으로 수행한 강화학습 기반 카메라-LiDAR 센서융합 객체추적 연구">
   <title>카메라-LiDAR 센서융합 객체추적 | 곽민재</title>
   <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="../assets/site.css">
@@ -11,18 +11,18 @@
 </head>
 <body>
 <a class="skip-link" href="#main">본문 바로가기</a>
-<header class="site-header detail-header"><a class="brand" href="../index.html">곽민재 <span>PORTFOLIO</span></a><nav class="primary-nav" aria-label="상세 페이지 메뉴"><a href="../index.html#projects">프로젝트</a><a href="../index.html#research">논문·특허</a></nav></header>
+<header class="site-header detail-header"><a class="brand" href="../index.html">곽민재 <span>PORTFOLIO</span></a><nav class="primary-nav" aria-label="상세 페이지 메뉴"><a href="../index.html#projects">프로젝트</a><a href="../index.html#research">논문, 특허</a></nav></header>
 <main id="main">
   <section class="case-hero section-shell">
     <a class="back-link" href="../index.html#projects">← 프로젝트 목록</a>
-    <p class="case-label">한국연구재단 석사과정생 연구장려금</p>
+    <p class="case-label">교육부, 한국연구재단 석사과정생 연구장려금</p>
     <h1>강화학습 기반 카메라-LiDAR 센서융합 객체추적</h1>
-    <p class="case-subtitle">교차로의 고정형 카메라와 2D LiDAR로 차량을 추적한 연구. 센서 상태가 매 순간 달라지는 점에 맞춰 DQN이 다섯 위치 후보 중 하나를 선택하고, IMM이 관측이 끊기는 구간까지 차량의 위치·속도·진행방향을 이어서 추정.</p>
+    <p class="case-subtitle">교차로 도로변에 단안 카메라와 2D LiDAR를 설치해 차량을 추적한 연구. DQN이 다섯 관측 후보 가운데 현재 상황에 적합한 위치를 선택하고, IMM이 차량의 중심 위치와 속도, 진행방향을 연속 추정.</p>
     <aside class="credential-panel" aria-label="연구과제 정보">
       <div><span>연구과제</span><strong>교차로 차량 움직임 추정을 위한 강화학습 기반의 단안 카메라와 2D 라이다 센서 융합 알고리즘 개발</strong></div>
-      <dl><div><dt>발주기관</dt><dd>한국연구재단</dd></div><div><dt>사업</dt><dd>석사과정생 연구장려금</dd></div><div><dt>기간</dt><dd>2024.09–2025.08</dd></div><div><dt>역할</dt><dd>연구책임자 · 1인 과제</dd></div></dl>
+      <dl><div><dt>지원기관</dt><dd>교육부, 한국연구재단</dd></div><div><dt>사업</dt><dd>석사과정생 연구장려금</dd></div><div><dt>기간</dt><dd>2024.09–2025.08</dd></div><div><dt>역할</dt><dd>연구책임자</dd></div></dl>
     </aside>
-    <dl class="case-facts"><div><dt>연구 범위</dt><dd>기획, 알고리즘, 시뮬레이션, 현장시험</dd></div><div><dt>핵심 기술</dt><dd>YOLO · DBSCAN · RANSAC · DQN · IMM</dd></div><div><dt>검증</dt><dd>MATLAB 시뮬레이션, 서울 마곡동 현장시험</dd></div><div><dt>성과</dt><dd>석사학위논문, ICROS 발표, 특허</dd></div></dl>
+    <dl class="case-facts"><div><dt>연구 범위</dt><dd>기획, 알고리즘, 시뮬레이션, 현장시험</dd></div><div><dt>핵심 기술</dt><dd>YOLO, DBSCAN, RANSAC, DQN, IMM</dd></div><div><dt>검증</dt><dd>MATLAB 시뮬레이션, 서울 마곡동 현장시험</dd></div><div><dt>성과</dt><dd>석사학위논문, ICROS 발표, 특허</dd></div></dl>
   </section>
 
   <section class="case-section"><div class="section-shell case-layout"><div><span class="case-section-label">01 / QUESTION</span><h2>연구 문제</h2></div><div class="case-body">
@@ -31,32 +31,33 @@
   </div></div></section>
 
   <section class="case-section"><div class="section-shell case-layout"><div><span class="case-section-label">02 / SYSTEM</span><h2>판단 구조</h2></div><div class="case-body">
-    <figure class="research-figure framework-figure"><img src="../assets/images/sensor-framework.png" alt="카메라와 LiDAR 관측 후보를 DQN이 선택하고 IMM이 차량 상태를 추정하는 전체 프레임워크"><figcaption>제안 프레임워크. DQN의 관측 선택 결과로 IMM의 CVP·CTP 운동모델을 갱신하는 구조</figcaption></figure>
-    <div class="media-pair compact-media cropped-media"><figure class="research-figure"><div class="media-crop crop-platform"><img src="../assets/images/sensor-platform.jpg" alt="단안 카메라와 2D LiDAR를 수직 배치한 도로변 센서 플랫폼"></div><figcaption>도로변 센서 플랫폼 · 상단 단안 카메라 / 하단 2D LiDAR</figcaption></figure><figure class="research-figure"><div class="media-crop crop-rtk"><img src="../assets/images/sensor-ground-truth-car.jpg" alt="차량 지붕 중앙에 RTK-GPS 안테나를 설치한 시험차량"></div><figcaption>시험차량 · 지붕 중앙 RTK-GPS로 차량 중심 기준값 취득</figcaption></figure></div>
+    <figure class="research-figure framework-figure"><img src="../assets/images/sensor-framework.png" alt="카메라와 LiDAR 관측 후보를 DQN이 선택하고 IMM이 차량 상태를 추정하는 전체 프레임워크"><figcaption>제안 프레임워크. DQN의 관측 선택 결과로 IMM의 CVP와 CTP 운동모델을 갱신</figcaption></figure>
+    <div class="flow-ribbon" aria-label="센서융합 객체추적 처리 흐름"><article><span>01</span><strong>차량 검출</strong><small>YOLO와 2D LiDAR</small></article><b>→</b><article><span>02</span><strong>관측 후보 생성</strong><small>코너점 후보 5개</small></article><b>→</b><article><span>03</span><strong>DQN 선택</strong><small>현재 관측 상태 판단</small></article><b>→</b><article><span>04</span><strong>IMM 추정</strong><small>CVP와 CTP 결합</small></article><b>→</b><article><span>05</span><strong>차량 상태</strong><small>위치, 속도, 진행방향</small></article></div>
+    <div class="media-pair sensor-setup-pair"><figure class="research-figure"><img src="../assets/images/sensor-roadside-system.png" alt="상단 단안 카메라와 하단 2D LiDAR로 구성한 도로변 센서 플랫폼"><figcaption>도로변 센서 플랫폼. 상단 단안 카메라, 하단 Slamtec Mapper 2D LiDAR</figcaption></figure><figure class="research-figure"><img src="../assets/images/sensor-ground-truth-system.png" alt="차량 지붕 중앙 RTK-GPS 안테나와 수신기 구성"><figcaption>시험차량. 지붕 중앙 RTK-GPS 안테나로 차량 중심 기준값 취득</figcaption></figure></div>
   </div></div></section>
 
   <section class="case-section"><div class="section-shell case-layout"><div><span class="case-section-label">03 / OBSERVATION</span><h2>다섯 관측 후보</h2></div><div class="case-body">
-    <p>프레임마다 센서 상태가 달라지므로 하나의 기하식에 고정하지 않고 후보 다섯 개를 동시에 계산했다. 기준점은 <strong>차량 전방 우측 모서리</strong>. 가림과 자세 변화에도 종·횡방향 위치를 같은 점으로 비교할 수 있고, LiDAR 선분과 카메라 바운딩박스 경계가 함께 만나는 지점이기 때문이다.</p>
-    <figure class="research-figure"><img src="../assets/images/sensor-candidates-full.png" alt="카메라 방위각, LiDAR 선분, IMM 예측으로 구성한 다섯 관측 후보"><figcaption>차량 모서리 기하와 센서 관측 관계를 기준으로 정의한 다섯 위치 후보</figcaption></figure>
+    <p>프레임마다 센서 상태가 달라지므로 하나의 기하식에 고정하지 않고 후보 다섯 개를 동시에 계산했다. 기준점은 <strong>차량 전방 우측 모서리</strong>. 가림과 자세 변화에도 종, 횡방향 위치를 같은 점으로 비교할 수 있고, LiDAR 선분과 카메라 바운딩박스 경계가 함께 만나는 지점이기 때문이다.</p>
+    <figure class="research-figure observation-overview"><img src="../assets/images/sensor-five-observations.png" alt="RANSAC 교점, 카메라 방위각, LiDAR 최근접점과 IMM 예측으로 구성한 다섯 관측 후보"><figcaption>각 방법이 같은 차량 전방 우측 모서리의 후보 위치를 독립적으로 계산</figcaption></figure>
     <ol class="numbered-evidence"><li><strong>RANSAC 교점</strong><span>차량 두 면이 모두 보일 때 선분 교차점을 모서리로 사용</span></li><li><strong>YOLO 최대 방위각 × RANSAC</strong><span>영상 우측 경계가 선명한 프레임의 카메라–LiDAR 교점</span></li><li><strong>YOLO 최소 방위각 × RANSAC</strong><span>영상 좌측 경계가 선명한 프레임의 카메라–LiDAR 교점</span></li><li><strong>횡방향 최근접점</strong><span>선회 중에도 유지되는 가장 가까운 LiDAR 물리 기준점</span></li><li><strong>IMM 예측점</strong><span>가림이나 이상치 발생 시 센서 대신 운동모델 예측 사용</span></li></ol>
   </div></div></section>
 
   <section class="case-section alt-section"><div class="section-shell case-layout"><div><span class="case-section-label">04 / SIMULATION</span><h2>시뮬레이션 결과</h2></div><div class="case-body">
     <div class="plot-grid"><figure class="plot-card"><img src="../assets/images/sensor-sim-corner.png" alt="단일 차량 좌회전 시뮬레이션의 코너점 추정"><figcaption><strong>DQN 관측 선택</strong> 기준 코너점과 프레임별 선택 관측의 궤적</figcaption></figure><figure class="plot-card"><img src="../assets/images/sensor-sim-center.png" alt="단일 차량 좌회전 시뮬레이션의 중심 위치 추정"><figcaption><strong>IMM 위치추정</strong> 전방 우측 코너 관측을 차량 중심 상태로 변환한 궤적</figcaption></figure></div>
-    <div class="formula-note"><strong>코너 관측 → 차량 중심 상태</strong><span>z = [x<sub>c</sub> + r cos(α−θ), y<sub>c</sub> + r sin(α−θ)]ᵀ</span><p>r = √((L<sub>w</sub>/2)² + (L<sub>l</sub>/2)²). 차량 크기와 진행방향 θ를 반영한 비선형 관측모델로 코너 측정값과 중심 상태를 연결.</p></div>
-    <div class="table-wrap"><table class="metric-table"><thead><tr><th>시뮬레이션 시나리오</th><th>위치 RMSE</th><th>속도 RMSE</th><th>진행방향 RMSE</th></tr></thead><tbody><tr><td>단일차량 좌회전</td><td><strong>0.066 m</strong></td><td>0.491 m/s</td><td>0.038°</td></tr><tr><td>단일차량 직진</td><td><strong>0.012 m</strong></td><td>0.419 m/s</td><td>0.001°</td></tr><tr><td>다중차량 좌회전</td><td><strong>0.054 m</strong></td><td>0.468 m/s</td><td>0.041°</td></tr><tr><td>다중차량 직진</td><td><strong>0.015 m</strong></td><td>0.444 m/s</td><td>0.002°</td></tr></tbody></table></div>
+    <div class="geometry-layout"><figure class="research-figure"><img src="../assets/images/sensor-vehicle-geometry.png" alt="차량 중심과 전방 우측 모서리의 거리 r과 각도 alpha"><figcaption>직접 측정되는 전방 우측 모서리와 추정 대상인 차량 중심의 기하 관계</figcaption></figure><div class="formula-note"><strong>코너 관측을 차량 중심 상태로 변환</strong><span>z = [x<sub>c</sub> + r cos(α−θ), y<sub>c</sub> + r sin(α−θ)]ᵀ</span><p>r = √((L<sub>w</sub>/2)² + (L<sub>l</sub>/2)²). 차량 폭과 길이, 진행방향 θ를 반영해 모서리 측정값에서 중심 위치를 추정.</p></div></div>
+    <div class="table-wrap"><table class="metric-table"><thead><tr><th>대표 시나리오</th><th>위치 RMSE</th><th>속도 RMSE</th><th>진행방향 RMSE</th></tr></thead><tbody><tr><td>좌회전</td><td><strong>0.054 m</strong></td><td>0.468 m/s</td><td>0.041°</td></tr><tr><td>직진</td><td><strong>0.012 m</strong></td><td>0.419 m/s</td><td>0.001°</td></tr></tbody></table></div>
     <p class="method-note">센서 사양과 차량 기하를 반영한 MATLAB 환경에서 DQN 정책 학습과 IMM 상태추정 성능 검증.</p>
   </div></div></section>
 
   <section class="case-section"><div class="section-shell case-layout"><div><span class="case-section-label">05 / FIELD TEST</span><h2>현장검증</h2></div><div class="case-body">
-    <figure class="research-figure"><img src="../assets/images/sensor-test-site.png" alt="서울 마곡동 교차로 시험구간의 차량 진행경로"><figcaption>서울 마곡동 교차로 · 직진, 좌회전, 연속 다중차량 시나리오</figcaption></figure>
-    <div class="video-grid synced-video-grid"><figure class="video-card"><video autoplay controls muted loop playsinline preload="metadata" data-sync-group="sensor-field" poster="../assets/images/sensor-field-detection.png"><source src="../assets/videos/sensor-lidar.mp4" type="video/mp4">브라우저에서 영상을 재생할 수 없습니다.</video><figcaption><strong>카메라</strong> YOLO 차량 검출과 바운딩박스 경계</figcaption></figure><figure class="video-card"><video autoplay controls muted loop playsinline preload="metadata" data-sync-group="sensor-field" poster="../assets/images/sensor-field-corner.png"><source src="../assets/videos/sensor-camera.mp4" type="video/mp4">브라우저에서 영상을 재생할 수 없습니다.</video><figcaption><strong>2D LiDAR</strong> 점군 군집, RANSAC 선분, 차량 모서리 추정</figcaption></figure></div>
+    <div class="field-context"><figure class="research-figure"><img src="../assets/images/sensor-roadside-system.png" alt="교차로 현장에 설치한 카메라와 2D LiDAR 센서 시스템"><figcaption>현장 센서 시스템</figcaption></figure><figure class="research-figure"><img src="../assets/images/sensor-ground-truth-system.png" alt="RTK-GPS를 설치한 현장 시험차량"><figcaption>RTK-GPS 기준 시험차량</figcaption></figure><figure class="research-figure"><img src="../assets/images/sensor-test-site.png" alt="서울 마곡동 교차로 시험구간의 차량 진행경로"><figcaption>서울 마곡동 교차로. 직진, 좌회전, 연속 다중차량 시나리오</figcaption></figure></div>
+    <figure class="video-card stacked-field-video"><video autoplay muted loop playsinline preload="auto" poster="../assets/images/sensor-field-detection.png"><source src="../assets/videos/sensor-field-combined.mp4" type="video/mp4">브라우저에서 영상을 재생할 수 없습니다.</video><figcaption><strong>현장 동기 영상</strong> 위쪽 카메라 검출, 아래쪽 2D LiDAR 점군과 차량 모서리 추정</figcaption></figure>
     <div class="plot-grid three"><figure class="plot-card"><img src="../assets/images/sensor-field-corner.png" alt="현장시험 차량 코너점 추정 결과"><figcaption><strong>DQN 관측 선택</strong> 현장 코너점 기준값과 선택 결과</figcaption></figure><figure class="plot-card"><img src="../assets/images/sensor-field-center.png" alt="현장시험 차량 중심 위치 추정 결과"><figcaption><strong>IMM 위치추정</strong> RTK-GPS 기준 궤적과 차량 중심 추정</figcaption></figure><figure class="plot-card"><img src="../assets/images/sensor-field-state.png" alt="현장시험 차량 속도와 진행방향 추정 결과"><figcaption><strong>상태추정</strong> 속도와 진행방향의 시간축 비교</figcaption></figure></div>
-    <div class="table-wrap"><table class="metric-table"><thead><tr><th>현장 시나리오</th><th>위치 RMSE</th><th>속도 RMSE</th><th>진행방향 RMSE</th></tr></thead><tbody><tr><td>단일차량 좌회전</td><td><strong>0.092 m</strong></td><td>0.224 m/s</td><td>3.507°</td></tr><tr><td>단일차량 직진</td><td><strong>0.078 m</strong></td><td>0.401 m/s</td><td>2.554°</td></tr><tr><td>다중차량 좌회전</td><td><strong>0.147 m</strong></td><td>0.397 m/s</td><td>3.074°</td></tr></tbody></table></div>
+    <div class="table-wrap"><table class="metric-table"><thead><tr><th>현장 시나리오</th><th>위치 RMSE</th><th>속도 RMSE</th><th>진행방향 RMSE</th></tr></thead><tbody><tr><td>좌회전</td><td><strong>0.092 m</strong></td><td>0.224 m/s</td><td>3.507°</td></tr><tr><td>직진</td><td><strong>0.078 m</strong></td><td>0.401 m/s</td><td>2.554°</td></tr><tr><td>연속 다중차량 좌회전</td><td><strong>0.147 m</strong></td><td>0.397 m/s</td><td>3.074°</td></tr></tbody></table></div>
   </div></div></section>
 
   <section class="case-section alt-section"><div class="section-shell case-layout"><div><span class="case-section-label">06 / OCCLUSION</span><h2>가림 대응</h2></div><div class="case-body">
-    <div class="occlusion-steps"><article><span>STEP 1</span><strong>완전 가림</strong><p>앞 차량이 표적을 완전히 가리며 카메라·LiDAR 후보가 다른 차량 쪽으로 이동</p></article><article><span>STEP 2</span><strong>부분 가림</strong><p>DQN이 센서 후보 대신 IMM 예측점을 선택해 기존 표적 궤적 유지</p></article><article><span>STEP 3</span><strong>재검출</strong><p>표적이 다시 보이면 실제 센서 후보로 복귀해 장기 예측 오차 누적 억제</p></article></div>
+    <div class="occlusion-steps"><article><span>STEP 1</span><strong>관측 신뢰 저하</strong><p>앞 차량이 표적을 가리면서 카메라와 LiDAR 후보가 가림 차량 쪽으로 분리</p></article><article><span>STEP 2</span><strong>IMM 예측 선택</strong><p>DQN이 왜곡된 센서 후보 대신 운동모델 예측점을 선택해 표적 궤적 유지</p></article><article><span>STEP 3</span><strong>센서 관측 복귀</strong><p>가림이 풀리면 실제 센서 후보를 다시 선택해 예측 오차의 장기 누적 억제</p></article></div>
     <div class="occlusion-grid"><figure class="research-figure"><img src="../assets/images/sensor-occlusion-logic.png" alt="가림 전후 DQN 관측 후보 선택 흐름"><figcaption>가림 전 센서 관측, 가림 구간 IMM 예측, 가림 해소 뒤 센서 관측 복귀</figcaption></figure><figure class="research-figure"><img src="../assets/images/sensor-occlusion-result.png" alt="가림 상황에서 제안 방법이 표적 차량 궤적을 유지한 결과"><figcaption><span class="figure-legend"><i class="red"></i>표적 기준 궤적 <i class="blue"></i>제안 방법 추정 <i class="magenta"></i>가림 차량 쪽 분리 관측</span></figcaption></figure></div>
   </div></div></section>
 
@@ -66,9 +67,9 @@
     <p class="method-note">비교 방법 수치는 학위논문 표의 직접 기재값이 아니라 동일 데이터로 별도 계산한 평균. 시뮬레이션에서 학습한 DQN 정책은 현장 데이터에 추가 학습 없이 적용했으며, 도메인별로 IMM 잡음 공분산만 조정.</p>
   </div></div></section>
 
-  <section class="case-section"><div class="section-shell case-layout"><div><span class="case-section-label">08 / OWNERSHIP</span><h2>수행 범위</h2></div><div class="case-body"><ul class="noun-list"><li><strong>기획</strong>연구 질문 설정, 선행연구 분석, 과제계획 수립</li><li><strong>알고리즘</strong>다섯 관측 후보 정의, DQN 상태·행동·보상 설계, IMM 결합</li><li><strong>환경</strong>MATLAB 시뮬레이션 구축, 센서 플랫폼 설치, 실험차량 운전</li><li><strong>검증</strong>RTK-GPS 기준 데이터 수집, 시뮬레이션과 현장 로그 분석</li><li><strong>성과화</strong>석사학위논문 작성, ICROS 제1저자 구두발표, 특허 공동발명</li></ul></div></div></section>
+  <section class="case-section"><div class="section-shell case-layout"><div><span class="case-section-label">08 / OWNERSHIP</span><h2>수행 범위</h2></div><div class="case-body"><ul class="noun-list"><li><strong>기획</strong>연구 질문 설정, 선행연구 분석, 과제계획 수립</li><li><strong>알고리즘</strong>다섯 관측 후보 정의, DQN 상태, 행동, 보상 설계, IMM 결합</li><li><strong>환경</strong>MATLAB 시뮬레이션 구축, 센서 플랫폼 설치, 실험차량 운전</li><li><strong>검증</strong>RTK-GPS 기준 데이터 수집, 시뮬레이션과 현장 로그 분석</li><li><strong>성과화</strong>석사학위논문 작성, ICROS 제1저자 구두발표, 특허 공동발명</li></ul></div></div></section>
 
-  <section class="case-section"><div class="section-shell case-layout"><div><span class="case-section-label">09 / OUTPUT</span><h2>논문·특허</h2></div><div class="case-body source-links"><a href="../assets/docs/master-thesis.pdf" target="_blank" rel="noopener"><span>석사학위논문</span><strong>교차로 도로변 센서 시스템을 위한 강화학습 기반의 단안 카메라와 2D LiDAR 센서 융합 알고리즘</strong><em>98쪽 원문</em></a><a href="../assets/docs/icros-2025.pdf" target="_blank" rel="noopener"><span>ICROS 2025</span><strong>차량 추적을 위한 강화학습 기반 도로변 센서 시스템</strong><em>제1저자, 구두발표</em></a><div><span>특허</span><strong>차량 상태 추정 방법, 이를 수행하는 장치 및 기록매체</strong><em>10-2025-0136289</em></div><p class="privacy-note">연구과제 참여 증명서는 과제명, 기간, 역할 확인에만 사용. 생년월일과 문서번호가 포함된 취업용 원문은 공개하지 않음.</p></div></div></section>
+  <section class="case-section"><div class="section-shell case-layout"><div><span class="case-section-label">09 / OUTPUT</span><h2>논문, 특허</h2></div><div class="case-body source-links"><a href="../assets/docs/master-thesis.pdf" target="_blank" rel="noopener"><span>석사학위논문</span><strong>교차로 도로변 센서 시스템을 위한 강화학습 기반의 단안 카메라와 2D LiDAR 센서 융합 알고리즘</strong><em>98쪽 원문</em></a><a href="../assets/docs/icros-2025.pdf" target="_blank" rel="noopener"><span>ICROS 2025</span><strong>차량 추적을 위한 강화학습 기반 도로변 센서 시스템</strong><em>제1저자, 구두발표</em></a><div><span>특허</span><strong>차량 상태 추정 방법, 이를 수행하는 장치 및 기록매체</strong><em>10-2025-0136289</em></div><p class="privacy-note">연구과제 참여 증명서는 과제명, 기간, 역할 확인에만 사용. 생년월일과 문서번호가 포함된 취업용 원문은 공개하지 않음.</p></div></div></section>
   <nav class="next-project"><a class="section-shell" href="roboracer.html"><span>다음 프로젝트</span><strong>IFAC 2026 RoboRacer →</strong></a></nav>
 </main>
 <footer class="site-footer"><div class="section-shell"><span>© 2026 곽민재</span><a href="mailto:tkkwak4@naver.com">tkkwak4@naver.com</a></div></footer>

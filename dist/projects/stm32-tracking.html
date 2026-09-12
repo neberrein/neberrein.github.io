@@ -4,22 +4,22 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="description" content="STM32F429와 FreeRTOS 기반 초음파 표적 탐지, 추적, 재탐색 시스템">
-  <title>STM32 초음파 표적탐지·추적 | 곽민재</title>
+  <title>STM32 초음파 표적탐지, 추적 | 곽민재</title>
   <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="../assets/site.css">
   <script src="../assets/site.js" defer></script>
 </head>
 <body>
 <a class="skip-link" href="#main">본문 바로가기</a>
-<header class="site-header detail-header"><a class="brand" href="../index.html">곽민재 <span>PORTFOLIO</span></a><nav class="primary-nav" aria-label="상세 페이지 메뉴"><a href="../index.html#projects">프로젝트</a><a href="../index.html#research">논문·특허</a></nav></header>
+<header class="site-header detail-header"><a class="brand" href="../index.html">곽민재 <span>PORTFOLIO</span></a><nav class="primary-nav" aria-label="상세 페이지 메뉴"><a href="../index.html#projects">프로젝트</a><a href="../index.html#research">논문, 특허</a></nav></header>
 <main id="main">
   <section class="case-hero section-shell">
     <a class="back-link" href="../index.html#projects">← 프로젝트 목록</a>
-    <p class="case-label">EMBEDDED SOFTWARE · REAL-TIME SYSTEM</p>
+    <p class="case-label">EMBEDDED SOFTWARE , REAL-TIME SYSTEM</p>
     <h1>STM32 기반 초음파 표적탐지와 추적</h1>
     <p class="case-subtitle">HC-SR04 한 개를 서보모터로 왕복 구동해 각도별 거리 프레임을 만들고, 공간 연속성과 시간 재검증을 통과한 접근 물체만 표적으로 확정한 FreeRTOS 개인 프로젝트.</p>
-    <dl class="case-facts"><div><dt>플랫폼</dt><dd>STM32F429, HC-SR04, SG90</dd></div><div><dt>담당</dt><dd>개인 프로젝트, 전체 설계와 구현</dd></div><div><dt>기술</dt><dd>C · FreeRTOS · HAL · TouchGFX</dd></div><div><dt>결과</dt><dd>탐지, 추적, 소실, 재탐색 자동 순환</dd></div></dl>
-    <figure class="detail-cover editorial-cover"><img src="../assets/images/stm32-scanning.png" alt="STM32F429 보드, 초음파 센서, 서보모터, TouchGFX 화면"><figcaption>STM32F429, HC-SR04, SG90, RGB LED, TouchGFX 화면을 통합한 자동 스캔 시스템</figcaption></figure>
+    <dl class="case-facts"><div><dt>플랫폼</dt><dd>STM32F429, HC-SR04, SG90</dd></div><div><dt>담당</dt><dd>개인 프로젝트, 전체 설계와 구현</dd></div><div><dt>기술</dt><dd>C , FreeRTOS , HAL , TouchGFX</dd></div><div><dt>결과</dt><dd>탐지, 추적, 소실, 재탐색 자동 순환</dd></div></dl>
+    <figure class="detail-cover editorial-cover stm32-overview"><div class="stm32-photo"><img src="../assets/images/stm32-system-overview.jpg" alt="STM32F429 보드, 초음파 센서, 서보모터, RGB LED를 통합한 자동 스캔 시스템"><span class="stm32-label board-label">STM32F429I-DISC1, TouchGFX</span><span class="stm32-label sensor-label">HC-SR04 초음파 센서</span><span class="stm32-label servo-label">SG90 서보모터</span><span class="stm32-label led-label">RGB LED</span></div><figcaption>STM32F429, HC-SR04, SG90, RGB LED, TouchGFX 화면을 통합한 자동 스캔 시스템</figcaption></figure>
   </section>
 
   <section class="case-section"><div class="section-shell case-layout"><div><span class="case-section-label">01 / PURPOSE</span><h2>구현 목표</h2></div><div class="case-body">
@@ -38,11 +38,11 @@
   </div></div></section>
 
   <section class="case-section alt-section"><div class="section-shell case-layout"><div><span class="case-section-label">04 / DEMO</span><h2>통합 동작</h2></div><div class="case-body">
-    <figure class="video-card wide-video"><video autoplay controls muted loop playsinline preload="metadata" poster="../assets/images/stm32-tracking-clean.png"><source src="../assets/videos/stm32-demo-h264.mp4" type="video/mp4">브라우저에서 영상을 재생할 수 없습니다.</video><figcaption>자동 스캔, 표적 추적, 수동 터치 조작, UART 검증을 포함한 30초 시연</figcaption></figure>
+    <figure class="video-card wide-video"><video autoplay muted loop playsinline preload="auto" data-start="15" poster="../assets/images/stm32-tracking-clean.png"><source src="../assets/videos/stm32-demo-h264.mp4" type="video/mp4">브라우저에서 영상을 재생할 수 없습니다.</video><figcaption>초반 무동작 구간을 건너뛰고 자동 스캔, 표적 추적, 수동 터치 조작과 UART 검증이 이어지는 시연</figcaption></figure>
   </div></div></section>
 
   <section class="case-section"><div class="section-shell case-layout"><div><span class="case-section-label">05 / EVIDENCE</span><h2>기능별 결과</h2></div><div class="case-body">
-    <div class="vehicle-grid evidence-photos"><figure><img src="../assets/images/stm32-scan-evidence.png" alt="STM32 자동 스캔 상태의 원본 화면"><figcaption><strong>자동 스캔</strong><span>현재 각도와 거리, SCANNING 상태 확인</span></figcaption></figure><figure><img src="../assets/images/stm32-track-evidence.png" alt="STM32 표적 추적 상태의 원본 화면"><figcaption><strong>표적 추적</strong><span>표적 각도와 거리, 녹색 상태 표시 확인</span></figcaption></figure><figure><img src="../assets/images/stm32-manual.png" alt="TouchGFX 수동 조작 화면"><figcaption><strong>수동 운용</strong><span>화면 버튼 명령을 RTOS 큐로 전달</span></figcaption></figure><figure><img src="../assets/images/stm32-hardware-detail.jpg" alt="HC-SR04, SG90, RGB LED를 장착한 STM32 하드웨어"><figcaption><strong>하드웨어</strong><span>초음파 센서, 서보, RGB LED, 3D 프린팅 브래킷</span></figcaption></figure></div>
+    <div class="vehicle-grid evidence-photos horizontal-evidence"><figure><img src="../assets/images/stm32-scan-evidence.png" alt="STM32 자동 스캔 상태의 원본 화면"><figcaption><strong>자동 스캔</strong><span>현재 각도와 거리, SCANNING 상태 확인</span></figcaption></figure><figure><img src="../assets/images/stm32-track-evidence.png" alt="STM32 표적 추적 상태의 원본 화면"><figcaption><strong>표적 추적</strong><span>표적 각도와 거리, 녹색 상태 표시 확인</span></figcaption></figure><figure><img src="../assets/images/stm32-manual.png" alt="TouchGFX 수동 조작 화면"><figcaption><strong>수동 운용</strong><span>화면 버튼 명령을 RTOS 큐로 전달</span></figcaption></figure><figure><img src="../assets/images/stm32-sensor-closeup.jpg" alt="HC-SR04 초음파 센서, SG90 서보모터와 RGB LED"><figcaption><strong>센서 구성</strong><span>HC-SR04, SG90, RGB LED의 실제 장착 상태</span></figcaption></figure></div>
     <figure class="research-figure uart-figure"><img src="../assets/images/stm32-uart-readable.png" alt="15포인트 왕복 스캔과 valid 15/15가 표시된 UART 로그"><figcaption>UART 원본 화면. FORWARD와 REVERSE 왕복 프레임, 각도별 거리, 여러 프레임의 valid=15/15 확인</figcaption></figure>
   </div></div></section>
 

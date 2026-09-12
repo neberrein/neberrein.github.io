@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="다빈치 창의학점제 RGB 색상 분류와 자율주행 키트 프로젝트">
+  <title>다빈치 창의학점제 | 곽민재</title>
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="../assets/site.css"><script src="../assets/site.js" defer></script>
+</head>
+<body><a class="skip-link" href="#main">본문 바로가기</a><header class="site-header detail-header"><a class="brand" href="../index.html">곽민재 <span>PORTFOLIO</span></a><nav class="primary-nav" aria-label="상세 페이지 메뉴"><a href="../index.html#projects">프로젝트</a><a href="../index.html#research">논문, 특허</a></nav></header>
+<main id="main">
+  <section class="case-hero section-shell">
+    <a class="back-link" href="../index.html#projects">← 프로젝트 목록</a>
+    <p class="case-label">DA VINCI CREATIVE CREDIT , COMPUTER VISION</p>
+    <h1>다빈치 창의학점제<br>카메라 인식에서 주행 제어까지</h1>
+    <p class="case-subtitle">같은 팀장 경험 안에서 두 문제를 풀었다. 오렌지파이 카메라의 색상 분류는 데이터 수집 조건을 통제해 재현성을 확보했고, 자율주행 키트는 YOLO 인지 결과를 A-star 경로 탐색과 PID 제어로 연결했다.</p>
+    <dl class="case-facts"><div><dt>기간</dt><dd>2022.07–2023.01</dd></div><div><dt>소속</dt><dd>중앙대학교 다빈치 창의학점제</dd></div><div><dt>역할</dt><dd>팀장, 데이터와 주행 알고리즘 설계</dd></div><div><dt>기술</dt><dd>Python, CNN, YOLO, A-star, PID, Orange Pi</dd></div></dl>
+    <div class="dual-evidence"><figure class="research-figure"><img src="../assets/images/sources/rgb-paper-page1.png" alt="오렌지파이 RGB 색상 분류 학술지 논문 첫 페이지"><figcaption>RGB 색상 분류 모델 개발 및 성능 분석, 한국지식재산교육연구학회 제10권 2호</figcaption></figure><div class="evidence-note"><span>한 프로젝트 안의 두 실험</span><h3>입력 품질을 먼저 고정하고, 인지 결과를 제어까지 연결</h3><p>색상 분류에서는 촬영 위치, 각도, 조도와 표면 조건을 고정했다. 자율주행 키트에서는 장애물이 차선을 가리는 실패 장면에서 문제를 차선 인식이 아닌 차선과 장애물의 구분으로 다시 정의했다.</p><a class="text-link" href="../assets/docs/rgb-color-paper.pdf" target="_blank" rel="noopener">RGB 논문 원문 열기 ↗</a></div></div>
+  </section>
+  <section class="case-section"><div class="section-shell case-layout"><div><span class="case-section-label">01 / RGB CLASSIFICATION</span><h2>재현되지 않던 결과를 데이터 문제로 좁혔다</h2></div><div class="case-body"><div class="decision-grid"><article><span>문제</span><h3>같은 모델, 다른 결과</h3><p>촬영 위치와 조도가 매번 달라 R, G, B 입력값이 흔들렸고, 동일 모델의 실험 결과도 달라졌다.</p></article><article><span>조치</span><h3>수집 기준 고정</h3><p>촬영 위치, 카메라 각도, 밝기, 표면 조건을 체크리스트로 만들고 데이터를 다시 수집했다.</p></article><article><span>결과</span><h3>21,054장 비교</h3><p>Decision Tree, Random Forest, CNN을 같은 조건에서 비교해 모델보다 입력 재현성이 먼저라는 결론을 확인했다.</p></article></div><table class="metric-table"><thead><tr><th>모델</th><th>정확도</th><th>ROC-AUC</th></tr></thead><tbody><tr><td>Decision Tree</td><td>99.48%</td><td>0.9961</td></tr><tr><td>Random Forest</td><td>98.10%</td><td>0.9858</td></tr><tr><td><strong>CNN</strong></td><td><strong>99.91%</strong></td><td><strong>0.9993</strong></td></tr></tbody></table></div></div></section>
+  <section class="case-section alt-section"><div class="section-shell case-layout"><div><span class="case-section-label">02 / AUTONOMOUS KIT</span><h2>장애물을 만난 뒤 인지, 판단, 제어를 다시 이었다</h2></div><div class="case-body"><div class="pipeline-row"><article><span>인지</span><strong>YOLO</strong><p>차선과 장애물을 한 검출기에서 분리</p></article><b>→</b><article><span>판단</span><strong>A-star</strong><p>장애물을 피하는 경로 탐색</p></article><b>→</b><article><span>제어</span><strong>PID</strong><p>탐색 경로를 실제 조향으로 추종</p></article></div><div class="decision-strip"><article><span>실패 장면</span><strong>차선이 가려지면 충돌</strong></article><article><span>문제 재정의</span><strong>차선과 장애물 구분 부재</strong></article><article><span>측정 결과</span><strong>횡오차 0.17 m → 0.05 m 이하</strong></article></div><p class="method-note">팀장으로 인지, 판단, 제어 알고리즘 설계와 역할 분담을 맡았다. 빈 트랙에서만 잘 도는 로직을 고치는 대신, 장애물이 차선을 가리는 조건을 별도 시나리오로 만들고 주행 결과로 개선을 확인했다.</p></div></div></section>
+  <section class="case-section"><div class="section-shell case-layout"><div><span class="case-section-label">03 / WHAT REMAINS</span><h2>두 프로젝트에서 남은 설계 원칙</h2></div><div class="case-body"><ul class="noun-list"><li><strong>입력 조건 고정</strong>모델을 바꾸기 전에 센서와 데이터 수집 조건의 흔들림부터 확인</li><li><strong>문제 재정의</strong>차선 인식 성능 저하가 아니라 차선과 장애물의 구분 부재로 원인 축소</li><li><strong>끝단 검증</strong>분류 정확도만 보지 않고 실제 키트의 횡오차로 제어 결과 확인</li></ul></div></div></section>
+  <nav class="next-project"><a class="section-shell" href="crosswalk-gap.html"><span>연결 연구</span><strong>비신호 횡단보도 임계간격 연구 →</strong></a></nav>
+</main><footer class="site-footer"><div class="section-shell"><span>© 2026 곽민재</span><a href="mailto:tkkwak4@naver.com">tkkwak4@naver.com</a></div></footer></body></html>
