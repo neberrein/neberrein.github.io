@@ -59,4 +59,28 @@ document.querySelectorAll('[data-sync-group]').forEach((video) => {
   }));
   video.addEventListener('pause', () => withPeers((peer) => peer.pause()));
   video.addEventListener('seeking', () => withPeers((peer) => { peer.currentTime = video.currentTime; }));
+  video.addEventListener('timeupdate', () => withPeers((peer) => {
+    if (Math.abs(peer.currentTime - video.currentTime) > 0.16) peer.currentTime = video.currentTime;
+  }));
 });
+
+const autoplayVideos = [...document.querySelectorAll('video[autoplay]')];
+const playMuted = (video) => {
+  video.muted = true;
+  video.play().catch(() => {});
+};
+
+autoplayVideos.forEach((video) => {
+  if (video.readyState >= 2) playMuted(video);
+  video.addEventListener('canplay', () => playMuted(video), { once: true });
+});
+
+if ('IntersectionObserver' in window) {
+  const videoObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      const video = entry.target;
+      if (entry.isIntersecting) playMuted(video);
+    });
+  }, { threshold: 0.25 });
+  autoplayVideos.forEach((video) => videoObserver.observe(video));
+}
