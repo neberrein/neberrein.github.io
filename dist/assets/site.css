@@ -816,6 +816,19 @@ a.publication:hover strong, a.publication:focus-visible strong { color: #9ed0ff;
 .navigation-result-title { margin-top:2rem; }
 .roboracer-page .problem-chain small,.roboracer-page .failure-grid small { display:block; margin-top:.65rem; color:var(--slate); font-size:.75rem; line-height:1.6; }
 .roboracer-page .ownership-strip { border-left:3px solid var(--signal); }
+.roboracer-page .case-layout { grid-template-columns:minmax(0,1fr); gap:1.25rem; }
+.roboracer-page .case-body { max-width:none; }
+.roboracer-page .case-layout > div:first-child { display:flex; align-items:baseline; flex-wrap:wrap; gap:.5rem 1.25rem; }
+.roboracer-page .case-body > p { max-width:75ch; }
+.roboracer-page .robo-perception-layout { display:grid; grid-template-columns:minmax(0,1.6fr) minmax(280px,1fr); gap:1.25rem; align-items:start; }
+.roboracer-page .robo-perception-layout .research-figure { margin:0; }
+.roboracer-page .perception-evidence img { display:block; width:100%; height:auto; max-height:none; padding:0; }
+.roboracer-page .robo-perception-layout .perception-chain { grid-template-columns:minmax(0,1fr); margin:0; }
+.roboracer-page .robo-perception-layout .perception-chain article { padding:.75rem 1rem; }
+.roboracer-page .robo-perception-layout .perception-chain p { font-size:.85rem; }
+.roboracer-page .fsm-evidence img { display:block; width:100%; height:auto; max-height:none; padding:0; }
+.roboracer-page .robo-recovery-trial { display:grid; gap:.5rem; margin-top:1rem; padding:1rem 1.25rem; border-left:3px solid var(--signal); background:var(--paper); }
+.roboracer-page .robo-recovery-trial span { color:var(--signal); font-size:.8rem; font-weight:750; }
 .roboracer-page .robo-team-figure { margin-top:1.5rem; }
 .roboracer-page .robo-team-figure img { max-height:480px; }
 .robo-failure-flow { display:grid; grid-template-columns:repeat(3,minmax(0,1fr) auto) minmax(0,1fr); gap:.6rem; align-items:stretch; margin-top:1.5rem; }
@@ -875,6 +888,7 @@ a.publication:hover strong, a.publication:focus-visible strong { color: #9ed0ff;
 }
 
 @media (max-width:680px) {
+  .roboracer-page .robo-perception-layout { grid-template-columns:minmax(0,1fr); }
   .davinci-autonomous-page .autonomous-evidence { grid-template-columns:1fr; }
   .davinci-autonomous-page .autonomous-evidence .research-figure { width:100%; max-width:420px; }
   .stm32-state-evidence { grid-template-columns:1fr; }
