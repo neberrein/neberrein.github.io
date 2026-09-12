@@ -36,7 +36,7 @@
   <section class="case-section"><div class="section-shell case-layout"><div><span class="case-section-label">03 / PERCEPTION</span><h2>벽과 장애물 구분</h2></div><div class="case-body">
     <p>LiDAR 전방 점군을 가까운 점끼리 묶고, 각 군집에 RANSAC을 적용해 선분의 길이와 방향을 계산했다. 트랙을 따라 길게 이어지는 선분은 벽, 차량과 장애물처럼 짧게 관측되는 선분은 장애물로 구분해 Frenet 플래너에 전달.</p>
     <figure class="research-figure ppt-evidence"><img src="../assets/images/robo-wall-obstacle-diagram.png" alt="LiDAR 점군의 RANSAC 선분 길이를 이용해 벽과 장애물을 구분하는 발표자료 그림"><figcaption>RANSAC 선분 길이와 안전영역 설정. Meeting 20260903 발표자료에서 분리</figcaption></figure>
-    <div class="perception-chain"><article><span>01</span><strong>점군 묶기</strong><p>서로 가까운 LiDAR 점을 하나의 물체 후보로 군집화</p></article><article><span>02</span><strong>선분 추출</strong><p>각 군집에 RANSAC을 적용해 관측 형상과 길이 계산</p></article><article><span>03</span><strong>플래너 전달</strong><p>벽과 장애물을 구분해 서로 다른 안전영역으로 변환</p></article></div>
+    <div class="perception-chain"><article><span>01</span><strong>점군 묶기</strong><p>서로 가까운 LiDAR 점을 하나의 물체 후보로 군집화</p></article><article><span>02</span><strong>벽과 장애물 판정</strong><p>곡선 벽이 약 0.5 m 선분으로 나뉘는 점을 반영해 0.45 m를 분류 기준으로 설정</p></article><article><span>03</span><strong>충돌영역 계산</strong><p>벽은 차량 반폭 0.14 m, 장애물은 여유를 더한 0.24 m로 확장해 후보 경로와의 충돌 검사</p></article></div>
     <div class="problem-chain"><strong>실차에서 확인한 문제</strong><p>펜스가 끊긴 구간에서도 떨어진 점군이 하나의 긴 선분으로 묶이면, 실제 통로가 벽으로 인식되어 모든 회피 후보가 탈락. 인접 점 사이의 큰 공백에서 선분을 나눠 통로 유지.</p></div>
   </div></div></section>
 

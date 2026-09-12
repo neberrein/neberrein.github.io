@@ -43,7 +43,22 @@
 
   <section class="case-section"><div class="section-shell case-layout"><div><span class="case-section-label">05 / EVIDENCE</span><h2>기능별 결과</h2></div><div class="case-body">
     <div class="vehicle-grid evidence-photos horizontal-evidence"><figure><img src="../assets/images/stm32-scan-evidence.png" alt="STM32 자동 스캔 상태의 원본 화면"><figcaption><strong>자동 스캔</strong><span>현재 각도와 거리, SCANNING 상태 확인</span></figcaption></figure><figure><img src="../assets/images/stm32-track-evidence.png" alt="STM32 표적 추적 상태의 원본 화면"><figcaption><strong>표적 추적</strong><span>표적 각도와 거리, 녹색 상태 표시 확인</span></figcaption></figure><figure><img src="../assets/images/stm32-manual.png" alt="TouchGFX 수동 조작 화면"><figcaption><strong>수동 운용</strong><span>화면 버튼 명령을 RTOS 큐로 전달</span></figcaption></figure><figure><img src="../assets/images/stm32-sensor-closeup.jpg" alt="HC-SR04 초음파 센서, SG90 서보모터와 RGB LED"><figcaption><strong>센서 구성</strong><span>HC-SR04, SG90, RGB LED의 실제 장착 상태</span></figcaption></figure></div>
-    <figure class="research-figure uart-figure"><img src="../assets/images/stm32-uart-readable.png" alt="15포인트 왕복 스캔과 valid 15/15가 표시된 UART 로그"><figcaption>UART 원본 화면. FORWARD와 REVERSE 왕복 프레임, 각도별 거리, 여러 프레임의 valid=15/15 확인</figcaption></figure>
+    <figure class="uart-terminal-figure" aria-labelledby="uart-log-caption">
+      <div class="uart-terminal" role="img" aria-label="STM32 자동 스캔 UART 로그를 가독성 있게 재구성한 화면">
+        <div class="uart-terminal-bar"><span>USART3 / 115200 bps</span><span>SCAN LOG</span></div>
+        <pre><code><span class="uart-accent">[FRAME COMPLETE]</span> number=19  direction=FORWARD
+<span class="uart-muted">[DISTANCE]</span>       20 deg = 9.1 cm
+                 30 deg = 9.8 cm
+                 40 deg = 10.6 cm
+                 ...
+                 160 deg = 24.5 cm
+<span class="uart-success">[FRAME SUMMARY]</span>  valid=15/15
+
+<span class="uart-accent">[COMPARE]</span>        frame 17 FORWARD &lt;-&gt; frame 19 FORWARD
+                 delta_mm = previous - current</code></pre>
+      </div>
+      <figcaption id="uart-log-caption">실측 UART 출력값을 가독성 있게 재구성. 20도부터 160도까지 15포인트 거리 취득, 유효 측정 15/15, 같은 방향 프레임 간 접근 변화량 비교 확인</figcaption>
+    </figure>
   </div></div></section>
 
   <section class="case-section alt-section"><div class="section-shell case-layout"><div><span class="case-section-label">06 / DESIGN DECISIONS</span><h2>핵심 판단</h2></div><div class="case-body">
