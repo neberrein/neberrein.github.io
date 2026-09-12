@@ -43,25 +43,55 @@ if ('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-mot
   revealItems.forEach((item) => item.classList.add('is-visible'));
 }
 
+const syncGroups = new Map();
 document.querySelectorAll('[data-sync-group]').forEach((video) => {
   const group = video.dataset.syncGroup;
-  const peers = [...document.querySelectorAll(`[data-sync-group="${group}"]`)];
+  syncGroups.set(group, [...(syncGroups.get(group) || []), video]);
+});
+
+syncGroups.forEach((videos) => {
+  const master = videos[0];
+  const peers = videos.slice(1);
   let syncing = false;
-  const withPeers = (action) => {
+  let sharedDuration = Infinity;
+
+  const runTogether = (action) => {
     if (syncing) return;
     syncing = true;
-    peers.filter((peer) => peer !== video).forEach(action);
+    videos.forEach(action);
     syncing = false;
   };
-  video.addEventListener('play', () => withPeers((peer) => {
-    peer.currentTime = video.currentTime;
-    peer.play().catch(() => {});
-  }));
-  video.addEventListener('pause', () => withPeers((peer) => peer.pause()));
-  video.addEventListener('seeking', () => withPeers((peer) => { peer.currentTime = video.currentTime; }));
-  video.addEventListener('timeupdate', () => withPeers((peer) => {
-    if (Math.abs(peer.currentTime - video.currentTime) > 0.16) peer.currentTime = video.currentTime;
-  }));
+
+  const updateSharedDuration = () => {
+    const durations = videos.map((video) => video.duration).filter(Number.isFinite);
+    if (durations.length === videos.length) sharedDuration = Math.min(...durations);
+  };
+
+  videos.forEach((video) => {
+    video.removeAttribute('loop');
+    video.addEventListener('loadedmetadata', updateSharedDuration);
+    video.addEventListener('play', () => runTogether((item) => {
+      if (item !== video) item.currentTime = video.currentTime;
+      item.play().catch(() => {});
+    }));
+    video.addEventListener('pause', () => runTogether((item) => item.pause()));
+    video.addEventListener('seeking', () => runTogether((item) => {
+      if (item !== video) item.currentTime = video.currentTime;
+    }));
+  });
+
+  master.addEventListener('timeupdate', () => {
+    if (Number.isFinite(sharedDuration) && master.currentTime >= sharedDuration - 0.08) {
+      runTogether((video) => {
+        video.currentTime = 0;
+        video.play().catch(() => {});
+      });
+      return;
+    }
+    peers.forEach((peer) => {
+      if (Math.abs(peer.currentTime - master.currentTime) > 0.08) peer.currentTime = master.currentTime;
+    });
+  });
 });
 
 const autoplayVideos = [...document.querySelectorAll('video[autoplay]')];

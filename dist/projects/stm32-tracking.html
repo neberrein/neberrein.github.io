@@ -15,11 +15,11 @@
 <main id="main">
   <section class="case-hero section-shell">
     <a class="back-link" href="../index.html#projects">← 프로젝트 목록</a>
-    <p class="case-label">EMBEDDED SOFTWARE , REAL-TIME SYSTEM</p>
+    <p class="case-label">EMBEDDED SOFTWARE, REAL-TIME SYSTEM</p>
     <h1>STM32 기반 초음파 표적탐지와 추적</h1>
     <p class="case-subtitle">HC-SR04 한 개를 서보모터로 왕복 구동해 각도별 거리 프레임을 만들고, 공간 연속성과 시간 재검증을 통과한 접근 물체만 표적으로 확정한 FreeRTOS 개인 프로젝트.</p>
-    <dl class="case-facts"><div><dt>플랫폼</dt><dd>STM32F429, HC-SR04, SG90</dd></div><div><dt>담당</dt><dd>개인 프로젝트, 전체 설계와 구현</dd></div><div><dt>기술</dt><dd>C , FreeRTOS , HAL , TouchGFX</dd></div><div><dt>결과</dt><dd>탐지, 추적, 소실, 재탐색 자동 순환</dd></div></dl>
-    <figure class="detail-cover editorial-cover stm32-overview"><div class="stm32-photo"><img src="../assets/images/stm32-system-overview.jpg" alt="STM32F429 보드, 초음파 센서, 서보모터, RGB LED를 통합한 자동 스캔 시스템"><span class="stm32-label board-label">STM32F429I-DISC1, TouchGFX</span><span class="stm32-label sensor-label">HC-SR04 초음파 센서</span><span class="stm32-label servo-label">SG90 서보모터</span><span class="stm32-label led-label">RGB LED</span></div><figcaption>STM32F429, HC-SR04, SG90, RGB LED, TouchGFX 화면을 통합한 자동 스캔 시스템</figcaption></figure>
+    <dl class="case-facts"><div><dt>플랫폼</dt><dd>STM32F429, HC-SR04, SG90</dd></div><div><dt>담당</dt><dd>개인 프로젝트, 전체 설계와 구현</dd></div><div><dt>기술</dt><dd>C, FreeRTOS, HAL, TouchGFX</dd></div><div><dt>결과</dt><dd>탐지, 추적, 소실, 재탐색 자동 순환</dd></div></dl>
+    <figure class="detail-cover editorial-cover stm32-overview"><div class="stm32-photo"><img src="../assets/images/stm32-system-overview.jpg" alt="STM32F429 보드, 초음파 센서, 서보모터, RGB LED를 통합한 자동 스캔 시스템"><svg class="stm32-connectors" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><line x1="25" y1="77" x2="39" y2="72"/><line x1="69" y1="47" x2="63" y2="48"/><line x1="71" y1="55" x2="63" y2="58"/><line x1="50" y1="34" x2="58" y2="38"/></svg><span class="stm32-label board-label">STM32F429I-DISC1, TouchGFX</span><span class="stm32-label sensor-label">HC-SR04 초음파 센서</span><span class="stm32-label servo-label">SG90 서보모터</span><span class="stm32-label led-label">RGB LED</span></div><figcaption>STM32F429, HC-SR04, SG90, RGB LED, TouchGFX 화면을 통합한 자동 스캔 시스템</figcaption></figure>
   </section>
 
   <section class="case-section"><div class="section-shell case-layout"><div><span class="case-section-label">01 / PURPOSE</span><h2>구현 목표</h2></div><div class="case-body">
@@ -44,7 +44,7 @@
   <section class="case-section"><div class="section-shell case-layout"><div><span class="case-section-label">05 / EVIDENCE</span><h2>기능별 결과</h2></div><div class="case-body">
     <div class="vehicle-grid evidence-photos horizontal-evidence"><figure><img src="../assets/images/stm32-scan-evidence.png" alt="STM32 자동 스캔 상태의 원본 화면"><figcaption><strong>자동 스캔</strong><span>현재 각도와 거리, SCANNING 상태 확인</span></figcaption></figure><figure><img src="../assets/images/stm32-track-evidence.png" alt="STM32 표적 추적 상태의 원본 화면"><figcaption><strong>표적 추적</strong><span>표적 각도와 거리, 녹색 상태 표시 확인</span></figcaption></figure><figure><img src="../assets/images/stm32-manual.png" alt="TouchGFX 수동 조작 화면"><figcaption><strong>수동 운용</strong><span>화면 버튼 명령을 RTOS 큐로 전달</span></figcaption></figure><figure><img src="../assets/images/stm32-sensor-closeup.jpg" alt="HC-SR04 초음파 센서, SG90 서보모터와 RGB LED"><figcaption><strong>센서 구성</strong><span>HC-SR04, SG90, RGB LED의 실제 장착 상태</span></figcaption></figure></div>
     <figure class="uart-terminal-figure" aria-labelledby="uart-log-caption">
-      <div class="uart-terminal" role="img" aria-label="STM32 자동 스캔 UART 로그를 가독성 있게 재구성한 화면">
+      <div class="uart-terminal" role="img" aria-label="STM32 자동 스캔 UART 로그 화면">
         <div class="uart-terminal-bar"><span>USART3 / 115200 bps</span><span>SCAN LOG</span></div>
         <pre><code><span class="uart-accent">[FRAME COMPLETE]</span> number=19  direction=FORWARD
 <span class="uart-muted">[DISTANCE]</span>       20 deg = 9.1 cm
@@ -57,8 +57,9 @@
 <span class="uart-accent">[COMPARE]</span>        frame 17 FORWARD &lt;-&gt; frame 19 FORWARD
                  delta_mm = previous - current</code></pre>
       </div>
-      <figcaption id="uart-log-caption">실측 UART 출력값을 가독성 있게 재구성. 20도부터 160도까지 15포인트 거리 취득, 유효 측정 15/15, 같은 방향 프레임 간 접근 변화량 비교 확인</figcaption>
+      <figcaption id="uart-log-caption">자동 스캔 한 프레임의 각도별 거리값과 다음 프레임과의 변화량 확인</figcaption>
     </figure>
+    <div class="uart-evidence" aria-label="UART 로그 항목 설명"><article><strong>20–160도</strong><p>초음파 센서가 좌우로 탐색하는 전체 각도 범위</p></article><article><strong>15포인트</strong><p>10도 간격으로 한 프레임에 취득한 거리값 개수</p></article><article><strong>valid 15/15</strong><p>15개 각도에서 모두 Echo 응답을 받은 정상 프레임</p></article><article><strong>FORWARD ↔ FORWARD</strong><p>스캔 방향이 같은 프레임끼리 비교해 동일 각도의 접근 변화량 계산</p></article></div>
   </div></div></section>
 
   <section class="case-section alt-section"><div class="section-shell case-layout"><div><span class="case-section-label">06 / DESIGN DECISIONS</span><h2>핵심 판단</h2></div><div class="case-body">

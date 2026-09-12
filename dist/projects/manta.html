@@ -10,19 +10,19 @@
 <main id="main">
   <section class="case-hero section-shell">
     <a class="back-link" href="../index.html#projects">← 프로젝트 목록</a>
-    <p class="case-label">ROS 2 , UNDERWATER AUTONOMOUS SYSTEM</p>
+    <p class="case-label">ROS 2, UNDERWATER AUTONOMOUS SYSTEM</p>
     <h1>MANTA 수중 무인체계 회피 판단과 경로계획</h1>
     <p class="case-subtitle">BlueROV2가 임무 경로를 주행하는 동안 유도어뢰의 미래 통로를 계산하고, A*와 Dynamic Velocity Obstacle의 회피 특성을 비교한 수중 시뮬레이션. 위협 판단, 경로계획, 실험 자동화 담당.</p>
-    <dl class="case-facts"><div><dt>기간</dt><dd>2026.07–08</dd></div><div><dt>팀</dt><dd>5인 기능별 브랜치 개발</dd></div><div><dt>담당</dt><dd>회피 판단, 경로계획, 실험설계</dd></div><div><dt>기술</dt><dd>ROS 2 , C++17 , Gazebo , RViz</dd></div></dl>
+    <dl class="case-facts"><div><dt>기간</dt><dd>2026.07–08</dd></div><div><dt>팀</dt><dd>5인 기능별 브랜치 개발</dd></div><div><dt>담당</dt><dd>회피 판단, 경로계획, 실험설계</dd></div><div><dt>기술</dt><dd>ROS 2, C++17, Gazebo, RViz</dd></div></dl>
     <figure class="detail-cover contain"><img src="../assets/images/manta-pipeline.png" alt="MANTA 전체 처리 파이프라인"><figcaption>위협 상태 수신 → 예측 통로 생성 → 회피 모드 판정 → 경로계획 → PPID 추종 모듈 전달</figcaption></figure>
   </section>
   <section class="case-section"><div class="section-shell case-layout"><div><span class="case-section-label">01 / SCOPE</span><h2>시스템과 담당 범위</h2></div><div class="case-body">
     <p>팀은 어뢰 유도, PPID 위치제어, CAN/HIL, 회피계획으로 나누어 개발했다. 담당 모듈은 DataHub의 상태 스냅샷을 받아 회피 경로를 만들고 <code>/uuv/reference_path</code>로 전달하는 구간.</p>
-    <div class="robo-system-map manta-map"><article><span>SIMULATION</span><strong>BlueROV , Torpedo</strong></article><b>→</b><article><span>DATA HUB</span><strong>상태 스냅샷</strong></article><b>→</b><article class="owned"><span>PLANNING CORE</span><strong>위협판단 , A* , DVO</strong><small>담당</small></article><b>→</b><article><span>PATH FOLLOWER</span><strong>PPID 제어</strong></article><b>→</b><article><span>GAZEBO</span><strong>추진기 명령</strong></article></div>
+    <div class="robo-system-map manta-map"><article><span>SIMULATION</span><strong>BlueROV, Torpedo</strong></article><b>→</b><article><span>DATA HUB</span><strong>상태 스냅샷</strong></article><b>→</b><article class="owned"><span>PLANNING CORE</span><strong>위협판단, A*, DVO</strong><small>담당</small></article><b>→</b><article><span>PATH FOLLOWER</span><strong>PPID 제어</strong></article><b>→</b><article><span>GAZEBO</span><strong>추진기 명령</strong></article></div>
   </div></div></section>
   <section class="case-section alt-section"><div class="section-shell case-layout"><div><span class="case-section-label">02 / THREAT MODEL</span><h2>움직이는 위협의 미래 통로</h2></div><div class="case-body">
     <figure class="research-figure"><img src="../assets/images/manta-evade.png" alt="어뢰 예측 통로와 회피 성공 판정"><figcaption>어뢰 진행방향 4초 앞까지 최대 32개 박스를 배치해 약 48 m의 예측 통로 구성</figcaption></figure>
-    <div class="decision-strip"><article><span>예측</span><strong>4.0 s 미래 위치</strong></article><article><span>통로</span><strong>1.5 m 간격 , 최대 32개</strong></article><article><span>판정</span><strong>1.0 m 이내 HIT</strong></article><article><span>재계획</span><strong>기존 경로와 통로 충돌 시</strong></article></div>
+    <div class="decision-strip"><article><span>예측</span><strong>4.0 s 미래 위치</strong></article><article><span>통로</span><strong>1.5 m 간격, 최대 32개</strong></article><article><span>판정</span><strong>1.0 m 이내 HIT</strong></article><article><span>재계획</span><strong>기존 경로와 통로 충돌 시</strong></article></div>
     <p class="method-note">5 Hz 표본 사이를 어뢰가 최대 1.9 m 이동할 수 있어 순간 거리만으로는 피격을 놓칠 수 있다. 두 틱 사이 상대운동의 최근접 시점을 계산해 구간 전체를 판정.</p>
   </div></div></section>
   <section class="case-section"><div class="section-shell case-layout"><div><span class="case-section-label">03 / COMPARISON</span><h2>A*와 Dynamic VO 비교</h2></div><div class="case-body">
@@ -35,7 +35,7 @@
   </div></div></section>
   <section class="case-section"><div class="section-shell case-layout"><div><span class="case-section-label">05 / ENGINEERING</span><h2>구조와 성능 개선</h2></div><div class="case-body">
     <ul class="noun-list"><li><strong>코어 분리</strong>PlanningCore의 ROS 의존 5개에서 0개로 축소, 시간과 상태를 입력받는 순수 판단 구조</li><li><strong>모듈 단순화</strong>planning_module.cpp 707줄에서 552줄로 축소</li><li><strong>시각화 부하</strong>예측 박스 개별 발행을 CUBE_LIST 하나로 묶어 165 msg/s에서 5 msg/s로 감소</li><li><strong>갱신 주기</strong>경로계획 성공 시에만 멈춰 있던 예측 통로를 상태 갱신마다 5 Hz로 갱신</li><li><strong>이식 검토</strong>A* 약 212 KB, DVO 수 KB로 ESP32 메모리 요구량 사전 비교</li></ul>
-    <div class="result-callout"><strong>97%</strong><div><h3>RViz 마커 발행량 감소</h3><p>판단 주기와 시각화 부하 분리 , 165 msg/s → 5 msg/s</p></div></div>
+    <div class="result-callout"><strong>97%</strong><div><h3>RViz 마커 발행량 감소</h3><p>판단 주기와 시각화 부하 분리, 165 msg/s → 5 msg/s</p></div></div>
   </div></div></section>
   <nav class="next-project"><a class="section-shell" href="roboracer.html"><span>다음 프로젝트</span><strong>IFAC RoboRacer 장애물 회피 →</strong></a></nav>
 </main><footer class="site-footer"><div class="section-shell"><span>© 2026 곽민재</span><a href="mailto:tkkwak4@naver.com">tkkwak4@naver.com</a></div></footer></body></html>
