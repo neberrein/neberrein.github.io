@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 460" role="img" aria-labelledby="title desc">
+  <title id="title">차선을 가리는 장애물: 문제 상황 개념도</title>
+  <desc id="desc">차선 위 장애물로 인해 차선만 따라 조향하는 차량의 진행이 막힌 상황을 설명하는 개념도. 실제 시험사진이 아닙니다.</desc>
+  <rect width="520" height="460" fill="#fff"/>
+  <g font-family="Arial,Malgun Gothic,sans-serif" fill="#263b47">
+    <text x="30" y="39" font-size="19" font-weight="700">문제 상황 개념도</text>
+    <rect x="56" y="65" width="285" height="363" rx="5" fill="#f1f4f5"/>
+    <path d="M83 80V413 M315 80V413" stroke="#82949f" stroke-width="4"/>
+    <path d="M199 82V410" stroke="#82949f" stroke-width="4" stroke-dasharray="17 14"/>
+    <rect x="157" y="141" width="84" height="99" rx="4" fill="#b74e42"/>
+    <path d="M246 189H359" stroke="#b74e42" stroke-width="2"/>
+    <text x="371" y="186" font-size="20" font-weight="700">장애물</text>
+    <text x="371" y="214" font-size="16" fill="#526673">차선을 가림</text>
+    <path d="M199 327V272" stroke="#b74e42" stroke-width="3" stroke-dasharray="8 6"/>
+    <path d="M192 282L199 270L206 282" fill="none" stroke="#b74e42" stroke-width="3"/>
+    <rect x="174" y="337" width="50" height="71" rx="9" fill="#315b6e"/>
+    <rect x="181" y="349" width="36" height="16" rx="3" fill="#dce8ed"/>
+    <path d="M229 374H359" stroke="#315b6e" stroke-width="2"/>
+    <text x="371" y="380" font-size="20" font-weight="700">차량</text>
+    <text x="90" y="112" font-size="17" fill="#526673">차선</text>
+  </g>
+</svg>
