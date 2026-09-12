@@ -792,12 +792,30 @@ a.publication:hover strong, a.publication:focus-visible strong { color: #9ed0ff;
 .outcome-note { display:grid; gap:.4rem; font-size:.95rem; color:var(--slate); }
 .outcome-note strong { color:var(--charcoal); }
 
+/* Research evidence: retain original figures and compact existing sections. */
+.selection-note { margin-top:1.5rem; padding:1.25rem 1.5rem; border-left:3px solid var(--signal); background:var(--paper); }
+.selection-note h3 { margin:0 0 .5rem; font-size:1rem; }
+.selection-note p { margin:0; }
+.sensor-fusion-page .simulation-environment img { max-height:400px; }
+.sensor-fusion-page .source-links strong small { display:block; margin-top:.5rem; color:var(--slate); font-size:.8rem; font-weight:400; line-height:1.6; }
+.sensor-fusion-page .source-links a,.sensor-fusion-page .source-links > div { grid-template-columns:120px minmax(0,1fr) 170px; }
+.source-plot-body { overflow:hidden; background:#fff; }
+.source-plot-body img { display:block; width:100%; height:auto; aspect-ratio:auto; max-height:none; margin-top:-5.5%; }
+.navigation-result-title { margin-top:2rem; }
+
 @media (max-width:900px) {
   .manta-hero-flow, .robo-system-map.manta-map, .execution-flow { grid-template-columns:1fr; overflow:visible; }
   .manta-hero-flow > b, .robo-system-map.manta-map > b, .execution-flow > b { transform:rotate(90deg); justify-self:center; }
 }
 
 @media (max-width:680px) {
+  .sensor-fusion-page .candidate-visual-grid { grid-template-columns:minmax(0,1fr); }
+  .sensor-fusion-page .candidate-visual-grid article { grid-column:1; }
+  .sensor-fusion-page .credential-panel > div { padding:.85rem 1rem; }
+  .sensor-fusion-page .credential-panel dl div { padding:.65rem 1rem; }
+  .sensor-fusion-page .credential-panel strong { font-size:.9rem; }
+  .sensor-fusion-page .source-links a,.sensor-fusion-page .source-links > div { grid-template-columns:1fr; }
+  .selection-note { padding:1rem; }
   html,body { max-width:100%; overflow-x:hidden; }
   .case-hero { padding-bottom:2.5rem; }
   .case-section { padding-block:3rem; }

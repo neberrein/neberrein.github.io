@@ -8,7 +8,7 @@
   <link rel="canonical" href="https://neberrein.github.io/projects/imu-lstm-fsm.html">
   <meta property="og:type" content="website"><meta property="og:title" content="IMU 기반 LSTM-FSM 주행상태 판별 | 곽민재"><meta property="og:description" content="차량 내부 신호 없이 IMU 시계열로 전진, 후진, 정지를 판별한 실차 연구"><meta property="og:url" content="https://neberrein.github.io/projects/imu-lstm-fsm.html"><meta property="og:image" content="https://neberrein.github.io/assets/images/imu-lstm-fsm-pipeline.png">
   <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="../assets/site.css?v=layout-20260913">
+  <link rel="stylesheet" href="../assets/site.css?v=research-20260913">
   <script src="../assets/site.js" defer></script>
 </head>
 <body>
@@ -45,10 +45,14 @@
     <!-- TODO: 원본 사진 편집 시 보드 표기를 Raspberry Pi 4로 통일 -->
   </div></div></section>
 
-  <section class="case-section"><div class="section-shell case-layout"><div><span class="case-section-label">05 / CLASSIFICATION</span><h2>분류 결과</h2></div><div class="case-body">
+  <section class="case-section"><div class="section-shell case-layout"><div><span class="case-section-label">05 / CLASSIFICATION</span><h2>분류와 항법 검증</h2></div><div class="case-body">
     <div class="result-callout"><strong>99.52%</strong><div><h3>세 실차 경로 평균 후진 F1-score</h3><p>LSTM-FSM 기준. 농로와 농지의 실제 주행 진동을 포함한 결과</p></div></div>
-    <div class="plot-grid"><figure class="plot-card"><img src="../assets/images/imu-source-61.png" alt="대표 시험경로의 주행상태 혼동행렬"><figcaption><strong>대표 경로 분류결과</strong> 전진, 후진, 정지 혼동행렬</figcaption></figure><figure class="plot-card"><img src="../assets/images/imu-route-example.png" alt="농로와 농작지를 포함한 대표 주행경로의 GPS 기준 궤적"><figcaption><strong>대표 주행경로</strong> 농로 진입과 농작지 반복 주행을 포함한 GPS 기준 궤적</figcaption></figure></div>
+    <div class="plot-grid"><figure class="plot-card"><div class="source-plot-body"><img loading="lazy" decoding="async" src="../assets/images/imu-source-61.png" alt="실차 주행상태 혼동행렬, 전진 후진 정지 분류"></div><figcaption><strong>주행상태 분류결과</strong> 전진, 후진, 정지 혼동행렬</figcaption></figure><figure class="plot-card"><div class="source-plot-body"><img loading="lazy" decoding="async" src="../assets/images/imu-route-example.png" alt="농경지와 농로에서 실제 궤적과 제안 항법의 위치 추정 궤적 비교"></div><figcaption><strong>농경지와 농로의 위치 추정</strong> 실제 궤적과 제안 항법의 추정 궤적 비교</figcaption></figure></div>
     <p class="metric-source">논문에 수록된 세 실차 경로의 후진 F1-score를 산술평균한 값.</p>
+    <h3 class="result-title navigation-result-title">항법 위치 추정 결과</h3>
+    <p>주행상태 판별을 적용한 항법 시스템은 세 실차 경로에서 위치 RMSE 3 cm 이하를 기록했습니다. 이는 전진, 후진, 정지의 분류 정확도와 별도로, 실제 궤적에 대한 위치 추정 오차를 평가한 결과입니다.</p>
+    <div class="table-wrap"><table class="metric-table"><thead><tr><th>주행 조건</th><th>기존 항법 위치 RMSE</th><th>주행상태 판별 적용 후</th></tr></thead><tbody><tr><td>농경지 + 농로</td><td>0.070 m</td><td><strong>0.0157 m (1.57 cm)</strong></td></tr><tr><td>농로</td><td>0.054 m</td><td><strong>0.0238 m (2.38 cm)</strong></td></tr></tbody></table></div>
+    <p class="metric-source">나머지 실차 경로의 위치 RMSE는 0.0273 m (2.73 cm). 3 cm는 경로별 RMSE 기준이며 모든 시점의 최대 오차를 의미하지 않습니다.</p>
   </div></div></section>
 
   <section class="case-section alt-section"><div class="section-shell case-layout"><div><span class="case-section-label">06 / OWNERSHIP</span><h2>담당 범위</h2></div><div class="case-body"><ul class="noun-list"><li><strong>데이터</strong>IMU 전처리, 학습 시퀀스 구성, 주행상태 라벨 정의</li><li><strong>모델</strong>LSTM 구조 선정과 학습, 비교 분류기 평가</li><li><strong>판단</strong>전진, 후진, 정지 FSM 전환 규칙 설계</li><li><strong>통합</strong>ROS 기반 분류결과와 항법 모듈 연결</li><li><strong>검증</strong>농로와 농지 세 실차 경로 평가</li></ul></div></div></section>
