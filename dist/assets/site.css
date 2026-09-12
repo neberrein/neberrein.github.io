@@ -809,7 +809,7 @@ a.publication:hover strong, a.publication:focus-visible strong { color: #9ed0ff;
 .robo-failure-flow { display:grid; grid-template-columns:repeat(3,minmax(0,1fr) auto) minmax(0,1fr); gap:.6rem; align-items:stretch; margin-top:1.5rem; }
 .robo-failure-flow article { padding:1rem; border:1px solid var(--rule); background:#fff; }
 .robo-failure-flow article span { display:block; margin-bottom:.5rem; color:var(--signal); font-size:.7rem; font-weight:800; }
-.robo-failure-flow article strong { font-size:.85rem; line-height:1.6; }
+.robo-failure-flow article strong { display:block; font-size:.85rem; line-height:1.6; word-break:keep-all; overflow-wrap:break-word; }
 .robo-failure-flow > b { align-self:center; color:var(--signal); }
 
 @media (max-width:900px) {
