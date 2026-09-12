@@ -54,6 +54,7 @@ syncGroups.forEach((videos) => {
   const peers = videos.slice(1);
   let syncing = false;
   let sharedDuration = Infinity;
+  let groupStarted = false;
 
   const runTogether = (action) => {
     if (syncing) return;
@@ -67,14 +68,32 @@ syncGroups.forEach((videos) => {
     if (durations.length === videos.length) sharedDuration = Math.min(...durations);
   };
 
+  const playGroup = (time = master.currentTime || 0) => {
+    runTogether((video) => {
+      if (Math.abs(video.currentTime - time) > 0.08) video.currentTime = time;
+      video.muted = true;
+      video.defaultMuted = true;
+      video.play().catch(() => {});
+    });
+  };
+
+  const tryAutoplayGroup = () => {
+    if (groupStarted || videos.some((video) => video.readyState < 2)) return;
+    groupStarted = true;
+    playGroup(0);
+  };
+
   videos.forEach((video) => {
     video.removeAttribute('loop');
-    video.addEventListener('loadedmetadata', updateSharedDuration);
-    video.addEventListener('play', () => runTogether((item) => {
-      if (item !== video) item.currentTime = video.currentTime;
-      item.play().catch(() => {});
-    }));
-    video.addEventListener('pause', () => runTogether((item) => item.pause()));
+    video.addEventListener('loadedmetadata', () => {
+      updateSharedDuration();
+      tryAutoplayGroup();
+    });
+    video.addEventListener('loadeddata', tryAutoplayGroup);
+    video.addEventListener('canplay', tryAutoplayGroup);
+    video.addEventListener('play', () => {
+      if (!syncing) playGroup(video.currentTime);
+    });
     video.addEventListener('seeking', () => runTogether((item) => {
       if (item !== video) item.currentTime = video.currentTime;
     }));
@@ -82,16 +101,15 @@ syncGroups.forEach((videos) => {
 
   master.addEventListener('timeupdate', () => {
     if (Number.isFinite(sharedDuration) && master.currentTime >= sharedDuration - 0.08) {
-      runTogether((video) => {
-        video.currentTime = 0;
-        video.play().catch(() => {});
-      });
+      playGroup(0);
       return;
     }
     peers.forEach((peer) => {
       if (Math.abs(peer.currentTime - master.currentTime) > 0.08) peer.currentTime = master.currentTime;
     });
   });
+
+  tryAutoplayGroup();
 });
 
 const autoplayVideos = [...document.querySelectorAll('video[autoplay]')];
