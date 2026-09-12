@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="440" viewBox="0 0 760 440" font-family="Arial, Noto Sans KR, sans-serif">
+<title>횡단 전과 횡단 중 관측 정보의 구분</title><desc>보행자와 가까운 두 차로는 Zone 1, 먼 두 차로는 Zone 2. 횡단 전에는 Lag, 횡단 중에는 Lag와 Gap을 관찰한다.</desc>
+<rect width="760" height="440" fill="white"/><rect x="18" y="70" width="724" height="150" fill="#e8f3ed"/><rect x="18" y="220" width="724" height="150" fill="#e7f0f8"/>
+<path d="M18 145H742M18 295H742" stroke="#a9b7c2" stroke-dasharray="10 8"/><path d="M18 220H742" stroke="#8a98a5" stroke-width="2"/>
+<g fill="white"><rect x="313" y="82" width="66" height="16"/><rect x="313" y="114" width="66" height="16"/><rect x="313" y="146" width="66" height="16"/><rect x="313" y="178" width="66" height="16"/><rect x="313" y="210" width="66" height="16"/><rect x="313" y="242" width="66" height="16"/><rect x="313" y="274" width="66" height="16"/><rect x="313" y="306" width="66" height="16"/><rect x="313" y="338" width="66" height="16"/></g>
+<path d="M346 60V380" stroke="#172b3b" stroke-width="2" stroke-dasharray="5 5"/><text x="346" y="43" text-anchor="middle" font-size="24" fill="#172b3b">보행자 기준선</text>
+<g fill="#c2cbd2" stroke="#667684" stroke-width="2"><rect x="112" y="170" width="73" height="31" rx="8"/><rect x="427" y="96" width="73" height="31" rx="8"/><rect x="130" y="268" width="73" height="31" rx="8"/></g>
+<g fill="#667684"><path d="M104 179L94 186L104 193Z"/><path d="M418 105L408 112L418 119Z"/><path d="M212 277L222 284L212 291Z"/></g>
+<g fill="#23774a" font-size="25"><text x="520" y="105" font-weight="700">ZONE 2</text><text x="520" y="140">먼 두 차로</text><text x="520" y="184">Lag + Gap</text></g>
+<g fill="#2b73b8" font-size="25"><text x="520" y="260" font-weight="700">ZONE 1</text><text x="520" y="295">가까운 두 차로</text><text x="520" y="339">Lag</text></g>
+<circle cx="346" cy="393" r="9" fill="#172b3b"/><path d="M346 403V421M336 411H356" stroke="#172b3b" stroke-width="5"/>
+<text x="382" y="416" font-size="24" fill="#172b3b">보행자 · 횡단 방향 ↑</text>
+</svg>

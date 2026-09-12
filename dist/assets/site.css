@@ -753,6 +753,35 @@ a.publication:hover strong, a.publication:focus-visible strong { color: #9ed0ff;
 .servo-label { right:4%; top:53%; bottom:auto; }
 .led-label { left:43%; right:auto; top:25%; }
 .crosswalk-poster img { max-height:720px; object-fit:contain; background:#fff; }
+/* Crosswalk: four compact sections; distance and time use independent axes. */
+.crosswalk-page { --crosswalk-blue:#2b73b8; --crosswalk-green:#23774a; --crosswalk-red:#a73140; }
+.crosswalk-page .case-layout { grid-template-columns:170px minmax(0,1fr); gap:2rem; }
+.crosswalk-page .case-body { max-width:900px; }
+.crosswalk-page .case-facts { grid-template-columns:1fr 1fr 1.35fr 1.65fr; }
+.crosswalk-awards { display:block; margin-top:.65rem; color:var(--slate); font-size:.8rem; line-height:1.6; font-weight:400; }
+.crosswalk-page .crosswalk-poster img { width:100%; height:auto; max-height:720px; }
+.crosswalk-page .evidence-note .text-link { display:flex; align-items:center; min-height:44px; padding:.4rem 0; }
+.crosswalk-page .crosswalk-zones img,.crosswalk-page .crosswalk-comparison img { width:100%; height:auto; max-height:none; background:#fff; object-fit:contain; }
+.crosswalk-page .crosswalk-zones { margin-bottom:1.25rem; }
+.crosswalk-page .crosswalk-comparison { max-width:680px; margin-inline:auto; }
+.crosswalk-criteria { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:1rem; }
+.crosswalk-criteria article { padding:1rem 1.2rem; border:1px solid var(--rule); background:#fff; }
+.crosswalk-criteria span { font-weight:800; font-size:1rem; }.crosswalk-criteria .accept { border-top:3px solid var(--crosswalk-green); }.crosswalk-criteria .accept span { color:var(--crosswalk-green); }.crosswalk-criteria .reject { border-top:3px solid var(--crosswalk-red); }.crosswalk-criteria .reject span { color:var(--crosswalk-red); }
+.crosswalk-criteria p { font-size:.95rem; margin:.6rem 0 0; line-height:1.7; }
+.crosswalk-finding { padding:1.25rem; border-left:3px solid var(--signal); background:#eef3f5; margin:1.5rem 0; }.crosswalk-finding h3 { font-size:1.1rem; margin:0 0 .7rem; }.crosswalk-finding p:last-child { margin-bottom:0; }
+.crosswalk-page .crosswalk-result-table th { font-size:.85rem; }.crosswalk-page .crosswalk-result-table td { font-size:1rem; }
+.crosswalk-page .case-body > .text-link { display:inline-flex; align-items:center; min-height:44px; }
+@media(max-width:900px) {
+  .crosswalk-page .case-layout { grid-template-columns:minmax(0,1fr); gap:1rem; }
+  .crosswalk-page .case-facts { grid-template-columns:repeat(2,minmax(0,1fr)); }
+}
+@media(max-width:680px) {
+  .crosswalk-criteria { grid-template-columns:minmax(0,1fr); }
+  .crosswalk-page .case-body p,.crosswalk-page .decision-grid p { font-size:1rem; }
+  .crosswalk-page .case-facts { grid-template-columns:minmax(0,1fr); }
+  .crosswalk-page .crosswalk-result-table th,.crosswalk-page .crosswalk-result-table td { padding:.65rem .35rem; }
+  .crosswalk-page .crosswalk-result-table th { font-size:.8rem; }
+}
 .perception-chain-five { grid-template-columns:repeat(5,1fr); }
 .mosaic-live-cover img { width:100%; max-height:760px; object-fit:contain; background:#07131f; }
 .mosaic-live-cover figcaption strong { margin-right:.45rem; }

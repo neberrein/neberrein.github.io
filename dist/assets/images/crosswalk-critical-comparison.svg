@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="680" height="560" viewBox="0 0 680 560" font-family="Arial, Noto Sans KR, sans-serif">
+<title>개인과 군집 보행자의 임계간격</title><desc>거리 Lag와 시간 Gap을 독립된 0 기준 축에서 비교한다. 개인 15.33m와 3.27s, 군집 16.16m와 3.93s.</desc><rect width="680" height="560" fill="white"/>
+<g fill="#172b3b" font-size="28"><text x="28" y="45" font-weight="700">Critical lag · 거리 (m)</text><text x="28" y="322" font-weight="700">Critical gap · 시간 (s)</text></g>
+<g stroke="#e0e7ed"><path d="M115 85V195M227.5 85V195M340 85V195M452.5 85V195M565 85V195M115 362V472M227.5 362V472M340 362V472M452.5 362V472M565 362V472"/></g>
+<g font-size="26" fill="#172b3b"><text x="28" y="123">개인</text><text x="28" y="178">군집</text><text x="28" y="400">개인</text><text x="28" y="455">군집</text></g>
+<g fill="#2b73b8"><rect x="115" y="99" width="344.925" height="32"/><rect x="115" y="376" width="294.3" height="32"/></g><g fill="#23774a"><rect x="115" y="154" width="363.6" height="32"/><rect x="115" y="431" width="353.7" height="32"/></g>
+<g font-size="26" fill="#172b3b"><text x="473" y="124">15.33 m</text><text x="492" y="179">16.16 m</text><text x="423" y="401">3.27 s</text><text x="483" y="456">3.93 s</text></g>
+<g font-size="21" fill="#536574" text-anchor="middle"><text x="115" y="222">0</text><text x="227.5" y="222">5</text><text x="340" y="222">10</text><text x="452.5" y="222">15</text><text x="565" y="222">20 m</text><text x="115" y="499">0</text><text x="227.5" y="499">1.25</text><text x="340" y="499">2.5</text><text x="452.5" y="499">3.75</text><text x="565" y="499">5 s</text></g>
+<g font-size="26" fill="#23774a"><text x="115" y="259">군집 − 개인: +0.83 m</text><text x="115" y="536">군집 − 개인: +0.66 s</text></g>
+</svg>
