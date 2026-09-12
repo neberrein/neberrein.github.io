@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 570" role="img" aria-labelledby="title desc">
+  <title id="title">대표 실차 경로 분류 결과</title>
+  <desc id="desc">실제 상태는 행, 예측 상태는 열입니다. 후진 행은 6711, 0, 26. 전진 행은 0, 7399, 23. 정지 행은 7, 0, 5882입니다. Measurement 게재본 Fig.15의 대표 실차 경로 혼동행렬 값을 사용했습니다.</desc>
+  <rect width="720" height="570" fill="white"/>
+  <g font-family="Arial, 'Noto Sans KR', sans-serif" fill="#10283f" text-anchor="middle">
+    <text x="390" y="42" font-size="24" font-weight="700">대표 실차 경로 분류 결과</text>
+    <g stroke="white" stroke-width="2">
+      <rect x="150" y="80" width="160" height="125" fill="#174ca3"/>
+      <rect x="310" y="80" width="160" height="125" fill="#f6f9fc"/>
+      <rect x="470" y="80" width="160" height="125" fill="#f4f8fc"/>
+      <rect x="150" y="205" width="160" height="125" fill="#f6f9fc"/>
+      <rect x="310" y="205" width="160" height="125" fill="#103c8c"/>
+      <rect x="470" y="205" width="160" height="125" fill="#f4f8fc"/>
+      <rect x="150" y="330" width="160" height="125" fill="#f5f8fc"/>
+      <rect x="310" y="330" width="160" height="125" fill="#f6f9fc"/>
+      <rect x="470" y="330" width="160" height="125" fill="#225baf"/>
+    </g>
+    <g font-size="32" font-weight="700" dominant-baseline="middle">
+      <text x="230" y="143" fill="white">6711</text><text x="390" y="143">0</text><text x="550" y="143">26</text>
+      <text x="230" y="268">0</text><text x="390" y="268" fill="white">7399</text><text x="550" y="268">23</text>
+      <text x="230" y="393">7</text><text x="390" y="393">0</text><text x="550" y="393" fill="white">5882</text>
+    </g>
+    <g font-size="22">
+      <text x="230" y="493">후진</text><text x="390" y="493">전진</text><text x="550" y="493">정지</text>
+      <text x="107" y="151">후진</text><text x="107" y="276">전진</text><text x="107" y="401">정지</text>
+      <text x="390" y="538" font-weight="700">예측 상태</text>
+      <text x="38" y="268" font-weight="700" transform="rotate(-90 38 268)">실제 상태</text>
+    </g>
+  </g>
+</svg>
