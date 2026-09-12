@@ -10,6 +10,7 @@
   <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="../assets/site.css">
   <script src="../assets/site.js" defer></script>
+  <script src="../assets/mosaic-c2.js" defer></script>
 </head>
 <body>
 <a class="skip-link" href="#main">본문 바로가기</a>
@@ -21,8 +22,8 @@
     <h1>MOSAIC C2 다영역 무인체계 지휘통제 시뮬레이터</h1>
     <p class="case-subtitle">공중, 수상, 수중과 지상 무인체계의 탐지, 대응수단 추천, 기동, 교전과 재교전을 하나의 WPF 시뮬레이터로 통합했습니다. 외부 JSON 시나리오와 실행 로직을 분리하고 통신 상태와 가용 자산에 따라 판단을 다시 수행하도록 구성했습니다.</p>
     <div class="headline-result"><strong>3 SCENARIOS</strong><span>운용자 개입 없이<br>자동 실행</span></div>
-    <dl class="case-facts"><div><dt>기간</dt><dd>2026.07.23–2026.07.24</dd></div><div><dt>맥락</dt><dd>The SSEN 과정 2일 미니 프로젝트</dd></div><div><dt>역할</dt><dd>4인 팀, 팀장</dd></div><div><dt>기술</dt><dd>C#, WPF, MVVM, JSON</dd></div></dl>
-    <figure class="detail-cover mosaic-live-cover"><img src="../assets/images/mosaic-hanriver-t8.png" alt="MOSAIC C2 한강 다영역 통합방어 WPF 실행 화면"><figcaption><strong>실행 화면 T+8 s</strong> 시나리오 1 한강 다영역 통합방어. 수상 표적 피격, 공중 표적에 유도무기 2발 비행 중, RADAR-G01 선택으로 탐지범위 표시</figcaption></figure>
+    <dl class="case-facts"><div><dt>기간</dt><dd>2026.07, 1주</dd></div><div><dt>맥락</dt><dd>The SSEN 과정 미니 프로젝트</dd></div><div><dt>역할</dt><dd>4인 팀, 팀장</dd></div><div><dt>기술</dt><dd>C#, WPF, MVVM, JSON</dd></div></dl>
+    <figure class="detail-cover mosaic-live-cover"><img src="../assets/images/mosaic-hanriver-t8.png" alt="MOSAIC C2 한강 다영역 통합방어 WPF 실행 화면"><figcaption><strong>실행 화면 T+8 s</strong> 한강 다영역 통합방어. 수상 표적 건전성 15%, 발사체 2발 비행 중, RADAR-G01 선택으로 탐지범위 표시</figcaption></figure>
   </section>
 
   <section class="case-section"><div class="section-shell case-layout"><div><span class="case-section-label">01 / SYSTEM</span><h2>시스템 구조와 담당 범위</h2></div><div class="case-body">
@@ -32,21 +33,29 @@
   </div></div></section>
 
   <section class="case-section alt-section"><div class="section-shell case-layout"><div><span class="case-section-label">02 / WPF EVIDENCE</span><h2>자동 대응 실행 증빙</h2></div><div class="case-body">
-    <div class="mosaic-proof-grid"><figure class="research-figure"><img loading="lazy" decoding="async" src="../assets/images/mosaic-hanriver-t8.png" alt="한강 다영역 통합방어 WPF 실행 화면"><figcaption>자산 이동, 표적 건전성, 비행 중 유도무기와 선택 레이더 탐지범위를 한 화면에서 확인</figcaption></figure><figure class="research-figure mosaic-log-shot"><img loading="lazy" decoding="async" src="../assets/images/mosaic-auto-log.png" alt="MOSAIC C2 자동 대응 이벤트 로그"><figcaption><strong>자동 대응 로그</strong> 탐지 → 최적 수단 선정 → 명령 → 발사 → 명중. 시뮬레이션 엔진 구현</figcaption></figure></div>
+    <div class="mosaic-proof-grid"><figure class="research-figure mosaic-log-shot"><a href="../assets/images/mosaic-auto-log.png" target="_blank" rel="noopener"><img loading="lazy" decoding="async" src="../assets/images/mosaic-auto-log.png" alt="한강 시나리오 T+12 s의 원본 WPF 자동 대응 이벤트 로그"></a><figcaption><strong>자동 대응 로그, T+12 s</strong> 원본 통합 임무 이벤트 로그. 이미지를 누르면 원본 크기로 확인할 수 있습니다.</figcaption></figure><div class="mosaic-event-story"><h3>첫 명중 후에도 표적이 남으면 재교전</h3><p>수상 표적 T-SEA-01의 탐지부터 무력화까지 엔진이 수행한 순서입니다.</p><ol><li><time>T+3.0 s</time><strong>표적 탐지</strong><span>UAV-02의 레이더가 수상 표적을 탐지</span></li><li><time>T+4.0 s</time><strong>자동 명령과 발사</strong><span>USV-01을 선정하고 비궁 유도로켓 발사</span></li><li><time>T+6.4 s</time><strong>첫 명중</strong><span>표적 건전성 15%가 남아 추가 교전 예약</span></li><li><time>T+7.3 s</time><strong>대응수단 재선정</strong><span>가용 수단을 다시 평가해 UAV-03의 천검 정밀유도탄 선정</span></li><li><time>T+10.4 s</time><strong>표적 무력화</strong><span>재교전 명중 후 잔여 건전성 0%</span></li></ol></div></div>
   </div></div></section>
 
-  <section class="case-section"><div class="section-shell case-layout"><div><span class="case-section-label">03 / WEB REPLAY</span><h2>실행 로그 기반 웹 재현</h2></div><div class="case-body">
-    <p>JSON 이벤트 타임라인을 이용해 탐지, 통신 두절, 자산 재배정과 대응 순서를 웹에서 재생했습니다.</p>
-    <div class="mosaic-replay" data-mosaic-replay>
-      <div class="mosaic-stage">
-        <img loading="lazy" decoding="async" src="../assets/images/mosaic-busan.png" alt="웹 재현 배경으로 사용한 설명용 시나리오 지도">
-        <svg viewBox="0 0 1200 700" aria-label="공중, 수상, 지상 자산과 표적의 이동 재현">
-          <path class="replay-route" d="M90 110 C330 45 520 210 850 170"/><path class="replay-route surface" d="M170 520 C390 450 570 400 760 340"/><path class="replay-route ground" d="M310 655 C520 640 650 615 760 610"/>
-          <circle class="replay-asset air" cx="90" cy="110" r="12"/><circle class="replay-asset surface" cx="170" cy="520" r="12"/><circle class="replay-asset ground" cx="310" cy="655" r="12"/><circle class="replay-target" cx="1010" cy="280" r="14"/>
-        </svg><span class="stage-badge">설명용 웹 재현</span>
+  <section class="case-section"><div class="section-shell case-layout"><div><span class="case-section-label">03 / SIMULATION</span><h2>원본 시뮬레이터 실행</h2></div><div class="case-body">
+    <p>한강 수로의 USV와 UUV, 도로의 UGV, 공중 UAV가 영역별 경로를 따라 기동합니다. 레이더 탐지 후 자동 명령, 발사체 비행, 명중과 재교전을 확인할 수 있으며, 영상 마지막에는 해당 실행의 결과 분석 화면이 이어집니다.</p>
+    <div class="mosaic-recordings" data-mosaic-recordings>
+      <div class="mosaic-scenario-tabs" role="tablist" aria-label="실행 시나리오 선택">
+        <button type="button" role="tab" id="tab-hanriver" aria-controls="panel-hanriver" aria-selected="true">01 한강 통합방어</button>
+        <button type="button" role="tab" id="tab-island" aria-controls="panel-island" aria-selected="false" tabindex="-1">02 도서지역 다중표적</button>
+        <button type="button" role="tab" id="tab-incheon" aria-controls="panel-incheon" aria-selected="false" tabindex="-1">03 인천항 복합침투</button>
       </div>
-      <div class="replay-controls"><button type="button" data-replay-toggle>일시정지</button><label>시나리오 시간 <input data-replay-scrubber type="range" min="0" max="52" step="0.1" value="0"></label><output data-replay-time>00:00</output></div>
-      <ol class="replay-log"><li data-at="4"><time>T+04 s</time><span>다영역 자산 이동 시작</span></li><li data-at="12"><time>T+12 s</time><span>표적 탐지와 위협도 평가</span></li><li data-at="23"><time>T+23 s</time><span>통신 두절로 명령 보류</span></li><li data-at="34"><time>T+34 s</time><span>가용 자산 재평가와 재배정</span></li><li data-at="43"><time>T+43 s</time><span>대응수단 발사</span></li><li data-at="49"><time>T+49 s</time><span>명중 판정과 결과 갱신</span></li></ol>
+      <div id="panel-hanriver" role="tabpanel" aria-labelledby="tab-hanriver">
+        <figure class="video-card mosaic-native-video"><video controls playsinline preload="metadata" poster="../assets/images/mosaic-hanriver-t8.png" aria-label="한강 다영역 통합방어 WPF 실행 영상"><source src="../assets/videos/mosaic-hanriver-wpf.mp4" type="video/mp4"><track kind="captions" src="../assets/videos/mosaic-hanriver-wpf.vtt" srclang="ko" label="실행 이벤트">영상을 재생할 수 없습니다. <a href="../assets/videos/mosaic-hanriver-wpf.mp4">실행 영상 열기</a></video><figcaption>한강 다영역 통합방어, 원본 WPF 화면. 선택한 RADAR-G01의 탐지범위와 표적 및 교전 상태 표시</figcaption></figure>
+        <div class="mosaic-chapters" aria-label="한강 영상 구간 이동"><button type="button" data-seek="0">처음</button><button type="button" data-seek="8">8초, 탐지와 교전</button><button type="button" data-seek="12">12초, 명중 로그</button><button type="button" data-seek="70.1">결과 분석</button></div>
+      </div>
+      <div id="panel-island" role="tabpanel" aria-labelledby="tab-island" hidden>
+        <figure class="video-card mosaic-native-video"><video controls playsinline preload="none" poster="../assets/images/mosaic-island-during.png" aria-label="도서지역 다중표적 WPF 실행 영상"><source src="../assets/videos/mosaic-island-wpf.mp4" type="video/mp4"><track kind="captions" src="../assets/videos/mosaic-island-wpf.vtt" srclang="ko" label="실행 이벤트">영상을 재생할 수 없습니다. <a href="../assets/videos/mosaic-island-wpf.mp4">실행 영상 열기</a></video><figcaption>시간차로 나타나는 다중표적 탐지, 대응수단 배정과 장비 손상 후 가용 전력 재평가</figcaption></figure>
+        <div class="mosaic-chapters" aria-label="도서지역 영상 구간 이동"><button type="button" data-seek="0">처음</button><button type="button" data-seek="12">12초, 다중표적 대응</button><button type="button" data-seek="65.2">결과 분석</button></div>
+      </div>
+      <div id="panel-incheon" role="tabpanel" aria-labelledby="tab-incheon" hidden>
+        <figure class="video-card mosaic-native-video"><video controls playsinline preload="none" poster="../assets/images/mosaic-incheon-during.png" aria-label="인천항 복합침투 WPF 실행 영상"><source src="../assets/videos/mosaic-incheon-wpf.mp4" type="video/mp4"><track kind="captions" src="../assets/videos/mosaic-incheon-wpf.vtt" srclang="ko" label="실행 이벤트">영상을 재생할 수 없습니다. <a href="../assets/videos/mosaic-incheon-wpf.mp4">실행 영상 열기</a></video><figcaption>인천항 수상, 공중과 지상 표적 탐지 및 지휘통신 복구 후 자동 대응</figcaption></figure>
+        <div class="mosaic-chapters" aria-label="인천항 영상 구간 이동"><button type="button" data-seek="0">처음</button><button type="button" data-seek="4">4초, 초기 탐지</button><button type="button" data-seek="8">8초, 통신 복구</button><button type="button" data-seek="70.2">결과 분석</button></div>
+      </div>
     </div>
   </div></div></section>
 
@@ -60,54 +69,18 @@
   </div></div></section>
 
   <section class="case-section alt-section"><div class="section-shell case-layout"><div><span class="case-section-label">06 / RESULT</span><h2>검증 결과</h2></div><div class="case-body">
-    <div class="result-callout"><strong>3개</strong><div><h3>시나리오 무개입 자동 실행</h3><p>한강 다영역 통합방어를 포함한 시나리오에서 탐지부터 교전 결과까지 연속 실행</p></div></div>
-    <div class="decision-strip"><article><span>운용 화면</span><strong>7개</strong></article><article><span>정적 검증</span><strong>64항목 통과</strong></article><article><span>Release 빌드</span><strong>오류 0개, 경고 0개</strong></article></div>
-    <div class="evidence-grid"><figure class="evidence-item"><img loading="lazy" decoding="async" src="../assets/images/mosaic-busan.png" alt="부산 연안 다영역 방어 설명용 시나리오 지도"><figcaption>설명용 시나리오 지도. 다영역 자산과 영역별 기동 경로 검증</figcaption></figure><figure class="evidence-item"><img loading="lazy" decoding="async" src="../assets/images/mosaic-jeju.png" alt="제주 도서지역 다중표적 설명용 시나리오 지도"><figcaption>설명용 시나리오 지도. 위협도 기반 자원 배분 검증</figcaption></figure><figure class="evidence-item"><img loading="lazy" decoding="async" src="../assets/images/mosaic-incheon.png" alt="인천항 복합침투 설명용 시나리오 지도"><figcaption>설명용 시나리오 지도. 통신 두절과 복구 후 재전송 검증</figcaption></figure></div>
+    <div class="result-callout"><strong>3개</strong><div><h3>탐지부터 임무 종료까지 자동 실행</h3><p>동일한 원본 코드와 시나리오 JSON으로 실행하고 종료 시점의 표적, 교전과 잔존 전력을 확인했습니다.</p></div></div>
+    <div class="decision-strip"><article><span>운용 화면</span><strong>상황도, 임무 통제, 무기 제원, 결과 분석</strong></article><article><span>Release 빌드</span><strong>오류 0개, 경고 0개</strong></article></div>
+    <div class="table-wrap"><table class="metric-table"><caption>시나리오별 실행 결과, 2026.09.13 검증</caption><thead><tr><th scope="col">시나리오</th><th scope="col">종료 시간</th><th scope="col">탐지 경보</th><th scope="col">명중 / 실패</th><th scope="col">무력화 표적</th><th scope="col">활성 표적</th></tr></thead><tbody><tr><th scope="row">한강 통합방어</th><td data-result="hanriver.time">70 s</td><td data-result="hanriver.DetectionCount">30건</td><td data-result="hanriver.hits">16 / 0건</td><td data-result="hanriver.NeutralizedTargetCount">8개</td><td data-result="hanriver.ActiveTargetCount">0개</td></tr><tr><th scope="row">도서지역 다중표적</th><td data-result="island.time">65 s</td><td data-result="island.DetectionCount">4건</td><td data-result="island.hits">6 / 0건</td><td data-result="island.NeutralizedTargetCount">3개</td><td data-result="island.ActiveTargetCount">0개</td></tr><tr><th scope="row">인천항 복합침투</th><td data-result="incheon.time">70 s</td><td data-result="incheon.DetectionCount">9건</td><td data-result="incheon.hits">6 / 0건</td><td data-result="incheon.NeutralizedTargetCount">3개</td><td data-result="incheon.ActiveTargetCount">0개</td></tr></tbody></table></div>
+    <p class="mosaic-result-note">탐지 경보는 센서별 탐지 기록 수로, 고유 표적 수와 다릅니다. 명중 건수에는 잔존 건전성을 제거하기 위한 재교전이 포함됩니다. 수치는 시나리오에 설정된 명중 및 재교전 조건에서의 실행 결과입니다.</p>
+    <div class="mosaic-result-shots">
+      <details open><summary>01 한강 통합방어, 결과 분석 화면</summary><figure class="research-figure"><a href="../assets/images/mosaic-hanriver-result.png" target="_blank" rel="noopener"><img loading="lazy" src="../assets/images/mosaic-hanriver-result.png" alt="한강 시나리오 종료 후 WPF 결과 분석, 잔존 전력과 실제 교전 이력"></a><figcaption>장비별 잔존 전력, 교전 상세 이력과 이벤트 로그. 이미지를 누르면 원본 크기로 확인할 수 있습니다.</figcaption></figure></details>
+      <details><summary>02 도서지역 다중표적, 결과 분석 화면</summary><figure class="research-figure"><a href="../assets/images/mosaic-island-result.png" target="_blank" rel="noopener"><img loading="lazy" src="../assets/images/mosaic-island-result.png" alt="도서지역 시나리오 종료 후 WPF 결과 분석, 장비 손상 및 표적 대응 결과"></a><figcaption>손상 장비를 포함한 잔존 전력과 다중표적 교전 결과</figcaption></figure></details>
+      <details><summary>03 인천항 복합침투, 결과 분석 화면</summary><figure class="research-figure"><a href="../assets/images/mosaic-incheon-result.png" target="_blank" rel="noopener"><img loading="lazy" src="../assets/images/mosaic-incheon-result.png" alt="인천항 시나리오 종료 후 WPF 결과 분석과 실제 자동 대응 이벤트 로그"></a><figcaption>수상, 공중과 지상 표적의 교전 결과 및 지휘통신 이벤트 로그</figcaption></figure></details>
+    </div>
   </div></div></section>
   <nav class="next-project"><a class="section-shell" href="davinci-autonomous.html"><span>다음 프로젝트</span><strong>카메라 기반 장애물 회피 자율주행 →</strong></a></nav>
 </main>
 <footer class="site-footer"><div class="section-shell"><span>© 2026 곽민재</span><div class="footer-links"><a href="mailto:tkkwak4@naver.com">tkkwak4@naver.com</a><a href="https://github.com/neberrein" target="_blank" rel="noopener">GitHub ↗</a></div></div></footer>
-<script>
-(function () {
-  const root = document.querySelector('[data-mosaic-replay]');
-  if (!root) return;
-  const toggle = root.querySelector('[data-replay-toggle]');
-  const range = root.querySelector('[data-replay-scrubber]');
-  const out = root.querySelector('[data-replay-time]');
-  const air = root.querySelector('.replay-asset.air');
-  const surface = root.querySelector('.replay-asset.surface');
-  const ground = root.querySelector('.replay-asset.ground');
-  const target = root.querySelector('.replay-target');
-  const items = [...root.querySelectorAll('.replay-log li')];
-  let t = 0;
-  let playing = !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  let last = null;
-  toggle.textContent = playing ? '일시정지' : '재생';
-  const fmt = (value) => { const safe = Math.max(0, Math.floor(value)); return `00:${String(safe).padStart(2, '0')}`; };
-  function interp(points, progress) {
-    const p = Math.max(0, Math.min(1, progress));
-    const pos = p * (points.length - 1);
-    const i = Math.max(0, Math.min(points.length - 2, Math.floor(pos)));
-    const q = pos - i;
-    const a = points[i]; const b = points[i + 1];
-    return {x:a[0] + (b[0] - a[0]) * q, y:a[1] + (b[1] - a[1]) * q};
-  }
-  function frame(now) {
-    if (last === null) last = now;
-    const dt = Math.max(0, (now - last) / 1000); last = now;
-    if (playing) { t += dt; if (t > 52) t = 0; t = Math.max(0, t); range.value = t; out.textContent = fmt(t); }
-    const a = interp([[90,110],[280,90],[450,155],[650,205],[850,170]], Math.min(1,t/52));
-    const s = interp([[170,520],[350,470],[560,410],[760,340]], Math.min(1,Math.max(0,(t-4)/40)));
-    const g = interp([[310,655],[520,640],[760,610]], Math.min(1,Math.max(0,(t-2)/45)));
-    const tr = interp([[1010,280],[900,315],[790,345],[680,380]], Math.min(1,Math.max(0,(t-8)/41)));
-    [[air,a],[surface,s],[ground,g],[target,tr]].forEach(([el,p]) => { el.setAttribute('cx',p.x); el.setAttribute('cy',p.y); });
-    items.forEach((li) => li.classList.toggle('is-active',t >= Number(li.dataset.at)));
-    requestAnimationFrame(frame);
-  }
-  range.addEventListener('input',() => { t=Math.max(0,Number(range.value)); playing=false; toggle.textContent='재생'; out.textContent=fmt(t); });
-  toggle.addEventListener('click',() => { playing=!playing; toggle.textContent=playing?'일시정지':'재생'; last=null; });
-  out.textContent=fmt(t); requestAnimationFrame(frame);
-})();
-</script>
 </body>
 </html>
