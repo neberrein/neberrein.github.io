@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="description" content="IFAC 2026 RoboRacer에서 수행한 LiDAR 장애물 인지와 Frenet 회피 경로계획">
+  <meta name="description" content="IFAC 2026 RoboRacer에서 수행한 라이다 장애물 인지와 Frenet 회피 경로계획">
   <title>IFAC RoboRacer | 곽민재</title>
   <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="../assets/site.css">
@@ -17,27 +17,27 @@
     <a class="back-link" href="../index.html#projects">← 프로젝트 목록</a>
     <p class="case-label">29TH ROBORACER AUTONOMOUS RACING COMPETITION</p>
     <h1>IFAC 2026 RoboRacer 장애물 인지와 회피 경로계획</h1>
-    <p class="case-subtitle">Hokuyo 2D LiDAR 점군에서 트랙 벽과 장애물을 구분하고, 최대 30개 Frenet 후보 가운데 충돌하지 않으면서 기준 경로로 복귀할 수 있는 경로를 선택한 ROS 2 실차 모듈.</p>
+    <p class="case-subtitle">Hokuyo 2D 라이다 점군에서 트랙 벽과 장애물을 구분하고, 최대 30개 Frenet 후보 가운데 충돌하지 않으면서 기준 경로로 복귀할 수 있는 경로를 선택한 ROS 2 실차 모듈.</p>
     <div class="headline-result"><strong>TOP 16</strong><span>국제 자율주행 경주<br>56개 팀 중 16강 진출</span></div>
-    <dl class="case-facts"><div><dt>대회</dt><dd>IFAC 2026, 부산 BEXCO</dd></div><div><dt>기간</dt><dd>2026.07–08</dd></div><div><dt>담당</dt><dd>LiDAR 인지, Frenet 로컬 경로계획</dd></div><div><dt>팀</dt><dd>학생 5인, 지도교수 1인</dd></div></dl>
-    <figure class="detail-cover editorial-cover"><img src="../assets/images/robo-track-side.jpg" alt="IFAC RoboRacer 트랙 위 MSCLAB 경기 차량"><figcaption>Hokuyo UST-10LX, Intel NUC 14 Pro와 피탐지 패널을 탑재한 MSCLAB 경기 차량</figcaption></figure>
+    <dl class="case-facts"><div><dt>대회</dt><dd>IFAC 2026, 부산 BEXCO</dd></div><div><dt>기간</dt><dd>2026.07–08</dd></div><div><dt>담당</dt><dd>라이다 인지, Frenet 로컬 경로계획</dd></div><div><dt>팀</dt><dd>학생 5인, 지도교수 1인</dd></div></dl>
+    <figure class="detail-cover editorial-cover"><img src="../assets/images/robo-track-side.jpg" alt="IFAC RoboRacer 트랙 위 MSCLAB 경기 차량"><figcaption>Hokuyo UST-10LX와 Intel NUC 14 Pro를 탑재한 MSCLAB 경기 차량. 사진 속 후방 피탐지 패널은 작동하지 않은 상태</figcaption></figure>
   </section>
 
   <section class="case-section"><div class="section-shell case-layout"><div><span class="case-section-label">01 / SYSTEM</span><h2>전체 시스템과 담당 범위</h2></div><div class="case-body">
-    <p>IMU와 LiDAR 기반 위치추정, 장애물 인지, 회피 경로계획, Pure Pursuit 제어로 이어지는 전체 구성. 이 가운데 <strong>Perception과 FrenetPlanner</strong> 구현 담당.</p>
-    <figure class="research-figure architecture-figure"><img src="../assets/images/robo-system-architecture-detailed.png" alt="IMU와 LiDAR, Cartographer 위치추정, 장애물 인지, Frenet 경로계획, Pure Pursuit, VESC와 차량 구동으로 이어지는 RoboRacer 시스템 구조"><figcaption>Obstacle Detection과 Obstacle Avoidance 영역의 Perception, FrenetPlanner 구현 담당</figcaption></figure>
-    <div class="ownership-strip"><span>담당 1</span><strong>Perception</strong><p>LiDAR 점군 군집화, RANSAC 선분 추출, 벽과 장애물 구분</p><span>담당 2</span><strong>FrenetPlanner</strong><p>회피 후보 생성, 충돌 검사, 비용 비교와 최종 경로 선택</p></div>
+    <p>IMU와 라이다 기반 위치추정, 장애물 인지, 회피 경로계획, Pure Pursuit 제어로 이어지는 전체 구성. 이 가운데 <strong>Perception과 FrenetPlanner</strong> 구현 담당.</p>
+    <figure class="research-figure architecture-figure"><img src="../assets/images/robo-system-architecture-detailed.png" alt="IMU와 라이다, Cartographer 위치추정, 장애물 인지, Frenet 경로계획, Pure Pursuit, VESC와 차량 구동으로 이어지는 RoboRacer 시스템 구조"><figcaption>Obstacle Detection과 Obstacle Avoidance 영역의 Perception, FrenetPlanner 구현 담당</figcaption></figure>
+    <div class="ownership-strip"><span>담당 1</span><strong>Perception</strong><p>라이다 점군 군집화, RANSAC 선분 추출, 벽과 장애물 구분</p><span>담당 2</span><strong>FrenetPlanner</strong><p>회피 후보 생성, 충돌 검사, 비용 비교와 최종 경로 선택</p></div>
   </div></div></section>
 
   <section class="case-section alt-section"><div class="section-shell case-layout"><div><span class="case-section-label">02 / VEHICLE</span><h2>경기 차량 구성</h2></div><div class="case-body">
-    <figure class="research-figure vehicle-configuration"><img src="../assets/images/robo-vehicle-configuration.png" alt="RoboRacer 차량에 장착한 Hokuyo UST-10LX LiDAR, ASUS NUC 14 Pro와 VectorNav VN-300 IMU 위치"><figcaption>Hokuyo UST-10LX로 전방 점군 취득, NUC 14 Pro에서 ROS 2 인지와 경로계획 실행, VN-300으로 자세 정보 입력</figcaption></figure>
-    <div class="media-pair vehicle-support"><figure class="research-figure"><img src="../assets/images/robo-wiring-layout.png" alt="RoboRacer 차량의 LiDAR, NUC, IMU, VESC, 배터리와 전원 변환기 연결 구조"><figcaption>센서, 연산장치, 구동부와 전원 계통 연결</figcaption></figure><figure class="research-figure"><img src="../assets/images/robo-track-side.jpg" alt="후방 피탐지 패널을 장착하고 대회장 트랙에 놓인 RoboRacer 차량"><figcaption>상대 차량 LiDAR 식별용 후방 피탐지 패널을 장착한 경기 상태</figcaption></figure></div>
+    <figure class="research-figure vehicle-configuration"><img src="../assets/images/robo-vehicle-configuration.png" alt="RoboRacer 차량에 장착한 Hokuyo UST-10LX 라이다, ASUS NUC 14 Pro와 VectorNav VN-300 IMU 위치"><figcaption>Hokuyo UST-10LX로 전방 점군 취득, NUC 14 Pro에서 ROS 2 인지와 경로계획 실행, VN-300으로 자세 정보 입력</figcaption></figure>
+    <div class="media-pair vehicle-support"><figure class="research-figure"><img src="../assets/images/robo-wiring-layout.png" alt="RoboRacer 차량의 라이다, NUC, IMU, VESC, 배터리와 전원 변환기 연결 구조"><figcaption>센서, 연산장치, 구동부와 전원 계통 연결</figcaption></figure><figure class="research-figure"><img src="../assets/images/robo-track-side.jpg" alt="후방 피탐지 패널을 장착하고 대회장 트랙에 놓인 RoboRacer 차량"><figcaption>경기 중 후방 피탐지 패널이 작동하지 않은 상태. 상대 차량 인식 조건에 영향을 준 현장 이슈로 확인</figcaption></figure></div>
   </div></div></section>
 
   <section class="case-section"><div class="section-shell case-layout"><div><span class="case-section-label">03 / PERCEPTION</span><h2>벽과 장애물 구분</h2></div><div class="case-body">
-    <p>LiDAR 점군을 물체 단위로 나눈 뒤 RANSAC 선분의 길이로 트랙 벽과 차량형 장애물을 구분했다. 긴 선분은 벽으로, 짧은 선분은 장애물로 전달해 플래너가 두 대상을 서로 다른 충돌 여유로 판단하도록 구성했다.</p>
+    <p>라이다 전방 ±70° 점군을 물체별로 군집화하고, 각 군집에서 얻은 RANSAC 선분 길이로 트랙 벽과 차량형 장애물을 구분했다. 분류 결과에 맞는 안전 여유를 적용해 플래너의 충돌 검사 영역으로 전달했다.</p>
     <figure class="research-figure perception-evidence"><img src="../assets/images/robo-perception-classification.png" alt="RANSAC 선분 길이 0.45미터를 기준으로 트랙 벽과 차량형 장애물을 구분하고 안전영역을 설정한 그림"><figcaption>0.45 m 이상 선분은 트랙 벽, 짧은 선분은 차량형 장애물로 분류</figcaption></figure>
-    <div class="perception-chain"><article><span>입력</span><strong>전방 LiDAR 점군</strong><p>주행에 필요한 전방 140도 범위 사용</p></article><article><span>분류</span><strong>벽과 차량형 장애물</strong><p>점군을 군집화한 뒤 RANSAC 선분 길이 비교</p></article><article><span>출력</span><strong>후보 경로 충돌영역</strong><p>벽과 장애물의 위치, 형상, 안전 여유를 플래너에 전달</p></article></div>
+    <div class="perception-chain perception-chain-five"><article><span>01 / 범위 제한</span><strong>전방 ±70° 점군</strong><p>주행 판단에 필요한 라이다 영역만 추출</p></article><article><span>02 / 군집화</span><strong>DBSCAN</strong><p>cKDTree 기반으로 인접 점을 물체 단위 군집으로 분리</p></article><article><span>03 / 형상 추출</span><strong>6점 이상 RANSAC</strong><p>점이 6개 이상인 군집에서 대표 선분 추정</p></article><article><span>04 / 분류</span><strong>0.45 m 기준</strong><p>L<sub>RANSAC</sub> ≥ 0.45 m는 벽, 미만은 장애물</p></article><article><span>05 / 안전 여유</span><strong>0.10 m / 0.24 m</strong><p>법선 양측으로 벽 0.10 m, 장애물 0.24 m 확장</p></article></div>
     <div class="problem-chain"><strong>안전펜스가 끊긴 구간에서 발견한 오류</strong><p>서로 떨어진 두 펜스의 점이 하나의 선분으로 연결되면서 빈 통로까지 벽으로 인식됐다. 인접한 점 사이의 간격이 크게 벌어지는 지점에서 선분을 나눠 실제 통로가 남도록 수정했다.</p></div>
   </div></div></section>
 
@@ -61,12 +61,12 @@
 
   <section class="case-section alt-section"><div class="section-shell case-layout"><div><span class="case-section-label">08 / RESULT</span><h2>경기 결과와 후속 개선</h2></div><div class="case-body">
     <div class="result-callout"><strong>16강</strong><div><h3>56개 팀 참가 국제 자율주행 경주</h3><p>2026년 8월 24–27일, 부산 BEXCO</p></div></div>
-    <div class="video-grid race-video-grid"><figure class="video-card"><video autoplay muted loop playsinline preload="metadata"><source src="../assets/videos/roboracer-qualifier.mp4" type="video/mp4">브라우저에서 영상을 재생할 수 없습니다.</video><figcaption><strong>그룹 예선</strong> MSCLAB 대 GhostRacer, 예선 통과 경기</figcaption></figure><figure class="video-card"><video autoplay muted loop playsinline preload="metadata"><source src="../assets/videos/roboracer-round16.mp4" type="video/mp4">브라우저에서 영상을 재생할 수 없습니다.</video><figcaption><strong>16강</strong> MSCLAB 대 YAX Formula 경기</figcaption></figure></div>
-    <ul class="noun-list"><li><strong>경기 결과</strong>예선 통과와 16강 진출, LiDAR 인지, Frenet 경로계획 실차 운용</li><li><strong>탈락 원인</strong>충돌 직후 Cartographer 위치추정이 무너지며 차량이 기준 경로를 잃고 후속 주행 중단</li><li><strong>대회 후 검증</strong>연구실에서 Particle Filter를 적용해 충돌 뒤 초기 위치 복구 성능 확인</li><li><strong>후속 설계</strong>Particle Filter로 자세를 먼저 안정화한 뒤 인식 신뢰도가 확보되면 Cartographer로 전환하는 복구 절차 설계</li></ul>
-    <p class="method-note">정상 주행 정확도만으로 위치추정 방식을 고르면 충돌 이후 복구가 늦어진다는 확인. 대회 결과를 모듈 종료가 아닌 복구 상태 설계의 입력으로 반영.</p>
+    <div class="video-grid race-video-grid"><figure class="video-card"><video autoplay muted loop playsinline controls preload="metadata" data-sync-group="roboracer-race"><source src="../assets/videos/roboracer-qualifier.mp4" type="video/mp4">브라우저에서 영상을 재생할 수 없습니다.</video><figcaption><strong>그룹 예선</strong> MSCLAB 대 GhostRacer, 예선 통과 경기</figcaption></figure><figure class="video-card"><video autoplay muted loop playsinline controls preload="metadata" data-sync-group="roboracer-race"><source src="../assets/videos/roboracer-round16.mp4" type="video/mp4">브라우저에서 영상을 재생할 수 없습니다.</video><figcaption><strong>후속 경기</strong> MSCLAB 대 YAX Formula 경기</figcaption></figure></div>
+    <ul class="noun-list"><li><strong>경기 결과</strong>예선 통과와 16강 진출, 라이다 인지, Frenet 경로계획 실차 운용</li><li><strong>탈락 원인</strong>충돌 직후 Cartographer 위치추정이 무너지며 차량이 기준 경로를 잃고 후속 주행 중단</li><li><strong>대회 후 검증</strong>연구실에서 Particle Filter를 적용해 충돌 뒤 초기 위치 복구 성능 확인</li><li><strong>후속 설계</strong>Particle Filter로 자세를 먼저 안정화한 뒤 인식 신뢰도가 확보되면 Cartographer로 전환하는 복구 절차 설계</li></ul>
+    <p class="method-note">충돌 직후 위치추정이 무너진 원인을 대회 후 동일 조건에서 재현했다. Particle Filter로 자세를 먼저 안정화하고, 인식 신뢰도가 회복되면 Cartographer로 복귀하는 절차를 설계했다.</p>
   </div></div></section>
   <nav class="next-project"><a class="section-shell" href="imu-lstm-fsm.html"><span>다음 프로젝트</span><strong>IMU 기반 LSTM-FSM →</strong></a></nav>
 </main>
-<footer class="site-footer"><div class="section-shell"><span>© 2026 곽민재</span><a href="mailto:tkkwak4@naver.com">tkkwak4@naver.com</a></div></footer>
+<footer class="site-footer"><div class="section-shell"><span>© 2026 곽민재</span><div class="footer-links"><a href="mailto:tkkwak4@naver.com">tkkwak4@naver.com</a><a href="https://github.com/neberrein" target="_blank" rel="noopener">GitHub ↗</a></div></div></footer>
 </body>
 </html>

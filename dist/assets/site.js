@@ -94,6 +94,9 @@ syncGroups.forEach((videos) => {
     video.addEventListener('play', () => {
       if (!syncing) playGroup(video.currentTime);
     });
+    video.addEventListener('pause', () => {
+      if (!syncing) runTogether((item) => item.pause());
+    });
     video.addEventListener('seeking', () => runTogether((item) => {
       if (item !== video) item.currentTime = video.currentTime;
     }));
