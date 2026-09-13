@@ -37,7 +37,7 @@
   <section class="case-section"><div class="section-shell case-layout"><div><span class="case-section-label">03 / DESIGN</span><h2>LSTM-FSM 결합</h2></div><div class="case-body">
     <figure class="research-figure framework-figure"><img src="../assets/images/imu-lstm-fsm-pipeline.png" alt="IMU 가속도와 각속도 시퀀스를 LSTM과 FSM으로 처리하는 주행상태 판별 구조"><figcaption>IMU 3축 가속도, 3축 각속도 시퀀스 → LSTM 동적 상태 분류 → Finite State Machine 기반 전진, 후진, 정지 판정</figcaption></figure>
     <div class="decision-strip"><article><span>입력</span><strong>IMU 가속도, 각속도 시퀀스</strong></article><article><span>LSTM</span><strong>정지, 이동, 전진 시작, 후진 시작 분류</strong></article><article><span>FINITE STATE MACHINE</span><strong>이전 상태와 출발 이벤트 연결</strong></article><article><span>출력</span><strong>전진, 후진, 정지 지속 상태</strong></article></div>
-    <p class="method-note">전진과 후진은 등속 구간의 파형만으로 구분하기 어렵다. LSTM이 출발 순간의 시간 패턴을 찾고, FSM이 그 이벤트를 이후의 지속 상태로 유지하도록 역할을 분리했다.</p>
+    <p class="method-note">전진과 후진은 등속 구간의 파형만으로 구분하기 어려웠습니다. LSTM이 출발 순간의 시간 패턴을 찾고, FSM이 그 이벤트를 이후의 지속 상태로 유지하도록 역할을 분리했습니다.</p>
     <p>비교 모델인 SVM과 RF는 FSM 없이 사용했을 때 후진 F1-score가 약 10–37%에 머물렀지만, FSM을 결합하면 98% 이상으로 개선됐습니다. 순간 분류 결과뿐 아니라 이전 상태와 상태전환 조건을 함께 보는 구조가 중요하다는 것을 확인했습니다.</p>
   </div></div></section>
 

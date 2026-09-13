@@ -35,6 +35,8 @@ jobs:
         run: |
           python scripts/test_project_navigation.py
           python scripts/update_project_navigation.py --check
+      - name: Validate portfolio sharing and presentation
+        run: python scripts/test_portfolio_presentation.py
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
