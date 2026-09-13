@@ -1,9 +1,9 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 570" role="img" aria-labelledby="title desc">
-  <title id="title">대표 실차 경로 분류 결과</title>
-  <desc id="desc">실제 상태는 행, 예측 상태는 열입니다. 후진 행은 6711, 0, 26. 전진 행은 0, 7399, 23. 정지 행은 7, 0, 5882입니다. Measurement 게재본 Fig.15의 대표 실차 경로 혼동행렬 값을 사용했습니다.</desc>
+  <title id="title">실차 분류 결과</title>
+  <desc id="desc">실제 상태는 행, 예측 상태는 열입니다. 후진 행은 6711, 0, 26. 전진 행은 0, 7399, 23. 정지 행은 7, 0, 5882입니다.</desc>
   <rect width="720" height="570" fill="white"/>
   <g font-family="Arial, 'Noto Sans KR', sans-serif" fill="#10283f" text-anchor="middle">
-    <text x="390" y="42" font-size="24" font-weight="700">대표 실차 경로 분류 결과</text>
+    <text x="390" y="42" font-size="24" font-weight="700">실차 분류 결과</text>
     <g stroke="white" stroke-width="2">
       <rect x="150" y="80" width="160" height="125" fill="#174ca3"/>
       <rect x="310" y="80" width="160" height="125" fill="#f6f9fc"/>

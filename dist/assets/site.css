@@ -1071,8 +1071,7 @@ a.publication:hover strong, a.publication:focus-visible strong { color: #9ed0ff;
 .robo-failure-flow article strong { display:block; font-size:.85rem; line-height:1.6; word-break:keep-all; overflow-wrap:break-word; }
 .robo-failure-flow > b { align-self:center; color:var(--signal); }
 .imu-module-page .classification-evidence img { aspect-ratio:auto; height:auto; }
-.state-sequence-panel { overflow:hidden; background:#fff; }
-.imu-module-page .state-sequence-panel img { width:300%; max-width:none; }
+.imu-module-page .imu-state-sequence-plot,.imu-module-page .imu-hardware-figure { display:block; width:100%; height:auto; overflow:hidden; background:#fff; }
 .classification-evidence figcaption small { display:block; margin-top:.5rem; color:var(--slate); font-size:.75rem; }
 .system-validation { margin-top:2rem; padding:1.5rem; border:1px solid var(--rule); border-top:3px solid var(--signal); background:var(--paper); }
 .system-validation-heading { display:flex; gap:1.5rem; align-items:center; margin:1rem 0; }
@@ -1083,6 +1082,20 @@ a.publication:hover strong, a.publication:focus-visible strong { color: #9ed0ff;
 .system-validation dd { margin:.35rem 0 0; font-size:1.3rem; font-weight:750; color:var(--charcoal); }
 .system-validation p { margin:0 0 .6rem; font-size:.9rem; }
 .system-validation > small { color:var(--slate); font-size:.75rem; }
+.imu-module-page .system-validation-title { margin:1rem 0 1.5rem; font-size:1.1rem; }
+.imu-module-page .system-validation-grid { display:grid; grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr); gap:1.5rem; align-items:start; }
+.imu-module-page .system-route-evidence { margin:0; background:#fff; }
+.imu-module-page .system-route-evidence svg { display:block; width:100%; height:auto; overflow:hidden; }
+.imu-module-page .system-route-evidence figcaption strong { display:block; margin-bottom:.5rem; }
+.imu-module-page .system-route-evidence small { display:block; margin-top:.5rem; color:var(--slate); font-size:.75rem; }
+.imu-module-page .system-validation-heading { display:grid; gap:.75rem; margin-top:0; }
+.imu-module-page .system-rmse-label { margin-top:1.25rem; color:var(--slate); font-size:.8rem; }
+.imu-module-page .system-rmse-values { display:grid; gap:1rem; margin:.75rem 0 1.25rem; padding-block:1rem; border-top:1px solid var(--rule); border-bottom:1px solid var(--rule); }
+.imu-module-page .system-rmse-values strong { color:var(--charcoal); font-size:1.3rem; }
+.imu-module-page .system-validation-grid > div > small { display:block; color:var(--slate); font-size:.75rem; }
+@media (max-width:900px) {
+  .imu-module-page .system-validation-grid { grid-template-columns:minmax(0,1fr); }
+}
 
 /* STM32: clean overview, user-controlled demo, and actual evidence. */
 .stm32-page .stm32-hero img { width:100%; height:auto; aspect-ratio:16/9; object-fit:contain; max-height:none; }
