@@ -63,6 +63,21 @@ class PresentationTests(unittest.TestCase):
         self.assertIn('.portfolio-home .editorial-heading>span { font-size:2rem;', css)
         self.assertIn('.portfolio-home .editorial-heading>span { font-size:2.5rem;', css)
 
+    def test_davinci_path_labels_and_embedded_font(self):
+        import xml.etree.ElementTree as ET
+        for name in ('davinci-autonomous-overview.svg', 'davinci-autonomous-overview-mobile.svg'):
+            svg = (DIST / 'assets/images' / name).read_text(encoding='utf-8')
+            ET.fromstring(svg)
+            self.assertIn('좌측 차선 가림', svg)
+            self.assertIn('A* 생성 경로', svg)
+            self.assertIn('파란 선: A*로 생성한 우회 및 복귀 경로', svg)
+            self.assertIn('font-family:Pretendard;src:url(data:font/woff2;base64,', svg)
+            self.assertNotIn('Arial,Malgun Gothic', svg)
+            self.assertNotIn('M170 205H310V130H316', svg)
+            self.assertNotIn('M236 347Q247 326 236 300', svg)
+        page = (DIST / 'projects/davinci-autonomous.html').read_text(encoding='utf-8')
+        self.assertEqual(page.count('?v=clarity-20260914'), 2)
+
     def test_imu_disclaimer_removed(self):
         page = (DIST / 'projects/imu-lstm-fsm.html').read_text(encoding='utf-8')
         self.assertNotIn('분류 모듈 자체의 위치오차나 모든 시점의 최대 오차', page)
