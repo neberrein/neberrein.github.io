@@ -27,13 +27,24 @@ Run `python scripts/test_manta_results.py`,
 regenerated. All published charts are native SVG; trajectories use measured
 kinematics samples, equal XY axes, and a disclosed closest-approach window.
 
-The initial DVO batch has 14/24 AVOIDED; latest DVO has 15/24. Compare identical
-24-condition matrices and select the entire higher-rate batch, never the
-better run per condition. Latest wins ties. Three conditions changed to
+The final implementation's audited v3 `latest/` export is the designated
+public result batch: all 24 DVO conditions, 15/24 AVOIDED. Its public table
+groups by approach direction and guidance mode (SimpleTracking 11/12, PNG
+4/12). One optional measured trajectory is selected in configured condition
+order, not by highest clearance. The final-batch version, selected run IDs
+and input/archive hashes are recorded in summary.json and generated-manifest.json.
+
+The initial DVO batch has 14/24 AVOIDED; latest DVO has 15/24. The identical
+24-condition historical comparison and higher-rate selection utility are
+preserved for development history, but do not automatically choose the
+published implementation version. Never choose the better run per condition.
+Three conditions changed to
 AVOIDED and two to HIT; the +1 net change is not statistical significance or
 an isolated DVO algorithm effect because shared path/control also changed.
-The public summary and figures contain DVO only. Full-archive and historical
-exports remain provenance, not three-way performance claims.
+The public summary and figures contain DVO only. Before/after and scenario
+chart assets remain archived, not main-page evidence. Full-archive and historical
+exports remain provenance, not three-way performance claims. Public copy does
+not list private source paths, file hashes or run-reuse audit details.
 
 Future refreshes require the complete six-CSV final export and refreshed
 `provenance.json` and integrity/audit reports. Inconsistent hashes, duplicate

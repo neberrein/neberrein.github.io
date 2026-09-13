@@ -1,51 +1,48 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 660" role="img" aria-labelledby="title desc"><title id="title">A*와 DVO의 위협 모델 차이</title><desc id="desc">설명용 평면 투영 도식입니다. A*는 유도 예측으로 미래 박스 통로를 만들고 공간 충돌을 검사합니다. DVO는 현재 어뢰 박스와 추정 상대속도로 각 후보의 최근접 거리를 검사합니다. 박스와 후보 화살표는 예시이며 측정 결과가 아닙니다.</desc>
-<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10" fill="context-stroke"/></marker></defs>
-<rect width="1100" height="660" fill="white"/><g font-family="Pretendard, Noto Sans KR, Arial, sans-serif" fill="#193044">
-<text x="28" y="36" font-size="25" fill="#193044" font-weight="700" text-anchor="start">A* / DVO · 무엇을 예측하는가</text>
-<text x="28" y="66" font-size="21" fill="#536574" font-weight="400" text-anchor="start">설명용 평면 투영 · 실제 계획은 3D</text>
-<rect x="28" y="87" width="1044" height="253" rx="8" fill="#f0f5fa" stroke="#d5e1e8" stroke-width="2" stroke-dasharray=""/>
-<text x="48" y="121" font-size="24" fill="#2b73b8" font-weight="700" text-anchor="start">A* · 미래 박스 통로</text>
-<g transform="translate(48 145) scale(0.82)">
-<path d="M40 172L390 18" fill="none" stroke="#536574" stroke-width="3" stroke-dasharray="8 5"/>
-<rect x="22" y="151" width="44" height="35" rx="8" fill="#dbe9f3" stroke="#2b73b8" stroke-width="2" stroke-dasharray=""/>
-<text x="23" y="212" font-size="20" fill="#2b73b8" font-weight="700" text-anchor="start">ROV</text>
-<path d="M35 32C134 20 189 44 228 91S297 141 368 149" fill="none" stroke="#a83b38" stroke-width="3" stroke-dasharray="6 5"/>
-<rect x="20" y="17" width="36" height="31" rx="8" fill="#a83b38" stroke="#a83b38" stroke-width="2" stroke-dasharray=""/>
-<rect x="85" y="12" width="36" height="31" rx="8" fill="#f8dde1" stroke="#a83b38" stroke-width="2" stroke-dasharray=""/>
-<rect x="147" y="28" width="36" height="31" rx="8" fill="#f8dde1" stroke="#a83b38" stroke-width="2" stroke-dasharray=""/>
-<rect x="197" y="66" width="36" height="31" rx="8" fill="#f8dde1" stroke="#a83b38" stroke-width="2" stroke-dasharray=""/>
-<rect x="243" y="113" width="36" height="31" rx="8" fill="#f8dde1" stroke="#a83b38" stroke-width="2" stroke-dasharray=""/>
-<rect x="310" y="134" width="36" height="31" rx="8" fill="#f8dde1" stroke="#a83b38" stroke-width="2" stroke-dasharray=""/>
-<text x="20" y="3" font-size="20" fill="#a83b38" font-weight="700" text-anchor="start">어뢰 현재 위치</text>
-<path d="M185 99L203 117M203 99L185 117" fill="none" stroke="#a83b38" stroke-width="4" stroke-dasharray=""/>
-<text x="245" y="84" font-size="19" fill="#a83b38" font-weight="400" text-anchor="start">통로와 경로가 겹침</text>
-<text x="224" y="201" font-size="19" fill="#536574" font-weight="400" text-anchor="start">점선: ROV 임무 경로</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 555" role="img" aria-labelledby="title desc"><title id="title">같은 상황에서 A*와 DVO의 경로 생성 비교</title><desc id="desc">회피 방식 개념도. 동일한 기체, 위협, 목표와 임무 경로에서 A*는 예측한 위험 영역을 피해 목표까지 경로를 탐색합니다. DVO는 위협의 예상 이동과 여러 이동 후보를 평가해 짧은 회피 경로를 생성합니다. 실제 실험 좌표나 축척이 아닌 설명용 평면 도식입니다.</desc>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10" fill="context-stroke"/></marker></defs>
+<rect width="1100" height="555" fill="white"/><g font-family="Pretendard, Noto Sans KR, Arial, sans-serif" fill="#193044">
+<g transform="translate(45 30)">
+<rect x="0" y="0" width="460" height="470" rx="8" fill="#f7f9fb" stroke="#d5e1e8" stroke-width="1.5" stroke-dasharray=""/>
+<text x="24" y="38" font-size="22" fill="#2b73b8" font-weight="700" text-anchor="start">A* / 목표까지 이어지는 경로</text>
+<path d="M65 315L390 95" fill="none" stroke="#8795a1" stroke-width="2" stroke-dasharray="7 6"/>
+<text x="270" y="291" font-size="18" fill="#536574" font-weight="400" text-anchor="start">기존 임무 경로</text>
+<path d="M302 274L269 178" fill="none" stroke="#8795a1" stroke-width="1" stroke-dasharray=""/>
+<circle cx="390" cy="95" r="8" fill="#193044"/>
+<text x="352" y="76" font-size="18" fill="#193044" font-weight="700" text-anchor="start">임무 목표</text>
+<rect x="199" y="155" width="40" height="34" rx="8" fill="#f6d9d6" stroke="#c7776b" stroke-width="1.5" stroke-dasharray="4 3"/>
+<rect x="227" y="174" width="40" height="34" rx="8" fill="#f6d9d6" stroke="#c7776b" stroke-width="1.5" stroke-dasharray="4 3"/>
+<rect x="255" y="193" width="40" height="34" rx="8" fill="#f6d9d6" stroke="#c7776b" stroke-width="1.5" stroke-dasharray="4 3"/>
+<text x="202" y="365" font-size="19" fill="#a83b38" font-weight="400" text-anchor="start">예상 위험 영역</text>
+<path d="M257 343L263 233" fill="none" stroke="#a83b38" stroke-width="1" stroke-dasharray=""/>
+<path d="M65 315C87 248 93 160 156 97S278 54 390 95" fill="none" stroke="#2b73b8" stroke-width="4" stroke-dasharray="" marker-end="url(#arrow)"/>
+<text x="35" y="429" font-size="19" fill="#2b73b8" font-weight="700" text-anchor="start">A*가 생성한 경로</text>
+<path d="M98 407L108 204" fill="none" stroke="#2b73b8" stroke-width="1" stroke-dasharray=""/>
+<rect x="46" y="303" width="38" height="25" rx="8" fill="#dbe9f3" stroke="#2b73b8" stroke-width="1.5" stroke-dasharray=""/>
+<text x="25" y="355" font-size="18" fill="#2b73b8" font-weight="700" text-anchor="start">BlueROV2</text>
+<g transform="translate(180 145) rotate(34)"><rect x="-17" y="-7" width="34" height="14" rx="7" fill="#a83b38"/><path d="M-16 -7L-23 -13V13L-16 7" fill="#a83b38"/></g>
+<text x="210" y="138" font-size="18" fill="#a83b38" font-weight="700" text-anchor="start">어뢰 현재 위치</text>
 </g>
-<text x="493" y="174" font-size="22" fill="#193044" font-weight="400" text-anchor="start">유도 모델로 미래 위치를 샘플링</text>
-<text x="493" y="215" font-size="22" fill="#193044" font-weight="400" text-anchor="start">4.0 s / 약 1.5 m 간격 / 상한 32개</text>
-<text x="493" y="256" font-size="22" fill="#193044" font-weight="400" text-anchor="start">3 × 3 × 3 m 박스로 위협 공간 구성</text>
-<text x="493" y="297" font-size="22" fill="#193044" font-weight="400" text-anchor="start">박스 통로와 겹치는 공간을 피해 탐색</text>
-<rect x="28" y="359" width="1044" height="253" rx="8" fill="#f0f6f1" stroke="#d5e1e8" stroke-width="2" stroke-dasharray=""/>
-<text x="48" y="393" font-size="24" fill="#23774a" font-weight="700" text-anchor="start">DVO · 현재 박스 + 상대속도</text>
-<g transform="translate(48 417) scale(0.82)">
-<rect x="35" y="136" width="44" height="35" rx="8" fill="#dbe9f3" stroke="#2b73b8" stroke-width="2" stroke-dasharray=""/>
-<text x="32" y="205" font-size="20" fill="#2b73b8" font-weight="700" text-anchor="start">ROV</text>
-<rect x="304" y="19" width="48" height="31" rx="8" fill="#f8dde1" stroke="#a83b38" stroke-width="2" stroke-dasharray=""/>
-<text x="280" y="4" font-size="20" fill="#a83b38" font-weight="700" text-anchor="start">어뢰 현재 박스</text>
-<path d="M315 50L209 105" fill="none" stroke="#a83b38" stroke-width="3" stroke-dasharray="6 5" marker-end="url(#arrow)"/>
-<text x="244" y="82" font-size="19" fill="#a83b38" font-weight="400" text-anchor="start">추정 속도</text>
-<path d="M78 151L110 55" fill="none" stroke="#23774a" stroke-width="3" stroke-dasharray="" marker-end="url(#arrow)"/>
-<path d="M78 151L167 102" fill="none" stroke="#23774a" stroke-width="3" stroke-dasharray="" marker-end="url(#arrow)"/>
-<path d="M78 151L189 155" fill="none" stroke="#23774a" stroke-width="3" stroke-dasharray="" marker-end="url(#arrow)"/>
-<text x="92" y="199" font-size="19" fill="#23774a" font-weight="400" text-anchor="start">ROV 속도 후보 (예시)</text>
-<path d="M174 113L227 103" fill="none" stroke="#536574" stroke-width="3" stroke-dasharray="4 4"/>
-<circle cx="174" cy="113" r="4" fill="#536574"/>
-<circle cx="227" cy="103" r="4" fill="#536574"/>
-<text x="181" y="137" font-size="19" fill="#536574" font-weight="400" text-anchor="start">최근접 거리 평가</text>
+<g transform="translate(595 30)">
+<rect x="0" y="0" width="460" height="470" rx="8" fill="#f6f9f7" stroke="#d5e1e8" stroke-width="1.5" stroke-dasharray=""/>
+<text x="24" y="38" font-size="22" fill="#23774a" font-weight="700" text-anchor="start">DVO / 가까운 구간의 회피 경로</text>
+<path d="M65 315L390 95" fill="none" stroke="#8795a1" stroke-width="2" stroke-dasharray="7 6"/>
+<text x="270" y="291" font-size="18" fill="#536574" font-weight="400" text-anchor="start">기존 임무 경로</text>
+<path d="M302 274L269 178" fill="none" stroke="#8795a1" stroke-width="1" stroke-dasharray=""/>
+<circle cx="390" cy="95" r="8" fill="#193044"/>
+<text x="352" y="76" font-size="18" fill="#193044" font-weight="700" text-anchor="start">임무 목표</text>
+<path d="M195 158L320 241" fill="none" stroke="#a83b38" stroke-width="2" stroke-dasharray="6 5" marker-end="url(#arrow)"/>
+<text x="232" y="365" font-size="19" fill="#a83b38" font-weight="400" text-anchor="start">위협의 예상 이동</text>
+<path d="M290 344L287 223" fill="none" stroke="#a83b38" stroke-width="1" stroke-dasharray=""/>
+<path d="M65 315L170 278" fill="none" stroke="#a1adb5" stroke-width="2" stroke-dasharray="" marker-end="url(#arrow)"/>
+<path d="M65 315L183 321" fill="none" stroke="#a1adb5" stroke-width="2" stroke-dasharray="" marker-end="url(#arrow)"/>
+<path d="M65 315C75 281 88 246 115 218" fill="none" stroke="#23774a" stroke-width="4" stroke-dasharray="" marker-end="url(#arrow)"/>
+<text x="188" y="315" font-size="18" fill="#536574" font-weight="400" text-anchor="start">이동 후보</text>
+<text x="35" y="429" font-size="19" fill="#23774a" font-weight="700" text-anchor="start">선택한 회피 경로</text>
+<path d="M98 407L94 267" fill="none" stroke="#23774a" stroke-width="1" stroke-dasharray=""/>
+<rect x="46" y="303" width="38" height="25" rx="8" fill="#dbe9f3" stroke="#2b73b8" stroke-width="1.5" stroke-dasharray=""/>
+<text x="25" y="355" font-size="18" fill="#2b73b8" font-weight="700" text-anchor="start">BlueROV2</text>
+<g transform="translate(180 145) rotate(34)"><rect x="-17" y="-7" width="34" height="14" rx="7" fill="#a83b38"/><path d="M-16 -7L-23 -13V13L-16 7" fill="#a83b38"/></g>
+<text x="210" y="138" font-size="18" fill="#a83b38" font-weight="700" text-anchor="start">어뢰 현재 위치</text>
 </g>
-<text x="493" y="446" font-size="22" fill="#193044" font-weight="400" text-anchor="start">추정 상대속도를 6.0 s 동안 등속 외삽</text>
-<text x="493" y="487" font-size="22" fill="#193044" font-weight="400" text-anchor="start">각 ROV 속도 후보의 최근접 거리 검사</text>
-<text x="493" y="528" font-size="22" fill="#193044" font-weight="400" text-anchor="start">충돌 후보를 제외해 국소 경로 생성</text>
-<text x="493" y="569" font-size="22" fill="#193044" font-weight="400" text-anchor="start">계획 여유 약 3.85 m ≠ 실험 HIT 1.0 m</text>
-<text x="28" y="633" font-size="20" fill="#536574" font-weight="400" text-anchor="start">박스·속도 후보는 예시이며 측정 궤적이 아닙니다.</text>
+<text x="550" y="535" font-size="21" fill="#536574" font-weight="400" text-anchor="middle">같은 시작 상황, 서로 다른 경로 생성 방식</text>
 </g></svg>

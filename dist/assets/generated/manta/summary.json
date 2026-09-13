@@ -1,5 +1,10 @@
 {
-  "dataset": "DVO initial/latest whole-batch selection",
+  "dataset": "Final implementation DVO, complete audited 24-condition batch",
+  "published_batch": {
+    "name": "latest",
+    "version": "v3",
+    "selection_rule": "Publish the complete final implementation batch; historical higher-rate comparison does not select public runs."
+  },
   "public_planner": "DVO",
   "valid_runs": 24,
   "invalid_runs": 0,
@@ -124,5 +129,5 @@
     "native_bags_verified": true,
     "regression_cases": 14
   },
-  "limits": "Before/after shared path/controller changes, not an isolated DVO algorithm effect. One final run per condition; no statistical significance claim."
+  "limits": "One final run per condition in scaled simulation; no statistical significance claim or latest same-code A* control group."
 }

@@ -1,5 +1,10 @@
 {
-  "dataset": "DVO initial/latest whole-batch selection",
+  "dataset": "Final implementation DVO, complete audited 24-condition batch",
+  "published_batch": {
+    "name": "latest",
+    "version": "v3",
+    "selection_rule": "Publish the complete final implementation batch; historical higher-rate comparison does not select public runs."
+  },
   "inputs_sha256": {
     "initial": {
       "runs.csv": "8431a9d268268dc43e2340805bcfb60cf75574e7b47548bb6b35ff02ad743f52",
@@ -22,7 +27,7 @@
     "initial": "42b00a306962fc75adcdbc07b0463f9423c3052b1f3a3d608de37708c6b4af8e",
     "latest": "a003903cbe1106223ba6130ffcf616c74eaf881815bd4c93ef5d8d5599349601"
   },
-  "selection": {
+  "historical_comparison": {
     "initial": {
       "avoided": 14,
       "hit": 10,
@@ -41,22 +46,23 @@
     "both_hit": 7
   },
   "selected_figures": [
-    "dvo-before-after.svg",
-    "dvo-scenario-guidance.svg",
     "dvo-measured-trajectory.svg"
   ],
   "figures": {
     "dvo-before-after.svg": {
       "sha256": "d022e6c3377fc10a734b3beab550095fef2f98b2c2103d4bd627baae27d4ecd3",
-      "source": "runs.csv"
+      "source": "runs.csv",
+      "public_page": false
     },
     "dvo-scenario-guidance.svg": {
       "sha256": "41d58b868979eaa1ef580e64316c65979b6260065337af26d27aa19b69c1285a",
-      "source": "runs.csv"
+      "source": "runs.csv",
+      "public_page": false
     },
     "dvo-measured-trajectory.svg": {
-      "sha256": "5247dc0794eb1eb6fe4e5c03ff9943b6046e21e69d74644628e5c8c4c73656b3",
-      "source": "kinematics.csv"
+      "sha256": "65b2e9d58c599fade96809b7fb180788eb42d25a7981762cbceff985bed90de8",
+      "source": "kinematics.csv",
+      "public_page": true
     }
   },
   "trajectory": {

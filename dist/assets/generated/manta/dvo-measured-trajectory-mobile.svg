@@ -1,8 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 440 590" role="img" aria-labelledby="title desc"><title id="title">DVO 실제 회피 궤적</title><desc id="desc">kinematics.csv 실제 좌표의 XY 투영. 최근접 표본 전후 10초 구간 확대. X와 Y 동일 축척; 실제 3D HIT 판정과 구분합니다.</desc><rect width="100%" height="100%" fill="#fff"/><g font-family="Arial, Noto Sans KR, sans-serif" fill="#193044">
-<text x="30" y="38" font-size="23" font-weight="700">DVO 실제 회피 궤적</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 440 590" role="img" aria-labelledby="title desc"><title id="title">DVO 대표 조건의 이동 궤적</title><desc id="desc">ROV와 어뢰의 기록된 좌표를 XY 평면에 투영했습니다. 최근접 표본 전후 10초 구간 확대. X와 Y 동일 축척이며 3D 피격 판정과 구분합니다.</desc><rect width="100%" height="100%" fill="#fff"/><g font-family="Arial, Noto Sans KR, sans-serif" fill="#193044">
+<text x="30" y="38" font-size="23" font-weight="700">DVO 대표 조건의 이동 궤적</text>
 <text x="30" y="76" font-size="20" fill="#193044" text-anchor="start">정면 / SimpleTracking / 백상어</text>
-<text x="30" y="108" font-size="21" fill="#193044" text-anchor="start">AVOIDED · 전체 closest_m 1.05 m</text>
-<text x="30" y="140" font-size="19" fill="#193044" text-anchor="start">로그 상대시간 215.3–225.3 s 확대</text>
+<text x="30" y="108" font-size="21" fill="#193044" text-anchor="start">최종 회피 완료, 최근접 1.05 m</text>
+<text x="30" y="140" font-size="19" fill="#193044" text-anchor="start">경과시간 215.3–225.3 s 구간</text>
 <path d="M76.0 210V500M76 500.0H366" stroke="#e1e7eb"/>
 <text x="76.0" y="525" font-size="15" fill="#193044" text-anchor="middle">-18.2</text>
 <text x="64" y="505.0" font-size="15" fill="#193044" text-anchor="end">-462.7</text>
@@ -20,11 +20,11 @@
 <text x="64" y="215.0" font-size="15" fill="#193044" text-anchor="end">-427.3</text>
 <polyline points="249.370,332.612 248.619,336.194 247.819,339.975 246.973,343.955 246.128,347.934 245.286,351.914 244.448,355.894 243.653,359.672 242.811,363.650 241.962,367.631 241.114,371.613 240.272,375.592 239.434,379.568 238.596,383.545 237.732,387.517 236.642,391.451 235.294,395.337 233.772,398.973 231.734,402.649 229.154,406.129 226.500,409.631 223.871,413.159 221.409,416.433 217.194,418.616 214.489,422.139 212.104,425.508 210.990,427.721 210.464,429.677 210.677,431.747 211.738,434.394 213.406,436.950 214.052,434.098 214.168,430.039 213.380,426.758 216.715,426.729 221.466,427.431 226.039,428.753 230.190,431.178 233.568,434.239 234.541,437.795 234.779,441.702 234.751,445.675 234.691,449.466 234.650,453.450 234.633,457.423 234.621,461.395 234.602,465.374 234.572,469.356 234.537,473.335 234.508,477.111 234.485,481.087" fill="none" stroke="#23774a" stroke-width="3"/>
 <circle cx="213.406" cy="436.950" r="6" fill="#23774a" stroke="#fff" stroke-width="2"/>
-<text x="35" y="179" font-size="22" fill="#23774a" text-anchor="start">ROV · 실선</text>
+<text x="35" y="179" font-size="22" fill="#23774a" text-anchor="start">ROV (실선)</text>
 <polyline points="234.678,228.913 236.283,236.463 237.949,244.471 239.652,252.958 241.280,261.494 242.810,270.069 244.227,278.679 245.451,286.885 246.596,295.549 247.577,304.234 248.378,312.937 248.983,321.654 249.374,330.380 249.536,339.106 249.452,347.825 249.107,356.525 248.487,365.191 247.629,373.374 246.415,381.909 244.847,390.325 242.877,398.564 240.420,406.543 237.554,413.779 234.097,420.663 230.662,426.023 227.392,430.307 224.390,433.944 221.671,437.152 219.210,440.038 217.077,442.535 215.017,444.946 213.118,447.161 211.359,449.207 209.799,451.011 208.262,452.781 206.821,454.432 205.466,455.977 204.189,457.427 202.982,458.791 201.895,460.014 200.809,461.233 199.778,462.386 198.845,463.426 197.909,464.467 197.017,465.457 196.165,466.399 195.351,467.298 194.573,468.155 193.829,468.974 193.150,469.720 192.464,470.472" fill="none" stroke="#a83b38" stroke-width="3" stroke-dasharray="7 4"/>
 <circle cx="215.017" cy="444.946" r="6" fill="#a83b38" stroke="#fff" stroke-width="2"/>
-<text x="233" y="179" font-size="22" fill="#a83b38" text-anchor="start">어뢰 · 점선</text>
+<text x="233" y="179" font-size="22" fill="#a83b38" text-anchor="start">어뢰 (점선)</text>
 <text x="221.0" y="549" font-size="22" fill="#193044" text-anchor="middle">X (m)</text>
 <text x="8" y="355.0" font-size="19" fill="#193044" text-anchor="start">Y (m)</text>
-<text x="30" y="579" font-size="19" fill="#193044" text-anchor="start">점 · 최근접 표본 / 실제 좌표의 XY 투영</text>
+<text x="30" y="579" font-size="19" fill="#193044" text-anchor="start">점: 최근접 표본 / 기록된 좌표의 XY 투영</text>
 </g></svg>
