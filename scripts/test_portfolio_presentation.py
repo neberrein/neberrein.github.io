@@ -63,6 +63,23 @@ class PresentationTests(unittest.TestCase):
         self.assertIn('.portfolio-home .editorial-heading>span { font-size:2rem;', css)
         self.assertIn('.portfolio-home .editorial-heading>span { font-size:2.5rem;', css)
 
+    def test_crosswalk_uses_original_observation_material(self):
+        page = (DIST / 'projects/crosswalk-gap.html').read_text(encoding='utf-8')
+        for name in ('step1', 'step2', 'step3', 'zones', 'criteria'):
+            filename = 'crosswalk-observation-' + name + '.png'
+            self.assertIn(filename, page)
+            self.assertEqual((DIST / 'assets/images' / filename).read_bytes()[:8], b'\x89PNG\r\n\x1a\n')
+        for filename in ('crosswalk-filming-location.png', 'crosswalk-distance-calibration.png'):
+            self.assertIn(filename, page)
+            self.assertTrue((DIST / 'assets/images' / filename).is_file())
+        for step in (1, 2, 3):
+            self.assertNotIn('src="../assets/images/crosswalk-step' + str(step) + '.svg"', page)
+        self.assertEqual(page.count('<section class="case-section'), 5)
+        for value in ('15.33 m', '16.16 m', '3.27 s', '3.93 s', '916건', '675 Accept / 241 Reject'):
+            self.assertIn(value, page)
+        self.assertIn('viewBox="0 0 1421 436"', page)
+        self.assertIn('crosswalk-evidence.css?v=originals-20260914', page)
+
     def test_davinci_path_labels_and_embedded_font(self):
         import xml.etree.ElementTree as ET
         for name in ('davinci-autonomous-overview.svg', 'davinci-autonomous-overview-mobile.svg'):
