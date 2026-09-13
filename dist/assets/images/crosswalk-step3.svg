@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="320" height="240" viewBox="0 0 320 240" font-family="Arial, Noto Sans KR, sans-serif">
+<title>중앙선 이후 Zone 2의 Lag 관찰</title><desc>중앙선에 도달한 보행자가 반대편 두 차로의 접근 차량과 세로 기준선 사이 거리를 다시 확인하는 설명용 도식.</desc>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0L10 5L0 10" fill="#2b73b8"/></marker></defs>
+<rect width="320" height="240" fill="#fff"/><rect x="16" y="40" width="288" height="140" fill="#f0f3f5"/><rect x="16" y="40" width="288" height="70" fill="#e3eef9"/><path d="M16 75H304M16 145H304" stroke="#a6b5c0" stroke-dasharray="8 6"/><path d="M16 110H304" stroke="#536574" stroke-width="2"/>
+<path d="M151 42H169M151 57H169M151 72H169M151 87H169M151 125H169M151 140H169M151 155H169M151 170H169" stroke="white" stroke-width="8"/><path d="M160 30V183" stroke="#2b73b8" stroke-width="2" stroke-dasharray="4 4"/>
+<g fill="#536574" font-size="18"><text x="20" y="29">Zone 2 · 먼 두 차로</text><text x="20" y="207">Zone 1</text><text x="193" y="126">중앙선</text><text x="210" y="230">기준선</text></g>
+<rect x="236" y="51" width="38" height="18" rx="4" fill="#183a53"/><rect x="241" y="54" width="9" height="12" fill="#fff"/><path d="M230 60H200" stroke="#2b73b8" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M160 85H255M160 79V91M255 79V91" stroke="#2b73b8" stroke-width="2"/><text x="188" y="80" fill="#183a53" font-size="18" font-weight="700">Lag</text>
+<circle cx="160" cy="110" r="7" fill="#23774a"/><path d="M160 100V58" stroke="#23774a" stroke-width="3"/><path d="M190 119L168 111M205 224H160V185" fill="none" stroke="#536574"/>
+</svg>

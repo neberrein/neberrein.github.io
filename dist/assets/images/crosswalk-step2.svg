@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="320" height="240" viewBox="0 0 320 240" font-family="Arial, Noto Sans KR, sans-serif">
+<title>횡단 중 차량 사이 Gap 관찰</title><desc>양쪽 차로에서 앞 차량과 뒤 차량이 같은 세로 기준선을 통과한 시각 T1과 T2의 차이를 측정한다. 그림은 가까운 차로 한 쌍의 차량으로 시간 간격을 설명한다.</desc>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0L10 5L0 10" fill="#2b73b8"/></marker></defs>
+<rect width="320" height="240" fill="#fff"/><rect x="16" y="40" width="288" height="140" fill="#e3eef9"/><path d="M16 75H304M16 145H304" stroke="#a6b5c0" stroke-dasharray="8 6"/><path d="M16 110H304" stroke="#536574" stroke-width="2"/>
+<path d="M151 42H169M151 57H169M151 72H169M151 87H169M151 125H169M151 140H169M151 155H169M151 170H169" stroke="white" stroke-width="8"/><path d="M160 30V183" stroke="#2b73b8" stroke-width="2" stroke-dasharray="4 4"/>
+<g fill="#536574" font-size="18"><text x="20" y="29">Zone 2</text><text x="20" y="229">Zone 1</text><text x="28" y="131">뒤 차량</text><text x="215" y="131">앞 차량</text></g>
+<g fill="#183a53"><rect x="48" y="150" width="38" height="18" rx="4"/><rect x="226" y="150" width="38" height="18" rx="4"/></g><g fill="white"><rect x="71" y="153" width="9" height="12"/><rect x="249" y="153" width="9" height="12"/></g><path d="M269 159H295" stroke="#2b73b8" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M67 170V181H244V170" fill="none" stroke="#2b73b8" stroke-width="2"/><g font-size="18" fill="#183a53"><text x="54" y="201">T2</text><text x="231" y="201">T1</text></g><text x="104" y="229" fill="#183a53" font-size="19" font-weight="700">Gap = T2 − T1</text>
+<circle cx="160" cy="132" r="7" fill="#23774a"/><path d="M160 122V85" stroke="#23774a" stroke-width="3"/><text x="195" y="66" fill="#536574" font-size="18">기준선</text><path d="M190 60H166" stroke="#536574"/>
+</svg>

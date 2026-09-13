@@ -823,10 +823,11 @@ a.publication:hover strong, a.publication:focus-visible strong { color: #9ed0ff;
 .servo-label { right:4%; top:53%; bottom:auto; }
 .led-label { left:43%; right:auto; top:25%; }
 .crosswalk-poster img { max-height:720px; object-fit:contain; background:#fff; }
-/* Crosswalk: four compact sections; distance and time use independent axes. */
+/* Crosswalk: observation sequence, original measurement evidence and results. */
 .crosswalk-page { --crosswalk-blue:#2b73b8; --crosswalk-green:#23774a; --crosswalk-red:#a73140; }
 .crosswalk-page .case-layout { grid-template-columns:170px minmax(0,1fr); gap:2rem; }
 .crosswalk-page .case-body { max-width:900px; }
+.crosswalk-page .case-hero h1 { font-size:clamp(2rem,4vw,3rem); line-height:1.25; text-wrap:balance; }
 .crosswalk-page .case-facts { grid-template-columns:1fr 1fr 1.35fr 1.65fr; }
 .crosswalk-awards { display:block; margin-top:.65rem; color:var(--slate); font-size:.8rem; line-height:1.6; font-weight:400; }
 .crosswalk-page .crosswalk-poster img { width:100%; height:auto; max-height:720px; }
@@ -841,11 +842,55 @@ a.publication:hover strong, a.publication:focus-visible strong { color: #9ed0ff;
 .crosswalk-finding { padding:1.25rem; border-left:3px solid var(--signal); background:#eef3f5; margin:1.5rem 0; }.crosswalk-finding h3 { font-size:1.1rem; margin:0 0 .7rem; }.crosswalk-finding p:last-child { margin-bottom:0; }
 .crosswalk-page .crosswalk-result-table th { font-size:.85rem; }.crosswalk-page .crosswalk-result-table td { font-size:1rem; }
 .crosswalk-page .case-body > .text-link { display:inline-flex; align-items:center; min-height:44px; }
+.crosswalk-hero-summary { display:flex; gap:3rem; border-top:1px solid var(--rule); padding-top:1.5rem; margin-top:2rem; }
+.crosswalk-hero-summary p { margin:0; }
+.crosswalk-hero-summary strong { display:block; color:var(--deep); font-size:clamp(1.25rem,2vw,1.8rem); }
+.crosswalk-hero-summary span { color:var(--slate); font-size:.9rem; }
+.crosswalk-steps { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:1rem; list-style:none; padding:0; margin:1.5rem 0; }
+.crosswalk-steps > li { position:relative; border:1px solid var(--rule); background:white; padding:1rem; }
+.crosswalk-step-label { color:var(--signal); font-size:.78rem; font-weight:800; letter-spacing:.05em; }
+.crosswalk-steps h3 { font-size:1.2rem; margin:.25rem 0 .75rem; }
+.crosswalk-steps h4 { font-size:.95rem; margin:1rem 0 .5rem; }
+.crosswalk-steps img { display:block; width:100%; max-width:320px; height:auto; margin-inline:auto; }
+.crosswalk-steps p { font-size:.95rem; color:var(--slate); line-height:1.65; margin:0; }
+.crosswalk-steps dl { margin:1rem 0 0; padding-top:.75rem; border-top:1px solid var(--rule); font-size:.9rem; }
+.crosswalk-steps dl div + div { margin-top:.6rem; }
+.crosswalk-steps dt { font-weight:750; color:var(--deep); }
+.crosswalk-steps dd { margin:0; color:var(--slate); }
+.crosswalk-definitions { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:1.5rem; margin:2rem 0 1rem; }
+.crosswalk-definitions article { border-top:3px solid var(--signal); padding-top:1rem; }
+.crosswalk-definitions h3 { font-size:1.1rem; margin:0 0 .6rem; }
+.crosswalk-definitions h3 span { display:block; color:var(--slate); font-size:1rem; font-weight:500; margin-top:.25rem; }
+.crosswalk-definitions p { color:var(--slate); font-size:.95rem; margin:0; }
+.crosswalk-data { display:grid; grid-template-columns:minmax(210px,.65fr) minmax(0,1.35fr); gap:1.5rem; align-items:start; margin-top:1.5rem; }
+.crosswalk-data-stats article { border-bottom:1px solid var(--rule); padding:0 0 1rem; margin-bottom:1rem; }
+.crosswalk-data-stats article > span { color:var(--signal); font-size:.85rem; font-weight:700; }
+.crosswalk-data-stats h3 { font-size:clamp(1.15rem,1.8vw,1.5rem); margin:.4rem 0; }
+.crosswalk-data-stats p { margin:0; font-size:.95rem; color:var(--slate); }
+.crosswalk-measurement { font-size:.9rem; }
+.crosswalk-measurement div + div { margin-top:.7rem; }
+.crosswalk-measurement dt { font-weight:700; }.crosswalk-measurement dd { margin:0; color:var(--slate); }
+.crosswalk-page .crosswalk-data img,.crosswalk-page .crosswalk-original-grid img { display:block; width:100%; height:auto; max-height:none; }
+.crosswalk-page .research-figure figcaption { font-size:.85rem; line-height:1.65; }
+.crosswalk-page .research-figure figcaption strong { display:block; color:var(--deep); margin-bottom:.3rem; }
+.crosswalk-details { border-top:1px solid var(--rule); margin-top:1.25rem; }
+.crosswalk-details summary { cursor:pointer; color:var(--signal); font-weight:700; min-height:44px; padding:1rem 0; line-height:1.6; }
+.crosswalk-details summary:focus-visible { outline:2px solid var(--signal); outline-offset:4px; }
+.crosswalk-details > p { color:var(--slate); }
+.crosswalk-original-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:1rem; margin:1rem 0 1.5rem; }
+.crosswalk-page .crosswalk-output { grid-template-columns:minmax(0,.75fr) minmax(0,1.25fr); align-items:start; }
+.crosswalk-page .crosswalk-output .evidence-note { border:0; padding:0; background:transparent; }
+.crosswalk-page .crosswalk-output .evidence-note h3 { font-size:1.6rem; line-height:1.4; }
+@media(max-width:1000px) {
+  .crosswalk-steps { grid-template-columns:minmax(0,1fr); max-width:560px; margin-inline:auto; }
+}
 @media(max-width:900px) {
   .crosswalk-page .case-layout { grid-template-columns:minmax(0,1fr); gap:1rem; }
   .crosswalk-page .case-facts { grid-template-columns:repeat(2,minmax(0,1fr)); }
 }
 @media(max-width:680px) {
+  .crosswalk-steps,.crosswalk-definitions,.crosswalk-data,.crosswalk-original-grid,.crosswalk-page .crosswalk-output { grid-template-columns:minmax(0,1fr); }
+  .crosswalk-hero-summary { gap:1rem; flex-wrap:wrap; }
   .crosswalk-criteria { grid-template-columns:minmax(0,1fr); }
   .crosswalk-page .case-body p,.crosswalk-page .decision-grid p { font-size:1rem; }
   .crosswalk-page .case-facts { grid-template-columns:minmax(0,1fr); }
