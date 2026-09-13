@@ -1,0 +1,42 @@
+/* Sensor Fusion evidence only: retain the shared portfolio layout. */
+.sensor-fusion-page .simulation-environment {
+  background: #fff;
+}
+.sensor-fusion-page .simulation-environment img {
+  width: min(calc(100% - 32px), 600px);
+  height: auto;
+  max-height: none;
+  margin: 16px auto;
+}
+.sensor-fusion-page .simulation-environment figcaption {
+  border-top: 1px solid var(--rule);
+  font-size: .875rem;
+  line-height: 1.65;
+}
+.sensor-fusion-page .simulation-environment figcaption strong,
+.sensor-fusion-page .occlusion-result-wide figcaption strong {
+  display: block;
+  margin-bottom: .35rem;
+  color: var(--deep);
+}
+.sensor-fusion-page .simulation-state-result img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.sensor-fusion-page .occlusion-result-wide img {
+  width: min(100%, 674px);
+  margin-inline: auto;
+}
+.sensor-fusion-page .occlusion-result-wide figcaption {
+  border-top: 1px solid var(--rule);
+  font-size: .875rem;
+  line-height: 1.65;
+}
+.sensor-fusion-page .occlusion-result-wide .figure-legend > span {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: center;
+  gap: .4rem;
+  max-width: 100%;
+}

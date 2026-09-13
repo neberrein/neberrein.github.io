@@ -9,6 +9,7 @@
   <meta property="og:type" content="website"><meta property="og:title" content="강화학습 기반 카메라-라이다 센서융합 차량 추적 | 곽민재"><meta property="og:description" content="상황별 관측 후보를 DQN으로 선택하고 IMM으로 차량 상태를 추정한 석사 연구"><meta property="og:url" content="https://neberrein.github.io/projects/sensor-fusion.html"><meta property="og:image" content="https://neberrein.github.io/assets/images/sensor-fusion-field.png">
   <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="../assets/site.css?v=project-navigation-20260913">
+  <link rel="stylesheet" href="../assets/sensor-evidence.css?v=20260914">
   <script src="../assets/site.js" defer></script>
 </head>
 <body class="sensor-fusion-page">
@@ -70,23 +71,21 @@
   </div></div></section>
 
   <section class="case-section alt-section"><div class="section-shell case-layout"><div><span class="case-section-label">04 / SIMULATION</span><h2>시뮬레이션 결과</h2></div><div class="case-body">
-    <figure class="research-figure simulation-environment"><img loading="lazy" decoding="async" src="../assets/images/sensor-simulation-overview-original.png" width="297" height="201" alt="MATLAB 원본 시뮬레이션의 차량 형상, 라이다 빔과 관측점, 카메라 최대 및 최소 방위각"><figcaption>MATLAB 차량-센서 시뮬레이션 환경. 차량 형상과 센서 위치를 기반으로 2D 라이다 교차점과 카메라 최대, 최소 방위각을 생성해 관측 후보 계산과 차량 상태 추정을 검증했습니다.</figcaption></figure>
-    <p class="method-note">Pure Pursuit로 직진과 좌회전 차량 거동을 구현했습니다. 아래 대표 그래프는 단일차량 좌회전 결과이며, 추가 결과는 단일차량 직진으로 구분했습니다.</p>
+    <figure class="research-figure simulation-environment"><img loading="lazy" decoding="async" src="../assets/images/sensor-simulation-environment-hires.png" width="1888" height="1440" alt="MATLAB 차량-센서 시뮬레이션의 차량 형상, 라이다 빔과 관측점, 카메라 최대 및 최소 방위각"><figcaption><strong>MATLAB 차량-센서 시뮬레이션 환경</strong>차량 형상과 센서 위치를 기반으로 라이다 관측점과 카메라 최대·최소 방위각을 생성해 관측 후보 계산과 차량 상태 추정을 검증했습니다.</figcaption></figure>
+    <p class="method-note">Pure Pursuit로 직진과 좌회전 차량 거동을 구현했습니다. 아래 그래프는 단일차량의 좌회전과 직진 결과를 각각 보여줍니다.</p>
     <h3 class="simulation-group-title">대표 좌회전 결과 — 단일차량</h3>
     <div class="plot-grid"><figure class="plot-card"><img loading="lazy" decoding="async" src="../assets/images/sensor-sim-corner.png?v=original-20260913" width="651" height="427" alt="단일차량 좌회전 시뮬레이션의 코너점 추정"><figcaption><strong>좌회전 / DQN 기반 차량 코너 위치 추정</strong> 빨강: 실제 코너, 파랑: 제안 방법</figcaption></figure><figure class="plot-card"><img loading="lazy" decoding="async" src="../assets/images/sensor-sim-center.png?v=original-20260913" width="637" height="441" alt="단일차량 좌회전 시뮬레이션의 중심 위치 추정"><figcaption><strong>좌회전 / IMM 기반 차량 중심 위치 추정</strong> 빨강: 실제 중심, 초록: IMM 중심 추정, 파랑: 코너 추정</figcaption></figure></div>
     <h3 class="simulation-group-title">차량 상태 추정 — 단일차량 좌회전</h3>
     <figure class="plot-card simulation-state-result">
-      <svg class="simulation-state-plot" viewBox="0 0 1205 890" role="img" aria-label="단일차량 좌회전의 속도와 진행방향 추정. 원본 그래프를 흰 배경에 배치하고 시간 축 제목을 아래에 한 번 표시">
-        <rect width="1205" height="890" fill="white"/>
-        <g font-family="Arial, sans-serif" font-size="25" fill="#17202a"><text x="600" y="875" text-anchor="middle">Time (s)</text></g>
-        <svg x="30" y="50" width="1150" height="365" viewBox="0 25 1150 365"><image href="../assets/images/sensor-sim-turn-state.png" width="1205" height="839"/></svg>
-        <svg x="30" y="475" width="1150" height="370" viewBox="0 430 1150 370"><image href="../assets/images/sensor-sim-turn-state.png" width="1205" height="839"/></svg>
-      </svg>
-      <figcaption><strong>좌회전 / 속도 및 진행방향 추정</strong> 빨강: 실제값, 파랑: IMM 추정값<a class="evidence-image-link" href="../assets/images/sensor-sim-turn-state.png" target="_blank" rel="noopener">그래프 원본 보기 ↗</a></figcaption>
+      <img loading="lazy" decoding="async" src="../assets/images/sensor-sim-turn-state.png?v=20260914" width="1205" height="838" alt="단일차량 좌회전의 속도 및 진행방향 추정. 빨강은 실제값, 파랑은 IMM 추정값">
+      <figcaption><strong>좌회전 / 속도 및 진행방향 추정</strong> 빨강: 실제값, 파랑: IMM 추정값</figcaption>
     </figure>
-    <details class="simulation-more"><summary>추가 시뮬레이션 결과 보기 — 단일차량 직진</summary><div class="plot-grid"><figure class="plot-card"><img loading="lazy" decoding="async" src="../assets/images/sensor-sim-straight-corner.png" alt="단일차량 직진 시뮬레이션의 실제 코너와 DQN 코너 추정 결과"><figcaption><strong>직진 / 차량 코너 위치 추정</strong> 빨강: 실제 코너, 파랑: 제안 방법</figcaption></figure><figure class="plot-card"><img loading="lazy" decoding="async" src="../assets/images/sensor-sim-straight-center.png" alt="단일차량 직진 시뮬레이션의 실제 차량 중심과 IMM 중심 추정 결과"><figcaption><strong>직진 / 차량 중심 위치 추정</strong> 빨강: 실제 중심, 초록: IMM 중심 추정, 파랑: 코너 추정</figcaption></figure></div></details>
+    <h3 class="simulation-group-title">직진 결과 — 단일차량</h3>
+    <div class="plot-grid"><figure class="plot-card"><img loading="lazy" decoding="async" src="../assets/images/sensor-sim-straight-corner.png" alt="단일차량 직진 시뮬레이션의 실제 코너와 DQN 코너 추정 결과"><figcaption><strong>직진 / 차량 코너 위치 추정</strong> 빨강: 실제 코너, 파랑: 제안 방법</figcaption></figure><figure class="plot-card"><img loading="lazy" decoding="async" src="../assets/images/sensor-sim-straight-center.png" alt="단일차량 직진 시뮬레이션의 실제 차량 중심과 IMM 중심 추정 결과"><figcaption><strong>직진 / 차량 중심 위치 추정</strong> 빨강: 실제 중심, 초록: IMM 중심 추정, 파랑: 코너 추정</figcaption></figure></div>
+    <h3 class="simulation-group-title">차량 상태 추정 — 단일차량 직진</h3>
+    <figure class="plot-card simulation-state-result"><img loading="lazy" decoding="async" src="../assets/images/sensor-sim-straight-state.png?v=20260914" width="1205" height="838" alt="단일차량 직진의 속도 및 진행방향 추정. 빨강은 실제값, 파랑은 IMM 추정값"><figcaption><strong>직진 / 속도 및 진행방향 추정</strong> 빨강: 실제값, 파랑: IMM 추정값</figcaption></figure>
     <div class="table-wrap"><table class="metric-table"><thead><tr><th>시뮬레이션 시나리오</th><th>위치 RMSE</th><th>속도 RMSE</th><th>진행방향 RMSE</th></tr></thead><tbody><tr><td>단일차량 좌회전</td><td><strong>0.066 m</strong></td><td>0.491 m/s</td><td>0.038°</td></tr><tr><td>단일차량 직진</td><td><strong>0.012 m</strong></td><td>0.419 m/s</td><td>0.001°</td></tr><tr><td>다중차량 좌회전</td><td><strong>0.054 m</strong></td><td>0.468 m/s</td><td>0.041°</td></tr><tr><td>다중차량 직진</td><td><strong>0.015 m</strong></td><td>0.444 m/s</td><td>0.002°</td></tr></tbody></table></div>
-    <p class="method-note">석사학위논문 Table 1의 시나리오별 기재값입니다. 위치 RMSE는 차량 중심 위치 기준이며, 단일차량과 다중차량 조건을 구분했습니다.</p>
+    <p class="method-note">위치 RMSE는 차량 중심 위치 기준이며, 단일차량과 다중차량 조건을 구분했습니다.</p>
   </div></div></section>
 
   <section class="case-section"><div class="section-shell case-layout"><div><span class="case-section-label">05 / FIELD TEST</span><h2>현장 검증</h2></div><div class="case-body">
@@ -95,7 +94,7 @@
     <div class="plot-grid sensor-inputs"><figure class="plot-card"><img loading="lazy" decoding="async" src="../assets/images/sensor-field-camera-input.png" alt="동일 시점의 카메라 입력에서 검출한 차량 영역과 대응 라이다 점"><figcaption><strong>카메라 입력</strong> YOLO로 검출한 차량 영역</figcaption></figure><figure class="plot-card"><img loading="lazy" decoding="async" src="../assets/images/sensor-field-lidar-input.png" alt="카메라 검출 차량에 대응하는 동일 시점 2D 라이다 포인트"><figcaption><strong>라이다 입력</strong> 차량 영역에 대응하는 2D 라이다 포인트</figcaption></figure></div>
     <p class="method-note">동일 시점 센서 입력 / 카메라에서 검출한 차량 영역과 이에 대응하는 2D 라이다 포인트를 함께 사용해 차량 후보를 구성했습니다.</p>
     <div class="plot-grid three"><figure class="plot-card"><img loading="lazy" decoding="async" src="../assets/images/sensor-field-corner.png" alt="현장 검증 차량 코너점 추정 결과"><figcaption><strong>차량 코너 추정 결과</strong> Ground Truth와 DQN이 선택한 전방 우측 코너의 궤적 비교</figcaption></figure><figure class="plot-card"><img loading="lazy" decoding="async" src="../assets/images/sensor-field-center.png" alt="현장 검증 차량 중심 위치 추정 결과"><figcaption><strong>차량 중심 위치 추정</strong> RTK-GPS 기준 차량 중심과 IMM 추정 궤적 비교</figcaption></figure><figure class="plot-card"><a href="../assets/images/sensor-field-state.png" target="_blank" rel="noopener" aria-label="차량 상태 추정 그래프 원본 크게 보기"><img loading="lazy" decoding="async" src="../assets/images/sensor-field-state.png" alt="실제값과 IMM의 속도 및 진행방향 추정 결과, 빨강 실제값 파랑 추정값"></a><figcaption><strong>차량 상태 추정</strong> 실제값과 IMM의 속도 및 진행방향 추정 결과. 빨강: 실제값, 파랑: 추정값</figcaption></figure></div>
-    <div class="table-wrap"><table class="metric-table"><thead><tr><th>현장 시나리오</th><th>위치 RMSE</th><th>속도 RMSE</th><th>진행방향 RMSE</th></tr></thead><tbody><tr><td>좌회전</td><td><strong>0.092 m</strong></td><td>0.224 m/s</td><td>3.507°</td></tr><tr><td>직진</td><td><strong>0.078 m</strong></td><td>0.401 m/s</td><td>2.554°</td></tr><tr><td>연속 다중차량 좌회전</td><td><strong>0.147 m</strong></td><td>0.397 m/s</td><td>3.074°</td></tr></tbody></table></div>
+    <div class="table-wrap"><table class="metric-table"><thead><tr><th>현장 시나리오</th><th>위치 RMSE</th><th>속도 RMSE</th><th>진행방향 RMSE</th></tr></thead><tbody><tr><td>좌회전</td><td><strong>0.092 m</strong></td><td>0.224 m/s</td><td>3.507°</td></tr><tr><td>직진</td><td><strong>0.078 m</strong></td><td>0.401 m/s</td><td>2.554°</td></tr></tbody></table></div>
   </div></div></section>
 
   <section class="case-section alt-section"><div class="section-shell case-layout"><div><span class="case-section-label">06 / OCCLUSION</span><h2>가림 대응</h2></div><div class="case-body">
@@ -106,7 +105,7 @@
     </div>
     <p class="candidate-legend">빨강 ×: 라이다 점 / 보라: YOLO 최대 방위각 / 하늘색: YOLO 최소 방위각 / 파랑 점: 센서 위치</p>
     <h3 class="simulation-group-title">가림 이후 궤적 회복 비교</h3>
-    <figure class="research-figure occlusion-result-wide"><img loading="lazy" decoding="async" src="../assets/images/sensor-occlusion-result.png" alt="가림 이후 실제 코너 궤적과 DQN, Mahalanobis 거리 기반 후보 선택의 회복 비교"><figcaption>석사학위논문 Fig. 13(a)의 가림 시나리오 결과.<span class="figure-legend"><i class="red"></i>실측 궤적 <i class="blue"></i>DQN 기반 후보 선택 <i class="magenta"></i>Mahalanobis 거리 기반 후보 선택</span><a class="evidence-image-link" href="../assets/images/sensor-occlusion-result.png" target="_blank" rel="noopener">비교 그래프 원본 보기 ↗</a></figcaption></figure>
+    <figure class="research-figure occlusion-result-wide"><img loading="lazy" decoding="async" src="../assets/images/sensor-occlusion-result-marked.png" width="641" height="681" alt="빨간 원으로 가림 발생 구간을 표시한 실제 코너 궤적과 DQN, Mahalanobis 거리 기반 후보 선택의 회복 비교"><figcaption><strong>빨간 원: 가림 발생 구간</strong><span class="figure-legend"><span><i class="red" aria-hidden="true"></i>실측 궤적</span><span><i class="blue" aria-hidden="true"></i>DQN 기반 후보 선택</span><span><i class="magenta" aria-hidden="true"></i>Mahalanobis 거리 기반 후보 선택</span></span></figcaption></figure>
     <div class="recovery-comparison"><article><span>비교 방법</span><strong>Mahalanobis 거리 기반 후보 선택</strong><p>IMM 예측값과 관측 후보의 Mahalanobis 거리를 이용해 기준점을 선택하는 비교 방법입니다. 가림 이후 관측 상태가 크게 변하면 실제 궤적으로 다시 수렴하는 데 한계가 나타났습니다.</p></article><article><span>제안 방법</span><strong>DQN 기반 상황별 후보 선택</strong><p>가림 중에는 IMM 예측 후보를 활용하고, 재검출 뒤에는 현재 센서 상태에 적합한 관측 후보를 다시 선택해 추적을 회복합니다.</p></article></div>
   </div></div></section>
 
