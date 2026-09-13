@@ -4,3 +4,9 @@ Thumbs.db
 .DS_Store
 __pycache__/
 *.pyc
+# Local pilot copies are preserved but never published or merged into results.
+portfolio_data/manta/pilot/
+# Raw experiment exports/audits stay local; publish derived portfolio evidence only.
+portfolio_data/manta/baseline_original/
+portfolio_data/manta/latest/*.csv
+portfolio_data/manta/latest/*.json

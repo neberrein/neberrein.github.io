@@ -1,0 +1,2 @@
+# Measurement CSV hashes must survive Windows/Linux checkouts byte-for-byte.
+portfolio_data/manta/**/*.csv -text

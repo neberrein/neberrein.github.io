@@ -28,6 +28,8 @@ jobs:
       - name: Validate and build measured MANTA results when CSV is present
         run: |
           python scripts/test_manta_results.py
+          python scripts/test_manta_hybrid.py
+          python scripts/test_manta_dvo.py
           python scripts/build_manta_results.py
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3

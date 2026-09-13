@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 430" role="img" aria-labelledby="title desc">
+<title id="title">회피 판단과 A*/DVO 경로계획부터 실제 운동까지</title><desc id="desc">설명용 구조도. 상태 입력 후 속도와 TTC를 판단하고 선택한 A* 또는 DVO가 경로를 생성합니다. reference_path는 팀 인터페이스 PathFollower, ControlTarget, PPID, 추진기를 거쳐 Gazebo에서 실행됩니다. A*와 DVO는 비교용으로 선택하는 별도 플래너입니다.</desc>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10" fill="#526b7b"/></marker></defs><rect width="1100" height="430" fill="#fff"/>
+<g font-family="Arial, Noto Sans KR, sans-serif" fill="#193044">
+<text x="28" y="38" font-size="23" font-weight="700">위협 판단 → 선택한 플래너의 경로 → 팀 제어 모듈 → 실제 운동</text>
+<rect x="28" y="77" width="774" height="272" rx="7" fill="#f1f7f3" stroke="#23774a" stroke-width="2"/><text x="48" y="110" font-size="18" fill="#23774a" font-weight="700">MY SCOPE · 회피 판단 / 경로계획</text>
+<rect x="49" y="158" width="155" height="116" rx="5" fill="#fff" stroke="#bccbd5"/><text x="127" y="192" text-anchor="middle" font-size="18">ROV·어뢰 상태</text><text x="127" y="224" text-anchor="middle" font-size="18">속도 추정 · TTC</text><text x="127" y="253" text-anchor="middle" font-size="16">긴급도·교전 판단</text>
+<rect x="246" y="133" width="252" height="73" rx="5" fill="#edf3fa" stroke="#2b73b8"/><text x="372" y="163" text-anchor="middle" font-size="19">A* · 전역 계획</text><text x="372" y="190" text-anchor="middle" font-size="16">미래 박스 통로 → 임무 경로·캐시</text>
+<rect x="246" y="237" width="252" height="73" rx="5" fill="#fff" stroke="#23774a"/><text x="372" y="267" text-anchor="middle" font-size="19">DVO · 국소 회피</text><text x="372" y="294" text-anchor="middle" font-size="16">상대속도 후보 평가 → 부분 경로</text>
+<text x="216" y="330" font-size="16" fill="#536574">실험 설정에 따라 하나의 플래너 선택</text>
+<rect x="549" y="169" width="229" height="93" rx="5" fill="#fff" stroke="#23774a"/><text x="664" y="200" text-anchor="middle" font-size="17" fill="#2b73b8">/uuv/reference_path</text><text x="664" y="235" text-anchor="middle" font-size="18">nav_msgs/Path</text>
+<g fill="none" stroke="#526b7b" stroke-width="2" marker-end="url(#arrow)"><path d="M204 217H223V169H244"/><path d="M223 217V274H244"/><path d="M498 169H523V204H547"/><path d="M498 274H523V230H547"/></g>
+<rect x="845" y="112" width="226" height="237" rx="5" fill="#f3f5f6" stroke="#7c8b95" stroke-dasharray="6 4"/><text x="958" y="143" text-anchor="middle" font-size="16" font-weight="700" fill="#536574">TEAM INTERFACE</text><text x="958" y="179" text-anchor="middle" font-size="19">PathFollower</text><text x="958" y="211" text-anchor="middle" font-size="18">↓ ControlTarget</text><text x="958" y="244" text-anchor="middle" font-size="19">↓ PPID</text><text x="958" y="276" text-anchor="middle" font-size="18">↓ 6개 추진기</text><text x="958" y="311" text-anchor="middle" font-size="18">↓ Gazebo 운동</text>
+<path d="M778 215H843" stroke="#526b7b" stroke-width="2" marker-end="url(#arrow)"/>
+<text x="28" y="390" font-size="17" fill="#536574">DVO 선택 속도를 직접 cmd_vel로 전달하지 않음 · 경로 추종과 제어 응답을 거쳐 실제 운동으로 실행</text>
+</g></svg>

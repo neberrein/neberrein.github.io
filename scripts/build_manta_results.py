@@ -475,6 +475,12 @@ def results_html(summary, selected, figures, asset_path, date):
 
 
 def build(input_path, output_path, page):
+    if (input_path / "runs.csv").exists():
+        with (input_path / "runs.csv").open(encoding="utf-8-sig", newline="") as stream:
+            planners = {row.get("planner", "").strip().lower() for row in csv.DictReader(stream)}
+        if "hybrid" in planners or (input_path / "final_integrity.json").exists():
+            from build_manta_dvo import build_dvo
+            return build_dvo(input_path, output_path, page)
     if not (input_path / "runs.csv").exists():
         if any((input_path / name).exists() for name in ("plans.csv", "events.csv", "collect_log.txt", "scale_info.txt", "params.txt")):
             raise ValueError("일부 입력만 존재하고 runs.csv가 없습니다")

@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 440 690" role="img" aria-labelledby="title desc"><title id="title">선택한 DVO · 방향별 결과</title><desc id="desc">어뢰 3종 중 최종 회피 횟수와 최근접 거리 중앙값</desc><rect width="100%" height="100%" fill="#fff"/><g font-family="Arial, Noto Sans KR, sans-serif" fill="#193044">
+<text x="30" y="38" font-size="23" font-weight="700">선택한 DVO · 방향별 결과</text>
+<text x="30" y="76" font-size="19" fill="#193044" text-anchor="start">AVOIDED / 3 · 최근접 거리 중앙값 (m)</text>
+<text x="30" y="117" font-size="23" fill="#193044" text-anchor="start">SimpleTracking</text>
+<text x="30" y="174" font-size="23" fill="#193044" text-anchor="start">정면</text>
+<rect x="117" y="141" width="287" height="47" rx="4" fill="#edf5ef"/>
+<text x="139" y="174" font-size="25" fill="#193044" text-anchor="start">3/3</text>
+<text x="383" y="174" font-size="23" fill="#193044" text-anchor="end">1.09 m</text>
+<text x="30" y="228" font-size="23" fill="#193044" text-anchor="start">후방</text>
+<rect x="117" y="195" width="287" height="47" rx="4" fill="#edf5ef"/>
+<text x="139" y="228" font-size="25" fill="#193044" text-anchor="start">3/3</text>
+<text x="383" y="228" font-size="23" fill="#193044" text-anchor="end">1.85 m</text>
+<text x="30" y="282" font-size="23" fill="#193044" text-anchor="start">측면</text>
+<rect x="117" y="249" width="287" height="47" rx="4" fill="#edf5ef"/>
+<text x="139" y="282" font-size="25" fill="#193044" text-anchor="start">3/3</text>
+<text x="383" y="282" font-size="23" fill="#193044" text-anchor="end">1.19 m</text>
+<text x="30" y="336" font-size="23" fill="#193044" text-anchor="start">대각</text>
+<rect x="117" y="303" width="287" height="47" rx="4" fill="#edf5ef"/>
+<text x="139" y="336" font-size="25" fill="#193044" text-anchor="start">2/3</text>
+<text x="383" y="336" font-size="23" fill="#193044" text-anchor="end">1.45 m</text>
+<text x="30" y="390" font-size="23" fill="#193044" text-anchor="start">PNG</text>
+<text x="30" y="447" font-size="23" fill="#193044" text-anchor="start">정면</text>
+<rect x="117" y="414" width="287" height="47" rx="4" fill="#f8eeee"/>
+<text x="139" y="447" font-size="25" fill="#193044" text-anchor="start">0/3</text>
+<text x="383" y="447" font-size="23" fill="#193044" text-anchor="end">0.88 m</text>
+<text x="30" y="501" font-size="23" fill="#193044" text-anchor="start">후방</text>
+<rect x="117" y="468" width="287" height="47" rx="4" fill="#f8eeee"/>
+<text x="139" y="501" font-size="25" fill="#193044" text-anchor="start">1/3</text>
+<text x="383" y="501" font-size="23" fill="#193044" text-anchor="end">0.99 m</text>
+<text x="30" y="555" font-size="23" fill="#193044" text-anchor="start">측면</text>
+<rect x="117" y="522" width="287" height="47" rx="4" fill="#edf5ef"/>
+<text x="139" y="555" font-size="25" fill="#193044" text-anchor="start">2/3</text>
+<text x="383" y="555" font-size="23" fill="#193044" text-anchor="end">1.09 m</text>
+<text x="30" y="609" font-size="23" fill="#193044" text-anchor="start">대각</text>
+<rect x="117" y="576" width="287" height="47" rx="4" fill="#f8eeee"/>
+<text x="139" y="609" font-size="25" fill="#193044" text-anchor="start">1/3</text>
+<text x="383" y="609" font-size="23" fill="#193044" text-anchor="end">0.76 m</text>
+<text x="30" y="666" font-size="19" fill="#193044" text-anchor="start">HIT도 유효 실험에 포함 · 각 조건 1회</text>
+</g></svg>

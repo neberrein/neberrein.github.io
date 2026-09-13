@@ -1,0 +1,76 @@
+{
+  "dataset": "DVO initial/latest whole-batch selection",
+  "inputs_sha256": {
+    "initial": {
+      "runs.csv": "8431a9d268268dc43e2340805bcfb60cf75574e7b47548bb6b35ff02ad743f52",
+      "plans.csv": "4542053ba3540406ebf0af2120331877ba141708781233af0d341db57dbce243",
+      "events.csv": "7be05e0b3a12f001b30e5f7a6758d501bc79b04e672b3b5b0424f65430ed161a",
+      "kinematics.csv": "ec8fd8c8793cecc2ca8d0b678eded7b853b31275c10c7ae99e852195bb630b63",
+      "controls.csv": "21f1cc145e56f9e89aa70b1f83d45560273a8d26aa669bb60305c0291f4dce95",
+      "run_metrics_extended.csv": "d3768e1738221c08529a0b3bf96672ac52d53fb154737f1bab4900a6270f363e"
+    },
+    "latest": {
+      "runs.csv": "484f1f46ac8fa0b0affb2dc5ec61fd8dfa0a5a00f19fbb228c393aacbb8b351e",
+      "plans.csv": "4e9205cb2ef4c82b0bb8d45d7588149600adb41ac812075b42d665c512d676b9",
+      "events.csv": "09cb52f40ffe1adb0ed23aaaa53e1982d71103f7a42d931df24e5be37bcee6c1",
+      "kinematics.csv": "681cc16399f5711f3c99f945bf52a0c46f92ab1009fd264496d6a5e85cfca6c9",
+      "controls.csv": "5b88d8564df32807eb864fcecf2f6738417e4d7bdf7b7965769dcdb7aac9eda2",
+      "run_metrics_extended.csv": "165c24e3ea29a280bcd98ef672321c9c44d9b5e5db08c4c48e1b422b3dfabcd2"
+    }
+  },
+  "archive_sha256": {
+    "initial": "42b00a306962fc75adcdbc07b0463f9423c3052b1f3a3d608de37708c6b4af8e",
+    "latest": "a003903cbe1106223ba6130ffcf616c74eaf881815bd4c93ef5d8d5599349601"
+  },
+  "selection": {
+    "initial": {
+      "avoided": 14,
+      "hit": 10,
+      "n": 24
+    },
+    "latest": {
+      "avoided": 15,
+      "hit": 9,
+      "n": 24
+    },
+    "selected_batch": "latest",
+    "selection_rule": "Select the entire higher-AVOIDED-rate DVO batch; prefer latest on ties. No per-condition best-of selection.",
+    "changed_to_avoided": 3,
+    "changed_to_hit": 2,
+    "both_avoided": 12,
+    "both_hit": 7
+  },
+  "selected_figures": [
+    "dvo-before-after.svg",
+    "dvo-scenario-guidance.svg",
+    "dvo-measured-trajectory.svg"
+  ],
+  "figures": {
+    "dvo-before-after.svg": {
+      "sha256": "d022e6c3377fc10a734b3beab550095fef2f98b2c2103d4bd627baae27d4ecd3",
+      "source": "runs.csv"
+    },
+    "dvo-scenario-guidance.svg": {
+      "sha256": "41d58b868979eaa1ef580e64316c65979b6260065337af26d27aa19b69c1285a",
+      "source": "runs.csv"
+    },
+    "dvo-measured-trajectory.svg": {
+      "sha256": "5247dc0794eb1eb6fe4e5c03ff9943b6046e21e69d74644628e5c8c4c73656b3",
+      "source": "kinematics.csv"
+    }
+  },
+  "trajectory": {
+    "run_id": "01_front_dvo_mode2_baeksangeo_20260913_155158",
+    "condition": {
+      "scenario": "front",
+      "mode": "2",
+      "torpedo": "baeksangeo"
+    },
+    "window_t_rel_sec": [
+      215.330273,
+      225.330273
+    ],
+    "projection": "measured XY, equal X/Y aspect",
+    "selection_rule": "First complete AVOIDED condition in configured direction/mode/torpedo order"
+  }
+}

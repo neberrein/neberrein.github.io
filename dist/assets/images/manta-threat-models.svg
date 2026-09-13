@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 510" role="img" aria-labelledby="title desc">
+<title id="title">A*와 DVO가 사용하는 위협 모델의 차이</title><desc id="desc">설명용 도식. A*는 유도 모델로 샘플링한 미래 위치를 3D 박스 통로로 사용합니다. DVO는 현재 박스와 추정 속도의 등속 상대운동에서 후보별 최근접 거리를 계산합니다. 실제 측정 궤적이 아닙니다.</desc>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10" fill="#526b7b"/></marker></defs><rect width="880" height="510" fill="#fff"/>
+<g font-family="Arial, Noto Sans KR, sans-serif" fill="#193044">
+<text x="28" y="37" font-size="23" font-weight="700">같은 위협, 서로 다른 예측 입력</text>
+<rect x="28" y="65" width="824" height="185" rx="6" fill="#f0f5fa"/>
+<text x="48" y="96" font-size="20" font-weight="700" fill="#2b73b8">A* · 미래 박스 통로</text>
+<g stroke="#2b73b8" fill="#c5daed"><rect x="77" y="153" width="45" height="45" fill="#9ebfdb"/><rect x="143" y="153" width="45" height="45"/><rect x="209" y="143" width="45" height="45"/><rect x="275" y="123" width="45" height="45"/><rect x="341" y="110" width="45" height="45"/></g>
+<path d="M99 175C206 184 292 126 363 132" stroke="#2b73b8" stroke-width="2" stroke-dasharray="5 4" fill="none"/>
+<text x="49" y="227" font-size="16">현재 박스 → 미래 위치 박스 (일부만 표시)</text>
+<text x="465" y="140" font-size="18">유도 예측을 장애물 공간으로 변환</text><text x="465" y="174" font-size="17">4.0 s / 간격 약 1.5 m / 상한 32개</text><text x="465" y="208" font-size="16">전역 경로에서 통로와 충돌하는 공간 제외</text>
+<rect x="28" y="270" width="824" height="190" rx="6" fill="#f0f6f1"/>
+<text x="48" y="301" font-size="20" font-weight="700" fill="#23774a">DVO · 현재 박스 + 상대속도</text>
+<rect x="78" y="332" width="45" height="45" fill="#9ebfdb" stroke="#2b73b8"/>
+<path d="M123 354H362" stroke="#a83b38" stroke-width="3" stroke-dasharray="7 4" marker-end="url(#arrow)"/>
+<circle cx="243" cy="413" r="12" fill="#23774a"/>
+<g fill="none" stroke="#526b7b" stroke-width="2" marker-end="url(#arrow)"><path d="M243 403L299 355"/><path d="M254 413H352"/><path d="M237 403L190 349"/></g>
+<text x="49" y="444" font-size="16">추정 속도는 등속 유지 · ROV 후보별 평가</text>
+<text x="465" y="348" font-size="18">6.0 s 동안 후보의 최근접 거리 계산</text><text x="465" y="381" font-size="17">충돌 후보 제외 → 이동 가능한 국소 경로</text><text x="465" y="416" font-size="16">A*의 유도 예측 통로를 사용하지 않음</text>
+<text x="28" y="492" font-size="16" fill="#536574">설명용 도식 · 박스·속도 후보는 구조 설명이며 실행 결과나 실제 회피 궤적이 아닙니다.</text>
+</g></svg>

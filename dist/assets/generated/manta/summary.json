@@ -1,0 +1,128 @@
+{
+  "dataset": "DVO initial/latest whole-batch selection",
+  "public_planner": "DVO",
+  "valid_runs": 24,
+  "invalid_runs": 0,
+  "zero_plan_runs": 0,
+  "comparison": {
+    "initial": {
+      "avoided": 14,
+      "hit": 10,
+      "n": 24
+    },
+    "latest": {
+      "avoided": 15,
+      "hit": 9,
+      "n": 24
+    },
+    "selected_batch": "latest",
+    "selection_rule": "Select the entire higher-AVOIDED-rate DVO batch; prefer latest on ties. No per-condition best-of selection.",
+    "changed_to_avoided": 3,
+    "changed_to_hit": 2,
+    "both_avoided": 12,
+    "both_hit": 7
+  },
+  "selected_run_ids": [
+    "01_front_dvo_mode2_baeksangeo_20260913_155158",
+    "02_front_dvo_mode2_cheongsangeo_20260913_155949",
+    "03_front_dvo_mode2_mk48_20260913_160329",
+    "04_front_dvo_mode3_baeksangeo_20260913_153123",
+    "05_front_dvo_mode3_cheongsangeo_20260913_160854",
+    "06_front_dvo_mode3_mk48_20260913_161131",
+    "07_rear_dvo_mode2_baeksangeo_20260913_153541",
+    "08_rear_dvo_mode2_cheongsangeo_20260913_161514",
+    "09_rear_dvo_mode2_mk48_20260913_161858",
+    "10_rear_dvo_mode3_baeksangeo_20260913_152438",
+    "11_rear_dvo_mode3_cheongsangeo_20260913_162426",
+    "12_rear_dvo_mode3_mk48_20260913_152728",
+    "13_side_dvo_mode2_baeksangeo_20260913_162729",
+    "14_side_dvo_mode2_cheongsangeo_20260913_174117",
+    "15_side_dvo_mode2_mk48_20260913_164320",
+    "16_side_dvo_mode3_baeksangeo_20260913_164844",
+    "17_side_dvo_mode3_cheongsangeo_20260913_165216",
+    "18_side_dvo_mode3_mk48_20260913_165623",
+    "19_diag_dvo_mode2_baeksangeo_20260913_171757",
+    "20_diag_dvo_mode2_cheongsangeo_20260913_171958",
+    "21_diag_dvo_mode2_mk48_20260913_172333",
+    "22_diag_dvo_mode3_baeksangeo_20260913_172857",
+    "23_diag_dvo_mode3_cheongsangeo_20260913_173353",
+    "24_diag_dvo_mode3_mk48_20260913_173731"
+  ],
+  "scenario_guidance": {
+    "front|2": {
+      "n": 3,
+      "avoided": 3,
+      "closest_m_median": 1.09
+    },
+    "front|3": {
+      "n": 3,
+      "avoided": 0,
+      "closest_m_median": 0.88
+    },
+    "rear|2": {
+      "n": 3,
+      "avoided": 3,
+      "closest_m_median": 1.85
+    },
+    "rear|3": {
+      "n": 3,
+      "avoided": 1,
+      "closest_m_median": 0.99
+    },
+    "side|2": {
+      "n": 3,
+      "avoided": 3,
+      "closest_m_median": 1.19
+    },
+    "side|3": {
+      "n": 3,
+      "avoided": 2,
+      "closest_m_median": 1.09
+    },
+    "diag|2": {
+      "n": 3,
+      "avoided": 2,
+      "closest_m_median": 1.45
+    },
+    "diag|3": {
+      "n": 3,
+      "avoided": 1,
+      "closest_m_median": 0.76
+    }
+  },
+  "plan_ms": {
+    "median": 1.243,
+    "q1": 1.065,
+    "q3": 1.482,
+    "p95": 2.921,
+    "n": 12029
+  },
+  "plan_count": {
+    "median": 412.5,
+    "q1": 242.75,
+    "q3": 663.5,
+    "p95": 1030.25,
+    "n": 24
+  },
+  "trajectory": {
+    "run_id": "01_front_dvo_mode2_baeksangeo_20260913_155158",
+    "condition": {
+      "scenario": "front",
+      "mode": "2",
+      "torpedo": "baeksangeo"
+    },
+    "window_t_rel_sec": [
+      215.330273,
+      225.330273
+    ],
+    "projection": "measured XY, equal X/Y aspect",
+    "selection_rule": "First complete AVOIDED condition in configured direction/mode/torpedo order"
+  },
+  "latest_pipeline_validation": {
+    "origin": "supplied experiment audit reports",
+    "pipeline_verified": true,
+    "native_bags_verified": true,
+    "regression_cases": 14
+  },
+  "limits": "Before/after shared path/controller changes, not an isolated DVO algorithm effect. One final run per condition; no statistical significance claim."
+}

@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 440 405" role="img" aria-labelledby="title desc"><title id="title">초기·최신 DVO 회피율 비교</title><desc id="desc">같은 24개 조건의 초기·최신 배치 비교</desc><rect width="100%" height="100%" fill="#fff"/><g font-family="Arial, Noto Sans KR, sans-serif" fill="#193044">
+<text x="30" y="38" font-size="23" font-weight="700">초기·최신 DVO 회피율 비교</text>
+<text x="30" y="75" font-size="19" fill="#193044" text-anchor="start">같은 24개 조건 · 각 조건 최종 실행 1회</text>
+<text x="30" y="113" font-size="22" fill="#193044" text-anchor="start">초기 DVO · 14/24 (58.3%)</text>
+<rect x="30" y="129" width="204.16666666666669" height="32" fill="#778691"/>
+<text x="30" y="204" font-size="22" fill="#193044" text-anchor="start">최신 DVO · 15/24 (62.5%)</text>
+<rect x="30" y="220" width="218.75" height="32" fill="#23774a"/>
+<path d="M30 274H380" stroke="#83939e"/>
+<text x="30.0" y="302" font-size="18" fill="#193044" text-anchor="middle">0%</text>
+<text x="205.0" y="302" font-size="18" fill="#193044" text-anchor="middle">50%</text>
+<text x="380.0" y="302" font-size="18" fill="#193044" text-anchor="middle">100%</text>
+<text x="30" y="345" font-size="20" fill="#193044" text-anchor="start">새로 회피 3개 / 반대로 피격 2개</text>
+<text x="30" y="378" font-size="19" fill="#193044" text-anchor="start">경로·제어 연동도 함께 수정한 전후 비교</text>
+</g></svg>

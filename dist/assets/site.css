@@ -424,14 +424,24 @@ a.publication:hover strong, a.publication:focus-visible strong { color: #9ed0ff;
 .manta-pipeline-mobile { display:none; }
 .manta-page .manta-result-table td { vertical-align:top; overflow-wrap:anywhere; }
 .manta-page .manta-generated-figure img { max-width:100%; }
+.manta-planning-mobile { display:none; }
+.manta-data-details { padding:1rem 1.25rem; border:1px solid var(--rule); margin-top:1.5rem; }
+.manta-data-details summary { cursor:pointer; min-height:44px; display:list-item; padding:.5rem 0; font-weight:700; }
+.manta-data-details summary:focus-visible { outline:2px solid var(--signal); outline-offset:4px; }
+.manta-page .manta-video video { display:block; width:100%; max-height:600px; background:#111; }
+.manta-page .manta-generated-figure { max-width:880px; margin:2rem auto; }
+.manta-page .case-facts { grid-template-columns:repeat(3,minmax(0,1fr)); }
 .manta-page .manta-generated-figure .back-link,.manta-page .manta-diagram-link { display:inline-flex; min-height:44px; align-items:center; padding:.5rem 1rem; }
 @media(max-width:900px) {
   .manta-pipeline-desktop { display:none; }.manta-pipeline-mobile { display:block; padding:1rem; background:#fff; border:1px solid var(--rule); }
+  .manta-planning-desktop { display:none; }.manta-planning-mobile { display:block; }
+  .manta-page .case-facts { grid-template-columns:repeat(2,minmax(0,1fr)); }
   .manta-owned { border:2px solid var(--manta-green); padding:1rem; margin:1rem 0; }.manta-owned ol { margin:0; padding-left:1.25rem; }.manta-owned li { padding:.6rem 0; }.manta-owned li strong,.manta-owned li span { display:block; }.manta-team { border:1px dashed #667684; padding:1rem; color:var(--slate); }
   .manta-metrics { grid-template-columns:repeat(2,minmax(0,1fr)); }.manta-matrix { grid-template-columns:repeat(2,minmax(0,1fr)); }
 }
 @media(max-width:680px) {
   .manta-two-col,.manta-three-col,.manta-scale-strip,.manta-policy,.manta-metrics.three { grid-template-columns:minmax(0,1fr); }
+  .manta-page .case-facts { grid-template-columns:minmax(0,1fr); }
   .manta-page .case-body p,.manta-page .manta-policy,.manta-page .manta-owned li { font-size:1rem; }
   .manta-page .manta-metrics article { padding:.8rem; }.manta-metrics strong { font-size:1.25rem; }
   .manta-scale-facts dt,.manta-scale-facts dd { font-size:.95rem; }.manta-speed-range > div { grid-template-columns:80px minmax(0,1fr) 100px; gap:.5rem; font-size:.9rem; }
