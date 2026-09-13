@@ -35,6 +35,18 @@ class DvoPublicationTests(unittest.TestCase):
         for reference in re.findall(r'(?:src|srcset|href|poster)="(\.\./[^"?#]+)',page):
             self.assertTrue((root/'dist/projects'/reference).is_file(),reference)
 
+    def test_concise_code_details_and_project_repository(self):
+        root=Path(__file__).resolve().parents[1]
+        page=(root/'dist/projects/manta.html').read_text(encoding='utf-8')
+        self.assertNotIn('NORMAL과 AVOID는',page)
+        self.assertNotIn('웹페이지 생성기의 Python 테스트와 구분',page)
+        self.assertIn('href="https://github.com/MANTA-P/MANTA" target="_blank" rel="noopener"',page)
+        code=page.split('<summary>코드 구조 자세히 보기</summary>',1)[1].split('</details>',1)[0]
+        self.assertEqual(code.count('<article>'),4)
+        for heading in ('판단 로직 분리','경로 추종 연결','실행 주기와 시각화','실험 자동화와 검증'):
+            self.assertIn('<h3>'+heading+'</h3>',code)
+        self.assertLess(len(re.sub('<[^>]+>','',code)),650)
+
     def test_planning_panels_share_initial_geometry(self):
         a,b=[],[]
         explainers.planning_panel(a,0,0,'astar')
