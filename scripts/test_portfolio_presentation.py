@@ -63,6 +63,39 @@ class PresentationTests(unittest.TestCase):
         self.assertIn('.portfolio-home .editorial-heading>span { font-size:2rem;', css)
         self.assertIn('.portfolio-home .editorial-heading>span { font-size:2.5rem;', css)
 
+    def test_imu_disclaimer_removed(self):
+        page = (DIST / 'projects/imu-lstm-fsm.html').read_text(encoding='utf-8')
+        self.assertNotIn('분류 모듈 자체의 위치오차나 모든 시점의 최대 오차', page)
+
+    def test_stm32_hardware_labels_and_readable_actual_log(self):
+        page = (DIST / 'projects/stm32-tracking.html').read_text(encoding='utf-8')
+        hero = page.split('stm32-hardware-photo', 1)[1].split('</figure>', 1)[0]
+        self.assertIn('stm32-system-overview.jpg', hero)
+        for part in ('hardware-board', 'hardware-sensor', 'hardware-servo', 'hardware-led'):
+            self.assertIn(part, hero)
+        self.assertEqual(hero.count('<circle '), 4)
+        self.assertIn('텍스트로 재구성했습니다.', page)
+        self.assertIn('[SCAN #25 FORWARD] valid=15/15', page)
+        self.assertIn('[COMPARE #26&lt;-24 REVERSE] valid=15 changed=1 approaching=0', page)
+        self.assertNotIn('src="../assets/images/stm32-uart-scan-compare.webp"', page)
+
+    def test_manta_annotated_and_cropped_media(self):
+        page = (DIST / 'projects/manta.html').read_text(encoding='utf-8')
+        for name in ('manta-gazebo-motion-annotated.mp4', 'manta-rviz-path-only.mp4'):
+            self.assertIn(name, page)
+            data = (DIST / 'assets/videos' / name).read_bytes()
+            self.assertEqual(data[4:8], b'ftyp')
+            self.assertGreater(len(data), 100000)
+        for name, size in (('manta-gazebo-motion-preview.jpg', (1280, 720)),
+                           ('manta-rviz-path-preview.jpg', (718, 574))):
+            self.assertIn(name, page)
+            self.assertEqual(jpeg_size((DIST / 'assets/images' / name).read_bytes()), size)
+        for video in re.findall(r'<video\b[^>]*>', page):
+            self.assertIn('controls muted playsinline preload="metadata"', video)
+            self.assertNotIn('autoplay', video)
+        self.assertIn('화면상 이동 방향', page)
+        self.assertIn('aspect-ratio:718/574', (DIST / 'assets/manta-evidence.css').read_text())
+
     def test_stm32_prose_uses_consistent_endings(self):
         page = (DIST / 'projects/stm32-tracking.html').read_text(encoding='utf-8')
         paragraphs = re.findall(r'<p(?:\s[^>]*)?>(.*?)</p>', page, re.S)

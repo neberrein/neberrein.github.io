@@ -1,0 +1,7 @@
+/* Preserve the native aspect ratio of the physically cropped RViz recording. */
+.manta-page .manta-data-details .manta-video video {
+  aspect-ratio:718/574;
+  max-height:none;
+  max-width:800px;
+  margin-inline:auto;
+}

@@ -9,6 +9,7 @@
   <title>STM32 기반 초음파 표적 탐지 및 추적 | 곽민재</title>
   <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="../assets/site.css?v=project-navigation-20260913">
+  <link rel="stylesheet" href="../assets/stm32-evidence.css?v=20260914">
   <script src="../assets/site.js" defer></script>
 </head>
 <body class="stm32-page">
@@ -21,7 +22,13 @@
     <h1>STM32 기반 초음파 표적 탐지 및 추적</h1>
     <p class="case-subtitle">FreeRTOS 개인 프로젝트로 HC-SR04 한 개를 서보모터로 왕복 구동해 각도별 거리 프레임을 만들고, 공간 연속성과 반복 검증을 통과한 접근 물체만 표적으로 확정하도록 구현했습니다.</p>
     <dl class="case-facts"><div><dt>기간</dt><dd>2026.06–2026.08</dd></div><div><dt>플랫폼</dt><dd>STM32F429, HC-SR04, SG90</dd></div><div><dt>담당</dt><dd>개인 프로젝트, 전체 설계와 구현</dd></div><div><dt>기술</dt><dd>C, FreeRTOS / CMSIS-RTOS2, HAL, TouchGFX</dd></div></dl>
-    <figure class="detail-cover editorial-cover stm32-hero"><img src="../assets/images/stm32-hero-tracking.webp" width="1600" height="900" alt="TRACKING 화면의 STM32F429 보드와 초음파 센서, SG90 서보모터를 함께 촬영한 전체 시스템" fetchpriority="high"><figcaption>STM32F429 기반 초음파 표적 추적 시스템을 구현했습니다. HC-SR04를 SG90 서보모터로 회전시키고, TouchGFX에서 현재 운용 상태와 센서 각도, 거리 정보를 확인했습니다.</figcaption></figure>
+    <figure class="detail-cover editorial-cover stm32-hero">
+      <div class="stm32-hardware-photo"><img src="../assets/images/stm32-system-overview.jpg" width="4000" height="3000" alt="초음파 센서 전면과 STM32F429 보드, SG90 서보모터, RGB LED가 모두 보이는 전체 시스템" fetchpriority="high">
+        <svg class="stm32-hardware-connectors" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><path d="M 14 70 L 48.3 70"/><circle cx="48.3" cy="70" r=".65"/><path d="M 92 28 L 78.3 33.5"/><circle cx="78.3" cy="33.5" r=".65"/><path d="M 95 58 L 77.7 45"/><circle cx="77.7" cy="45" r=".65"/><path d="M 51 13 L 73 25"/><circle cx="73" cy="25" r=".65"/></svg>
+        <span class="stm32-hardware-label hardware-board">STM32F429<br><small>TouchGFX 보드</small></span><span class="stm32-hardware-label hardware-sensor">HC-SR04<br><small>초음파 센서</small></span><span class="stm32-hardware-label hardware-servo">SG90<br><small>서보모터</small></span><span class="stm32-hardware-label hardware-led">RGB LED</span>
+      </div>
+      <figcaption>STM32F429 기반 초음파 표적 추적 시스템을 구현했습니다. HC-SR04를 SG90 서보모터로 회전시키고, TouchGFX와 RGB LED로 운용 상태를 표시했습니다.</figcaption>
+    </figure>
   </section>
 
   <section class="case-section"><div class="section-shell case-layout"><div><span class="case-section-label">01 / PURPOSE</span><h2>구현 목표</h2></div><div class="case-body">
@@ -46,7 +53,20 @@
 
   <section class="case-section"><div class="section-shell case-layout"><div><span class="case-section-label">05 / EVIDENCE</span><h2>기능별 결과</h2></div><div class="case-body">
     <div class="vehicle-grid evidence-photos stm32-state-evidence"><figure><div class="stm32-state-frame scanning-frame"><img src="../assets/images/stm32-evidence-scanning.webp" width="1600" height="900" alt="SCANNING 상태의 TouchGFX 화면" loading="lazy" decoding="async"></div><figcaption><small>AUTO / SCANNING</small><strong>자동 스캔</strong><span>20–160° 범위를 왕복하며 현재 센서 각도를 표시하고 거리 프레임을 생성했습니다.</span></figcaption></figure><figure><div class="stm32-state-frame tracking-frame"><img src="../assets/images/stm32-evidence-tracking.webp" width="1600" height="900" alt="실제 TRACKING 상태의 표적 각도와 거리 표시 화면" loading="lazy" decoding="async"></div><figcaption><small>AUTO / TRACKING</small><strong>표적 추적</strong><span>확정된 표적을 기준으로 추적 각도와 실시간 거리를 표시했습니다.</span></figcaption></figure><figure><div class="stm32-state-frame manual-frame"><img src="../assets/images/stm32-evidence-manual.webp" width="1600" height="900" alt="TouchGFX 버튼을 누르는 MANUAL 상태 화면" loading="lazy" decoding="async"></div><figcaption><small>MANUAL</small><strong>수동 운용</strong><span>TouchGFX 버튼 입력을 RTOS 큐로 전달해 서보 각도를 직접 제어했습니다.</span></figcaption></figure></div>
-    <figure class="research-figure stm32-uart-evidence"><div class="stm32-uart-window"><img src="../assets/images/stm32-uart-scan-compare.webp" width="2560" height="1440" alt="PuTTY 실제 로그. SCAN FORWARD와 REVERSE 프레임 valid=15/15, COMPARE에서 같은 방향 프레임의 changed와 approaching 확인" loading="lazy" decoding="async"></div><figcaption><strong>실제 UART 로그</strong><span>왕복 스캔 프레임의 15개 거리값을 수집하고, 같은 방향의 프레임끼리 비교해 접근 변화량을 계산했습니다.</span></figcaption></figure>
+    <figure class="research-figure stm32-uart-evidence">
+      <div class="stm32-log-terminal"><div class="stm32-log-title">UART / SCAN &amp; COMPARE</div><pre><code><span class="log-frame">[SCAN #25 FORWARD] valid=15/15</span>
+  20=36.6   30=36.6   40=36.6   50=36.1   60=36.1 cm
+  70=36.1   80=36.6   90=36.6  100=36.6  110=37.0 cm
+ 120=125.7 130=125.7 140=126.1 150=126.6 160=127.5 cm
+<span class="log-compare">[COMPARE #25&lt;-23 FORWARD] valid=15 changed=0 approaching=0</span>
+
+<span class="log-frame">[SCAN #26 REVERSE] valid=15/15</span>
+  20=36.6   30=36.6   40=36.6   50=36.1   60=36.1 cm
+  70=36.1   80=36.6   90=36.6  100=36.6  110=125.6 cm
+ 120=125.7 130=126.1 140=126.1 150=127.0 160=127.5 cm
+<span class="log-compare">[COMPARE #26&lt;-24 REVERSE] valid=15 changed=1 approaching=0</span></code></pre></div>
+      <figcaption><strong>UART 스캔·비교 로그</strong><span>실제 로그에서 판독 가능한 두 프레임을 텍스트로 재구성했습니다. 왕복 스캔의 15개 거리값을 수집하고, 같은 방향의 프레임끼리 비교해 접근 변화량을 계산했습니다.</span></figcaption>
+    </figure>
     <div class="uart-evidence" aria-label="UART 로그 항목 설명"><article><strong>20–160도</strong><p>초음파 센서가 좌우로 탐색하는 전체 각도 범위를 20–160도로 설정했습니다.</p></article><article><strong>15포인트</strong><p>10도 간격으로 한 프레임에 15개의 거리값을 취득했습니다.</p></article><article><strong>valid 15/15</strong><p>15개 각도에서 모두 Echo 응답을 받은 정상 프레임을 확인했습니다.</p></article><article><strong>FORWARD ↔ FORWARD</strong><p>스캔 방향이 같은 프레임끼리 비교해 동일 각도의 접근 변화량을 계산했습니다.</p></article></div>
   </div></div></section>
 

@@ -26,7 +26,7 @@ class DvoPublicationTests(unittest.TestCase):
         self.assertNotIn('manta-planning-architecture.svg',page)
         self.assertNotIn('dvo-before-after.svg',page)
         self.assertNotIn('manta-metrics',page)
-        self.assertLess(page.index('manta-gazebo-avoidance.mp4'),page.index('01 / SYSTEM'))
+        self.assertLess(page.index('manta-gazebo-motion-annotated.mp4'),page.index('01 / SYSTEM'))
         self.assertEqual(page.count(' controls muted playsinline preload="metadata"'),2)
         for filename in ('manta-gazebo-avoidance.mp4','manta-rviz-implementation.mp4'):
             self.assertTrue((root/'dist/assets/videos'/filename).is_file())
