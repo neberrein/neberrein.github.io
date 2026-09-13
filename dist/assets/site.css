@@ -909,6 +909,28 @@ a.publication:hover strong, a.publication:focus-visible strong { color: #9ed0ff;
   .manta-hero-flow>b,.execution-flow>b { transform:rotate(90deg); justify-self:center; }
 }
 
+/* Secondary project links: permanent affordance without repeating card CTA. */
+.portfolio-home .project-table-head,.portfolio-home .project-row { grid-template-columns:minmax(0,2fr) minmax(0,1fr) minmax(0,1.25fr) minmax(0,1.05fr) 32px; }
+.portfolio-home .project-row { cursor:pointer; }
+.portfolio-home .project-row > span { min-width:0; }
+.portfolio-home .project-row strong { word-break:keep-all; overflow-wrap:break-word; transition:color .18s ease; }
+.portfolio-home .project-row > .project-row-arrow { display:block; justify-self:end; color:#c2cdd2; font-size:1.15rem; line-height:1.5; transition:transform .18s ease, color .18s ease; }
+.portfolio-home .project-row:hover,.portfolio-home .project-row:focus-visible { background:rgba(255,255,255,.045); }
+.portfolio-home .project-row:hover strong,.portfolio-home .project-row:focus-visible strong,.portfolio-home .project-row:hover > .project-row-arrow,.portfolio-home .project-row:focus-visible > .project-row-arrow { color:#a9d5e5; }
+.portfolio-home .project-row:hover > .project-row-arrow,.portfolio-home .project-row:focus-visible > .project-row-arrow { transform:translateX(4px); }
+.portfolio-home .project-row:focus-visible { outline:3px solid #e5a33b; outline-offset:-3px; }
+@media (max-width:900px) {
+  .portfolio-home .project-row { grid-template-columns:minmax(0,1.7fr) minmax(0,1fr) minmax(0,1fr) 32px; }
+}
+@media (max-width:680px) {
+  .portfolio-home .project-row { grid-template-columns:minmax(0,1fr); }
+  .portfolio-home .project-row > .project-row-arrow { grid-column:1; justify-self:end; }
+}
+@media (prefers-reduced-motion:reduce) {
+  .portfolio-home .project-row,.portfolio-home .project-row strong,.portfolio-home .project-row > .project-row-arrow { transition:none; }
+  .portfolio-home .project-row:hover > .project-row-arrow,.portfolio-home .project-row:focus-visible > .project-row-arrow { transform:none; }
+}
+
 /* Homepage v2: readable skills and non-forced general tool evidence. */
 .portfolio-home .core-skill-grid .skill-card > p { font-size:.95rem; }
 .portfolio-home .core-skill-grid .skill-card li { font-size:.75rem; }
