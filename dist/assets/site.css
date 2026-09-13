@@ -1117,7 +1117,8 @@ a.publication:hover strong, a.publication:focus-visible strong { color: #9ed0ff;
 .stm32-page .result-callout > strong { font-size:clamp(2rem,4.2vw,3.5rem); white-space:nowrap; }
 
 /* Distinct Davinci projects: conceptual driving problem versus original RGB evidence. */
-.davinci-autonomous-page .autonomous-evidence { grid-template-columns:minmax(230px,.85fr) minmax(0,1.15fr); gap:1.5rem; }
+.davinci-autonomous-page .autonomous-evidence { grid-template-columns:minmax(0,1fr); gap:1.5rem; }
+.davinci-autonomous-page .autonomous-evidence picture { display:block; }
 .davinci-autonomous-page .autonomous-evidence img { width:100%; height:auto; max-height:none; margin:0; }
 .davinci-autonomous-page .autonomous-evidence figcaption strong,.davinci-autonomous-page .autonomous-evidence figcaption span { display:block; }
 .davinci-autonomous-page .autonomous-evidence figcaption strong { margin-bottom:.35rem; }
@@ -1137,7 +1138,7 @@ a.publication:hover strong, a.publication:focus-visible strong { color: #9ed0ff;
 @media (max-width:680px) {
   .roboracer-page .robo-perception-layout { grid-template-columns:minmax(0,1fr); }
   .davinci-autonomous-page .autonomous-evidence { grid-template-columns:1fr; }
-  .davinci-autonomous-page .autonomous-evidence .research-figure { width:100%; max-width:420px; }
+  .davinci-autonomous-page .autonomous-evidence .research-figure { width:100%; max-width:none; }
   .stm32-state-evidence { grid-template-columns:1fr; }
   .system-validation { padding:1.1rem; }
   .system-validation-heading { display:grid; gap:.75rem; }

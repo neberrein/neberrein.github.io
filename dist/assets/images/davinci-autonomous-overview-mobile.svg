@@ -1,14 +1,14 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 850" role="img" aria-labelledby="title desc">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 1800" role="img" aria-labelledby="title desc">
 <title id="title">차선 검출에서 A* 회피 경로와 PID 추종까지</title><desc id="desc">양쪽 차선 중심을 따라가던 기존 주행은 차선을 가린 장애물 앞에서 막힙니다. YOLO로 차선과 장애물을 각각 검출하고, 기준 경로에서 장애물을 우회한 뒤 복귀하는 A* 경로를 PID로 추종합니다. 회색 점선은 계산된 기준 경로이며 실제 도로 중앙선이 아닙니다. 알고리즘 설명용 도식이며 실측 경로가 아닙니다.</desc>
 <defs>
 <marker id="arrow-blue" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#2563b9"/></marker>
 <marker id="arrow-gray" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#526673"/></marker>
 <g id="car"><rect x="-19" y="-30" width="38" height="60" rx="7" fill="#183a53"/><rect x="-13" y="-19" width="26" height="14" rx="3" fill="#e2edf5"/><rect x="-12" y="15" width="24" height="7" rx="2" fill="#8198a8"/><path d="M-21-19V-5M21-19V-5M-21 12V24M21 12V24" stroke="#183a53" stroke-width="5"/></g>
-</defs><rect width="1200" height="850" fill="white"/>
+</defs><rect width="600" height="1800" fill="white"/>
 <g font-family="Arial,Malgun Gothic,sans-serif" fill="#183a53">
-<text x="24" y="31" font-size="28" font-weight="700">양쪽 차선 검출에서 장애물 회피까지</text>
-<text x="24" y="56" font-size="18" fill="#526673">회색 점선: 차선 중심에서 계산한 기준 경로 · 실제 도로 중앙선이 아님</text>
-<g id="lane-only-panel" transform="translate(24 76)">
+<text x="18" y="31" font-size="28" font-weight="700">양쪽 차선 검출에서 장애물 회피까지</text>
+<text x="18" y="56" font-size="18" fill="#526673">회색 점선: 계산된 기준 경로 (도로 중앙선 아님)</text>
+<g id="lane-only-panel" transform="translate(18 76)">
 <rect width="564" height="610" rx="8" fill="white" stroke="#d7e0e6"/>
 <text x="24" y="38" font-size="26" font-weight="700">기존 차선 기반 주행</text>
 <rect x="38" y="91" width="268" height="464" rx="4" fill="#edf2f5"/>
@@ -24,7 +24,7 @@
 <g stroke="#81919d" stroke-width="2" fill="none"><path d="M170 143H316V129"/><path d="M278 184H316"/><path d="M205 271H316"/><path d="M185 348H302L316 365"/></g>
 <text x="326" y="127" font-size="22" >차선 중심 기반</text><text x="326" y="155" font-size="22" >기준 경로</text><text x="326" y="193" font-size="22" >검출된 차선</text><text x="326" y="270" font-size="22" >장애물에 의한</text><text x="326" y="298" font-size="22" >차선 가림</text><text x="326" y="377" font-size="22" font-weight="700">회피 판단 불가</text>
 <text x="24" y="588" font-size="20" fill="#526673">차선 중심만 따라가면 장애물 앞에서 경로가 막힘</text>
-</g><g id="avoidance-panel" transform="translate(612 76)">
+</g><g id="avoidance-panel" transform="translate(18 714)">
 <rect width="564" height="610" rx="8" fill="white" stroke="#d7e0e6"/>
 <text x="24" y="38" font-size="26" font-weight="700">차선과 장애물을 구분한 회피 주행</text>
 <rect x="38" y="91" width="268" height="464" rx="4" fill="#edf2f5"/>
@@ -42,5 +42,5 @@
 <text x="326" y="136" font-size="22" >기준 경로</text><text x="326" y="193" font-size="22" >YOLO 차선 인식</text><text x="326" y="282" font-size="22" >YOLO 장애물 검출</text><text x="326" y="360" font-size="22" font-weight="700" fill="#2563b9">A* 회피 경로</text><text x="326" y="456" font-size="22" font-weight="700">PID 경로 추종</text>
 <text x="24" y="588" font-size="20" fill="#526673">장애물 우회 → 차선 중심 기준 경로로 복귀</text>
 </g>
-<text x="24" y="725" font-size="22" font-weight="700">인지 → 경로 계획 → 제어</text><rect x="24" y="746" width="138" height="68" rx="5" stroke="#d7e0e6" fill="#f4f7fa"/><text x="93" y="788" font-size="22" text-anchor="middle" font-weight="700">카메라</text><rect x="198" y="746" width="138" height="68" rx="5" stroke="#d7e0e6" fill="#f4f7fa"/><text x="267" y="788" font-size="22" text-anchor="middle" font-weight="700">YOLO</text><rect x="374" y="746" width="258" height="68" rx="5" stroke="#d7e0e6" fill="#f4f7fa"/><text x="503" y="775" font-size="22" text-anchor="middle" font-weight="700">기준 경로 및</text><text x="503" y="801" font-size="22" text-anchor="middle" font-weight="700">장애물 위치</text><rect x="670" y="746" width="126" height="68" rx="5" stroke="#d7e0e6" fill="#f4f7fa"/><text x="733" y="788" font-size="22" text-anchor="middle" font-weight="700">A*</text><rect x="834" y="746" width="126" height="68" rx="5" stroke="#d7e0e6" fill="#f4f7fa"/><text x="897" y="788" font-size="22" text-anchor="middle" font-weight="700">PID</text><rect x="998" y="746" width="178" height="68" rx="5" stroke="#d7e0e6" fill="#f4f7fa"/><text x="1087" y="788" font-size="22" text-anchor="middle" font-weight="700">차량 조향</text><g stroke="#526673" stroke-width="2.5" marker-end="url(#arrow-gray)"><path d="M171 780H188"/><path d="M345 780H364"/><path d="M641 780H660"/><path d="M805 780H824"/><path d="M969 780H988"/></g>
+<text x="18" y="1370" font-size="24" font-weight="700">인지 → 경로 계획 → 제어</text><rect x="60" y="1390" width="480" height="48" rx="5" stroke="#d7e0e6" fill="#f4f7fa"/><text x="300" y="1421" font-size="24" text-anchor="middle" font-weight="700">카메라</text><path d="M300 1440V1453" stroke="#526673" stroke-width="2" marker-end="url(#arrow-gray)"/><rect x="60" y="1457" width="480" height="48" rx="5" stroke="#d7e0e6" fill="#f4f7fa"/><text x="300" y="1488" font-size="24" text-anchor="middle" font-weight="700">YOLO</text><path d="M300 1507V1520" stroke="#526673" stroke-width="2" marker-end="url(#arrow-gray)"/><rect x="60" y="1524" width="480" height="48" rx="5" stroke="#d7e0e6" fill="#f4f7fa"/><text x="300" y="1555" font-size="24" text-anchor="middle" font-weight="700">기준 경로 및 장애물 위치</text><path d="M300 1574V1587" stroke="#526673" stroke-width="2" marker-end="url(#arrow-gray)"/><rect x="60" y="1591" width="480" height="48" rx="5" stroke="#d7e0e6" fill="#f4f7fa"/><text x="300" y="1622" font-size="24" text-anchor="middle" font-weight="700">A*</text><path d="M300 1641V1654" stroke="#526673" stroke-width="2" marker-end="url(#arrow-gray)"/><rect x="60" y="1658" width="480" height="48" rx="5" stroke="#d7e0e6" fill="#f4f7fa"/><text x="300" y="1689" font-size="24" text-anchor="middle" font-weight="700">PID</text><path d="M300 1708V1721" stroke="#526673" stroke-width="2" marker-end="url(#arrow-gray)"/><rect x="60" y="1725" width="480" height="48" rx="5" stroke="#d7e0e6" fill="#f4f7fa"/><text x="300" y="1756" font-size="24" text-anchor="middle" font-weight="700">차량 조향</text>
 </g></svg>
