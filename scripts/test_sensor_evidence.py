@@ -40,7 +40,11 @@ class SensorEvidenceTests(unittest.TestCase):
         self.assertIn('다중차량 좌회전', self.sim)
 
     def test_marked_occlusion_and_result_unchanged(self):
-        self.assertIn('빨간 원: 가림 발생 구간', self.occlusion)
+        self.assertIn('>가림 발생 구간</text>', self.occlusion)
+        self.assertIn('class="occlusion-annotation"', self.occlusion)
+        self.assertIn('class="gt-line"', self.occlusion)
+        self.assertIn('실제 코너 궤적(GT)', self.occlusion)
+        self.assertNotIn('실측 궤적', self.occlusion)
         self.assertNotIn('Fig. 13', self.occlusion)
         self.assertEqual(self.occlusion.count('class="research-figure occlusion-step"'), 3)
         for value in ('20.6%', '0.126 m', '0.100 m', '0.043 m', '0.030 m', '30.2%'):

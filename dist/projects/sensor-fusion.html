@@ -9,7 +9,7 @@
   <meta property="og:type" content="website"><meta property="og:title" content="강화학습 기반 카메라-라이다 센서융합 차량 추적 | 곽민재"><meta property="og:description" content="상황별 관측 후보를 DQN으로 선택하고 IMM으로 차량 상태를 추정한 석사 연구"><meta property="og:url" content="https://neberrein.github.io/projects/sensor-fusion.html"><meta property="og:image" content="https://neberrein.github.io/assets/images/sensor-fusion-field.png">
   <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="../assets/site.css?v=project-navigation-20260913">
-  <link rel="stylesheet" href="../assets/sensor-evidence.css?v=20260914">
+  <link rel="stylesheet" href="../assets/sensor-evidence.css?v=occlusion-label-20260914">
   <script src="../assets/site.js" defer></script>
 </head>
 <body class="sensor-fusion-page">
@@ -105,7 +105,16 @@
     </div>
     <p class="candidate-legend">빨강 ×: 라이다 점 / 보라: YOLO 최대 방위각 / 하늘색: YOLO 최소 방위각 / 파랑 점: 센서 위치</p>
     <h3 class="simulation-group-title">가림 이후 궤적 회복 비교</h3>
-    <figure class="research-figure occlusion-result-wide"><img loading="lazy" decoding="async" src="../assets/images/sensor-occlusion-result-marked.png" width="641" height="681" alt="빨간 원으로 가림 발생 구간을 표시한 실제 코너 궤적과 DQN, Mahalanobis 거리 기반 후보 선택의 회복 비교"><figcaption><strong>빨간 원: 가림 발생 구간</strong><span class="figure-legend"><span><i class="red" aria-hidden="true"></i>실측 궤적</span><span><i class="blue" aria-hidden="true"></i>DQN 기반 후보 선택</span><span><i class="magenta" aria-hidden="true"></i>Mahalanobis 거리 기반 후보 선택</span></span></figcaption></figure>
+    <figure class="research-figure occlusion-result-wide">
+      <div class="occlusion-plot"><img loading="lazy" decoding="async" src="../assets/images/sensor-occlusion-result-marked.png" width="641" height="681" alt="빨간 원으로 가림 발생 구간을 표시한 시뮬레이션 실제 코너 궤적(GT)과 DQN, Mahalanobis 거리 기반 후보 선택의 회복 비교">
+        <svg class="occlusion-annotation" viewBox="0 0 641 681" role="img" aria-label="빨간 원 위의 가림 발생 구간 표시">
+          <path d="M 263 429 L 279 443" fill="none" stroke="#c62727" stroke-width="2"/>
+          <rect x="133" y="397" width="160" height="32" rx="4" fill="white"/>
+          <text x="213" y="420" text-anchor="middle" font-family="Arial, 'Malgun Gothic', sans-serif" font-size="19" font-weight="700" fill="#a71d1d">가림 발생 구간</text>
+        </svg>
+      </div>
+      <figcaption><span class="figure-legend"><span><i class="gt-line" aria-hidden="true"></i>실제 코너 궤적(GT)</span><span><i class="blue" aria-hidden="true"></i>DQN 기반 후보 선택</span><span><i class="magenta" aria-hidden="true"></i>Mahalanobis 거리 기반 후보 선택</span></span></figcaption>
+    </figure>
     <div class="recovery-comparison"><article><span>비교 방법</span><strong>Mahalanobis 거리 기반 후보 선택</strong><p>IMM 예측값과 관측 후보의 Mahalanobis 거리를 이용해 기준점을 선택하는 비교 방법입니다. 가림 이후 관측 상태가 크게 변하면 실제 궤적으로 다시 수렴하는 데 한계가 나타났습니다.</p></article><article><span>제안 방법</span><strong>DQN 기반 상황별 후보 선택</strong><p>가림 중에는 IMM 예측 후보를 활용하고, 재검출 뒤에는 현재 센서 상태에 적합한 관측 후보를 다시 선택해 추적을 회복합니다.</p></article></div>
   </div></div></section>
 

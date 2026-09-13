@@ -24,9 +24,21 @@
   width: 100%;
   height: auto;
 }
-.sensor-fusion-page .occlusion-result-wide img {
-  width: min(100%, 674px);
+.sensor-fusion-page .occlusion-plot {
+  position: relative;
+  width: min(100%, 641px);
   margin-inline: auto;
+}
+.sensor-fusion-page .occlusion-result-wide img {
+  width: 100%;
+}
+.sensor-fusion-page .occlusion-annotation {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
 }
 .sensor-fusion-page .occlusion-result-wide figcaption {
   border-top: 1px solid var(--rule);
@@ -39,4 +51,10 @@
   align-items: center;
   gap: .4rem;
   max-width: 100%;
+}
+.sensor-fusion-page .occlusion-result-wide .figure-legend .gt-line {
+  width: 22px;
+  height: 3px;
+  border-radius: 0;
+  background: #ed2525;
 }
