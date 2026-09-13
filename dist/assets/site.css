@@ -986,6 +986,46 @@ a.publication:hover strong, a.publication:focus-visible strong { color: #9ed0ff;
 .outcome-note { display:grid; gap:.4rem; font-size:.95rem; color:var(--slate); }
 .outcome-note strong { color:var(--charcoal); }
 
+/* Detailed evidence: scenario groups, paired occlusion steps and project navigation. */
+.sensor-fusion-page .simulation-environment img { display:block; width:min(100%,297px); height:auto; margin:1rem auto; }
+.sensor-fusion-page .simulation-group-title { margin:1.75rem 0 1rem; font-size:1.15rem; }
+.sensor-fusion-page .simulation-state-result { margin-bottom:1.5rem; }
+.sensor-fusion-page .simulation-state-plot { display:block; width:100%; height:auto; background:#fff; }
+.sensor-fusion-page .simulation-state-plot svg { overflow:hidden; }
+.sensor-fusion-page .occlusion-step-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:1rem; align-items:stretch; }
+.sensor-fusion-page .occlusion-step { display:flex; flex-direction:column; min-width:0; margin:0; background:#fff; }
+.sensor-fusion-page .occlusion-step figcaption { display:grid; gap:.35rem; padding:1rem; }
+.sensor-fusion-page .occlusion-step figcaption span { color:var(--signal); font-size:.75rem; font-weight:800; }
+.sensor-fusion-page .occlusion-step figcaption strong { color:var(--charcoal); font-size:1rem; }
+.sensor-fusion-page .occlusion-step svg { display:block; width:100%; height:240px; overflow:hidden; background:#fff; }
+.sensor-fusion-page .occlusion-step p { margin:0; padding:1rem; color:var(--slate); font-size:.875rem; }
+.sensor-fusion-page .occlusion-result-wide { width:100%; margin:0 0 1.5rem; background:#fff; }
+.sensor-fusion-page .occlusion-result-wide img { display:block; width:100%; height:auto; max-height:none; }
+.evidence-image-link { display:inline-flex; align-items:center; min-height:44px; color:var(--signal); font-size:.875rem; font-weight:750; text-underline-offset:3px; }
+.roboracer-page .robo-recovery-trial p { margin:0; color:var(--slate); font-size:.9rem; }
+.project-pagination { display:grid; grid-template-columns:minmax(0,1fr) auto minmax(0,1fr); gap:1.5rem; align-items:center; padding-block:3rem; border-top:1px solid var(--rule); }
+.project-pagination a { display:grid; align-content:center; min-height:44px; text-decoration:none; }
+.project-pagination span { display:block; margin-bottom:.3rem; color:var(--slate); font-size:.75rem; font-weight:760; }
+.project-pagination strong { font-size:clamp(1rem,2vw,1.35rem); word-break:keep-all; overflow-wrap:break-word; }
+.project-pagination-prev { justify-self:start; }
+.project-pagination-all { justify-self:center; color:var(--slate); font-size:.875rem; font-weight:760; }
+.project-pagination-next { justify-self:end; text-align:right; }
+.project-pagination a:hover,.project-pagination a:focus-visible { color:var(--signal); }
+.project-pagination a:focus-visible,.evidence-image-link:focus-visible { outline:3px solid var(--signal); outline-offset:4px; }
+.project-pagination-first { grid-template-columns:minmax(0,1fr) minmax(0,1fr); }
+.project-pagination-first .project-pagination-all { justify-self:start; }
+.project-pagination-last { grid-template-columns:minmax(0,1fr) minmax(0,1fr); }
+.project-pagination-last .project-pagination-all { justify-self:end; text-align:right; }
+@media (max-width:680px) {
+  .sensor-fusion-page .occlusion-step-grid { grid-template-columns:minmax(0,1fr); }
+  .sensor-fusion-page .occlusion-step svg { height:280px; }
+  .project-pagination { grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:1.25rem; }
+  .project-pagination-all { grid-column:1 / -1; grid-row:2; }
+  .project-pagination-next { grid-column:2; grid-row:1; }
+  .project-pagination-first .project-pagination-all { grid-column:1; grid-row:1; }
+  .project-pagination-last .project-pagination-all { grid-column:2; grid-row:1; }
+}
+
 /* Research evidence: retain original figures and compact existing sections. */
 .selection-note { margin-top:1.5rem; padding:1.25rem 1.5rem; border-left:3px solid var(--signal); background:var(--paper); }
 .selection-note h3 { margin:0 0 .5rem; font-size:1rem; }

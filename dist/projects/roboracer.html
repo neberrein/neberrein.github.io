@@ -3,37 +3,37 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="description" content="IFAC 2026 RoboRacer에서 수행한 라이다 장애물 인지와 Frenet 회피 경로계획">
+  <meta name="description" content="IFAC 2026 RoboRacer에서 수행한 라이다 장애물 인지와 Frenet 회피 경로 계획">
   <title>IFAC RoboRacer | 곽민재</title>
   <link rel="canonical" href="https://neberrein.github.io/projects/roboracer.html">
-  <meta property="og:type" content="website"><meta property="og:title" content="IFAC 2026 RoboRacer | 곽민재"><meta property="og:description" content="라이다 장애물 인지와 Frenet 회피 경로계획을 실차에 적용한 국제 자율주행 경주 프로젝트"><meta property="og:url" content="https://neberrein.github.io/projects/roboracer.html"><meta property="og:image" content="https://neberrein.github.io/assets/images/robo-track-side.jpg">
+  <meta property="og:type" content="website"><meta property="og:title" content="IFAC 2026 RoboRacer | 곽민재"><meta property="og:description" content="라이다 장애물 인지와 Frenet 회피 경로 계획을 실차에 적용한 국제 자율주행 경주 프로젝트"><meta property="og:url" content="https://neberrein.github.io/projects/roboracer.html"><meta property="og:image" content="https://neberrein.github.io/assets/images/robo-track-side.jpg">
   <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="../assets/site.css?v=robo-space-recovery-20260913">
+  <link rel="stylesheet" href="../assets/site.css?v=detail-final-20260913">
   <script src="../assets/site.js" defer></script>
 </head>
 <body class="roboracer-page">
 <a class="skip-link" href="#main">본문 바로가기</a>
-<header class="site-header detail-header"><a class="brand" href="../index.html">곽민재 <span>PORTFOLIO</span></a><nav class="primary-nav" aria-label="상세 페이지 메뉴"><a href="../index.html#projects">프로젝트</a><a href="../index.html#research">논문, 특허</a></nav></header>
+<header class="site-header detail-header"><a class="brand" href="../index.html">곽민재 <span>PORTFOLIO</span></a><nav class="primary-nav" aria-label="상세 페이지 메뉴"><a href="../index.html#projects">프로젝트</a><a href="../index.html#research">연구성과</a></nav></header>
 <main id="main">
   <section class="case-hero section-shell">
     <a class="back-link" href="../index.html#projects">← 프로젝트 목록</a>
     <p class="case-label">29TH ROBORACER AUTONOMOUS RACING COMPETITION</p>
-    <h1>IFAC 2026 RoboRacer 장애물 인지 및 회피 경로계획</h1>
+    <h1>IFAC 2026 RoboRacer 장애물 인지 및 회피 경로 계획</h1>
     <p class="case-subtitle">Hokuyo 2D 라이다 점군에서 트랙 벽과 장애물을 구분하고, 최대 30개의 Frenet 후보 중 충돌하지 않으면서 기준 경로로 복귀할 수 있는 경로를 선택해 ROS 2 실차에 적용했습니다.</p>
     <div class="headline-result"><strong>TOP 16</strong><span>국제 자율주행 경주<br>56개 팀 중 16강 진출</span></div>
-    <dl class="case-facts"><div><dt>대회</dt><dd>IFAC 2026, 부산 BEXCO</dd></div><div><dt>기간</dt><dd>2026.07–2026.08</dd></div><div><dt>담당</dt><dd>라이다 인지, Frenet 회피 경로계획, FSM</dd></div><div><dt>팀</dt><dd>본인 포함 MSCLAB 팀원 5명</dd></div></dl>
+    <dl class="case-facts"><div><dt>대회</dt><dd>IFAC 2026, 부산 BEXCO</dd></div><div><dt>기간</dt><dd>2026.07–2026.08</dd></div><div><dt>담당</dt><dd>라이다 인지, Frenet 회피 경로 계획, FSM</dd></div><div><dt>팀</dt><dd>MSCLAB 5인 팀</dd></div></dl>
     <figure class="detail-cover editorial-cover"><img decoding="async" src="../assets/images/robo-track-side.jpg" alt="Hokuyo 라이다와 온보드 연산장치를 탑재한 MSCLAB 경기 차량 측면"><figcaption>IFAC 2026 RoboRacer에 출전한 MSCLAB 경기 차량. Hokuyo UST-10LX, ASUS NUC 14 Pro와 VectorNav VN-300을 탑재했습니다.</figcaption></figure>
   </section>
 
   <section class="case-section"><div class="section-shell case-layout"><div><span class="case-section-label">01 / SYSTEM</span><h2>전체 시스템과 담당 범위</h2></div><div class="case-body">
-    <p>IMU와 라이다 기반 위치추정, 장애물 인지, 회피 경로계획과 Pure Pursuit 제어로 이어지는 전체 시스템에서 <strong>장애물 회피 영역</strong>을 담당했습니다. 라이다 Perception, Frenet 로컬 플래너와 FSM을 구현해 라이다 점군이 들어온 뒤 회피 경로가 선택될 때까지의 판단 흐름을 구성했습니다.</p>
+    <p>IMU와 라이다 기반 위치 추정, 장애물 인지, 회피 경로 계획과 Pure Pursuit 제어로 이어지는 전체 시스템에서 <strong>장애물 회피 영역</strong>을 담당했습니다. 라이다 Perception, Frenet 로컬 플래너와 FSM을 구현해 라이다 점군이 들어온 뒤 회피 경로가 선택될 때까지의 판단 흐름을 구성했습니다.</p>
     <p>Perception과 Frenet Planner는 MATLAB에서 먼저 검증한 알고리즘을 Python으로 포팅해 ROS 2 실차 환경에 적용했으며, 실차 시험에서 발견한 문제를 해결하기 위한 추가 기능을 구현했습니다.</p>
-    <figure class="research-figure architecture-figure"><img loading="lazy" decoding="async" src="../assets/images/robo-system-architecture-detailed.png" alt="IMU와 라이다, Cartographer 위치추정, 장애물 인지, Frenet 경로계획, Pure Pursuit, VESC와 차량 구동으로 이어지는 RoboRacer 시스템 구조"><figcaption>전체 차량 시스템. Cartographer 위치추정과 Pure Pursuit 제어 사이에서 라이다 장애물 인지, Frenet 회피 경로계획과 FSM을 담당했습니다.</figcaption></figure>
+    <figure class="research-figure architecture-figure"><img loading="lazy" decoding="async" src="../assets/images/robo-system-architecture-detailed.png" alt="IMU와 라이다, Cartographer 위치 추정, 장애물 인지, Frenet 경로 계획, Pure Pursuit, VESC와 차량 구동으로 이어지는 RoboRacer 시스템 구조"><figcaption>전체 차량 시스템. Cartographer 위치 추정과 Pure Pursuit 제어 사이에서 라이다 장애물 인지, Frenet 회피 경로 계획과 FSM을 담당했습니다.</figcaption></figure>
     <div class="ownership-strip" aria-label="본인 담당 장애물 회피 영역"><span>담당 1</span><strong>Perception</strong><p>라이다 점군 군집화, RANSAC 선분 추출, 벽과 장애물 구분</p><span>담당 2</span><strong>Frenet Planner</strong><p>회피 후보 생성, 충돌 검사, 비용 비교와 최종 경로 선택</p><span>담당 3</span><strong>FSM</strong><p>기준 경로 추종, 회피와 복구 모드의 전환 판단</p></div>
   </div></div></section>
 
   <section class="case-section alt-section"><div class="section-shell case-layout"><div><span class="case-section-label">02 / VEHICLE</span><h2>경기 차량 구성</h2></div><div class="case-body">
-    <figure class="research-figure vehicle-configuration"><img loading="lazy" decoding="async" src="../assets/images/robo-vehicle-configuration.png" alt="RoboRacer 차량에 장착한 Hokuyo UST-10LX 라이다, ASUS NUC 14 Pro와 VectorNav VN-300 IMU 위치"><figcaption>Hokuyo UST-10LX로 전방 점군 취득, ASUS NUC 14 Pro에서 ROS 2 인지와 경로계획 실행, VN-300으로 자세 정보 입력</figcaption></figure>
+    <figure class="research-figure vehicle-configuration"><img loading="lazy" decoding="async" src="../assets/images/robo-vehicle-configuration.png" alt="RoboRacer 차량에 장착한 Hokuyo UST-10LX 라이다, ASUS NUC 14 Pro와 VectorNav VN-300 IMU 위치"><figcaption>Hokuyo UST-10LX로 전방 점군 취득, ASUS NUC 14 Pro에서 ROS 2 인지와 경로 계획 실행, VN-300으로 자세 정보 입력</figcaption></figure>
     <div class="media-pair vehicle-support"><figure class="research-figure"><img loading="lazy" decoding="async" src="../assets/images/robo-vehicle-top.jpg" alt="차체 상부에 직접 탑재한 Hokuyo 2D 라이다와 온보드 연산장치"><figcaption>실제 차량 상부 구성. 중앙 전방의 Hokuyo 2D 라이다와 온보드 연산장치를 차체에 직접 탑재했습니다.</figcaption></figure><figure class="research-figure"><img loading="lazy" decoding="async" src="../assets/images/robo-wiring-layout.png" alt="RoboRacer 차량의 라이다, NUC, IMU, VESC, 배터리와 전원 변환기 연결 구조"><figcaption>차량 전원 및 통신 구성. 배터리, 전원 변환기, NUC, VN-300, VESC와 라이다 연결 구조</figcaption></figure></div>
     <p class="method-note">Detection box는 상대 차량의 2D 라이다가 우리 차량을 안정적으로 검출하도록 탐지 단면을 확보하는 수직 구조물입니다.</p>
   </div></div></section>
@@ -69,13 +69,13 @@
 
   <section class="case-section alt-section"><div class="section-shell case-layout"><div><span class="case-section-label">08 / RESULT</span><h2>경기 결과와 실패 분석</h2></div><div class="case-body">
     <div class="result-callout"><strong>16강</strong><div><h3>56개 팀 참가 국제 자율주행 경주</h3><p>2026년 8월 24–27일, 부산 BEXCO</p></div></div>
-    <figure class="research-figure robo-team-figure"><img loading="lazy" decoding="async" src="../assets/images/robo-team-result.jpg" alt="IFAC 2026 RoboRacer에 출전한 MSCLAB 팀의 단체사진"><figcaption>본인 포함 팀원 5명으로 구성된 MSCLAB 팀으로 IFAC 2026 RoboRacer에 출전해 56개 팀 중 16강에 진출했습니다.</figcaption></figure>
-    <ul class="noun-list"><li><strong>경기 결과</strong>56개 팀 중 16강 진출</li><li><strong>결정적 실패</strong>16강 경기 중 충돌 이후 Cartographer의 pose 추정이 무너지며 기준 경로상의 차량 위치를 계산하지 못했고, 경로 추종을 지속하지 못했습니다.</li><li><strong>대회 후 개선 시도</strong>대회가 끝난 뒤 Particle Filter로 위치를 추정한 다음 Cartographer로 전환하는 방식을 시도했습니다.</li><li><strong>배운 점</strong>위치추정이 무너지면 제어와 회피가 함께 멈춘다는 것을 경험했습니다. 대회 후 위치추정 방식의 전환을 시도하면서, 정상 주행의 정확도뿐 아니라 실패 이후 위치를 다시 잡고 추종을 재개할 수 있는 구조도 중요한 설계 기준임을 배웠습니다.</li></ul>
-    <div class="robo-failure-flow" aria-label="충돌 이후 위치추정 실패가 경로 추종에 미친 영향"><article><span>01</span><strong>충돌</strong></article><b aria-hidden="true">→</b><article><span>02</span><strong>Cartographer pose 추정 붕괴</strong></article><b aria-hidden="true">→</b><article><span>03</span><strong>기준 경로상의 차량 위치 계산 불가</strong></article><b aria-hidden="true">→</b><article><span>04</span><strong>Pure Pursuit / Frenet 모두 정상 추종 불가</strong></article></div>
-    <div class="robo-recovery-trial" aria-label="대회 후 시도한 위치추정 전환"><span>대회 후 개선 시도</span><strong>Particle Filter 위치추정 → Cartographer 전환</strong></div>
-    <p class="method-note">위치추정 상태는 제어와 회피의 공통 입력입니다. 이 입력이 무너지면 두 모듈이 함께 영향을 받으므로 정상 주행 성능과 실패 후 복구를 함께 설계해야 합니다.</p>
+    <figure class="research-figure robo-team-figure"><img loading="lazy" decoding="async" src="../assets/images/robo-team-result.jpg" alt="IFAC 2026 RoboRacer에 출전한 MSCLAB 팀의 단체사진"><figcaption>MSCLAB 5인 팀으로 IFAC 2026 RoboRacer에 출전해 56개 팀 중 16강에 진출했습니다. 본인은 사진 왼쪽에서 두 번째로 MSCLAB 팻말을 들고 있습니다.</figcaption></figure>
+    <ul class="noun-list"><li><strong>경기 결과</strong>56개 팀 중 16강 진출</li><li><strong>결정적 실패</strong>16강 경기 중 충돌 이후 Cartographer의 pose 추정이 무너지며 기준 경로상의 차량 위치를 계산하지 못했고, 경로 추종을 지속하지 못했습니다.</li><li><strong>대회 후 개선 시도</strong>16강 경기에서 충돌 이후 Cartographer의 pose 추정이 무너진 문제를 분석했습니다. 대회 후 연구실에서 Particle Filter로 초기 위치를 다시 추정한 뒤 Cartographer로 전환하는 복구 방식을 구현하고 시험했습니다.</li><li><strong>배운 점</strong>위치 추정이 무너지면 제어와 회피가 함께 멈춘다는 것을 경험했습니다. 대회 후 연구실에서 위치 추정 전환 방식을 구현하고 시험하면서, 정상 주행의 정확도뿐 아니라 실패 이후 위치를 다시 잡고 추종을 재개할 수 있는 구조도 중요한 설계 기준임을 배웠습니다.</li></ul>
+    <div class="robo-failure-flow" aria-label="충돌 이후 위치 추정 실패가 경로 추종에 미친 영향"><article><span>01</span><strong>충돌</strong></article><b aria-hidden="true">→</b><article><span>02</span><strong>Cartographer pose 추정 붕괴</strong></article><b aria-hidden="true">→</b><article><span>03</span><strong>기준 경로상의 차량 위치 계산 불가</strong></article><b aria-hidden="true">→</b><article><span>04</span><strong>Pure Pursuit / Frenet 모두 정상 추종 불가</strong></article></div>
+    <div class="robo-recovery-trial" aria-label="대회 후 시도한 위치 추정 전환"><span>대회 후 개선 시도</span><strong>Particle Filter 기반 초기 위치 추정 → Cartographer 재전환</strong><p>대회 후 연구실에서, 위치 추정이 무너졌을 때 Particle Filter로 차량 위치를 다시 확보한 뒤 Cartographer로 전환해 경로 추종을 재개하는 구조를 시험했습니다.</p></div>
+    <p class="method-note">위치 추정 상태는 제어와 회피의 공통 입력입니다. 이 입력이 무너지면 두 모듈이 함께 영향을 받으므로 정상 주행 성능과 실패 후 복구를 함께 설계해야 합니다.</p>
   </div></div></section>
-  <nav class="next-project"><a class="section-shell" href="imu-lstm-fsm.html"><span>다음 프로젝트</span><strong>IMU 기반 LSTM-FSM 주행상태 판별 →</strong></a></nav>
+  <nav class="project-pagination section-shell" aria-label="프로젝트 이동"><a class="project-pagination-prev" href="sensor-fusion.html"><span>이전 프로젝트</span><strong>← Sensor Fusion</strong></a><a class="project-pagination-all" href="../index.html#projects">전체 프로젝트</a><a class="project-pagination-next" href="imu-lstm-fsm.html"><span>다음 프로젝트</span><strong>IMU LSTM-FSM →</strong></a></nav>
 </main>
 <footer class="site-footer"><div class="section-shell"><span>© 2026 곽민재</span><div class="footer-links"><a href="mailto:tkkwak4@naver.com">tkkwak4@naver.com</a><a href="https://github.com/neberrein" target="_blank" rel="noopener">GitHub ↗</a></div></div></footer>
 </body>
