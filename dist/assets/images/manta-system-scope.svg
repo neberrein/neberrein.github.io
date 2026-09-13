@@ -1,23 +1,48 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 400" role="img" aria-labelledby="title desc">
-<title id="title">MANTA 시스템 흐름과 담당 범위</title><desc id="desc">상태 입력과 DataHub 뒤에서 PlanningCore가 위협을 판단하고 PlanningModule worker를 통해 PlanningEngine이 경로를 생성합니다. reference_path 이후 PathFollower, PPID와 추진기는 팀 제어 인터페이스입니다. 설명용 구조도입니다.</desc>
-<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10" fill="#526b7b"/></marker></defs>
-<rect width="1100" height="400" fill="#fff"/>
-<g font-family="Arial, Noto Sans KR, sans-serif" fill="#193044">
-<text x="26" y="35" font-size="22" font-weight="700">상태 입력 → 위협 판단 → 경로계획 → 팀 제어 모듈</text>
-<rect x="293" y="76" width="543" height="231" rx="8" fill="#f1f7f3" stroke="#23774a" stroke-width="2"/>
-<text x="315" y="108" fill="#23774a" font-size="18" font-weight="700">MY SCOPE · 회피 판단 / 경로계획 / 실행 연결</text>
-<rect x="26" y="145" width="118" height="106" rx="5" fill="#edf2f5" stroke="#bccbd5"/>
-<text x="85" y="174" text-anchor="middle" font-size="18">ROV / 어뢰</text><text x="85" y="202" text-anchor="middle" font-size="17">Odometry</text><text x="85" y="230" text-anchor="middle" font-size="15">위치·상태</text>
-<rect x="171" y="145" width="100" height="106" rx="5" fill="#edf2f5" stroke="#bccbd5"/>
-<text x="221" y="182" text-anchor="middle" font-size="18">DataHub</text><text x="221" y="214" text-anchor="middle" font-size="15">상태 스냅샷</text>
-<rect x="315" y="145" width="153" height="129" rx="5" fill="#fff" stroke="#23774a"/>
-<text x="391" y="176" text-anchor="middle" font-size="18" font-weight="700">PlanningCore</text><text x="391" y="203" text-anchor="middle" font-size="16">속도 추정 · TTC</text><text x="391" y="229" text-anchor="middle" font-size="16">Phase</text><text x="391" y="254" text-anchor="middle" font-size="16">Engagement</text>
-<rect x="491" y="145" width="147" height="129" rx="5" fill="#fff" stroke="#23774a"/>
-<text x="565" y="176" text-anchor="middle" font-size="17" font-weight="700">PlanningModule</text><text x="565" y="207" text-anchor="middle" font-size="17">worker</text><text x="565" y="237" text-anchor="middle" font-size="15">최신 입력 교체</text>
-<rect x="661" y="145" width="152" height="129" rx="5" fill="#fff" stroke="#23774a"/>
-<text x="737" y="176" text-anchor="middle" font-size="17" font-weight="700">PlanningEngine</text><text x="737" y="218" text-anchor="middle" font-size="20">A* / DVO</text><text x="737" y="251" text-anchor="middle" font-size="16">선택 플래너 실행</text>
-<rect x="867" y="109" width="207" height="198" rx="5" fill="#f3f5f6" stroke="#7c8b95" stroke-dasharray="6 4"/>
-<text x="970" y="140" text-anchor="middle" font-size="16" fill="#536574" font-weight="700">TEAM INTERFACE</text><text x="970" y="177" text-anchor="middle" font-size="19">PathFollower</text><text x="970" y="209" text-anchor="middle" font-size="18">↓ PPID</text><text x="970" y="241" text-anchor="middle" font-size="18">↓ 6개 추진기</text><text x="970" y="275" text-anchor="middle" font-size="17">↓ Gazebo 운동</text>
-<g fill="none" stroke="#526b7b" stroke-width="2" marker-end="url(#arrow)"><path d="M144 198H169"/><path d="M271 198H313"/><path d="M468 209H489"/><path d="M638 209H659"/><path d="M813 209H865"/></g>
-<text x="820" y="341" text-anchor="middle" font-size="19" fill="#2b73b8">OUTPUT · /uuv/reference_path (nav_msgs/Path)</text><text x="26" y="375" font-size="16" fill="#536574">어뢰 유도 제어는 팀 구현 · 이 도식은 회피 모듈의 입력·판단·경로 출력 인터페이스를 표시</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 430" role="img" aria-labelledby="title desc"><title id="title">MANTA 시스템 연결과 담당 범위</title><desc id="desc">상태 입력과 DataHub에서 PlanningCore, PlanningModule worker, PlanningEngine으로 연결됩니다. 담당 회피 모듈이 reference_path를 발행하고 팀의 PathFollower, PPID, 추진기 제어로 전달합니다. 논리적 데이터 흐름을 설명한 도식입니다.</desc>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10" fill="context-stroke"/></marker></defs>
+<rect width="1100" height="430" fill="white"/><g font-family="Pretendard, Noto Sans KR, Arial, sans-serif" fill="#193044">
+<text x="25" y="36" font-size="25" fill="#193044" font-weight="700" text-anchor="start">상태를 받아 회피 경로를 만들고, 제어 모듈에 전달</text>
+<rect x="362" y="65" width="540" height="208" rx="8" fill="#f1f7f3" stroke="#23774a" stroke-width="2" stroke-dasharray=""/>
+<text x="384" y="98" font-size="21" fill="#23774a" font-weight="700" text-anchor="start">MY SCOPE · 위협 판단 / 경로계획 / 실행 연결</text>
+<rect x="25" y="124" width="150" height="121" rx="8" fill="#edf2f5" stroke="#bccbd5" stroke-width="2" stroke-dasharray=""/>
+<text x="100.0" y="156" font-size="20" fill="#193044" font-weight="700" text-anchor="middle">ROV / 어뢰</text>
+<text x="100.0" y="188" font-size="20" fill="#193044" font-weight="400" text-anchor="middle">Odometry</text>
+<text x="100.0" y="220" font-size="20" fill="#193044" font-weight="400" text-anchor="middle">위치·상태 입력</text>
+<rect x="200" y="124" width="136" height="121" rx="8" fill="#edf2f5" stroke="#bccbd5" stroke-width="2" stroke-dasharray=""/>
+<text x="268.0" y="156" font-size="20" fill="#193044" font-weight="700" text-anchor="middle">DataHub</text>
+<text x="268.0" y="188" font-size="20" fill="#193044" font-weight="400" text-anchor="middle">최신 상태</text>
+<text x="268.0" y="220" font-size="20" fill="#193044" font-weight="400" text-anchor="middle">스냅샷</text>
+<rect x="384" y="124" width="150" height="121" rx="8" fill="#fff" stroke="#23774a" stroke-width="2" stroke-dasharray=""/>
+<text x="459.0" y="156" font-size="18" fill="#193044" font-weight="700" text-anchor="middle">PlanningCore</text>
+<text x="459.0" y="188" font-size="20" fill="#193044" font-weight="400" text-anchor="middle">속도 추정 · TTC</text>
+<text x="459.0" y="220" font-size="18" fill="#193044" font-weight="400" text-anchor="middle">단계·참여 판정</text>
+<rect x="557" y="124" width="150" height="121" rx="8" fill="#fff" stroke="#23774a" stroke-width="2" stroke-dasharray=""/>
+<text x="632.0" y="156" font-size="18" fill="#193044" font-weight="700" text-anchor="middle">PlanningModule</text>
+<text x="632.0" y="188" font-size="20" fill="#193044" font-weight="400" text-anchor="middle">worker 실행</text>
+<text x="632.0" y="220" font-size="20" fill="#193044" font-weight="400" text-anchor="middle">최신 입력 교체</text>
+<rect x="730" y="124" width="150" height="121" rx="8" fill="#fff" stroke="#23774a" stroke-width="2" stroke-dasharray=""/>
+<text x="805.0" y="156" font-size="18" fill="#193044" font-weight="700" text-anchor="middle">PlanningEngine</text>
+<text x="805.0" y="188" font-size="20" fill="#193044" font-weight="400" text-anchor="middle">A* / DVO</text>
+<text x="805.0" y="220" font-size="20" fill="#193044" font-weight="400" text-anchor="middle">선택 플래너 실행</text>
+<path d="M175 183H198" fill="none" stroke="#536574" stroke-width="3" stroke-dasharray="" marker-end="url(#arrow)"/>
+<path d="M336 183H382" fill="none" stroke="#536574" stroke-width="3" stroke-dasharray="" marker-end="url(#arrow)"/>
+<path d="M534 183H555" fill="none" stroke="#536574" stroke-width="3" stroke-dasharray="" marker-end="url(#arrow)"/>
+<path d="M707 183H728" fill="none" stroke="#536574" stroke-width="3" stroke-dasharray="" marker-end="url(#arrow)"/>
+<rect x="927" y="124" width="148" height="121" rx="8" fill="#edf2f5" stroke="#2b73b8" stroke-width="2" stroke-dasharray=""/>
+<text x="1001" y="156" font-size="20" fill="#2b73b8" font-weight="700" text-anchor="middle">OUTPUT</text>
+<text x="1001" y="189" font-size="18" fill="#2b73b8" font-weight="400" text-anchor="middle">reference_path</text>
+<text x="1001" y="220" font-size="17" fill="#193044" font-weight="400" text-anchor="middle">nav_msgs/Path</text>
+<path d="M880 183H925" fill="none" stroke="#536574" stroke-width="3" stroke-dasharray="" marker-end="url(#arrow)"/>
+<rect x="25" y="302" width="1050" height="80" rx="8" fill="#f3f5f6" stroke="#536574" stroke-width="2" stroke-dasharray="7 5"/>
+<text x="45" y="333" font-size="20" fill="#536574" font-weight="700" text-anchor="start">TEAM INTERFACE</text>
+<text x="45" y="362" font-size="19" fill="#536574" font-weight="400" text-anchor="start">팀 제어 모듈</text>
+<text x="375" y="351" font-size="22" fill="#193044" font-weight="400" text-anchor="middle">PathFollower</text>
+<text x="604" y="351" font-size="22" fill="#193044" font-weight="400" text-anchor="middle">PPID</text>
+<text x="790" y="351" font-size="22" fill="#193044" font-weight="400" text-anchor="middle">6개 추진기</text>
+<text x="979" y="351" font-size="22" fill="#193044" font-weight="400" text-anchor="middle">Gazebo 운동</text>
+<path d="M457 345H547" fill="none" stroke="#536574" stroke-width="3" stroke-dasharray="" marker-end="url(#arrow)"/>
+<path d="M645 345H717" fill="none" stroke="#536574" stroke-width="3" stroke-dasharray="" marker-end="url(#arrow)"/>
+<path d="M852 345H897" fill="none" stroke="#536574" stroke-width="3" stroke-dasharray="" marker-end="url(#arrow)"/>
+<path d="M1001 245V286H375V316" fill="none" stroke="#536574" stroke-width="3" stroke-dasharray="" marker-end="url(#arrow)"/>
+<text x="25" y="414" font-size="20" fill="#536574" font-weight="400" text-anchor="start">논리적 데이터 흐름 · 경로 발행은 PlanningModule에서 연결 · 어뢰 유도 제어도 팀 구현</text>
 </g></svg>

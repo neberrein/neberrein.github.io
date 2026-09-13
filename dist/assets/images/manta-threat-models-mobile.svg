@@ -1,11 +1,11 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 660" role="img" aria-labelledby="title desc"><title id="title">A*와 DVO의 위협 모델 차이</title><desc id="desc">설명용 평면 투영 도식입니다. A*는 유도 예측으로 미래 박스 통로를 만들고 공간 충돌을 검사합니다. DVO는 현재 어뢰 박스와 추정 상대속도로 각 후보의 최근접 거리를 검사합니다. 박스와 후보 화살표는 예시이며 측정 결과가 아닙니다.</desc>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 440 930" role="img" aria-labelledby="title desc"><title id="title">A*와 DVO의 위협 모델 차이</title><desc id="desc">설명용 평면 투영 도식입니다. A*는 유도 예측으로 미래 박스 통로를 만들고 공간 충돌을 검사합니다. DVO는 현재 어뢰 박스와 추정 상대속도로 각 후보의 최근접 거리를 검사합니다. 박스와 후보 화살표는 예시이며 측정 결과가 아닙니다.</desc>
 <defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10" fill="context-stroke"/></marker></defs>
-<rect width="1100" height="660" fill="white"/><g font-family="Pretendard, Noto Sans KR, Arial, sans-serif" fill="#193044">
-<text x="28" y="36" font-size="25" fill="#193044" font-weight="700" text-anchor="start">A* / DVO · 무엇을 예측하는가</text>
-<text x="28" y="66" font-size="21" fill="#536574" font-weight="400" text-anchor="start">설명용 평면 투영 · 실제 계획은 3D</text>
-<rect x="28" y="87" width="1044" height="253" rx="8" fill="#f0f5fa" stroke="#d5e1e8" stroke-width="2" stroke-dasharray=""/>
-<text x="48" y="121" font-size="24" fill="#2b73b8" font-weight="700" text-anchor="start">A* · 미래 박스 통로</text>
-<g transform="translate(48 145) scale(0.82)">
+<rect width="440" height="930" fill="white"/><g font-family="Pretendard, Noto Sans KR, Arial, sans-serif" fill="#193044">
+<text x="20" y="36" font-size="22" fill="#193044" font-weight="700" text-anchor="start">A* / DVO · 무엇을 예측하는가</text>
+<text x="20" y="66" font-size="18" fill="#536574" font-weight="400" text-anchor="start">설명용 평면 투영 · 실제 계획은 3D</text>
+<rect x="15" y="87" width="410" height="386" rx="8" fill="#f0f5fa" stroke="#d5e1e8" stroke-width="2" stroke-dasharray=""/>
+<text x="30" y="121" font-size="21" fill="#2b73b8" font-weight="700" text-anchor="start">A* · 미래 박스 통로</text>
+<g transform="translate(30 145) scale(0.9)">
 <path d="M40 172L390 18" fill="none" stroke="#536574" stroke-width="3" stroke-dasharray="8 5"/>
 <rect x="22" y="151" width="44" height="35" rx="8" fill="#dbe9f3" stroke="#2b73b8" stroke-width="2" stroke-dasharray=""/>
 <text x="23" y="212" font-size="20" fill="#2b73b8" font-weight="700" text-anchor="start">ROV</text>
@@ -21,13 +21,13 @@
 <text x="245" y="84" font-size="19" fill="#a83b38" font-weight="400" text-anchor="start">통로와 경로가 겹침</text>
 <text x="224" y="201" font-size="19" fill="#536574" font-weight="400" text-anchor="start">점선: ROV 임무 경로</text>
 </g>
-<text x="493" y="174" font-size="22" fill="#193044" font-weight="400" text-anchor="start">유도 모델로 미래 위치를 샘플링</text>
-<text x="493" y="215" font-size="22" fill="#193044" font-weight="400" text-anchor="start">4.0 s / 약 1.5 m 간격 / 상한 32개</text>
-<text x="493" y="256" font-size="22" fill="#193044" font-weight="400" text-anchor="start">3 × 3 × 3 m 박스로 위협 공간 구성</text>
-<text x="493" y="297" font-size="22" fill="#193044" font-weight="400" text-anchor="start">박스 통로와 겹치는 공간을 피해 탐색</text>
-<rect x="28" y="359" width="1044" height="253" rx="8" fill="#f0f6f1" stroke="#d5e1e8" stroke-width="2" stroke-dasharray=""/>
-<text x="48" y="393" font-size="24" fill="#23774a" font-weight="700" text-anchor="start">DVO · 현재 박스 + 상대속도</text>
-<g transform="translate(48 417) scale(0.82)">
+<text x="30" y="366" font-size="20" fill="#193044" font-weight="400" text-anchor="start">유도 모델로 미래 위치를 샘플링</text>
+<text x="30" y="395" font-size="20" fill="#193044" font-weight="400" text-anchor="start">4.0 s / 약 1.5 m 간격 / 상한 32개</text>
+<text x="30" y="424" font-size="20" fill="#193044" font-weight="400" text-anchor="start">3 × 3 × 3 m 박스로 위협 공간 구성</text>
+<text x="30" y="453" font-size="20" fill="#193044" font-weight="400" text-anchor="start">박스 통로와 겹치는 공간을 피해 탐색</text>
+<rect x="15" y="489" width="410" height="386" rx="8" fill="#f0f6f1" stroke="#d5e1e8" stroke-width="2" stroke-dasharray=""/>
+<text x="30" y="523" font-size="21" fill="#23774a" font-weight="700" text-anchor="start">DVO · 현재 박스 + 상대속도</text>
+<g transform="translate(30 547) scale(0.9)">
 <rect x="35" y="136" width="44" height="35" rx="8" fill="#dbe9f3" stroke="#2b73b8" stroke-width="2" stroke-dasharray=""/>
 <text x="32" y="205" font-size="20" fill="#2b73b8" font-weight="700" text-anchor="start">ROV</text>
 <rect x="304" y="19" width="48" height="31" rx="8" fill="#f8dde1" stroke="#a83b38" stroke-width="2" stroke-dasharray=""/>
@@ -43,9 +43,9 @@
 <circle cx="227" cy="103" r="4" fill="#536574"/>
 <text x="181" y="137" font-size="19" fill="#536574" font-weight="400" text-anchor="start">최근접 거리 평가</text>
 </g>
-<text x="493" y="446" font-size="22" fill="#193044" font-weight="400" text-anchor="start">추정 상대속도를 6.0 s 동안 등속 외삽</text>
-<text x="493" y="487" font-size="22" fill="#193044" font-weight="400" text-anchor="start">각 ROV 속도 후보의 최근접 거리 검사</text>
-<text x="493" y="528" font-size="22" fill="#193044" font-weight="400" text-anchor="start">충돌 후보를 제외해 국소 경로 생성</text>
-<text x="493" y="569" font-size="22" fill="#193044" font-weight="400" text-anchor="start">계획 여유 약 3.85 m ≠ 실험 HIT 1.0 m</text>
-<text x="28" y="633" font-size="20" fill="#536574" font-weight="400" text-anchor="start">박스·속도 후보는 예시이며 측정 궤적이 아닙니다.</text>
+<text x="30" y="768" font-size="20" fill="#193044" font-weight="400" text-anchor="start">추정 상대속도를 6.0 s 동안 등속 외삽</text>
+<text x="30" y="797" font-size="20" fill="#193044" font-weight="400" text-anchor="start">각 ROV 속도 후보의 최근접 거리 검사</text>
+<text x="30" y="826" font-size="20" fill="#193044" font-weight="400" text-anchor="start">충돌 후보를 제외해 국소 경로 생성</text>
+<text x="30" y="855" font-size="20" fill="#193044" font-weight="400" text-anchor="start">계획 여유 약 3.85 m ≠ 실험 HIT 1.0 m</text>
+<text x="20" y="903" font-size="17" fill="#536574" font-weight="400" text-anchor="start">박스·속도 후보는 예시이며 측정 궤적이 아닙니다.</text>
 </g></svg>
