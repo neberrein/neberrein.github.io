@@ -31,6 +31,10 @@ jobs:
           python scripts/test_manta_hybrid.py
           python scripts/test_manta_dvo.py
           python scripts/build_manta_results.py
+      - name: Validate static project navigation
+        run: |
+          python scripts/test_project_navigation.py
+          python scripts/update_project_navigation.py --check
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:

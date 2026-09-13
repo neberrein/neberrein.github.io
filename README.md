@@ -17,3 +17,9 @@ GitHub 사용자 이름과 동일한 `<username>.github.io` 저장소의 `main` 
 ## MANTA 설명 그림
 
 `python scripts/build_manta_explainers.py`는 담당 범위와 A*/DVO 위협 모델의 설명용 SVG를 생성합니다. 사용자 제공 그림 생성 묶음을 참고하되 현재 담당 범위에 맞게 정리했으며, 위협 모델에는 모바일 전용 도식도 제공합니다. 박스와 속도 후보는 예시입니다. 실제 CSV 기반 결과 그림은 별도의 `scripts/build_manta_results.py`에서 관리하며 이 스크립트로 변경하지 않습니다.
+
+## 프로젝트 이동 메뉴
+
+`python scripts/update_project_navigation.py`는 메인 `#projects`의 대표 카드와 프로젝트 행 순서를 읽어 9개 상세페이지의 이전/전체/다음 메뉴를 갱신합니다. 짧은 표시명은 스크립트의 `TITLES`에서 관리하며, 새 프로젝트에는 메인 링크의 `data-project-nav-title`도 사용할 수 있습니다. 본문, 미디어와 자동 결과 영역은 수정하지 않습니다. 첫 페이지와 마지막 페이지를 순환 연결하지 않습니다.
+
+`python scripts/update_project_navigation.py --check`는 파일을 쓰지 않고 일치 여부를 검사합니다. `python scripts/test_project_navigation.py`는 연결 순서, 중복 방지, 반복 실행과 본문 보존을 검사합니다. 배포 과정에도 두 검사를 적용했습니다.

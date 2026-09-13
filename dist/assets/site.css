@@ -1075,12 +1075,12 @@ a.publication:hover strong, a.publication:focus-visible strong { color: #9ed0ff;
 .roboracer-page .robo-recovery-trial p { margin:0; color:var(--slate); font-size:.9rem; }
 .project-pagination { display:grid; grid-template-columns:minmax(0,1fr) auto minmax(0,1fr); gap:1.5rem; align-items:center; padding-block:3rem; border-top:1px solid var(--rule); }
 .project-pagination a { display:grid; align-content:center; min-height:44px; text-decoration:none; }
-.project-pagination span { display:block; margin-bottom:.3rem; color:var(--slate); font-size:.75rem; font-weight:760; }
-.project-pagination strong { font-size:clamp(1rem,2vw,1.35rem); word-break:keep-all; overflow-wrap:break-word; }
+.project-pagination span { display:block; margin-bottom:.3rem; color:var(--slate); font-size:.875rem; font-weight:760; }
+.project-pagination strong { font-size:clamp(1.0625rem,1.5vw,1.25rem); word-break:keep-all; overflow-wrap:break-word; }
 .project-pagination-prev { justify-self:start; }
 .project-pagination-all { justify-self:center; color:var(--slate); font-size:.875rem; font-weight:760; }
 .project-pagination-next { justify-self:end; text-align:right; }
-.project-pagination a:hover,.project-pagination a:focus-visible { color:var(--signal); }
+.project-pagination a:hover,.project-pagination a:focus-visible { color:var(--signal); text-decoration:underline; text-underline-offset:4px; }
 .project-pagination a:focus-visible,.evidence-image-link:focus-visible { outline:3px solid var(--signal); outline-offset:4px; }
 .project-pagination-first { grid-template-columns:minmax(0,1fr) minmax(0,1fr); }
 .project-pagination-first .project-pagination-all { justify-self:start; }
@@ -1094,6 +1094,9 @@ a.publication:hover strong, a.publication:focus-visible strong { color: #9ed0ff;
   .project-pagination-next { grid-column:2; grid-row:1; }
   .project-pagination-first .project-pagination-all { grid-column:1; grid-row:1; }
   .project-pagination-last .project-pagination-all { grid-column:2; grid-row:1; }
+  /* Keep the visual reading order aligned with native Tab order. */
+  .project-pagination:not(.project-pagination-first):not(.project-pagination-last) { grid-template-columns:minmax(0,1fr); }
+  .project-pagination:not(.project-pagination-first):not(.project-pagination-last) a { grid-column:1; grid-row:auto; justify-self:start; text-align:left; }
 }
 
 /* Research evidence: retain original figures and compact existing sections. */
