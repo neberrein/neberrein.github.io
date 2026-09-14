@@ -8,7 +8,7 @@
   <link rel="canonical" href="https://neberrein.github.io/projects/roboracer.html">
   <meta property="og:type" content="website"><meta property="og:title" content="IFAC 2026 RoboRacer | 곽민재"><meta property="og:description" content="라이다 장애물 인지와 Frenet 회피 경로 계획을 실차에 적용한 국제 자율주행 경주 프로젝트"><meta property="og:url" content="https://neberrein.github.io/projects/roboracer.html"><meta property="og:image" content="https://neberrein.github.io/assets/images/robo-track-side.jpg">
   <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="../assets/site.css?v=project-navigation-20260913">
+  <link rel="stylesheet" href="../assets/site.css?readability=20260914&amp;v=project-navigation-20260913">
   <script src="../assets/site.js" defer></script>
 </head>
 <body class="roboracer-page">
@@ -48,7 +48,7 @@
 
   <section class="case-section alt-section"><div class="section-shell case-layout"><div><span class="case-section-label">04 / PLANNING</span><h2>Frenet 후보 선택</h2></div><div class="case-body">
     <div class="media-pair frenet-source"><figure class="research-figure"><img src="../assets/images/robo-frenet-reference.png" alt="기준 경로를 따라 종방향 s와 횡방향 d를 정의하고 다음 목표점을 생성하는 Frenet 좌표계"><figcaption>차량 위치를 기준 경로의 종방향 s와 횡방향 d로 변환</figcaption></figure><div class="cost-function"><span>후보 경로 비용</span><div class="equation">min<sub>i</sub> 0.20 J<sub>jerk,i</sub> + 10.0 J<sub>safety,i</sub> + 1.50 J<sub>offset,i</sub> + 1.00 J<sub>final,i</sub> + 0.05 J<sub>time,k</sub></div><p>i = 1, 2, …, 15, k = 1, 2</p><dl><div><dt>J<sub>safety</sub></dt><dd>장애물과의 안전거리</dd></div><div><dt>J<sub>offset</sub></dt><dd>기준 경로에서의 횡방향 이탈</dd></div><div><dt>J<sub>jerk</sub></dt><dd>조향 변화의 부드러움</dd></div><div><dt>J<sub>final</sub></dt><dd>회피 뒤 기준 경로 복귀</dd></div><div><dt>J<sub>time</sub></dt><dd>회피 경로에 도달하는 시간</dd></div></dl></div></div>
-    <aside class="selection-note"><h3>안전을 가장 크게 가중한 이유</h3><p>안전 항 J<sub>safety</sub>의 가중치를 10.0으로 설정해 나머지 가중치의 합 2.75보다 크게 두었습니다. 빠른 경로를 얻는 이득보다 충돌 한 번의 손실이 더 크다고 판단했기 때문입니다.</p></aside>
+    <aside class="selection-note"><h3>안전 비용과 최소 여유거리</h3><p>충돌 위험을 중요하게 반영하도록 안전 비용의 가중치를 설정했습니다. 충돌 후보 제거와 최소 여유거리 조건을 함께 적용해 실제 차량에서 스치는 경로가 선택되는 문제를 보완했습니다.</p></aside>
     <div class="decision-strip"><article><span>후보 생성</span><strong>횡방향 15개, 시간 2개</strong></article><article><span>계획 주기</span><strong>0.2초마다 최대 30개 평가</strong></article><article><span>제외 조건</span><strong>트랙 이탈과 장애물 충돌</strong></article><article><span>최종 선택</span><strong>안전성, 복귀성, 부드러움 비교</strong></article></div>
     <p class="method-note">횡 오프셋 0.0~±0.7 m, 0.1 m 간격 / 계획 지평선 1.5 s, 2.5 s</p>
   </div></div></section>
@@ -70,9 +70,9 @@
   <section class="case-section alt-section"><div class="section-shell case-layout"><div><span class="case-section-label">08 / RESULT</span><h2>경기 결과와 실패 분석</h2></div><div class="case-body">
     <div class="result-callout"><strong>16강</strong><div><h3>56개 팀 참가 국제 자율주행 경주</h3><p>2026년 8월 24–27일, 부산 BEXCO</p></div></div>
     <figure class="research-figure robo-team-figure"><img loading="lazy" decoding="async" src="../assets/images/robo-team-result.jpg" alt="IFAC 2026 RoboRacer에 출전한 MSCLAB 팀의 단체사진"><figcaption>MSCLAB 5인 팀으로 IFAC 2026 RoboRacer에 출전해 56개 팀 중 16강에 진출했습니다. 본인은 사진 왼쪽에서 두 번째로 MSCLAB 팻말을 들고 있습니다.</figcaption></figure>
-    <ul class="noun-list"><li><strong>경기 결과</strong>56개 팀 중 16강 진출</li><li><strong>결정적 실패</strong>16강 경기 중 충돌 이후 Cartographer의 pose 추정이 무너지며 기준 경로상의 차량 위치를 계산하지 못했고, 경로 추종을 지속하지 못했습니다.</li><li><strong>대회 후 개선 시도</strong>16강 경기에서 충돌 이후 Cartographer의 pose 추정이 무너진 문제를 분석했습니다. 대회 후 연구실에서 Particle Filter로 초기 위치를 다시 추정한 뒤 Cartographer로 전환하는 복구 방식을 구현하고 시험했습니다.</li><li><strong>배운 점</strong>위치 추정이 무너지면 제어와 회피가 함께 멈춘다는 것을 경험했습니다. 대회 후 연구실에서 위치 추정 전환 방식을 구현하고 시험하면서, 정상 주행의 정확도뿐 아니라 실패 이후 위치를 다시 잡고 추종을 재개할 수 있는 구조도 중요한 설계 기준임을 배웠습니다.</li></ul>
-    <div class="robo-failure-flow" aria-label="충돌 이후 위치 추정 실패가 경로 추종에 미친 영향"><article><span>01</span><strong>충돌</strong></article><b aria-hidden="true">→</b><article><span>02</span><strong>Cartographer pose 추정 붕괴</strong></article><b aria-hidden="true">→</b><article><span>03</span><strong>기준 경로상의 차량 위치 계산 불가</strong></article><b aria-hidden="true">→</b><article><span>04</span><strong>Pure Pursuit / Frenet 모두 정상 추종 불가</strong></article></div>
-    <div class="robo-recovery-trial" aria-label="대회 후 시도한 위치 추정 전환"><span>대회 후 개선 시도</span><strong>Particle Filter 기반 초기 위치 추정 → Cartographer 재전환</strong><p>대회 후 연구실에서, 위치 추정이 무너졌을 때 Particle Filter로 차량 위치를 다시 확보한 뒤 Cartographer로 전환해 경로 추종을 재개하는 구조를 시험했습니다.</p></div>
+    <ul class="noun-list"><li><strong>경기 결과</strong>56개 팀 중 16강 진출</li><li><strong>결정적 실패</strong>16강 경기 중 충돌 이후 Cartographer의 pose 추정이 무너지며 기준 경로상의 차량 위치를 계산하지 못했고, 경로 추종을 지속하지 못했습니다.</li><li><strong>대회 후 개선 시도</strong>충돌 이후 위치 추정 실패의 복구 방식을 대회 후 연구실에서 구현하고 시험했습니다.</li><li><strong>배운 점</strong>정상 주행 성능뿐 아니라 위치 추정 실패 이후 주행을 재개할 수 있는 복구 구조도 중요한 설계 기준임을 확인했습니다.</li></ul>
+    <div class="robo-failure-flow" aria-label="충돌 이후 위치 추정 실패가 경로 추종에 미친 영향"><article><span>01</span><strong>충돌</strong></article><b aria-hidden="true">→</b><article><span>02</span><strong>Cartographer pose 추정 붕괴</strong></article><b aria-hidden="true">→</b><article><span>03</span><strong>기준 경로상의 차량 위치 계산 불가</strong></article><b aria-hidden="true">→</b><article><span>04</span><strong>위치 기반 경로 생성과 경로 추종을 지속하지 못함</strong></article></div>
+    <div class="robo-recovery-trial" aria-label="대회 후 시도한 위치 추정 전환"><span>대회 후 개선 시도</span><strong>Particle Filter 기반 초기 위치 추정 → Cartographer 재전환</strong><p>대회 후 연구실에서 Particle Filter로 초기 위치를 다시 추정한 뒤 Cartographer로 전환해 경로 추종을 재개하는 복구 방식을 구현하고 시험했습니다.</p></div>
   </div></div></section>
   <nav class="project-pagination section-shell" aria-label="프로젝트 이동"><a class="project-pagination-prev" href="sensor-fusion.html" rel="prev"><span>← 이전 프로젝트</span><strong>센서융합 차량 추적</strong></a><a class="project-pagination-all" href="../index.html#projects">전체 프로젝트</a><a class="project-pagination-next" href="imu-lstm-fsm.html" rel="next"><span>다음 프로젝트 →</span><strong>IMU 주행상태 판별</strong></a></nav>
 </main>

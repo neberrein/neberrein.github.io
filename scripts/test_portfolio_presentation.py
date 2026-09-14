@@ -52,6 +52,41 @@ class PresentationTests(unittest.TestCase):
         self.assertEqual(parser.tags['og:image:width'], ['1200'])
         self.assertEqual(parser.tags['og:image:height'], ['630'])
 
+    def test_confirmed_scope_and_summary_polish(self):
+        home = (DIST / 'index.html').read_text(encoding='utf-8')
+        parser = MetaTags()
+        parser.feed(home)
+        self.assertEqual(parser.tags['description'], parser.tags['og:description'])
+        self.assertNotIn('실제 플랫폼에 연결해', home)
+        self.assertIn('센서융합과 상태 추정, 경로 계획을 구현해<br>시뮬레이션과 실제 환경에서 검증했습니다', home)
+        self.assertNotIn('DVO/Hybrid', home)
+        self.assertIn('Gazebo 회피 동작 검증, DVO 24조건 시험', home)
+        mosaic = (DIST / 'projects/mosaic-c2.html').read_text(encoding='utf-8')
+        for page in (home, mosaic):
+            self.assertIn('2026.07.17–2026.07.24', page)
+        self.assertIn('7개 운용 화면', home)
+        self.assertIn('대표 운용 화면', mosaic)
+        imu = (DIST / 'projects/imu-lstm-fsm.html').read_text(encoding='utf-8')
+        self.assertIn('판별 출력이 불필요하게 바뀌지 않도록', imu)
+        self.assertIn('한 경로의 전진, 후진, 정지 혼동행렬입니다.', imu)
+        self.assertEqual(len(re.findall(r'<div(?:\s|>)', imu)), imu.count('</div>'))
+        davinci = (DIST / 'projects/davinci-autonomous.html').read_text(encoding='utf-8')
+        self.assertIn('장애물 3개를 랜덤 배치한 10회 시험', davinci)
+        self.assertIn('davinci-vehicle-original.png', davinci)
+        self.assertNotIn('경로계획', davinci)
+        stm = (DIST / 'projects/stm32-tracking.html').read_text(encoding='utf-8')
+        self.assertIn('표시한 두 프레임에서는 접근 물체가 검출되지 않았습니다.', stm)
+        self.assertIn('[COMPARE #28&lt;-26 REVERSE] valid=15 changed=1 approaching=1', stm)
+        rgb = (DIST / 'projects/rgb-classification.html').read_text(encoding='utf-8')
+        self.assertIn('<th>정확도</th>', rgb)
+        self.assertNotIn('세 모델의 Confusion Matrix', rgb)
+        self.assertIn('rgb-mobile-matrices', rgb)
+        for box in ('0 0 390 388', '390 0 400 388', '790 0 476 388'):
+            self.assertIn('viewBox="' + box + '"', rgb)
+        crosswalk = (DIST / 'projects/crosswalk-gap.html').read_text(encoding='utf-8')
+        self.assertNotIn('·', crosswalk)
+        self.assertIn('횡단 판단의 임계거리', crosswalk)
+
     def test_share_image_is_landscape_jpeg(self):
         self.assertEqual(jpeg_size((DIST / 'assets/og/profile-share.jpg').read_bytes()), (1200, 630))
 

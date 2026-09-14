@@ -8,7 +8,7 @@
   <link rel="canonical" href="https://neberrein.github.io/projects/mosaic-c2.html">
   <meta property="og:type" content="website"><meta property="og:title" content="MOSAIC C2 다영역 무인체계 지휘통제 시뮬레이터 | 곽민재"><meta property="og:description" content="탐지, 대응수단 추천, 기동, 교전과 재교전을 통합한 WPF 시뮬레이터"><meta property="og:url" content="https://neberrein.github.io/projects/mosaic-c2.html"><meta property="og:image" content="https://neberrein.github.io/assets/images/mosaic-hanriver-t8.png">
   <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="../assets/site.css?v=project-navigation-20260913">
+  <link rel="stylesheet" href="../assets/site.css?readability=20260914&amp;v=project-navigation-20260913">
   <script src="../assets/site.js" defer></script>
   <script src="../assets/mosaic-c2.js" defer></script>
 </head>
@@ -22,8 +22,8 @@
     <h1>MOSAIC C2 다영역 무인체계 지휘통제 시뮬레이터</h1>
     <p class="case-subtitle">공중, 수상, 수중과 지상 무인체계의 탐지, 대응수단 추천, 기동, 교전과 재교전을 하나의 WPF 시뮬레이터로 통합했습니다. 외부 JSON 시나리오와 실행 로직을 분리하고 통신 상태와 가용 자산에 따라 판단을 다시 수행하도록 구성했습니다.</p>
     <div class="headline-result"><strong>3 SCENARIOS</strong><span>운용자 개입 없이<br>자동 실행</span></div>
-    <dl class="case-facts"><div><dt>기간</dt><dd>2026.07, 1주</dd></div><div><dt>맥락</dt><dd>The SSEN 과정 미니 프로젝트</dd></div><div><dt>역할</dt><dd>4인 팀, 팀장</dd></div><div><dt>기술</dt><dd>C#, WPF, MVVM, JSON</dd></div></dl>
-    <figure class="detail-cover mosaic-live-cover"><img src="../assets/images/mosaic-hanriver-t8.png?v=wpf-20260913" alt="MOSAIC C2 한강 다영역 통합방어 WPF 실행 화면"><figcaption><strong>실행 화면 T+8 s</strong> 한강 다영역 통합방어. 수상 표적 건전성 15%, 발사체 2발 비행 중, RADAR-G01 선택으로 탐지범위 표시</figcaption></figure>
+    <dl class="case-facts"><div><dt>기간</dt><dd>2026.07.17–2026.07.24</dd></div><div><dt>맥락</dt><dd>The SSEN 과정 미니 프로젝트</dd></div><div><dt>역할</dt><dd>4인 팀, 팀장</dd></div><div><dt>기술</dt><dd>C#, WPF, MVVM, JSON</dd></div></dl>
+    <figure class="detail-cover mosaic-live-cover"><img src="../assets/images/mosaic-hanriver-t8.png?v=wpf-20260913" alt="MOSAIC C2 한강 다영역 통합방어 WPF 실행 화면"><figcaption><strong>한강 통합방어 시나리오 실행 화면</strong> 탐지된 표적, 자동 대응 상태와 선택한 센서의 탐지범위를 함께 표시했습니다.<small>T+8 s / 수상 표적 건전성 15%, 발사체 2발 비행 중, RADAR-G01 선택</small></figcaption></figure>
   </section>
 
   <section class="case-section"><div class="section-shell case-layout"><div><span class="case-section-label">01 / SYSTEM</span><h2>시스템 구조와 담당 범위</h2></div><div class="case-body">
@@ -32,7 +32,7 @@
     <div class="execution-flow" aria-label="MOSAIC C2 자동 대응 순서"><article><span>01</span><strong>탐지</strong><small>센서 범위와 표적 영역 확인</small></article><b>→</b><article><span>02</span><strong>수단 선정</strong><small>가용 플랫폼과 무장 평가</small></article><b>→</b><article><span>03</span><strong>명령</strong><small>C2 명령 생성과 통신 확인</small></article><b>→</b><article><span>04</span><strong>발사</strong><small>잔탄 감소와 비행 시작</small></article><b>→</b><article><span>05</span><strong>명중</strong><small>표적 건전성 갱신</small></article></div>
   </div></div></section>
 
-  <section class="case-section alt-section"><div class="section-shell case-layout"><div><span class="case-section-label">02 / WPF EVIDENCE</span><h2>자동 대응 실행 증빙</h2></div><div class="case-body">
+  <section class="case-section alt-section"><div class="section-shell case-layout"><div><span class="case-section-label">02 / WPF EVIDENCE</span><h2>탐지부터 재교전까지의 자동 대응</h2></div><div class="case-body">
     <div class="mosaic-proof-grid"><figure class="research-figure mosaic-log-shot"><a href="../assets/images/mosaic-auto-log.png" target="_blank" rel="noopener"><img loading="lazy" decoding="async" src="../assets/images/mosaic-auto-log.png" alt="한강 시나리오 T+12 s의 원본 WPF 자동 대응 이벤트 로그"></a><figcaption><strong>자동 대응 로그, T+12 s</strong> 원본 통합 임무 이벤트 로그. 이미지를 누르면 원본 크기로 확인할 수 있습니다.</figcaption></figure><div class="mosaic-event-story"><h3>첫 명중 후에도 표적이 남으면 재교전</h3><p>수상 표적 T-SEA-01의 탐지부터 무력화까지 엔진이 수행한 순서입니다.</p><ol><li><time>T+3.0 s</time><strong>표적 탐지</strong><span>UAV-02의 레이더가 수상 표적을 탐지</span></li><li><time>T+4.0 s</time><strong>자동 명령과 발사</strong><span>USV-01을 선정하고 비궁 유도로켓 발사</span></li><li><time>T+6.4 s</time><strong>첫 명중</strong><span>표적 건전성 15%가 남아 추가 교전 예약</span></li><li><time>T+7.3 s</time><strong>대응수단 재선정</strong><span>가용 수단을 다시 평가해 UAV-03의 천검 정밀유도탄 선정</span></li><li><time>T+10.4 s</time><strong>표적 무력화</strong><span>재교전 명중 후 잔여 건전성 0%</span></li></ol></div></div>
   </div></div></section>
 
@@ -70,7 +70,7 @@
 
   <section class="case-section alt-section"><div class="section-shell case-layout"><div><span class="case-section-label">06 / RESULT</span><h2>검증 결과</h2></div><div class="case-body">
     <div class="result-callout"><strong>3개</strong><div><h3>탐지부터 임무 종료까지 자동 실행</h3><p>동일한 원본 코드와 시나리오 JSON으로 실행하고 종료 시점의 표적, 교전과 잔존 전력을 확인했습니다.</p></div></div>
-    <div class="decision-strip"><article><span>운용 화면</span><strong>상황도, 임무 통제, 무기 제원, 결과 분석</strong></article><article><span>Release 빌드</span><strong>오류 0개, 경고 0개</strong></article></div>
+    <div class="decision-strip"><article><span>대표 운용 화면</span><strong>상황도, 임무 통제, 무기 제원, 결과 분석</strong></article><article><span>Release 빌드</span><strong>오류 0개, 경고 0개</strong></article></div>
     <div class="table-wrap"><table class="metric-table"><caption>시나리오별 실행 결과, 2026.09.13 검증</caption><thead><tr><th scope="col">시나리오</th><th scope="col">종료 시간</th><th scope="col">탐지 경보</th><th scope="col">명중 / 실패</th><th scope="col">무력화 표적</th><th scope="col">활성 표적</th></tr></thead><tbody><tr><th scope="row">한강 통합방어</th><td data-result="hanriver.time">70 s</td><td data-result="hanriver.DetectionCount">30건</td><td data-result="hanriver.hits">16 / 0건</td><td data-result="hanriver.NeutralizedTargetCount">8개</td><td data-result="hanriver.ActiveTargetCount">0개</td></tr><tr><th scope="row">도서지역 다중표적</th><td data-result="island.time">65 s</td><td data-result="island.DetectionCount">4건</td><td data-result="island.hits">6 / 0건</td><td data-result="island.NeutralizedTargetCount">3개</td><td data-result="island.ActiveTargetCount">0개</td></tr><tr><th scope="row">인천항 복합침투</th><td data-result="incheon.time">70 s</td><td data-result="incheon.DetectionCount">9건</td><td data-result="incheon.hits">6 / 0건</td><td data-result="incheon.NeutralizedTargetCount">3개</td><td data-result="incheon.ActiveTargetCount">0개</td></tr></tbody></table></div>
     <p class="mosaic-result-note">탐지 경보는 센서별 탐지 기록 수로, 고유 표적 수와 다릅니다. 명중 건수에는 잔존 건전성을 제거하기 위한 재교전이 포함됩니다. 수치는 시나리오에 설정된 명중 및 재교전 조건에서의 실행 결과입니다.</p>
     <div class="mosaic-result-shots">

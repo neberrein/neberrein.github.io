@@ -8,8 +8,8 @@
   <meta property="og:type" content="website"><meta property="og:title" content="STM32 기반 초음파 표적 탐지 및 추적 | 곽민재 포트폴리오"><meta property="og:description" content="HC-SR04, SG90, FreeRTOS와 TouchGFX를 통합한 자동 스캔 및 표적 추적 시스템"><meta property="og:url" content="https://neberrein.github.io/projects/stm32-tracking.html"><meta property="og:image" content="https://neberrein.github.io/assets/images/stm32-hero-tracking.webp"><meta name="twitter:card" content="summary_large_image">
   <title>STM32 기반 초음파 표적 탐지 및 추적 | 곽민재</title>
   <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="../assets/site.css?v=project-navigation-20260913">
-  <link rel="stylesheet" href="../assets/stm32-evidence.css?v=20260914">
+  <link rel="stylesheet" href="../assets/site.css?readability=20260914&amp;v=project-navigation-20260913">
+  <link rel="stylesheet" href="../assets/stm32-evidence.css?v=log-comparison-20260914">
   <script src="../assets/site.js" defer></script>
 </head>
 <body class="stm32-page">
@@ -65,13 +65,14 @@
   70=36.1   80=36.6   90=36.6  100=36.6  110=125.6 cm
  120=125.7 130=126.1 140=126.1 150=127.0 160=127.5 cm
 <span class="log-compare">[COMPARE #26&lt;-24 REVERSE] valid=15 changed=1 approaching=0</span></code></pre></div>
-      <figcaption><strong>UART 스캔·비교 로그</strong><span>실제 로그에서 판독 가능한 두 프레임을 텍스트로 재구성했습니다. 왕복 스캔의 15개 거리값을 수집하고, 같은 방향의 프레임끼리 비교해 접근 변화량을 계산했습니다.</span></figcaption>
+      <figcaption><strong>UART 스캔 및 비교 로그</strong><span>실제 로그에서 판독 가능한 두 프레임을 텍스트로 재구성했습니다. 각도별 거리 프레임을 수집하고 이전의 같은 방향 프레임과 비교했습니다. 표시한 두 프레임에서는 접근 물체가 검출되지 않았습니다.</span></figcaption>
     </figure>
+    <details class="stm32-log-details"><summary>접근 변화 비교 로그 보기</summary><div class="stm32-log-terminal"><div class="stm32-log-title">UART / APPROACH CHANGE</div><pre><code><span class="log-compare">[COMPARE #28&lt;-26 REVERSE] valid=15 changed=1 approaching=1</span></code></pre></div><p>앞의 #26과 이후 #28 역방향 프레임을 비교한 구간에서 접근 변화 1개를 확인했습니다. 표적 확정에는 공간 연속성과 반복 측정 검증을 추가로 적용했습니다.</p></details>
     <div class="uart-evidence" aria-label="UART 로그 항목 설명"><article><strong>20–160도</strong><p>초음파 센서가 좌우로 탐색하는 전체 각도 범위를 20–160도로 설정했습니다.</p></article><article><strong>15포인트</strong><p>10도 간격으로 한 프레임에 15개의 거리값을 취득했습니다.</p></article><article><strong>valid 15/15</strong><p>15개 각도에서 모두 Echo 응답을 받은 정상 프레임을 확인했습니다.</p></article><article><strong>FORWARD ↔ FORWARD</strong><p>스캔 방향이 같은 프레임끼리 비교해 동일 각도의 접근 변화량을 계산했습니다.</p></article></div>
   </div></div></section>
 
   <section class="case-section alt-section"><div class="section-shell case-layout"><div><span class="case-section-label">06 / DESIGN DECISIONS</span><h2>오동작을 줄인 네 가지 설계</h2></div><div class="case-body">
-    <div class="failure-grid"><article><span>01</span><h3>서보가 멈춘 뒤 측정</h3><p>SG90에 실제 각도 피드백이 없으므로 PWM 변경 직후 측정하지 않고 100 ms 안정화 시간을 둔 뒤 Echo를 취득했습니다.</p><strong>표시 각도와 거리 측정 시점을 일치시켰습니다.</strong></article><article><span>02</span><h3>같은 방향 프레임끼리 비교</h3><p>정방향과 역방향 스캔의 시간차를 섞지 않고, 동일 각도의 거리 변화만 계산했습니다.</p><strong>접근 물체의 변화량을 일관되게 판단하도록 구성했습니다.</strong></article><article><span>03</span><h3>공간 연속성과 반복 측정 결합</h3><p>인접한 두 각도에서 변화가 이어질 때만 후보로 만들고, 같은 위치에서 3회 중 2회 확인되면 표적으로 확정했습니다.</p><strong>넓은 빔과 단발 반사에 의한 오탐을 억제하도록 구성했습니다.</strong></article><article><span>04</span><h3>화면에는 최신 상태만 전달</h3><p>GUI 큐가 밀리면 오래된 화면 데이터를 버리고 현재 상태를 우선 반영했습니다.</p><strong>실제 센서 동작과 TouchGFX 표시의 지연을 방지하도록 구성했습니다.</strong></article></div>
+    <div class="failure-grid"><article><span>01</span><h3>서보가 멈춘 뒤 측정</h3><p>SG90에 실제 각도 피드백이 없으므로 PWM 변경 직후 측정하지 않고 100 ms 안정화 시간을 둔 뒤 Echo를 취득했습니다.</p><strong>PWM 변경 후 안정화 시간을 둔 뒤 거리 측정을 수행했습니다.</strong></article><article><span>02</span><h3>같은 방향 프레임끼리 비교</h3><p>정방향과 역방향 스캔의 시간차를 섞지 않고, 동일 각도의 거리 변화만 계산했습니다.</p><strong>접근 물체의 변화량을 일관되게 판단하도록 구성했습니다.</strong></article><article><span>03</span><h3>공간 연속성과 반복 측정 결합</h3><p>인접한 두 각도에서 변화가 이어질 때만 후보로 만들고, 같은 위치에서 3회 중 2회 확인되면 표적으로 확정했습니다.</p><strong>넓은 빔과 단발 반사에 의한 오탐을 억제하도록 구성했습니다.</strong></article><article><span>04</span><h3>화면에는 최신 상태만 전달</h3><p>GUI 큐가 밀리면 오래된 화면 데이터를 버리고 현재 상태를 우선 반영했습니다.</p><strong>오래된 상태 정보가 누적되지 않도록 최신 상태를 우선 반영했습니다.</strong></article></div>
   </div></div></section>
 
   <section class="case-section"><div class="section-shell case-layout"><div><span class="case-section-label">07 / RESULT</span><h2>완성 범위</h2></div><div class="case-body"><div class="result-callout"><strong>AUTO</strong><div><h3>탐지, 추적, 소실 판단과 재탐색 자동 순환</h3><p>SCANNING → CANDIDATE → DETECTED → TRACKING → LOST → SCANNING 흐름을 자동화하고, STOPPED와 MANUAL은 별도 사용자 운용 상태로 분리했습니다.</p></div></div><ul class="noun-list"><li><strong>센서 드라이버</strong>HC-SR04 입력 캡처와 거리 환산, SG90 PWM 제어를 구현했습니다.</li><li><strong>실시간 구조</strong>FreeRTOS 5개 태스크와 10개 메시지 큐를 구성하고, 타임아웃과 sequence 응답 매칭을 구현했습니다.</li><li><strong>판단 로직</strong>왕복 프레임 비교, 접근 후보 검증, 표적 추적과 소실 판정을 구현했습니다.</li><li><strong>운용 화면</strong>TouchGFX AUTO, MANUAL, START, STOP 명령과 상태 표시를 구현했습니다.</li><li><strong>검증</strong>30초 통합 시연과 상태별 증빙 화면, 실제 UART 로그로 동작을 확인했습니다.</li></ul></div></div></section>

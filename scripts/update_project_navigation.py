@@ -115,7 +115,7 @@ def update_page(original, projects, position):
     menu = menus[0]
     normalized = '<nav class="primary-nav" aria-label="상세 페이지 메뉴"><a href="../index.html#projects">프로젝트</a><a href="../index.html#research">연구성과</a></nav>'
     updated = updated[:menu.start()] + normalized + updated[menu.end():]
-    updated, count = re.subn(r'(?<=href=")\.\./assets/site\.css(?:\?[^"\s]*)?(?=")', f'../assets/site.css?v={CSS_VERSION}', updated)
+    updated, count = re.subn(r'(?<=href=")\.\./assets/site\.css(?:\?[^"\s]*)?(?=")', f'../assets/site.css?readability=20260914&amp;v={CSS_VERSION}', updated)
     if count != 1:
         raise ValueError('Expected one shared stylesheet')
     return updated
