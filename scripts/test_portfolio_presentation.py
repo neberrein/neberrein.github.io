@@ -75,8 +75,9 @@ class PresentationTests(unittest.TestCase):
         self.assertIn('davinci-vehicle-original.png', davinci)
         self.assertNotIn('경로계획', davinci)
         stm = (DIST / 'projects/stm32-tracking.html').read_text(encoding='utf-8')
-        self.assertIn('표시한 두 프레임에서는 접근 물체가 검출되지 않았습니다.', stm)
-        self.assertIn('[COMPARE #28&lt;-26 REVERSE] valid=15 changed=1 approaching=1', stm)
+        self.assertIn('stm32-uart-detection-tracking.png', stm)
+        self.assertIn('CANDIDATE CONFIRMED: angle=110', stm)
+        self.assertIn('TRACKING START: angle=110', stm)
         rgb = (DIST / 'projects/rgb-classification.html').read_text(encoding='utf-8')
         self.assertIn('<th>정확도</th>', rgb)
         self.assertNotIn('세 모델의 Confusion Matrix', rgb)
@@ -141,9 +142,17 @@ class PresentationTests(unittest.TestCase):
         for part in ('hardware-board', 'hardware-sensor', 'hardware-servo', 'hardware-led'):
             self.assertIn(part, hero)
         self.assertEqual(hero.count('<circle '), 4)
-        self.assertIn('텍스트로 재구성했습니다.', page)
-        self.assertIn('[SCAN #25 FORWARD] valid=15/15', page)
-        self.assertIn('[COMPARE #26&lt;-24 REVERSE] valid=15 changed=1 approaching=0', page)
+        self.assertIn('실제 실행 기록입니다.', page)
+        self.assertIn('CANDIDATE: frame=23, angle=110, distance=108 mm, delta=57 mm', page)
+        self.assertIn('LOCK SAMPLE: 2/3, angle=110, distance=14.8 cm', page)
+        self.assertIn('TRACK TARGET: angle=110, distance=6.1 cm', page)
+        self.assertTrue((DIST / 'assets/images/stm32-uart-detection-tracking.png').is_file())
+        import xml.etree.ElementTree as ET
+        source = ET.parse(DIST / 'assets/images/stm32-uart-detection-tracking.svg')
+        extracts = source.findall('.//*[@data-verbatim="true"]')
+        self.assertEqual(len(extracts), 10)
+        for line in extracts:
+            self.assertIn(line.text, page)
         self.assertNotIn('src="../assets/images/stm32-uart-scan-compare.webp"', page)
 
     def test_manta_annotated_and_cropped_media(self):

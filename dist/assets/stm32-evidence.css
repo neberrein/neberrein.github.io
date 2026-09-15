@@ -17,6 +17,8 @@
 .stm32-log-terminal .log-frame { color:#77d8ff; }
 .stm32-log-terminal .log-compare { color:#b2ebbd; }
 .stm32-page .stm32-uart-evidence figcaption { font-size:.875rem; line-height:1.65; }
+.stm32-page .stm32-uart-evidence img { display:block; width:100%; height:auto; max-height:none; object-fit:contain; }
+.stm32-log-details pre { white-space:pre-wrap; overflow-wrap:anywhere; font-size:.875rem; }
 .stm32-page .stm32-hero { margin-inline:0; }
 .stm32-log-details { margin:1rem 0; }
 .stm32-log-details summary { min-height:44px; padding:.75rem 0; color:var(--signal); font-weight:750; cursor:pointer; }

@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="1220" viewBox="0 0 1440 1220">
+  <title>STM32 실제 UART 실행 로그: 후보 검출부터 추적까지</title>
+  <desc>실제 실행 로그를 네 단계로 발췌했다. 110도 후보의 거리 감소량은 57 mm이며 세 번 재측정한 뒤 후보 확정과 추적 시작이 기록되어 있다. 추적 거리는 서로 떨어진 세 기록을 발췌했다.</desc>
+  <style>
+    .ko { font-family: Pretendard, 'Malgun Gothic', sans-serif; }
+    .log { font-family: Consolas, 'DejaVu Sans Mono', monospace; font-size: 24px; fill: #172b42; }
+    .heading { font-size: 27px; font-weight: 700; fill: #132b45; }
+    .note { font-size: 22px; fill: #43576b; }
+    .num { font-size: 22px; font-weight: 700; fill: #fff; text-anchor: middle; }
+  </style>
+  <rect width="1440" height="1220" fill="#f3f6fa"/>
+  <text class="ko" x="64" y="66" font-size="18" font-weight="700" letter-spacing="2" fill="#2563a6">STM32 / UART EXECUTION LOG</text>
+  <text class="ko" x="64" y="116" font-size="39" font-weight="700" fill="#132b45">접근 후보 검출 → 검증 확정 → 추적 시작</text>
+
+  <rect x="48" y="154" width="1344" height="198" rx="14" fill="#fff" stroke="#d4deea"/>
+  <rect x="76" y="180" width="48" height="40" rx="8" fill="#2563a6"/>
+  <text class="ko num" x="100" y="208">01</text>
+  <text class="ko heading" x="142" y="209">접근 후보 검출</text>
+  <text class="log" data-verbatim="true" x="80" y="263">CANDIDATE: frame=23, angle=110, distance=108 mm, delta=57 mm</text>
+  <text class="ko note" x="80" y="316">110°에서 거리 감소량 57 mm인 접근 후보를 검출했습니다.</text>
+
+  <rect x="48" y="370" width="1344" height="282" rx="14" fill="#fff" stroke="#d4deea"/>
+  <rect x="76" y="396" width="48" height="40" rx="8" fill="#2563a6"/>
+  <text class="ko num" x="100" y="424">02</text>
+  <text class="ko heading" x="142" y="425">후보 위치에서 3회 재측정</text>
+  <text class="log" data-verbatim="true" x="80" y="477">LOCK START: angle=110, reference=108 mm</text>
+  <text class="log" data-verbatim="true" x="80" y="512">LOCK SAMPLE: 1/3, angle=110, distance=9.4 cm</text>
+  <text class="log" data-verbatim="true" x="80" y="547">LOCK SAMPLE: 2/3, angle=110, distance=14.8 cm</text>
+  <text class="log" data-verbatim="true" x="80" y="582">LOCK SAMPLE: 3/3, angle=110, distance=10.4 cm</text>
+  <text class="ko note" x="80" y="625">후보 각도에서 검증 측정을 수행했습니다. 각 측정값은 원문 그대로입니다.</text>
+
+  <rect x="48" y="670" width="1344" height="192" rx="14" fill="#eef5fd" stroke="#a9c4e2"/>
+  <rect x="76" y="696" width="48" height="40" rx="8" fill="#2563a6"/>
+  <text class="ko num" x="100" y="724">03</text>
+  <text class="ko heading" x="142" y="725">후보 확정 및 추적 진입</text>
+  <text class="log" data-verbatim="true" x="80" y="777">CANDIDATE CONFIRMED: angle=110</text>
+  <text class="log" data-verbatim="true" x="80" y="814">TRACKING START: angle=110</text>
+
+  <rect x="48" y="880" width="1344" height="252" rx="14" fill="#fff" stroke="#d4deea"/>
+  <rect x="76" y="906" width="48" height="40" rx="8" fill="#2563a6"/>
+  <text class="ko num" x="100" y="934">04</text>
+  <text class="ko heading" x="142" y="935">추적 중 거리 측정</text>
+  <text class="log" data-verbatim="true" x="80" y="985">TRACK TARGET: angle=110, distance=10.6 cm</text>
+  <text class="log" data-verbatim="true" x="80" y="1020">TRACK TARGET: angle=110, distance=8.3 cm</text>
+  <text class="log" data-verbatim="true" x="80" y="1055">TRACK TARGET: angle=110, distance=6.1 cm</text>
+  <text class="ko note" x="80" y="1100">추적 거리의 세 기록을 발췌했습니다. 중간 로그는 생략했으며 연속 시점은 아닙니다.</text>
+
+  <text class="ko" x="64" y="1180" font-size="21" fill="#43576b">원문 로그 발췌를 단계별로 재배치한 자료입니다. 측정 수치와 로그 문구는 변경하지 않았습니다.</text>
+</svg>

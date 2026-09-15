@@ -54,20 +54,22 @@
   <section class="case-section"><div class="section-shell case-layout"><div><span class="case-section-label">05 / EVIDENCE</span><h2>기능별 결과</h2></div><div class="case-body">
     <div class="vehicle-grid evidence-photos stm32-state-evidence"><figure><div class="stm32-state-frame scanning-frame"><img src="../assets/images/stm32-evidence-scanning.webp" width="1600" height="900" alt="SCANNING 상태의 TouchGFX 화면" loading="lazy" decoding="async"></div><figcaption><small>AUTO / SCANNING</small><strong>자동 스캔</strong><span>20–160° 범위를 왕복하며 현재 센서 각도를 표시하고 거리 프레임을 생성했습니다.</span></figcaption></figure><figure><div class="stm32-state-frame tracking-frame"><img src="../assets/images/stm32-evidence-tracking.webp" width="1600" height="900" alt="실제 TRACKING 상태의 표적 각도와 거리 표시 화면" loading="lazy" decoding="async"></div><figcaption><small>AUTO / TRACKING</small><strong>표적 추적</strong><span>확정된 표적을 기준으로 추적 각도와 실시간 거리를 표시했습니다.</span></figcaption></figure><figure><div class="stm32-state-frame manual-frame"><img src="../assets/images/stm32-evidence-manual.webp" width="1600" height="900" alt="TouchGFX 버튼을 누르는 MANUAL 상태 화면" loading="lazy" decoding="async"></div><figcaption><small>MANUAL</small><strong>수동 운용</strong><span>TouchGFX 버튼 입력을 RTOS 큐로 전달해 서보 각도를 직접 제어했습니다.</span></figcaption></figure></div>
     <figure class="research-figure stm32-uart-evidence">
-      <div class="stm32-log-terminal"><div class="stm32-log-title">UART / SCAN &amp; COMPARE</div><pre><code><span class="log-frame">[SCAN #25 FORWARD] valid=15/15</span>
-  20=36.6   30=36.6   40=36.6   50=36.1   60=36.1 cm
-  70=36.1   80=36.6   90=36.6  100=36.6  110=37.0 cm
- 120=125.7 130=125.7 140=126.1 150=126.6 160=127.5 cm
-<span class="log-compare">[COMPARE #25&lt;-23 FORWARD] valid=15 changed=0 approaching=0</span>
-
-<span class="log-frame">[SCAN #26 REVERSE] valid=15/15</span>
-  20=36.6   30=36.6   40=36.6   50=36.1   60=36.1 cm
-  70=36.1   80=36.6   90=36.6  100=36.6  110=125.6 cm
- 120=125.7 130=126.1 140=126.1 150=127.0 160=127.5 cm
-<span class="log-compare">[COMPARE #26&lt;-24 REVERSE] valid=15 changed=1 approaching=0</span></code></pre></div>
-      <figcaption><strong>UART 스캔 및 비교 로그</strong><span>실제 로그에서 판독 가능한 두 프레임을 텍스트로 재구성했습니다. 각도별 거리 프레임을 수집하고 이전의 같은 방향 프레임과 비교했습니다. 표시한 두 프레임에서는 접근 물체가 검출되지 않았습니다.</span></figcaption>
+      <img src="../assets/images/stm32-uart-detection-tracking.png" width="2880" height="2440" alt="실제 UART 로그: 110도에서 거리 감소량 57 mm인 후보 검출, 3회 재측정, 후보 확정과 추적 시작, 추적 거리 10.6 cm와 8.3 cm 및 6.1 cm 기록" loading="lazy" decoding="async">
+      <figcaption><strong>접근 후보 검출 및 추적 UART 로그</strong><span>110°에서 접근 후보를 검출하고 3회 재측정한 뒤, 후보 확정과 추적에 진입한 실제 실행 기록입니다.</span></figcaption>
     </figure>
-    <details class="stm32-log-details"><summary>접근 변화 비교 로그 보기</summary><div class="stm32-log-terminal"><div class="stm32-log-title">UART / APPROACH CHANGE</div><pre><code><span class="log-compare">[COMPARE #28&lt;-26 REVERSE] valid=15 changed=1 approaching=1</span></code></pre></div><p>앞의 #26과 이후 #28 역방향 프레임을 비교한 구간에서 접근 변화 1개를 확인했습니다. 표적 확정에는 공간 연속성과 반복 측정 검증을 추가로 적용했습니다.</p></details>
+    <details class="stm32-log-details"><summary>로그 텍스트 보기</summary><div class="stm32-log-terminal"><div class="stm32-log-title">UART / CANDIDATE → TRACKING</div><pre><code>CANDIDATE: frame=23, angle=110, distance=108 mm, delta=57 mm
+
+LOCK START: angle=110, reference=108 mm
+LOCK SAMPLE: 1/3, angle=110, distance=9.4 cm
+LOCK SAMPLE: 2/3, angle=110, distance=14.8 cm
+LOCK SAMPLE: 3/3, angle=110, distance=10.4 cm
+
+CANDIDATE CONFIRMED: angle=110
+TRACKING START: angle=110
+
+TRACK TARGET: angle=110, distance=10.6 cm
+TRACK TARGET: angle=110, distance=8.3 cm
+TRACK TARGET: angle=110, distance=6.1 cm</code></pre></div><p>추적 거리는 세 기록을 발췌했으며 중간 로그는 생략했습니다.</p></details>
     <div class="uart-evidence" aria-label="UART 로그 항목 설명"><article><strong>20–160도</strong><p>초음파 센서가 좌우로 탐색하는 전체 각도 범위를 20–160도로 설정했습니다.</p></article><article><strong>15포인트</strong><p>10도 간격으로 한 프레임에 15개의 거리값을 취득했습니다.</p></article><article><strong>valid 15/15</strong><p>15개 각도에서 모두 Echo 응답을 받은 정상 프레임을 확인했습니다.</p></article><article><strong>FORWARD ↔ FORWARD</strong><p>스캔 방향이 같은 프레임끼리 비교해 동일 각도의 접근 변화량을 계산했습니다.</p></article></div>
   </div></div></section>
 
