@@ -30,12 +30,12 @@
 
   <section class="case-section"><div class="section-shell case-layout"><div><span class="case-section-label">01 / QUESTION</span><h2>연구 문제</h2></div><div class="case-body">
     <p>카메라와 라이다를 함께 사용해도 차량의 가림, 자세 변화와 센서 노이즈에 따라 각 관측 방법의 정확도가 달라졌습니다. 핵심은 센서를 단순히 하나로 합치는 것이 아니라, 매 시점 어떤 관측을 차량 위치 추정에 사용할지 결정하는 문제였습니다.</p>
-    <div class="issue-grid"><article><span>가림</span><strong>목표 차량 관측 손실</strong><p>다른 차량이 표적의 일부 또는 전체를 가리면서 카메라와 라이다 관측 품질이 달라짐</p></article><article><span>자세 변화</span><strong>보이는 차량 면이 달라짐</strong><p>직진과 회전, 센서 상대 위치에 따라 라이다가 관측하는 차량 면과 영상 경계가 계속 변화</p></article><article><span>이상치</span><strong>단일 후보 의존의 취약성</strong><p>하나의 코너 계산 방법을 고정 사용하면 잘못된 관측이 이후 추적 오차로 이어질 수 있음</p></article><article><span>비용</span><strong>저비용 센서 구성</strong><p>단안 카메라와 2D 라이다만으로 실제 교차로에서 차량 상태 추정 성능을 검증</p></article></div>
+    <div class="issue-grid"><article><span>가림</span><strong>목표 차량 관측 손실</strong><p>다른 차량이 표적의 일부 또는 전체를 가리면서 카메라와 라이다 관측 품질이 달라짐</p></article><article><span>자세 변화</span><strong>보이는 차량 면이 달라짐</strong><p>직진과 회전, 센서 상대 위치에 따라 라이다가 관측하는 차량 면과 영상 경계가 계속 변화</p></article><article><span>이상치</span><strong>단일 후보 의존의 취약성</strong><p>하나의 코너 계산 방법을 고정 사용하면 잘못된 관측이 이후 추적 오차로 이어질 수 있음</p></article><article><span>제약</span><strong>단안 카메라와 2D 라이다 구성</strong><p>두 센서만으로 실제 교차로에서 차량 상태 추정 성능을 검증</p></article></div>
   </div></div></section>
 
   <section class="case-section"><div class="section-shell case-layout"><div><span class="case-section-label">02 / SYSTEM</span><h2>차량 추적 프레임워크</h2></div><div class="case-body">
     <figure class="research-figure framework-figure"><img loading="lazy" decoding="async" src="../assets/images/sensor-framework.png" alt="카메라와 라이다 관측 후보를 DQN이 선택하고 IMM이 차량 상태를 추정하는 전체 프레임워크"><figcaption>카메라와 라이다로 차량을 검출하고 여러 코너 후보를 생성한 뒤, DQN이 현재 센서 상태에 적합한 후보를 선택합니다. 선택된 코너점은 IMM의 측정값으로 사용해 차량 중심의 위치, 속도와 진행방향을 추정합니다.</figcaption></figure>
-    <div class="flow-ribbon" aria-label="센서융합 차량 추적 처리 흐름"><article><span>01</span><strong>차량 검출</strong><small>YOLO와 2D 라이다</small></article><b>→</b><article><span>02</span><strong>코너점 계산</strong><small>센서와 예측 기반 5개 후보</small></article><b>→</b><article><span>03</span><strong>기준점 선택</strong><small>DQN의 상황별 판단</small></article><b>→</b><article><span>04</span><strong>연속 추정</strong><small>IMM의 CVP, CTP 결합</small></article><b>→</b><article><span>05</span><strong>차량 상태</strong><small>중심, 속도, 진행방향</small></article></div>
+    <div class="flow-ribbon" aria-label="센서융합 차량 추적 처리 흐름"><article><span>01</span><strong>차량 검출</strong><small>YOLO와 2D 라이다</small></article><b>→</b><article><span>02</span><strong>코너점 계산</strong><small>센서와 예측 기반 5개 후보</small></article><b>→</b><article><span>03</span><strong>기준점 선택</strong><small>DQN의 상황별 판단</small></article><b>→</b><article><span>04</span><strong>연속 추정</strong><small>IMM 운동 모델 결합</small></article><b>→</b><article><span>05</span><strong>차량 상태</strong><small>중심, 속도, 진행방향</small></article></div>
   </div></div></section>
 
   <section class="case-section"><div class="section-shell case-layout"><div><span class="case-section-label">03 / OBSERVATION</span><h2>상황별 차량 코너점 추정</h2></div><div class="case-body">
@@ -68,6 +68,7 @@
     </div>
     <p class="candidate-legend">빨강 ×: 라이다 점 / 노랑: RANSAC 선 / 보라: YOLO 최대 방위각 / 하늘색: YOLO 최소 방위각 / 청록 점: 코너 후보 / 파랑 점: 센서 위치</p>
     <aside class="selection-note"><h3>DQN 선택 기준</h3><p>DQN은 라이다 특징점, YOLO 방위각 변화, 라이다 포인트 수와 평균거리 등 현재 센서 상태를 입력받아 5개 후보 중 하나를 선택했습니다.</p></aside>
+    <aside class="selection-note"><h3>오차의 크기보다 후보 간 순위를 학습</h3><p>다섯 후보의 절대 오차 대신 실제 코너에 가까운 순위로 보상을 설계했습니다. 시뮬레이션과 현장의 오차 크기가 달라도 후보 간 우선순위를 같은 기준으로 학습하기 위한 선택이었습니다.</p></aside>
   </div></div></section>
 
   <section class="case-section alt-section"><div class="section-shell case-layout"><div><span class="case-section-label">04 / SIMULATION</span><h2>시뮬레이션 결과</h2></div><div class="case-body">
@@ -90,6 +91,7 @@
 
   <section class="case-section"><div class="section-shell case-layout"><div><span class="case-section-label">05 / FIELD TEST</span><h2>현장 검증</h2></div><div class="case-body">
     <p>시뮬레이션에서 검증한 알고리즘을 서울 강서구 마곡동의 실제 교차로에 적용했습니다. 도로변에는 단안 카메라와 2D 라이다 센서 플랫폼을 설치하고, 시험차량에는 RTK-GPS를 장착해 차량 중심의 기준 위치를 취득했습니다.</p>
+    <aside class="selection-note"><h3>추가 현장 학습 없이 적용</h3><p>시뮬레이션에서 학습한 DQN 정책을 현장 데이터에 추가 학습 없이 적용했으며, 환경에 맞춰 IMM의 잡음 공분산만 조정했습니다.</p></aside>
     <div class="field-context"><figure class="research-figure"><img loading="lazy" decoding="async" src="../assets/images/sensor-test-site.png" alt="서울 강서구 마곡동 4방향 교차로의 시험구간"><figcaption>서울 강서구 마곡동 4방향 교차로 / 직진, 좌회전과 연속 다중차량 시나리오 수행</figcaption></figure><figure class="research-figure"><img loading="lazy" decoding="async" src="../assets/images/sensor-roadside-system.png" alt="도로변에 설치한 단안 카메라와 Slamtec Mapper 2D 라이다"><figcaption>도로변 센서 플랫폼 / 단안 카메라와 Slamtec Mapper 2D 라이다</figcaption></figure><figure class="research-figure"><img loading="lazy" decoding="async" src="../assets/images/sensor-ground-truth-system.png" alt="차량 루프 중앙에 RTK-GPS 안테나를 설치한 시험차량"><figcaption>RTK-GPS 시험차량 / 차량 루프 중앙 안테나로 차량 중심 Ground Truth 취득</figcaption></figure></div>
     <div class="plot-grid sensor-inputs"><figure class="plot-card"><img loading="lazy" decoding="async" src="../assets/images/sensor-field-camera-input.png" alt="동일 시점의 카메라 입력에서 검출한 차량 영역과 대응 라이다 점"><figcaption><strong>카메라 입력</strong> YOLO로 검출한 차량 영역</figcaption></figure><figure class="plot-card"><img loading="lazy" decoding="async" src="../assets/images/sensor-field-lidar-input.png" alt="카메라 검출 차량에 대응하는 동일 시점 2D 라이다 포인트"><figcaption><strong>라이다 입력</strong> 차량 영역에 대응하는 2D 라이다 포인트</figcaption></figure></div>
     <p class="method-note">동일 시점 센서 입력 / 카메라에서 검출한 차량 영역과 이에 대응하는 2D 라이다 포인트를 함께 사용해 차량 후보를 구성했습니다.</p>
@@ -121,7 +123,7 @@
   <section class="case-section"><div class="section-shell case-layout"><div><span class="case-section-label">07 / RESULT</span><h2>비교 결과</h2></div><div class="case-body">
     <div class="result-callout"><strong>20.6%</strong><div><h3>현장 위치 RMSE 감소</h3><p>동일 현장 데이터에서 Mahalanobis 거리 기반 비교 방법 0.126 m, 제안 방법 평균 0.100 m</p></div></div>
     <table class="metric-table"><thead><tr><th>검증 환경</th><th>비교 방법</th><th>제안 방법 평균</th><th>감소율</th></tr></thead><tbody><tr><td>MATLAB 시뮬레이션</td><td>0.043 m</td><td><strong>0.030 m</strong></td><td>30.2%</td></tr><tr><td>서울 마곡동 현장시험</td><td>0.126 m</td><td><strong>0.100 m</strong></td><td>20.6%</td></tr></tbody></table>
-    <p class="method-note">비교 방법의 수치는 학위논문 표에 직접 기재된 값이 아니라 동일 데이터로 별도 계산한 평균입니다. 시뮬레이션에서 학습한 DQN 정책은 현장 데이터에 추가 학습 없이 적용했으며, 도메인별로 IMM 잡음 공분산만 조정했습니다.</p>
+    <p class="method-note">비교 방법의 수치는 학위논문 표에 직접 기재된 값이 아니라 동일 데이터로 별도 계산한 평균입니다.</p>
   </div></div></section>
 
   <section class="case-section"><div class="section-shell case-layout"><div><span class="case-section-label">08 / OWNERSHIP</span><h2>수행 범위</h2></div><div class="case-body"><ul class="noun-list"><li><strong>기획</strong>연구 질문 설정, 선행연구 분석, 연구과제 계획 수립</li><li><strong>알고리즘</strong>차량 코너 후보 계산 방법 정의, DQN 상태, 행동, 보상 설계, IMM 기반 차량 상태 추정</li><li><strong>환경</strong>MATLAB 시뮬레이션 구축, 센서 플랫폼 설치, 실험차량 운전</li><li><strong>검증</strong>RTK-GPS 기준 데이터 수집, 시뮬레이션과 현장 로그 분석</li><li><strong>성과화</strong>석사학위논문 작성, ICROS 2025 제1저자 구두발표, 특허 출원 공동발명</li></ul></div></div></section>

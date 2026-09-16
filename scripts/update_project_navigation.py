@@ -14,7 +14,7 @@ ROOT = Path(__file__).resolve().parents[1]
 TITLES = {
     'sensor-fusion.html': '센서융합 차량 추적',
     'roboracer.html': 'IFAC RoboRacer',
-    'imu-lstm-fsm.html': 'IMU 주행상태 판별',
+    'imu-lstm-fsm.html': 'IMU 주행 상태 판별',
     'stm32-tracking.html': 'STM32 표적 탐지 및 추적',
     'manta.html': 'MANTA',
     'mosaic-c2.html': 'MOSAIC C2',
