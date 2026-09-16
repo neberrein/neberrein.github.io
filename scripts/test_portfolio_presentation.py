@@ -40,23 +40,25 @@ class PresentationTests(unittest.TestCase):
     def test_manta_explains_inputs_methods_and_validation_scope(self):
         home = (DIST / 'index.html').read_text(encoding='utf-8')
         manta = (DIST / 'projects/manta.html').read_text(encoding='utf-8')
-        self.assertIn('카메라와 라이다 기반 센서융합, IMU 기반 상태 추정부터', home)
+        self.assertIn('카메라와 라이다 기반 센서융합 및 차량 상태 추정, IMU 기반 주행 상태 판별부터', home)
         self.assertIn('IMU 기반으로 전진, 후진, 정지의 주행상태를 판별했습니다.', home)
         self.assertNotIn('카메라, 라이다, IMU 기반 센서융합', home)
         self.assertIn('한국교통연구원장상, 공과대학장상', home)
         self.assertEqual(len(re.findall(r'<section class="case-section(?: alt-section)?">', manta)), 4)
-        self.assertIn('기체와 어뢰의 위치 상태는 Gazebo 시뮬레이션 값으로 입력받았습니다.', manta)
+        self.assertIn('BlueROV2와 어뢰의 위치 상태는 Gazebo 시뮬레이션에서 입력받았습니다.', manta)
         self.assertIn('두 가지 접근을 구현했습니다.', manta)
         implementation = manta.split('03 / IMPLEMENTATION', 1)[1].split('04 / VALIDATION', 1)[0]
         self.assertLess(implementation.index('짧은 회피 경로를 반복해서 생성합니다.'),
                         implementation.index('class="manta-two-col"'))
         validation = manta.split('04 / VALIDATION', 1)[1]
         table = validation.index('<table')
-        for explanation in ('DVO의 결과를 정리했습니다.', '최신 동일 조건의 대조군이 없어',
+        for explanation in ('A*와 DVO를 모두 시험했으며', 'DVO의 24개 조건 결과를 대표로 정리했습니다.',
                             '현재 표적 방향을 직접 추종', '비례항법유도 방식',
                             '첫 접근만 피한 경우는 최종 회피로 보지 않았습니다.'):
             self.assertLess(validation.index(explanation), table)
         self.assertEqual(manta.count('정량 우열은 비교하지 않았습니다.'), 1)
+        self.assertGreater(validation.index('최신 동일 코드의 A* 대조군이 없어'),
+                           validation.index('<!-- MANTA_RESULTS_AUTO_END -->'))
         self.assertIn('24개 조건 중 15개', manta)
         self.assertIn('12개 중 11개', manta)
         self.assertIn('12개 중 4개', manta)
@@ -92,7 +94,7 @@ class PresentationTests(unittest.TestCase):
         self.assertNotIn('실제 플랫폼에 연결해', home)
         self.assertIn('센서융합과 상태 추정, 경로 계획을 구현해<br>시뮬레이션과 실제 환경에서 검증했습니다', home)
         self.assertNotIn('DVO/Hybrid', home)
-        self.assertIn('DVO 24조건 중 15조건 최종 회피, 유도 방식별 차이 확인', home)
+        self.assertIn('A*, DVO 회피 동작 검증, DVO 24조건 결과 분석', home)
         mosaic = (DIST / 'projects/mosaic-c2.html').read_text(encoding='utf-8')
         for page in (home, mosaic):
             self.assertIn('2026.07.17–2026.07.24', page)
