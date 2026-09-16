@@ -115,6 +115,7 @@ def dvo_trajectory(rows, grouped, mobile=False):
     left,top,size=(76,210,290) if mobile else (215,150,360)
     project=lambda x,y:(left+(x-xmin)/span*size,top+size-(y-ymin)/span*size)
     parts=audit.svg_start("DVO 대표 조건의 이동 궤적", "ROV와 어뢰의 기록된 좌표를 XY 평면에 투영했습니다. 최근접 표본 전후 10초 구간 확대. X와 Y 동일 축척이며 3D 피격 판정과 구분합니다.",width=440 if mobile else 880,height=590 if mobile else 600)
+    parts.append('<defs><marker id="rov-direction" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L7,3 z" fill="#23774a"/></marker><marker id="torpedo-direction" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L7,3 z" fill="#a83b38"/></marker></defs>')
     s,m,t=audit.key(chosen)
     if mobile:
         parts += [audit.text(30,76,f'{LABEL[s]} / {LABEL[m]} / {LABEL[t]}',20),audit.text(30,108,f'최종 회피 완료, 최근접 {float(chosen["closest_m"]):.2f} m',21),audit.text(30,140,f'경과시간 {lo:.1f}–{hi:.1f} s 구간',19)]
@@ -127,13 +128,15 @@ def dvo_trajectory(rows, grouped, mobile=False):
     for vehicle,color,dashed,label in (("rov","#23774a",False,"ROV (실선)"),("torpedo","#a83b38",True,"어뢰 (점선)")):
         points=[project(float(r[f"{vehicle}_x"]),float(r[f"{vehicle}_y"])) for r in window]
         line=" ".join(f'{x:.3f},{y:.3f}' for x,y in points)
-        parts.append(f'<polyline points="{line}" fill="none" stroke="{color}" stroke-width="3"'+(' stroke-dasharray="7 4"' if dashed else '')+'/>')
+        parts.append(f'<polyline points="{line}" fill="none" stroke="{color}" stroke-width="3" marker-end="url(#{vehicle}-direction)"'+(' stroke-dasharray="7 4"' if dashed else '')+'/>')
+        start_x,start_y=points[0]
+        parts.append(f'<circle cx="{start_x:.3f}" cy="{start_y:.3f}" r="5" fill="#fff" stroke="{color}" stroke-width="3"/>')
         x,y=project(float(closest[f"{vehicle}_x"]),float(closest[f"{vehicle}_y"]))
         parts += [f'<circle cx="{x:.3f}" cy="{y:.3f}" r="6" fill="{color}" stroke="#fff" stroke-width="2"/>',audit.text(35 if vehicle=='rov' else 233,179,label,22,color) if mobile else audit.text(622,193 if vehicle=="rov" else 225,label,18,color)]
     if mobile:
-        parts += [audit.text(left+size/2,549,'X (m)',22,anchor='middle'),audit.text(8,top+size/2,'Y (m)',19),audit.text(30,579,'점: 최근접 표본 / 기록된 좌표의 XY 투영',19)]
+        parts += [audit.text(left+size/2,549,'X (m)',22,anchor='middle'),audit.text(30,201,'Y (m)',17),audit.text(30,579,'○ 시작 · 화살표 진행 방향 · ● 최근접 표본',17)]
     else:
-        parts += [audit.text(622,266,"점: 최근접 표본",17),audit.text(left+size/2,555,"X (m)",17,anchor="middle"),audit.text(116,top+size/2,"Y (m)",17),audit.text(30,588,"기록된 표본의 구간 확대이며 XY 투영으로 3D 피격을 다시 판정하지 않습니다.",15)]
+        parts += [audit.text(622,266,"○ 시작 · 화살표 진행 방향",17),audit.text(622,294,"● 최근접 표본",17),audit.text(left+size/2,555,"X (m)",17,anchor="middle"),audit.text(116,top+size/2,"Y (m)",17),audit.text(30,588,"기록된 표본의 구간 확대이며 XY 투영으로 3D 피격을 다시 판정하지 않습니다.",15)]
     return audit.finish(parts),{"run_id":chosen["run_id"],"condition":{"scenario":s,"mode":m,"torpedo":t},"window_t_rel_sec":[lo,hi],"projection":"measured XY, equal X/Y aspect", "selection_rule":"First complete AVOIDED condition in configured direction/mode/torpedo order"}
 
 

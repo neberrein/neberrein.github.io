@@ -62,6 +62,12 @@ class PresentationTests(unittest.TestCase):
         self.assertIn('12개 중 4개', manta)
         self.assertIn('유도 방식에 따라 최종 회피가 가능한 조건이 크게 달라진다는 점', manta)
         self.assertNotIn('62.5%', home + manta)
+        trajectory = (DIST / 'assets/generated/manta/dvo-measured-trajectory.svg').read_text(encoding='utf-8')
+        mobile_trajectory = (DIST / 'assets/generated/manta/dvo-measured-trajectory-mobile.svg').read_text(encoding='utf-8')
+        for figure in (trajectory, mobile_trajectory):
+            self.assertIn('marker-end="url(#rov-direction)"', figure)
+            self.assertIn('marker-end="url(#torpedo-direction)"', figure)
+            self.assertIn('○ 시작 · 화살표 진행 방향', figure)
 
     def test_social_metadata_unique_and_consistent(self):
         parser = MetaTags()
