@@ -9,7 +9,7 @@
     </style>
   </defs>
   <rect width="720" height="1320" fill="#fff"/>
-  <text x="50" y="55" class="tag">초기 시스템 설계안</text>
+  <text x="50" y="55" class="tag">온보드 시스템 구조</text>
   <rect x="110" y="90" width="500" height="130" rx="16" class="box"/>
   <text x="360" y="145" text-anchor="middle" class="label">LWIR 카메라</text>
   <text x="360" y="185" text-anchor="middle" class="sub">적외선 영상 입력</text>
@@ -38,5 +38,4 @@
   <rect x="110" y="1135" width="500" height="135" rx="16" class="box"/>
   <text x="360" y="1190" text-anchor="middle" class="label">지상 통제기</text>
   <text x="360" y="1230" text-anchor="middle" class="sub">상태 확인 / 기록 / 운용 요청</text>
-  <text x="50" y="1300" class="sub">실물 수령 후 탑재 공간, 전원, FC와 PX4 버전 확인</text>
 </svg>
