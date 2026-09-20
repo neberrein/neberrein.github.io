@@ -89,38 +89,38 @@ def scope(mobile=False):
 
 
 def planning_panel(s, x, y, method):
-    """Same ROV (65,315), threat (180,145), goal (390,95) in both panels."""
+    """Same ROV (65,315), incoming threat (330,190), goal (390,95)."""
     s.append(f'<g transform="translate({x} {y})">')
     color = BLUE if method == 'astar' else GREEN
     rect(s, 0, 0, 460, 470, '#f7f9fb' if method == 'astar' else '#f6f9f7', '#d5e1e8')
     text(s, 24, 38, 'A* / 목표까지 이어지는 경로' if method == 'astar' else 'DVO / 가까운 구간의 회피 경로', 22, color, True)
     path(s, 'M65 315L390 95', '#8795a1', '7 6', width=2)
     text(s, 270, 291, '기존 임무 경로', 18, MUTED)
-    path(s, 'M302 274L269 178', '#8795a1', width=1)
+    path(s, 'M350 274H425V145L355 119', '#8795a1', width=1)
     dot(s, 390, 95, NAVY, 8)
     text(s, 352, 76, '임무 목표', 18, bold=True)
     if method == 'astar':
-        for bx, by in ((219, 172), (247, 191), (275, 210)):
+        for bx, by in ((265, 221), (210, 247), (155, 273)):
             rect(s, bx-20, by-17, 40, 34, '#f6d9d6', '#c7776b', '4 3')
         text(s, 202, 365, '예상 위험 영역', 19, RED)
-        path(s, 'M257 343L263 233', RED, width=1)
+        path(s, 'M257 343L210 266', RED, width=1)
         path(s, 'M65 315C87 248 93 160 156 97S278 54 390 95', BLUE, arrow=True, width=4)
         text(s, 35, 429, 'A*가 생성한 경로', 19, BLUE, True)
         path(s, 'M98 407L108 204', BLUE, width=1)
     else:
-        path(s, 'M195 158L320 241', RED, '6 5', True, width=2)
-        text(s, 232, 365, '위협의 예상 이동', 19, RED)
-        path(s, 'M290 344L287 223', RED, width=1)
+        text(s, 232, 365, '어뢰의 예상 접근', 19, RED)
+        path(s, 'M290 344L230 238', RED, width=1)
         path(s, 'M65 315L170 278', '#a1adb5', arrow=True, width=2)
         path(s, 'M65 315L183 321', '#a1adb5', arrow=True, width=2)
-        path(s, 'M65 315C75 281 88 246 115 218', GREEN, arrow=True, width=4)
+        path(s, 'M65 315C56 281 57 245 72 214', GREEN, arrow=True, width=4)
         text(s, 188, 315, '이동 후보', 18, MUTED)
         text(s, 35, 429, '선택한 회피 경로', 19, GREEN, True)
-        path(s, 'M98 407L94 267', GREEN, width=1)
+        path(s, 'M98 407L60 267', GREEN, width=1)
+    path(s, 'M310 199L92 302', RED, '6 5', True, width=2.5)
     rect(s, 46, 303, 38, 25, '#dbe9f3', BLUE)
     text(s, 25, 355, 'BlueROV2', 18, BLUE, True)
-    s.append('<g transform="translate(180 145) rotate(34)"><rect x="-17" y="-7" width="34" height="14" rx="7" fill="#a83b38"/><path d="M-16 -7L-23 -13V13L-16 7" fill="#a83b38"/></g>')
-    text(s, 210, 138, '어뢰 현재 위치', 18, RED, True)
+    s.append('<g transform="translate(330 190) rotate(154.75)"><rect x="-17" y="-7" width="34" height="14" rx="7" fill="#a83b38"/><path d="M-16 -7L-23 -13V13L-16 7" fill="#a83b38"/></g>')
+    text(s, 270, 168, '접근 중인 어뢰', 18, RED, True)
     s.append('</g>')
 
 
@@ -131,7 +131,7 @@ def threat(mobile=False):
     planning_panel(s, 20 if mobile else 45, 20 if mobile else 30, 'astar')
     planning_panel(s, 20 if mobile else 595, 510 if mobile else 30, 'dvo')
     if not mobile:
-        text(s, 550, 535, '같은 시작 상황, 서로 다른 경로 생성 방식', 21, MUTED, anchor='middle')
+        text(s, 550, 535, '빨간 점선: BlueROV2를 향한 어뢰의 예상 접근 방향', 21, RED, anchor='middle')
     save(s, 'manta-threat-models-mobile.svg' if mobile else 'manta-threat-models.svg')
 
 

@@ -6,43 +6,44 @@
 <text x="24" y="38" font-size="22" fill="#2b73b8" font-weight="700" text-anchor="start">A* / 목표까지 이어지는 경로</text>
 <path d="M65 315L390 95" fill="none" stroke="#8795a1" stroke-width="2" stroke-dasharray="7 6"/>
 <text x="270" y="291" font-size="18" fill="#536574" font-weight="400" text-anchor="start">기존 임무 경로</text>
-<path d="M302 274L269 178" fill="none" stroke="#8795a1" stroke-width="1" stroke-dasharray=""/>
+<path d="M350 274H425V145L355 119" fill="none" stroke="#8795a1" stroke-width="1" stroke-dasharray=""/>
 <circle cx="390" cy="95" r="8" fill="#193044"/>
 <text x="352" y="76" font-size="18" fill="#193044" font-weight="700" text-anchor="start">임무 목표</text>
-<rect x="199" y="155" width="40" height="34" rx="8" fill="#f6d9d6" stroke="#c7776b" stroke-width="1.5" stroke-dasharray="4 3"/>
-<rect x="227" y="174" width="40" height="34" rx="8" fill="#f6d9d6" stroke="#c7776b" stroke-width="1.5" stroke-dasharray="4 3"/>
-<rect x="255" y="193" width="40" height="34" rx="8" fill="#f6d9d6" stroke="#c7776b" stroke-width="1.5" stroke-dasharray="4 3"/>
+<rect x="245" y="204" width="40" height="34" rx="8" fill="#f6d9d6" stroke="#c7776b" stroke-width="1.5" stroke-dasharray="4 3"/>
+<rect x="190" y="230" width="40" height="34" rx="8" fill="#f6d9d6" stroke="#c7776b" stroke-width="1.5" stroke-dasharray="4 3"/>
+<rect x="135" y="256" width="40" height="34" rx="8" fill="#f6d9d6" stroke="#c7776b" stroke-width="1.5" stroke-dasharray="4 3"/>
 <text x="202" y="365" font-size="19" fill="#a83b38" font-weight="400" text-anchor="start">예상 위험 영역</text>
-<path d="M257 343L263 233" fill="none" stroke="#a83b38" stroke-width="1" stroke-dasharray=""/>
+<path d="M257 343L210 266" fill="none" stroke="#a83b38" stroke-width="1" stroke-dasharray=""/>
 <path d="M65 315C87 248 93 160 156 97S278 54 390 95" fill="none" stroke="#2b73b8" stroke-width="4" stroke-dasharray="" marker-end="url(#arrow)"/>
 <text x="35" y="429" font-size="19" fill="#2b73b8" font-weight="700" text-anchor="start">A*가 생성한 경로</text>
 <path d="M98 407L108 204" fill="none" stroke="#2b73b8" stroke-width="1" stroke-dasharray=""/>
+<path d="M310 199L92 302" fill="none" stroke="#a83b38" stroke-width="2.5" stroke-dasharray="6 5" marker-end="url(#arrow)"/>
 <rect x="46" y="303" width="38" height="25" rx="8" fill="#dbe9f3" stroke="#2b73b8" stroke-width="1.5" stroke-dasharray=""/>
 <text x="25" y="355" font-size="18" fill="#2b73b8" font-weight="700" text-anchor="start">BlueROV2</text>
-<g transform="translate(180 145) rotate(34)"><rect x="-17" y="-7" width="34" height="14" rx="7" fill="#a83b38"/><path d="M-16 -7L-23 -13V13L-16 7" fill="#a83b38"/></g>
-<text x="210" y="138" font-size="18" fill="#a83b38" font-weight="700" text-anchor="start">어뢰 현재 위치</text>
+<g transform="translate(330 190) rotate(154.75)"><rect x="-17" y="-7" width="34" height="14" rx="7" fill="#a83b38"/><path d="M-16 -7L-23 -13V13L-16 7" fill="#a83b38"/></g>
+<text x="270" y="168" font-size="18" fill="#a83b38" font-weight="700" text-anchor="start">접근 중인 어뢰</text>
 </g>
 <g transform="translate(595 30)">
 <rect x="0" y="0" width="460" height="470" rx="8" fill="#f6f9f7" stroke="#d5e1e8" stroke-width="1.5" stroke-dasharray=""/>
 <text x="24" y="38" font-size="22" fill="#23774a" font-weight="700" text-anchor="start">DVO / 가까운 구간의 회피 경로</text>
 <path d="M65 315L390 95" fill="none" stroke="#8795a1" stroke-width="2" stroke-dasharray="7 6"/>
 <text x="270" y="291" font-size="18" fill="#536574" font-weight="400" text-anchor="start">기존 임무 경로</text>
-<path d="M302 274L269 178" fill="none" stroke="#8795a1" stroke-width="1" stroke-dasharray=""/>
+<path d="M350 274H425V145L355 119" fill="none" stroke="#8795a1" stroke-width="1" stroke-dasharray=""/>
 <circle cx="390" cy="95" r="8" fill="#193044"/>
 <text x="352" y="76" font-size="18" fill="#193044" font-weight="700" text-anchor="start">임무 목표</text>
-<path d="M195 158L320 241" fill="none" stroke="#a83b38" stroke-width="2" stroke-dasharray="6 5" marker-end="url(#arrow)"/>
-<text x="232" y="365" font-size="19" fill="#a83b38" font-weight="400" text-anchor="start">위협의 예상 이동</text>
-<path d="M290 344L287 223" fill="none" stroke="#a83b38" stroke-width="1" stroke-dasharray=""/>
+<text x="232" y="365" font-size="19" fill="#a83b38" font-weight="400" text-anchor="start">어뢰의 예상 접근</text>
+<path d="M290 344L230 238" fill="none" stroke="#a83b38" stroke-width="1" stroke-dasharray=""/>
 <path d="M65 315L170 278" fill="none" stroke="#a1adb5" stroke-width="2" stroke-dasharray="" marker-end="url(#arrow)"/>
 <path d="M65 315L183 321" fill="none" stroke="#a1adb5" stroke-width="2" stroke-dasharray="" marker-end="url(#arrow)"/>
-<path d="M65 315C75 281 88 246 115 218" fill="none" stroke="#23774a" stroke-width="4" stroke-dasharray="" marker-end="url(#arrow)"/>
+<path d="M65 315C56 281 57 245 72 214" fill="none" stroke="#23774a" stroke-width="4" stroke-dasharray="" marker-end="url(#arrow)"/>
 <text x="188" y="315" font-size="18" fill="#536574" font-weight="400" text-anchor="start">이동 후보</text>
 <text x="35" y="429" font-size="19" fill="#23774a" font-weight="700" text-anchor="start">선택한 회피 경로</text>
-<path d="M98 407L94 267" fill="none" stroke="#23774a" stroke-width="1" stroke-dasharray=""/>
+<path d="M98 407L60 267" fill="none" stroke="#23774a" stroke-width="1" stroke-dasharray=""/>
+<path d="M310 199L92 302" fill="none" stroke="#a83b38" stroke-width="2.5" stroke-dasharray="6 5" marker-end="url(#arrow)"/>
 <rect x="46" y="303" width="38" height="25" rx="8" fill="#dbe9f3" stroke="#2b73b8" stroke-width="1.5" stroke-dasharray=""/>
 <text x="25" y="355" font-size="18" fill="#2b73b8" font-weight="700" text-anchor="start">BlueROV2</text>
-<g transform="translate(180 145) rotate(34)"><rect x="-17" y="-7" width="34" height="14" rx="7" fill="#a83b38"/><path d="M-16 -7L-23 -13V13L-16 7" fill="#a83b38"/></g>
-<text x="210" y="138" font-size="18" fill="#a83b38" font-weight="700" text-anchor="start">어뢰 현재 위치</text>
+<g transform="translate(330 190) rotate(154.75)"><rect x="-17" y="-7" width="34" height="14" rx="7" fill="#a83b38"/><path d="M-16 -7L-23 -13V13L-16 7" fill="#a83b38"/></g>
+<text x="270" y="168" font-size="18" fill="#a83b38" font-weight="700" text-anchor="start">접근 중인 어뢰</text>
 </g>
-<text x="550" y="535" font-size="21" fill="#536574" font-weight="400" text-anchor="middle">같은 시작 상황, 서로 다른 경로 생성 방식</text>
+<text x="550" y="535" font-size="21" fill="#a83b38" font-weight="400" text-anchor="middle">빨간 점선: BlueROV2를 향한 어뢰의 예상 접근 방향</text>
 </g></svg>
