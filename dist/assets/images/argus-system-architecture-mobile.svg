@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="1320" viewBox="0 0 720 1320" role="img" aria-labelledby="title desc">
+  <title id="title">ARGUS 모바일 초기 시스템 구조</title>
+  <desc id="desc">LWIR 카메라부터 Raspberry Pi 5, Hailo NPU, 추적과 추종 판단, PX4 비행 제어로 이어지고 지상 통제기와 연결되는 세로형 초기 시스템 설계안</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0 10 5 0 10z" fill="#2f63b4"/></marker>
+    <marker id="arrow-teal" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0 10 5 0 10z" fill="#138a98"/></marker>
+    <style>
+      text{font-family:Pretendard,"Noto Sans KR",sans-serif;fill:#18345f}.box{fill:#fff;stroke:#cad7e3;stroke-width:3}.group{fill:#edf3f8;stroke:#b8cbe0;stroke-width:3}.label{font-size:31px;font-weight:750}.sub{font-size:25px;fill:#64758b}.tag{font-size:24px;font-weight:800;fill:#168ba6}.line{fill:none;stroke:#2f63b4;stroke-width:5;marker-end:url(#arrow)}
+    </style>
+  </defs>
+  <rect width="720" height="1320" fill="#fff"/>
+  <text x="50" y="55" class="tag">초기 시스템 설계안</text>
+  <rect x="110" y="90" width="500" height="130" rx="16" class="box"/>
+  <text x="360" y="145" text-anchor="middle" class="label">LWIR 카메라</text>
+  <text x="360" y="185" text-anchor="middle" class="sub">적외선 영상 입력</text>
+  <path d="M360 220V285" class="line"/>
+  <text x="390" y="263" class="tag">USB 영상</text>
+  <rect x="70" y="290" width="580" height="540" rx="20" class="group"/>
+  <text x="110" y="345" class="label">Raspberry Pi 5</text>
+  <rect x="120" y="385" width="480" height="115" rx="14" class="box"/>
+  <text x="360" y="455" text-anchor="middle" class="label">영상 수신과 전처리</text>
+  <path d="M360 500V560" class="line"/>
+  <text x="390" y="540" class="tag">입력 텐서</text>
+  <rect x="120" y="565" width="480" height="120" rx="14" fill="#fff" stroke="#2f63b4" stroke-width="4"/>
+  <text x="360" y="615" text-anchor="middle" class="label">Hailo NPU</text>
+  <text x="360" y="655" text-anchor="middle" class="sub">YOLOX 신경망 추론</text>
+  <path d="M360 685V735" class="line"/>
+  <rect x="120" y="740" width="480" height="120" rx="14" class="box"/>
+  <text x="360" y="790" text-anchor="middle" class="label">후처리와 추적</text>
+  <text x="360" y="830" text-anchor="middle" class="label">추종 판단</text>
+  <path d="M360 860V925" fill="none" stroke="#138a98" stroke-width="5" marker-end="url(#arrow-teal)"/>
+  <text x="390" y="902" class="tag">속도 / yaw 명령</text>
+  <rect x="110" y="930" width="500" height="140" rx="16" class="box"/>
+  <rect x="110" y="930" width="12" height="140" rx="6" fill="#138a98"/>
+  <text x="360" y="985" text-anchor="middle" class="label">FC / PX4</text>
+  <text x="360" y="1025" text-anchor="middle" class="sub">자세와 속도 제어 / 상태 확인</text>
+  <path d="M360 1070V1130" class="line"/>
+  <rect x="110" y="1135" width="500" height="135" rx="16" class="box"/>
+  <text x="360" y="1190" text-anchor="middle" class="label">지상 통제기</text>
+  <text x="360" y="1230" text-anchor="middle" class="sub">상태 확인 / 기록 / 운용 요청</text>
+  <text x="50" y="1300" class="sub">실물 수령 후 탑재 공간, 전원, FC와 PX4 버전 확인</text>
+</svg>

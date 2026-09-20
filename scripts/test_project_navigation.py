@@ -19,7 +19,7 @@ class NavigationTests(unittest.TestCase):
         self.projects = nav.read_order((self.dist / 'index.html').read_text(encoding='utf-8'))
 
     def test_current_pages_match_main_order(self):
-        self.assertEqual(len(self.projects), 9)
+        self.assertEqual(len(self.projects), 10)
         self.assertNotIn('davinci-vision.html', [p[0] for p in self.projects])
         for i, (filename, _) in enumerate(self.projects):
             page = (self.dist / 'projects' / filename).read_bytes().decode('utf-8')

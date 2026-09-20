@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="590" viewBox="0 0 1600 590" role="img" aria-labelledby="title desc">
+  <title id="title">ARGUS 소프트웨어 처리 흐름</title>
+  <desc id="desc">Raspberry Pi 5의 영상 수신과 전처리, Hailo NPU의 YOLOX 추론, 후처리와 ByteTrack 추적, 추종 판단, MAVSDK와 MAVLink를 거친 PX4 비행 제어 흐름</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 10 5 0 10z" fill="#64758b"/></marker>
+    <marker id="teal-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 10 5 0 10z" fill="#138a98"/></marker>
+    <style>
+      text{font-family:Pretendard,"Noto Sans KR",sans-serif;fill:#18345f}.lane{fill:#edf3f8}.box{fill:#fff;stroke:#cfdae5;stroke-width:2}.role{fill:#21457c}.roletext{fill:#fff;font-size:22px;font-weight:700}.label{font-size:20px;font-weight:700}.sub{font-size:16px;fill:#64758b}.flow{fill:none;stroke:#64758b;stroke-width:3;marker-end:url(#arrow)}
+    </style>
+  </defs>
+  <rect width="1600" height="590" fill="#fff"/>
+  <rect x="60" y="70" width="1480" height="180" rx="12" class="lane"/><rect x="60" y="285" width="1480" height="145" rx="12" class="lane"/><rect x="60" y="465" width="1480" height="120" rx="12" class="lane"/>
+  <rect x="60" y="70" width="190" height="180" rx="12" class="role"/><text x="155" y="170" text-anchor="middle" class="roletext">Raspberry Pi 5</text>
+  <rect x="60" y="285" width="190" height="145" rx="12" class="role"/><text x="155" y="368" text-anchor="middle" class="roletext">Hailo NPU</text>
+  <rect x="60" y="465" width="190" height="120" rx="12" class="role"/><text x="155" y="535" text-anchor="middle" class="roletext">FC / PX4</text>
+  <rect x="290" y="115" width="170" height="90" rx="9" class="box"/><text x="375" y="170" text-anchor="middle" class="label">영상 수신</text>
+  <rect x="505" y="115" width="170" height="90" rx="9" class="box"/><text x="590" y="170" text-anchor="middle" class="label">전처리</text>
+  <rect x="720" y="115" width="170" height="90" rx="9" class="box"/><text x="805" y="170" text-anchor="middle" class="label">후처리</text>
+  <rect x="935" y="115" width="170" height="90" rx="9" class="box"/><text x="1020" y="155" text-anchor="middle" class="label">추적</text><text x="1020" y="183" text-anchor="middle" class="sub">ByteTrack</text>
+  <rect x="1150" y="115" width="170" height="90" rx="9" class="box"/><text x="1235" y="170" text-anchor="middle" class="label">추종 판단</text>
+  <rect x="1365" y="115" width="135" height="90" rx="9" class="box"/><text x="1432" y="155" text-anchor="middle" class="label">FC 연동</text><text x="1432" y="183" text-anchor="middle" class="sub">fc_bridge</text>
+  <path d="M460 160H505M675 160H720M890 160H935M1105 160H1150M1320 160H1365" class="flow"/>
+  <rect x="505" y="320" width="385" height="80" rx="9" fill="#fff" stroke="#2f63b4" stroke-width="3"/><text x="697" y="354" text-anchor="middle" class="label">YOLOX 추론</text><text x="697" y="382" text-anchor="middle" class="sub">Hailo Runtime</text>
+  <path d="M590 205V320" class="flow"/><text x="620" y="270" class="sub">InputTensor</text><path d="M805 320V205" class="flow"/><text x="820" y="270" class="sub">RawOutput</text>
+  <rect x="1080" y="495" width="420" height="65" rx="9" fill="#fff" stroke="#138a98" stroke-width="3"/><text x="1290" y="536" text-anchor="middle" class="label">PX4 자세 및 속도 제어</text>
+  <path d="M1432 205V495" fill="none" stroke="#138a98" stroke-width="4" marker-end="url(#teal-arrow)"/><text x="1450" y="350" class="sub">MAVSDK → MAVLink</text>
+</svg>

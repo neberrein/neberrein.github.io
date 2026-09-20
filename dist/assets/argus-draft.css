@@ -1,0 +1,251 @@
+.argus-page {
+  --argus-blue:#21457c;
+  --argus-cyan:#168ba6;
+  --argus-amber:#b86612;
+}
+
+.argus-page .case-layout {
+  grid-template-columns:minmax(0,1fr);
+  gap:1.25rem;
+}
+
+.argus-page .case-layout > div:first-child {
+  display:flex;
+  align-items:baseline;
+  gap:1rem;
+  flex-wrap:wrap;
+}
+
+.argus-page .case-body {
+  max-width:none;
+}
+
+.argus-page .case-facts {
+  grid-template-columns:repeat(4,minmax(0,1fr));
+}
+
+.argus-page .case-body > p {
+  max-width:78ch;
+  line-height:1.75;
+}
+
+.argus-page h1,
+.argus-page h2 {
+  text-wrap:balance;
+}
+
+.argus-page .case-hero h1 {
+  margin-bottom:.55rem;
+}
+
+.argus-name-note {
+  margin:0 0 .85rem;
+  color:var(--argus-blue);
+  font-size:.78rem;
+  font-weight:650;
+  letter-spacing:.01em;
+}
+
+.argus-name-note strong {
+  margin-right:.45rem;
+  font-weight:850;
+}
+
+.argus-name-note span {
+  margin-left:.5rem;
+  color:var(--slate);
+  font-weight:550;
+}
+
+.argus-status-row {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:1rem;
+  flex-wrap:wrap;
+}
+
+.argus-draft-badge {
+  display:inline-flex;
+  align-items:center;
+  min-height:32px;
+  padding:.35rem .7rem;
+  border:1px solid #d5b381;
+  background:#fff8e9;
+  color:#85501a;
+  font-size:.75rem;
+  font-weight:800;
+}
+
+.argus-capabilities {
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:1px;
+  margin-top:1.5rem;
+  border:1px solid var(--rule);
+  background:var(--rule);
+}
+
+.argus-capabilities article {
+  min-width:0;
+  padding:1.25rem;
+  background:#fff;
+}
+
+.argus-capabilities span,
+.argus-interface-grid span {
+  color:var(--argus-cyan);
+  font-size:.72rem;
+  font-weight:850;
+  letter-spacing:.06em;
+}
+
+.argus-capabilities strong {
+  display:block;
+  margin:.8rem 0 .45rem;
+  color:var(--argus-blue);
+}
+
+.argus-capabilities p {
+  margin:0;
+  color:var(--slate);
+  font-size:.875rem;
+  line-height:1.65;
+}
+
+.argus-plan-figure {
+  max-width:1100px;
+  margin:1.5rem auto 0;
+  background:#fff;
+}
+
+.argus-plan-figure picture,
+.argus-plan-figure img {
+  display:block;
+  width:100%;
+  height:auto;
+  max-height:none;
+  object-fit:contain;
+  background:#fff;
+}
+
+.argus-plan-figure figcaption {
+  display:grid;
+  gap:.25rem;
+  padding:.9rem 1rem;
+  border-top:1px solid var(--rule);
+  line-height:1.6;
+}
+
+.argus-plan-figure figcaption strong {
+  color:var(--deep);
+}
+
+.argus-plan-figure figcaption span {
+  color:var(--slate);
+}
+
+.argus-interface-grid {
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:1px;
+  margin-top:1rem;
+  border:1px solid var(--rule);
+  background:var(--rule);
+}
+
+.argus-safety-summary {
+  margin-top:1.25rem !important;
+  padding:.9rem 1rem;
+  border-left:3px solid var(--argus-cyan);
+  background:#f2f7fa;
+  color:var(--argus-blue) !important;
+  font-size:.88rem;
+  font-weight:780;
+  line-height:1.65 !important;
+}
+
+.argus-interface-grid article {
+  padding:1rem;
+  background:#fff;
+}
+
+.argus-interface-grid strong {
+  display:block;
+  margin-top:.4rem;
+  color:var(--argus-blue);
+  font-size:.92rem;
+  overflow-wrap:anywhere;
+}
+
+.argus-plan-lead {
+  margin-top:1.5rem !important;
+  padding:1rem 1.1rem;
+  background:#eaf2f7;
+  color:#294a60 !important;
+}
+
+@media (max-width:900px) {
+  .argus-capabilities {
+    grid-template-columns:repeat(2,minmax(0,1fr));
+  }
+}
+
+@media (max-width:680px) {
+  .argus-page .case-hero {
+    padding-top:1.75rem;
+  }
+
+  .argus-page .case-hero .back-link {
+    margin-bottom:1.35rem;
+  }
+
+  .argus-status-row {
+    align-items:flex-start;
+  }
+
+  .argus-name-note span {
+    display:block;
+    margin:.25rem 0 0;
+  }
+
+  .argus-page .case-facts {
+    grid-template-columns:1fr;
+  }
+
+  .argus-interface-grid {
+    grid-template-columns:1fr;
+  }
+
+  .argus-capabilities {
+    grid-template-columns:repeat(2,minmax(0,1fr));
+  }
+
+  .argus-capabilities article {
+    padding:1rem;
+  }
+
+  .argus-capabilities strong {
+    margin:.5rem 0 .3rem;
+  }
+
+  .argus-capabilities p {
+    font-size:.8rem;
+    line-height:1.55;
+  }
+
+  .argus-plan-figure {
+    margin-inline:calc(50% - 50vw + 16px);
+    margin-right:calc(50% - 50vw + 16px);
+  }
+
+  .argus-plan-figure figcaption {
+    font-size:.8125rem;
+  }
+}
+
+@media (max-width:390px) {
+  .argus-capabilities {
+    grid-template-columns:1fr;
+  }
+}

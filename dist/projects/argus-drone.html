@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Hailo NPU와 LWIR 카메라를 사용하는 ARGUS 온보드 AI 드론 객체 탐지 및 추적 시스템">
+  <title>ARGUS 온보드 AI 드론 객체 탐지 및 추적 | 곽민재</title>
+  <meta name="robots" content="noindex,follow">
+  <link rel="canonical" href="https://neberrein.github.io/projects/argus-drone.html">
+  <meta property="og:type" content="website"><meta property="og:title" content="ARGUS 온보드 AI 드론 객체 탐지 및 추적 | 곽민재"><meta property="og:description" content="Hailo NPU, LWIR 영상, 객체 추적과 PX4 비행 제어를 연결하는 진행 중 프로젝트"><meta property="og:url" content="https://neberrein.github.io/projects/argus-drone.html"><meta property="og:image" content="https://neberrein.github.io/assets/images/argus-og.png"><meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../assets/site.css?readability=20260914&amp;v=project-navigation-20260913">
+  <link rel="stylesheet" href="../assets/argus-draft.css?v=20260921">
+  <script src="../assets/site.js" defer></script>
+</head>
+<body class="argus-page" data-project-status="ongoing">
+<a class="skip-link" href="#main">본문 바로가기</a>
+<header class="site-header detail-header"><a class="brand" href="../index.html">곽민재 <span>PORTFOLIO</span></a><nav class="primary-nav" aria-label="상세 페이지 메뉴"><a href="../index.html#projects">프로젝트</a><a href="../index.html#research">연구성과</a></nav></header>
+<main id="main">
+  <section class="case-hero section-shell">
+    <a class="back-link" href="../index.html#projects">← 프로젝트 목록</a>
+    <div class="argus-status-row"><p class="case-label">ONBOARD AI / DRONE / OBJECT DETECTION &amp; TRACKING</p><span class="argus-draft-badge">진행 중</span></div>
+    <h1>ARGUS 온보드 AI 드론 객체 탐지 및 추적 시스템</h1>
+    <p class="argus-name-note"><strong>ARGUS</strong> AI-powered Real-time Ground Object UAV Surveillance <span>AI 기반 실시간 지상 객체 무인기 감시</span></p>
+    <p class="case-subtitle">소형 드론에 탑재한 Hailo NPU에서 LWIR 영상을 처리해 지상 객체를 탐지하고 추적하며, 그 결과를 PX4 비행 제어와 연결하는 온보드 시스템을 개발하고 있습니다.</p>
+    <dl class="case-facts"><div><dt>기간</dt><dd>2026.09–진행 중</dd></div><div><dt>팀</dt><dd>ARGUS 6인 팀</dd></div><div><dt>역할</dt><dd>팀장, YOLOX 학습과 Hailo NPU 적용 담당, 일정 및 통합 관리</dd></div><div><dt>주요 구성</dt><dd>Raspberry Pi 5 / Hailo NPU / LWIR / PX4</dd></div></dl>
+  </section>
+
+  <section class="case-section"><div class="section-shell case-layout"><div><span class="case-section-label">01 / BACKGROUND</span><h2>온보드 처리가 필요한 이유</h2></div><div class="case-body">
+    <p>무선 링크가 불안정하면 지상 연산에 의존하는 탐지와 추적이 함께 중단될 수 있습니다. 가시광이 약한 환경에서도 차량을 관측하고 외부 연산 장치에 의존하지 않도록, LWIR 영상 처리와 추종 판단을 기체 내부에서 이어가는 구조를 설계했습니다.</p>
+    <div class="argus-capabilities"><article><span>01</span><strong>온보드 처리</strong><p>Raspberry Pi 5 + Hailo NPU 온보드 구성</p></article><article><span>02</span><strong>탐지 — 객체 위치 찾기</strong><p>YOLOX 기반 LWIR 객체 탐지</p></article><article><span>03</span><strong>추적 — 같은 대상 유지하기</strong><p>프레임 간 동일 대상 ID 유지</p></article><article><span>04</span><strong>추종 판단 — 움직임 결정하기</strong><p>대상 위치 오차 기반 속도와 yaw 명령 산출 로직</p></article></div>
+  </div></div></section>
+
+  <section class="case-section alt-section"><div class="section-shell case-layout"><div><span class="case-section-label">02 / SYSTEM</span><h2>연산, AI 추론과 비행 제어의 역할 분리</h2></div><div class="case-body">
+    <p>LWIR 영상은 Raspberry Pi 5에서 수신하고 전처리하며, Hailo NPU에서 YOLOX 추론을 수행하도록 구성했습니다. 이후 추적과 추종 판단 결과를 PX4 비행 제어와 연결하고, 지상 통제기는 상태 확인과 기록, 운용 요청에 사용하도록 역할을 나눴습니다.</p>
+    <figure class="research-figure argus-plan-figure"><picture><source media="(max-width: 680px)" srcset="../assets/images/argus-system-architecture-mobile.svg"><img src="../assets/images/argus-system-architecture.svg" width="1600" height="720" alt="LWIR 카메라, Raspberry Pi 5, Hailo NPU, PX4 비행 제어기와 지상 통제기의 초기 시스템 설계안" decoding="async"></picture><figcaption><strong>초기 시스템 설계안</strong><span>카메라 출력 형식, 실제 FC 모델과 PX4 지원 버전, 탑재 공간과 전원 변환 방식은 실물 수령 후 확인할 항목으로 분리했습니다.</span></figcaption></figure>
+  </div></div></section>
+
+  <section class="case-section"><div class="section-shell case-layout"><div><span class="case-section-label">03 / PIPELINE</span><h2>최신 프레임 우선 처리와 모듈 인터페이스</h2></div><div class="case-body">
+    <p>제어 지연이 누적되지 않도록 프레임을 계속 쌓기보다 최신 프레임을 우선 처리하도록 설계했습니다. 탐지, 추적, 추종 판단 사이의 데이터를 분리해 각 모듈의 인터페이스를 정의했습니다.</p>
+    <figure class="research-figure argus-plan-figure"><picture><source media="(max-width: 680px)" srcset="../assets/images/argus-software-pipeline-mobile.svg"><img src="../assets/images/argus-software-pipeline.svg" width="1600" height="590" alt="영상 수신과 전처리, Hailo NPU YOLOX 추론, 후처리, ByteTrack 추적, 추종 판단, MAVSDK와 MAVLink를 통한 PX4 제어 흐름" decoding="async"></picture><figcaption><strong>초기 소프트웨어 처리 설계안</strong><span>추종 판단(ControlDecision)을 포함해 Detection → TrackSet → ControlDecision으로 모듈 사이에 전달할 데이터를 나눴습니다.</span></figcaption></figure>
+    <div class="argus-interface-grid"><article><span>DETECTION</span><strong>bbox + score</strong></article><article><span>TRACK SET</span><strong>track_id + bbox + observed</strong></article><article><span>CONTROL DECISION</span><strong>valid + 속도 + yaw</strong></article></div>
+  </div></div></section>
+
+  <section class="case-section alt-section"><div class="section-shell case-layout"><div><span class="case-section-label">04 / FAIL-SAFE</span><h2>대상 소실과 사용자 개입 대응</h2></div><div class="case-body">
+    <p>대상 소실이나 사용자 개입 시 추종 판단을 무효화하고 Hold 요청으로 전환하도록 상태 흐름을 설계했습니다. 재추종 전에는 FC 상태와 재시작 조건을 확인하도록 구성했습니다.</p>
+    <p class="argus-safety-summary" aria-label="대상 소실 대응 순서">정상 추종 → 대상 소실 → 추종 해제 → FC 상태 확인 → 조건 충족 후 재개</p>
+    <figure class="research-figure argus-plan-figure"><picture><source media="(max-width: 680px)" srcset="../assets/images/argus-loss-response-mobile.svg"><img src="../assets/images/argus-loss-response.svg" width="1600" height="760" alt="정상 추종, 대상 소실, Hold 확인, 재탐지와 재추종으로 이어지는 상태 전이 설계" decoding="async"></picture><figcaption><strong>추종 상태 전이와 대상 소실 대응</strong><span>수동 개입 시에는 현재 상태와 관계없이 추종을 해제하도록 설계했습니다.</span></figcaption></figure>
+  </div></div></section>
+
+  <section class="case-section"><div class="section-shell case-layout"><div><span class="case-section-label">05 / VALIDATION</span><h2>구현 후 검증 항목</h2></div><div class="case-body">
+    <p class="argus-plan-lead">성능, 시스템, 비행 연동, 운용 안전의 네 영역으로 나눠 검증할 예정입니다.</p>
+    <ul class="noun-list"><li><strong>성능</strong>탐지 정확도, NPU 처리 속도와 end-to-end 지연시간 측정 예정</li><li><strong>시스템</strong>탑재 질량, 전력, 온도와 데이터 처리량 검증 예정</li><li><strong>비행 연동</strong>SITL 검증 후 FC 모드와 실기체 반응 기록 예정</li><li><strong>운용 안전</strong>대상 소실, 수동 개입과 재탐지 시나리오 시험 예정</li></ul>
+  </div></div></section>
+
+  <nav class="project-pagination section-shell" aria-label="프로젝트 이동"><a class="project-pagination-prev" href="imu-lstm-fsm.html" rel="prev"><span>← 이전 프로젝트</span><strong>IMU 주행 상태 판별</strong></a><a class="project-pagination-all" href="../index.html#projects">전체 프로젝트</a><a class="project-pagination-next" href="stm32-tracking.html" rel="next"><span>다음 프로젝트 →</span><strong>STM32 표적 탐지 및 추적</strong></a></nav>
+</main>
+<footer class="site-footer"><div class="section-shell"><span>© 2026 곽민재</span><div class="footer-links"><a href="mailto:tkkwak4@naver.com">tkkwak4@naver.com</a><a href="https://github.com/neberrein" target="_blank" rel="noopener">GitHub ↗</a></div></div></footer>
+</body>
+</html>
