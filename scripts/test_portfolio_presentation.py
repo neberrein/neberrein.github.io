@@ -48,6 +48,8 @@ class PresentationTests(unittest.TestCase):
         self.assertNotIn('학위논문 표에 직접 기재된 값', sensor)
         self.assertIn('<h2>회피 상태 전환</h2>', robo)
         self.assertNotIn('<h2>주행 상태 판정</h2>', robo)
+        self.assertNotIn('실제 대회에서는 발동하지 않았습니다.', robo)
+        self.assertNotIn('해당 복구 모드가 발동하지 않음', robo)
         self.assertIn('<h3>세 실차 경로의 위치 RMSE</h3>', imu)
         for value in ('2.56 cm', '2.31 cm', '1.35 cm'):
             self.assertNotIn(value, imu)

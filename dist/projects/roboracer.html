@@ -56,7 +56,6 @@
   <section class="case-section"><div class="section-shell case-layout"><div><span class="case-section-label">05 / FSM</span><h2>회피 상태 전환</h2></div><div class="case-body">
     <figure class="research-figure fsm-evidence"><img loading="lazy" decoding="async" src="../assets/images/robo-fsm-updated.png" width="2492" height="1289" alt="새 원본 FSM 도식. IDLE은 Pure Pursuit, AVOID는 Frenet, EMERGENCY는 밀기 또는 후진으로 동작하며 경로 생성 성공 시 AVOID로 복귀"><figcaption>장애물 또는 벽이 가까워지면 IDLE에서 AVOID로 전환합니다. 회피 경로 생성이 연속 세 번 실패하면 EMERGENCY로 전환하고, 경로 생성에 성공하면 AVOID로 복귀합니다.</figcaption></figure>
     <div class="state-machine"><article><span>01</span><strong>IDLE</strong><small>Pure Pursuit로 기준 경로 추종</small></article><b>→</b><article><span>02</span><strong>AVOID</strong><small>Frenet 회피 경로 추종</small></article><b>→</b><article><span>03</span><strong>EMERGENCY</strong><small>끼임 또는 반복적인 경로 생성 실패에서 탈출하기 위한 복구 모드</small></article></div>
-    <p class="method-note">EMERGENCY의 밀기 및 후진 복구 로직은 구현했지만 실제 대회에서는 발동하지 않았습니다.</p>
   </div></div></section>
 
   <section class="case-section alt-section"><div class="section-shell case-layout"><div><span class="case-section-label">06 / TRACK TEST</span><h2>실차 주행</h2></div><div class="case-body">
@@ -64,7 +63,7 @@
   </div></div></section>
 
   <section class="case-section"><div class="section-shell case-layout"><div><span class="case-section-label">07 / TROUBLESHOOTING</span><h2>실차에서 생긴 문제</h2></div><div class="case-body">
-    <div class="failure-grid"><article><span>01 / 유령 벽</span><h3>끊긴 펜스가 하나의 벽으로 연결</h3><p>서로 떨어진 펜스가 하나의 RANSAC 선분으로 연결돼 실제 열린 통로까지 막힌 것으로 판단했습니다.</p><strong>인라이어 간 간격이 큰 지점에서 선분을 분할하는 MaxInlierGap 추가</strong></article><article><span>02 / 안전영역</span><h3>벽까지 장애물처럼 크게 확장하자 통로가 사라졌다</h3><p>벽과 장애물에 같은 안전 여유를 적용하면 좁은 트랙에서 실제로 통과 가능한 공간까지 막혔습니다.</p><strong>벽 0.10 m, 장애물 0.24 m로 차등 적용</strong></article><article><span>03 / 스치는 궤적</span><h3>계산상 유효한 경로가 실차에서는 부딪혔다</h3><p>장애물 안전영역을 거의 스치도록 지나가는 후보는 계산상 유효했지만 실제 차량의 추종 오차 때문에 충돌했습니다.</p><strong>최소 여유 0.05 m 이상인 후보가 있으면 그 후보군에서만 최저비용 경로 선택</strong><small>MinimumClearance 기반 2단계 선택</small></article><article><span>04 / 반복 실패</span><h3>차량이 정지한 채 경로 생성 실패를 반복</h3><p>경로 생성 실패가 반복되면 같은 위치에서 같은 실패를 이어갔습니다.</p><strong>연속 실패를 감지해 EMERGENCY 복구 로직 구현</strong><small>실제 대회에서는 해당 복구 모드가 발동하지 않음</small></article></div>
+    <div class="failure-grid"><article><span>01 / 유령 벽</span><h3>끊긴 펜스가 하나의 벽으로 연결</h3><p>서로 떨어진 펜스가 하나의 RANSAC 선분으로 연결돼 실제 열린 통로까지 막힌 것으로 판단했습니다.</p><strong>인라이어 간 간격이 큰 지점에서 선분을 분할하는 MaxInlierGap 추가</strong></article><article><span>02 / 안전영역</span><h3>벽까지 장애물처럼 크게 확장하자 통로가 사라졌다</h3><p>벽과 장애물에 같은 안전 여유를 적용하면 좁은 트랙에서 실제로 통과 가능한 공간까지 막혔습니다.</p><strong>벽 0.10 m, 장애물 0.24 m로 차등 적용</strong></article><article><span>03 / 스치는 궤적</span><h3>계산상 유효한 경로가 실차에서는 부딪혔다</h3><p>장애물 안전영역을 거의 스치도록 지나가는 후보는 계산상 유효했지만 실제 차량의 추종 오차 때문에 충돌했습니다.</p><strong>최소 여유 0.05 m 이상인 후보가 있으면 그 후보군에서만 최저비용 경로 선택</strong><small>MinimumClearance 기반 2단계 선택</small></article><article><span>04 / 반복 실패</span><h3>차량이 정지한 채 경로 생성 실패를 반복</h3><p>경로 생성 실패가 반복되면 같은 위치에서 같은 실패를 이어갔습니다.</p><strong>연속 실패를 감지해 EMERGENCY 복구 로직 구현</strong></article></div>
   </div></div></section>
 
   <section class="case-section alt-section"><div class="section-shell case-layout"><div><span class="case-section-label">08 / RESULT</span><h2>경기 결과와 실패 분석</h2></div><div class="case-body">
