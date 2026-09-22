@@ -149,14 +149,14 @@ def results_html(summary, figures, mobile_figures, asset_path):
            '<p>정면, 후방, 측면, 대각의 4개 접근 방향에 2개 유도 방식과 3종 어뢰 모델을 조합해 24개 조건을 시험했습니다.</p>',
            '<p>회피 완료는 어뢰 연료가 소진될 때까지 피격되지 않은 경우로 판정했습니다.</p>',
            '<p>어뢰는 한 번 빗나간 뒤에도 선회해 다시 접근할 수 있어, 첫 접근만 피한 경우는 최종 회피로 보지 않았습니다.</p>',
-           f'<p class="manta-result-lead">DVO 적용 결과, <strong>24개 조건 중 {avoided}개</strong>에서 최종 회피를 확인했습니다.</p>',
+           f'<p class="manta-result-lead">조건당 최종 실행 1회 기준으로, DVO 적용 결과 <strong>24개 조건 중 {avoided}개</strong>에서 최종 회피를 확인했습니다.</p>',
            '<table class="metric-table manta-direction-table"><caption>DVO 최종 회피 결과, 각 칸은 어뢰 3종 중 회피 완료 조건 수</caption><thead><tr><th scope="col">접근 방향</th><th scope="col">SimpleTracking</th><th scope="col">PNG</th></tr></thead><tbody>']
     for s in SCENARIOS:
         block.append(f'<tr><th scope="row">{LABEL[s]}</th>'+''.join(f'<td>{cells[f"{s}|{m}"]["avoided"]} / 3</td>' for m in MODES)+'</tr>')
     block.append('<tr class="manta-total-row"><th scope="row">합계</th>'+''.join(f'<td>{totals[m]} / 12</td>' for m in MODES)+'</tr></tbody></table>')
     block += [f'<p>SimpleTracking 조건에서는 12개 중 {totals[MODES[0]]}개, PNG 조건에서는 12개 중 {totals[MODES[1]]}개에서 최종 회피를 확인했습니다.</p>',
               '<p>모든 조건에서 회피할 수 있음을 보인 결과가 아니라, 같은 DVO에서도 상대의 유도 방식에 따라 최종 회피가 가능한 조건이 크게 달라진다는 점을 확인했습니다.</p>',
-              '<p>축척을 적용한 시뮬레이션에서 조건마다 최종 실행 1회를 집계했습니다. 반복 실험의 신뢰구간이나 통계적 유의성을 뜻하지 않습니다.</p>',
+              '<p>축척을 적용한 시뮬레이션 결과이며, 반복 실험의 신뢰구간이나 통계적 유의성을 뜻하지 않습니다.</p>',
               '<details class="manta-data-details"><summary>대표 조건의 이동 궤적 보기</summary>']
     name='dvo-measured-trajectory.svg'
     mobile_name=name.replace('.svg','-mobile.svg')

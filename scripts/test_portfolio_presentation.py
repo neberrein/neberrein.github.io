@@ -52,13 +52,13 @@ class PresentationTests(unittest.TestCase):
                         implementation.index('class="manta-two-col"'))
         validation = manta.split('04 / VALIDATION', 1)[1]
         table = validation.index('<table')
-        for explanation in ('A*와 DVO를 모두 시험했으며', 'DVO의 24개 조건 결과를 대표로 정리했습니다.',
+        for explanation in ('A*와 DVO를 모두 시험했습니다.', '최신 동일 코드 기준의 A* 대조군은 없어',
+                            'DVO의 24개 조건 결과를 대표로 정리했습니다.',
                             '현재 표적 방향을 직접 추종', '비례항법유도 방식',
                             '첫 접근만 피한 경우는 최종 회피로 보지 않았습니다.'):
             self.assertLess(validation.index(explanation), table)
-        self.assertEqual(manta.count('정량 우열은 비교하지 않았습니다.'), 1)
-        self.assertGreater(validation.index('최신 동일 코드의 A* 대조군이 없어'),
-                           validation.index('<!-- MANTA_RESULTS_AUTO_END -->'))
+        self.assertEqual(manta.count('정량 우열을 비교하지 않았으며'), 1)
+        self.assertLess(validation.index('최신 동일 코드 기준의 A* 대조군은 없어'), table)
         self.assertIn('24개 조건 중 15개', manta)
         self.assertIn('12개 중 11개', manta)
         self.assertIn('12개 중 4개', manta)

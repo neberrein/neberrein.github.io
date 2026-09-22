@@ -51,12 +51,12 @@ class DvoPublicationTests(unittest.TestCase):
         a,b=[],[]
         explainers.planning_panel(a,0,0,'astar')
         explainers.planning_panel(b,0,0,'dvo')
-        for geometry in ('M65 315L390 95','cx="390" cy="95"','x="46" y="303"','translate(180 145) rotate(34)'):
+        for geometry in ('M65 315L390 95','cx="390" cy="95"','x="46" y="303"','translate(330 190) rotate(154.75)'):
             self.assertIn(geometry,'\n'.join(a))
             self.assertIn(geometry,'\n'.join(b))
         # Only the global method connects its planned path to the mission goal.
         self.assertIn('390 95',next(v for v in a if 'C87 248' in v))
-        self.assertIn('115 218',next(v for v in b if 'C75 281' in v))
+        self.assertIn('72 214',next(v for v in b if 'C56 281' in v))
 
     def test_select_latest_whole_batch(self):
         groups,info=d.compare_batches(fixture(set(range(14))),fixture(set(range(15))))
