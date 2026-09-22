@@ -53,7 +53,7 @@
     <p class="method-note">횡 오프셋 0.0~±0.7 m, 0.1 m 간격 / 계획 지평선 1.5 s, 2.5 s</p>
   </div></div></section>
 
-  <section class="case-section"><div class="section-shell case-layout"><div><span class="case-section-label">05 / FSM</span><h2>주행 상태 판정</h2></div><div class="case-body">
+  <section class="case-section"><div class="section-shell case-layout"><div><span class="case-section-label">05 / FSM</span><h2>회피 상태 전환</h2></div><div class="case-body">
     <figure class="research-figure fsm-evidence"><img loading="lazy" decoding="async" src="../assets/images/robo-fsm-updated.png" width="2492" height="1289" alt="새 원본 FSM 도식. IDLE은 Pure Pursuit, AVOID는 Frenet, EMERGENCY는 밀기 또는 후진으로 동작하며 경로 생성 성공 시 AVOID로 복귀"><figcaption>장애물 또는 벽이 가까워지면 IDLE에서 AVOID로 전환합니다. 회피 경로 생성이 연속 세 번 실패하면 EMERGENCY로 전환하고, 경로 생성에 성공하면 AVOID로 복귀합니다.</figcaption></figure>
     <div class="state-machine"><article><span>01</span><strong>IDLE</strong><small>Pure Pursuit로 기준 경로 추종</small></article><b>→</b><article><span>02</span><strong>AVOID</strong><small>Frenet 회피 경로 추종</small></article><b>→</b><article><span>03</span><strong>EMERGENCY</strong><small>끼임 또는 반복적인 경로 생성 실패에서 탈출하기 위한 복구 모드</small></article></div>
     <p class="method-note">EMERGENCY의 밀기 및 후진 복구 로직은 구현했지만 실제 대회에서는 발동하지 않았습니다.</p>

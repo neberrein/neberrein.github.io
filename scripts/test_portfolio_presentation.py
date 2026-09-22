@@ -37,6 +37,30 @@ def jpeg_size(data):
 
 
 class PresentationTests(unittest.TestCase):
+    def test_project_copy_and_evidence_hierarchy(self):
+        sensor = (DIST / 'projects/sensor-fusion.html').read_text(encoding='utf-8')
+        robo = (DIST / 'projects/roboracer.html').read_text(encoding='utf-8')
+        imu = (DIST / 'projects/imu-lstm-fsm.html').read_text(encoding='utf-8')
+        mosaic = (DIST / 'projects/mosaic-c2.html').read_text(encoding='utf-8')
+        davinci = (DIST / 'projects/davinci-autonomous.html').read_text(encoding='utf-8')
+
+        self.assertIn('동일 현장 데이터에서 계산한 평균 RMSE를 비교했습니다.', sensor)
+        self.assertNotIn('학위논문 표에 직접 기재된 값', sensor)
+        self.assertIn('<h2>회피 상태 전환</h2>', robo)
+        self.assertNotIn('<h2>주행 상태 판정</h2>', robo)
+        self.assertIn('<h3>세 실차 경로의 위치 RMSE</h3>', imu)
+        for value in ('2.56 cm', '2.31 cm', '1.35 cm'):
+            self.assertNotIn(value, imu)
+        for old_copy in ('원본 시뮬레이터 실행', '원본 통합 임무 이벤트 로그',
+                         '원본 WPF 화면', '동일한 원본 코드'):
+            self.assertNotIn(old_copy, mosaic)
+        self.assertIn('<h2>대표 운용 화면과 실행</h2>', mosaic)
+        self.assertIn('<h2>검출 결과를 경로와 조향으로 연결</h2>', davinci)
+        for step in ('좌·우 차선과 장애물을 서로 다른 클래스로 검출',
+                     '양쪽 차선 사이의 중앙 기준 경로 계산',
+                     '경로의 횡방향 오차를 조향 명령으로 변환'):
+            self.assertIn(step, davinci)
+
     def test_manta_explains_inputs_methods_and_validation_scope(self):
         home = (DIST / 'index.html').read_text(encoding='utf-8')
         manta = (DIST / 'projects/manta.html').read_text(encoding='utf-8')
