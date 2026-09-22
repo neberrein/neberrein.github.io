@@ -24,7 +24,12 @@
   width: 100%;
   height: auto;
 }
+.sensor-fusion-page .sensor-field-results { grid-template-columns:repeat(2,minmax(0,1fr)); }
 .sensor-fusion-page .sensor-field-results .plot-card:last-child { grid-column:1 / -1; }
+.sensor-fusion-page .sensor-field-results .plot-card:last-child img { width:min(100%, 680px); margin-inline:auto; }
+@media (max-width:680px) {
+  .sensor-fusion-page .sensor-field-results { grid-template-columns:minmax(0,1fr); }
+}
 .sensor-fusion-page .sensor-field-results img { height:auto; aspect-ratio:auto; }
 .sensor-fusion-page .occlusion-plot {
   position: relative;

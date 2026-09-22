@@ -1262,3 +1262,7 @@ a.publication:hover strong, a.publication:focus-visible strong { color: #9ed0ff;
   .autonomous-evidence .research-figure { width:220px; max-width:100%; }
   .metric-comparison { gap:1rem; }
 }
+.davinci-implementation { grid-template-columns:repeat(3,minmax(0,1fr)); }
+@media (max-width:680px) {
+  .davinci-implementation { grid-template-columns:1fr; }
+}

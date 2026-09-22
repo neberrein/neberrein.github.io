@@ -44,7 +44,7 @@ class PresentationTests(unittest.TestCase):
         mosaic = (DIST / 'projects/mosaic-c2.html').read_text(encoding='utf-8')
         davinci = (DIST / 'projects/davinci-autonomous.html').read_text(encoding='utf-8')
 
-        self.assertIn('동일 현장 데이터에서 계산한 평균 RMSE를 비교했습니다.', sensor)
+        self.assertIn('각 검증 환경에서 동일한 데이터를 사용해 두 방법을 비교했습니다.', sensor)
         self.assertNotIn('학위논문 표에 직접 기재된 값', sensor)
         self.assertIn('<h2>회피 상태 전환</h2>', robo)
         self.assertNotIn('<h2>주행 상태 판정</h2>', robo)
@@ -58,7 +58,7 @@ class PresentationTests(unittest.TestCase):
             self.assertNotIn(old_copy, mosaic)
         self.assertIn('<h2>대표 운용 화면과 실행</h2>', mosaic)
         self.assertIn('<h2>검출 결과를 경로와 조향으로 연결</h2>', davinci)
-        for step in ('좌·우 차선과 장애물을 서로 다른 클래스로 검출',
+        for step in ('차선과 장애물 검출 결과를 주행 판단에 활용',
                      '양쪽 차선 사이의 중앙 기준 경로 계산',
                      '경로의 횡방향 오차를 조향 명령으로 변환'):
             self.assertIn(step, davinci)
@@ -78,13 +78,18 @@ class PresentationTests(unittest.TestCase):
                         implementation.index('class="manta-two-col"'))
         validation = manta.split('04 / VALIDATION', 1)[1]
         table = validation.index('<table')
-        for explanation in ('A*와 DVO를 모두 시험했습니다.', '최신 동일 코드 기준의 A* 대조군은 없어',
+        for explanation in ('A*와 DVO를 모두 구현하고 시험했으며',
                             'DVO의 24개 조건 결과를 대표로 정리했습니다.',
-                            '현재 표적 방향을 직접 추종', '비례항법유도 방식',
+                            '현재 표적 방향을 따라가는 방식', '비례항법 유도(PN)',
                             '첫 접근만 피한 경우는 최종 회피로 보지 않았습니다.'):
             self.assertLess(validation.index(explanation), table)
-        self.assertEqual(manta.count('정량 우열을 비교하지 않았으며'), 1)
-        self.assertLess(validation.index('최신 동일 코드 기준의 A* 대조군은 없어'), table)
+        self.assertEqual(manta.count('두 플래너의 정량 우열은 비교하지 않았습니다.'), 1)
+        self.assertGreater(validation.index('최신 동일 코드 기준의 A* 대조군은 없어'), table)
+        self.assertNotIn('<th scope="col">PNG</th>', manta)
+        self.assertIn('<details class="manta-data-details" open>', manta)
+        self.assertIn('<strong>C</strong>', home)
+        self.assertIn('<strong>C++</strong>', home)
+        self.assertIn('DQN 학습·추론', home)
         self.assertIn('24개 조건 중 15개', manta)
         self.assertIn('12개 중 11개', manta)
         self.assertIn('12개 중 4개', manta)

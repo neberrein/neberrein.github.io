@@ -32,7 +32,7 @@
   </div></div></section>
 
   <section class="case-section alt-section"><div class="section-shell case-layout"><div><span class="case-section-label">02 / SYSTEM</span><h2>연산, AI 추론과 비행 제어의 역할 분리</h2></div><div class="case-body">
-    <p>LWIR 영상은 Raspberry Pi 5에서 수신하고 전처리하며, Hailo NPU에서 YOLOX 추론을 수행하도록 구성했습니다. 이후 추적과 추종 판단 결과를 PX4 비행 제어와 연결하고, 지상 통제기는 상태 확인과 기록, 운용 요청에 사용하도록 역할을 나눴습니다.</p>
+    <p>LWIR 영상은 Raspberry Pi 5에서 수신하고 전처리하며, Hailo NPU에서 YOLOX 추론을 수행하도록 설계했습니다. 이후 추적과 추종 판단 결과를 PX4 비행 제어와 연결하고, 지상 통제기는 상태 확인과 기록, 운용 요청에 사용하도록 역할을 나눴습니다.</p>
     <figure class="research-figure argus-plan-figure"><picture><source media="(max-width: 680px)" srcset="../assets/images/argus-system-architecture-mobile.svg"><img src="../assets/images/argus-system-architecture.svg" width="1600" height="720" alt="LWIR 카메라, Raspberry Pi 5, Hailo NPU, PX4 비행 제어기와 지상 통제기의 역할과 연결 구조" decoding="async"></picture><figcaption><strong>온보드 연산과 비행 제어 구조</strong></figcaption></figure>
   </div></div></section>
 
