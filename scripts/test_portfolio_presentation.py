@@ -89,7 +89,7 @@ class PresentationTests(unittest.TestCase):
         self.assertIn('<details class="manta-data-details" open>', manta)
         self.assertIn('<strong>C</strong>', home)
         self.assertIn('<strong>C++</strong>', home)
-        self.assertIn('DQN 학습·추론', home)
+        self.assertIn('DQN 학습과 추론', home)
         self.assertIn('24개 조건 중 15개', manta)
         self.assertIn('12개 중 11개', manta)
         self.assertIn('12개 중 4개', manta)
@@ -147,7 +147,7 @@ class PresentationTests(unittest.TestCase):
         self.assertIn('TRACKING START: angle=110', stm)
         self.assertIn('스캔 프레임 구성과 비교 규칙', stm)
         rgb = (DIST / 'projects/rgb-classification.html').read_text(encoding='utf-8')
-        self.assertIn('<th>정확도</th>', rgb)
+        self.assertIn('<th scope="col">정확도</th>', rgb)
         self.assertNotIn('세 모델의 Confusion Matrix', rgb)
         self.assertIn('rgb-mobile-matrices', rgb)
         for box in ('0 0 390 388', '390 0 400 388', '790 0 476 388'):
@@ -251,6 +251,23 @@ class PresentationTests(unittest.TestCase):
             if text != 'EMBEDDED SOFTWARE, REAL-TIME SYSTEM':
                 self.assertRegex(text, r'습니다\.$')
         self.assertNotRegex(page, r'목표였다\.|계산했다\.|확정했다\.|반영했다\.')
+
+
+    def test_readability_and_navigation_refinements(self):
+        home = (DIST / 'index.html').read_text(encoding='utf-8')
+        imu = (DIST / 'projects/imu-lstm-fsm.html').read_text(encoding='utf-8')
+        rgb = (DIST / 'projects/rgb-classification.html').read_text(encoding='utf-8')
+        sensor = (DIST / 'projects/sensor-fusion.html').read_text(encoding='utf-8')
+        manta = (DIST / 'projects/manta.html').read_text(encoding='utf-8')
+        self.assertIn('CNN 정확도 99.91%', home)
+        self.assertIn('시험 데이터 2,106장 기준', rgb)
+        self.assertNotIn('0: 전진, 1: 후진, 2: 정지', imu)
+        self.assertNotIn('상태 비교 그래프 원본 보기', imu)
+        self.assertIn('Python 학습과 추론 구현', sensor)
+        self.assertNotIn('전체 경로 생성 실패가 곧바로', manta)
+        script = (DIST / 'assets/site.js').read_text(encoding='utf-8')
+        self.assertIn("event.key === 'Escape'", script)
+        self.assertIn("open ? '메뉴 닫기' : '메뉴 열기'", script)
 
 
 if __name__ == '__main__':

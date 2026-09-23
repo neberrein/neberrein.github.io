@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 440 690" role="img" aria-labelledby="title desc"><title id="title">선택한 DVO · 방향별 결과</title><desc id="desc">어뢰 3종 중 최종 회피 횟수와 최근접 거리 중앙값</desc><rect width="100%" height="100%" fill="#fff"/><g font-family="Arial, Noto Sans KR, sans-serif" fill="#193044">
 <text x="30" y="38" font-size="23" font-weight="700">선택한 DVO · 방향별 결과</text>
 <text x="30" y="76" font-size="19" fill="#193044" text-anchor="start">AVOIDED / 3 · 최근접 거리 중앙값 (m)</text>
-<text x="30" y="117" font-size="23" fill="#193044" text-anchor="start">SimpleTracking</text>
+<text x="30" y="117" font-size="23" fill="#193044" text-anchor="start">직접 추종</text>
 <text x="30" y="174" font-size="23" fill="#193044" text-anchor="start">정면</text>
 <rect x="117" y="141" width="287" height="47" rx="4" fill="#edf5ef"/>
 <text x="139" y="174" font-size="25" fill="#193044" text-anchor="start">3/3</text>
@@ -18,7 +18,7 @@
 <rect x="117" y="303" width="287" height="47" rx="4" fill="#edf5ef"/>
 <text x="139" y="336" font-size="25" fill="#193044" text-anchor="start">2/3</text>
 <text x="383" y="336" font-size="23" fill="#193044" text-anchor="end">1.45 m</text>
-<text x="30" y="390" font-size="23" fill="#193044" text-anchor="start">PNG</text>
+<text x="30" y="390" font-size="23" fill="#193044" text-anchor="start">비례항법 유도(PN)</text>
 <text x="30" y="447" font-size="23" fill="#193044" text-anchor="start">정면</text>
 <rect x="117" y="414" width="287" height="47" rx="4" fill="#f8eeee"/>
 <text x="139" y="447" font-size="25" fill="#193044" text-anchor="start">0/3</text>

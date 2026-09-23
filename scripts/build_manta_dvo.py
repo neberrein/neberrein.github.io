@@ -16,7 +16,7 @@ import build_manta_hybrid as audit
 
 START, END = audit.START, audit.END
 SCENARIOS, MODES, TORPEDOES = audit.SCENARIOS, audit.MODES, audit.TORPEDOES
-LABEL = audit.LABEL
+LABEL = {**audit.LABEL, '2': '직접 추종', '3': '비례항법 유도(PN)'}
 
 
 def compare_batches(initial, latest):

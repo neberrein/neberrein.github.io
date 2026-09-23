@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 440 590" role="img" aria-labelledby="title desc"><title id="title">DVO 대표 조건의 이동 궤적</title><desc id="desc">ROV와 어뢰의 기록된 좌표를 XY 평면에 투영했습니다. 최근접 표본 전후 10초 구간 확대. X와 Y 동일 축척이며 3D 피격 판정과 구분합니다.</desc><rect width="100%" height="100%" fill="#fff"/><g font-family="Arial, Noto Sans KR, sans-serif" fill="#193044">
 <text x="30" y="38" font-size="23" font-weight="700">DVO 대표 조건의 이동 궤적</text>
 <defs><marker id="rov-direction" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L7,3 z" fill="#23774a"/></marker><marker id="torpedo-direction" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L7,3 z" fill="#a83b38"/></marker></defs>
-<text x="30" y="76" font-size="20" fill="#193044" text-anchor="start">정면 / SimpleTracking / 백상어</text>
+<text x="30" y="76" font-size="20" fill="#193044" text-anchor="start">정면 / 직접 추종 / 백상어</text>
 <text x="30" y="108" font-size="21" fill="#193044" text-anchor="start">최종 회피 완료, 최근접 1.05 m</text>
 <text x="30" y="140" font-size="19" fill="#193044" text-anchor="start">경과시간 215.3–225.3 s 구간</text>
 <path d="M76.0 210V500M76 500.0H366" stroke="#e1e7eb"/>

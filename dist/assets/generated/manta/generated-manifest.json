@@ -55,12 +55,12 @@
       "public_page": false
     },
     "dvo-scenario-guidance.svg": {
-      "sha256": "41d58b868979eaa1ef580e64316c65979b6260065337af26d27aa19b69c1285a",
+      "sha256": "e92b15dc7de2d33ed5d7c5367c8d22297ec19a5e3755aa0fcf01fee8dbcf0ea1",
       "source": "runs.csv",
       "public_page": false
     },
     "dvo-measured-trajectory.svg": {
-      "sha256": "03f6480b86c48791b4b7cfaf839c259a50c4e9ab38e1365f9bbe5376db8965b0",
+      "sha256": "02a9166b1eb0147218d77e0e65172312d87e08813f6a9277dd82a1830c34ef6b",
       "source": "kinematics.csv",
       "public_page": true
     }

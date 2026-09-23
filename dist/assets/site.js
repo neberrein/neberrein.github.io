@@ -1,17 +1,28 @@
 const navToggle = document.querySelector('[data-nav-toggle]');
 const nav = document.querySelector('[data-nav]');
+const navLabel = navToggle?.querySelector('.sr-only');
+const setNavOpen = (open) => {
+  navToggle?.setAttribute('aria-expanded', String(open));
+  nav?.classList.toggle('is-open', open);
+  if (navLabel) navLabel.textContent = open ? '메뉴 닫기' : '메뉴 열기';
+};
 
 navToggle?.addEventListener('click', () => {
   const open = navToggle.getAttribute('aria-expanded') === 'true';
-  navToggle.setAttribute('aria-expanded', String(!open));
-  nav?.classList.toggle('is-open', !open);
+  setNavOpen(!open);
 });
 
 nav?.querySelectorAll('a').forEach((link) => {
   link.addEventListener('click', () => {
-    nav.classList.remove('is-open');
-    navToggle?.setAttribute('aria-expanded', 'false');
+    setNavOpen(false);
   });
+});
+
+document.addEventListener('keydown', (event) => {
+  if (event.key === 'Escape' && navToggle?.getAttribute('aria-expanded') === 'true') {
+    setNavOpen(false);
+    navToggle.focus();
+  }
 });
 
 document.querySelectorAll('[data-filter]').forEach((button) => {
