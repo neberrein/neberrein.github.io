@@ -255,6 +255,11 @@ class PresentationTests(unittest.TestCase):
 
     def test_readability_and_navigation_refinements(self):
         home = (DIST / 'index.html').read_text(encoding='utf-8')
+        self.assertIn('국가 R&amp;D 과제 2건 수행', home)
+        self.assertIn('교육부 / 한국연구재단 — 연구책임자', home)
+        self.assertIn('과학기술정보통신부 — 학생연구원', home)
+        self.assertIn('STM32 기반 탐지 및 추적 장치', home)
+        self.assertNotIn('임베디드 실기기', home)
         imu = (DIST / 'projects/imu-lstm-fsm.html').read_text(encoding='utf-8')
         rgb = (DIST / 'projects/rgb-classification.html').read_text(encoding='utf-8')
         sensor = (DIST / 'projects/sensor-fusion.html').read_text(encoding='utf-8')
