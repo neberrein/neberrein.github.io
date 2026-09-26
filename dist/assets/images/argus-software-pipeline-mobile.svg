@@ -1,39 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="720" height="1390" viewBox="0 0 720 1390" role="img" aria-labelledby="title desc">
-  <title id="title">ARGUS 모바일 소프트웨어 처리 흐름</title>
-  <desc id="desc">최신 프레임을 입력받아 전처리, Hailo NPU YOLOX 추론, 후처리, ByteTrack 추적, 추종 판단, PX4 비행 제어로 이어지는 세로형 처리 흐름</desc>
-  <defs>
-    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0 10 5 0 10z" fill="#64758b"/></marker>
-    <marker id="arrow-teal" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0 10 5 0 10z" fill="#138a98"/></marker>
-    <style>
-      text{font-family:Pretendard,"Noto Sans KR",sans-serif;fill:#18345f}.box{fill:#fff;stroke:#cad7e3;stroke-width:3}.label{font-size:30px;font-weight:750}.sub{font-size:25px;fill:#64758b}.role{font-size:24px;font-weight:850;fill:#168ba6}.flow{fill:none;stroke:#64758b;stroke-width:5;marker-end:url(#arrow)}
-    </style>
-  </defs>
-  <rect width="720" height="1390" fill="#fff"/>
-  <text x="50" y="55" class="role">Raspberry Pi 5</text>
-  <rect x="100" y="90" width="520" height="120" rx="16" class="box"/>
-  <text x="360" y="160" text-anchor="middle" class="label">최신 프레임 수신</text>
-  <path d="M360 210V260" class="flow"/>
-  <rect x="100" y="265" width="520" height="120" rx="16" class="box"/>
-  <text x="360" y="335" text-anchor="middle" class="label">영상 전처리</text>
-  <path d="M360 385V435" class="flow"/>
-  <text x="50" y="460" class="role">Hailo NPU</text>
-  <rect x="100" y="480" width="520" height="135" rx="16" fill="#fff" stroke="#2f63b4" stroke-width="4"/>
-  <text x="360" y="535" text-anchor="middle" class="label">YOLOX 추론</text>
-  <text x="360" y="578" text-anchor="middle" class="sub">Hailo Runtime</text>
-  <path d="M360 615V665" class="flow"/>
-  <text x="50" y="690" class="role">Raspberry Pi 5</text>
-  <rect x="100" y="710" width="520" height="120" rx="16" class="box"/>
-  <text x="360" y="780" text-anchor="middle" class="label">후처리와 객체 탐지</text>
-  <path d="M360 830V880" class="flow"/>
-  <rect x="100" y="885" width="520" height="135" rx="16" class="box"/>
-  <text x="360" y="940" text-anchor="middle" class="label">대상 추적</text>
-  <text x="360" y="983" text-anchor="middle" class="sub">ByteTrack / track_id 유지</text>
-  <path d="M360 1020V1070" class="flow"/>
-  <rect x="100" y="1075" width="520" height="120" rx="16" class="box"/>
-  <text x="360" y="1145" text-anchor="middle" class="label">추종 판단</text>
-  <path d="M360 1195V1245" fill="none" stroke="#138a98" stroke-width="5" marker-end="url(#arrow-teal)"/>
-  <text x="390" y="1232" class="role">MAVSDK / MAVLink</text>
-  <rect x="100" y="1250" width="520" height="105" rx="16" fill="#fff" stroke="#138a98" stroke-width="4"/>
-  <text x="360" y="1315" text-anchor="middle" class="label">FC / PX4 비행 제어</text>
-  <text x="50" y="1378" class="sub">프레임을 쌓지 않고 최신 입력을 우선 처리</text>
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="1180" viewBox="0 0 720 1180" role="img" aria-labelledby="title desc">
+<title id="title">최신 영상에서 PX4 비행 제어까지의 처리 순서 — 모바일</title><desc id="desc">화살표는 데이터 또는 명령의 전달 방향을 나타냅니다.</desc>
+<defs><marker id="blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 10 5 0 10Z" fill="#2f63b4"/></marker><marker id="teal" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 10 5 0 10Z" fill="#138a98"/></marker><marker id="gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 10 5 0 10Z" fill="#697e91"/></marker></defs>
+<style>text{font-family:Pretendard,"Noto Sans KR","Malgun Gothic",sans-serif;font-weight:650}</style>
+<rect width="720" height="1180" fill="#fff"/>
+<rect x="90" y="50" width="540" height="115" rx="12" fill="#fff" stroke="#cfdae5" stroke-width="2"/><text x="360" y="95" text-anchor="middle" font-size="34" fill="#18345f">최신 영상 수신</text><text x="360" y="138" text-anchor="middle" font-size="30" fill="#53677c">Raspberry Pi 5</text><path d="M360 165V210" fill="none" stroke="#2f63b4" stroke-width="3"  marker-end="url(#blue)"/><rect x="90" y="210" width="540" height="115" rx="12" fill="#fff" stroke="#cfdae5" stroke-width="2"/><text x="360" y="255" text-anchor="middle" font-size="34" fill="#18345f">영상 전처리</text><text x="360" y="298" text-anchor="middle" font-size="30" fill="#53677c">Raspberry Pi 5</text><path d="M360 325V370" fill="none" stroke="#2f63b4" stroke-width="3"  marker-end="url(#blue)"/><rect x="90" y="370" width="540" height="115" rx="12" fill="#edf3f8" stroke="#2f63b4" stroke-width="2"/><text x="360" y="415" text-anchor="middle" font-size="34" fill="#18345f">YOLOX 추론</text><text x="360" y="458" text-anchor="middle" font-size="30" fill="#53677c">Hailo NPU</text><path d="M360 485V530" fill="none" stroke="#2f63b4" stroke-width="3"  marker-end="url(#blue)"/><rect x="90" y="530" width="540" height="115" rx="12" fill="#fff" stroke="#cfdae5" stroke-width="2"/><text x="360" y="575" text-anchor="middle" font-size="34" fill="#18345f">탐지 결과 후처리</text><text x="360" y="618" text-anchor="middle" font-size="30" fill="#53677c">Raspberry Pi 5</text><path d="M360 645V690" fill="none" stroke="#2f63b4" stroke-width="3"  marker-end="url(#blue)"/><rect x="90" y="690" width="540" height="115" rx="12" fill="#fff" stroke="#cfdae5" stroke-width="2"/><text x="360" y="735" text-anchor="middle" font-size="34" fill="#18345f">대상 추적 ByteTrack</text><text x="360" y="778" text-anchor="middle" font-size="30" fill="#53677c">Raspberry Pi 5</text><path d="M360 805V850" fill="none" stroke="#2f63b4" stroke-width="3"  marker-end="url(#blue)"/><rect x="90" y="850" width="540" height="115" rx="12" fill="#fff" stroke="#cfdae5" stroke-width="2"/><text x="360" y="895" text-anchor="middle" font-size="34" fill="#18345f">추종 명령 계산</text><text x="360" y="938" text-anchor="middle" font-size="30" fill="#53677c">Raspberry Pi 5</text><path d="M360 965V1010" fill="none" stroke="#138a98" stroke-width="3"  marker-end="url(#teal)"/><rect x="90" y="1010" width="540" height="115" rx="12" fill="#fff" stroke="#138a98" stroke-width="2"/><text x="360" y="1055" text-anchor="middle" font-size="34" fill="#18345f">비행 제어 PX4</text><text x="360" y="1098" text-anchor="middle" font-size="30" fill="#53677c">비행 제어기</text><text x="360" y="1160" text-anchor="middle" font-size="30" fill="#138a98">제어 연결: MAVSDK / MAVLink</text>
 </svg>

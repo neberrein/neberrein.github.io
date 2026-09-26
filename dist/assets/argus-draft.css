@@ -79,7 +79,7 @@
 
 .argus-capabilities {
   display:grid;
-  grid-template-columns:repeat(4,minmax(0,1fr));
+  grid-template-columns:repeat(3,minmax(0,1fr));
   gap:1px;
   margin-top:1.5rem;
   border:1px solid var(--rule);
@@ -145,6 +145,27 @@
   color:var(--slate);
 }
 
+.argus-platform-photo {
+  max-width:960px;
+  margin:2rem auto 0;
+  overflow:hidden;
+}
+
+.argus-platform-photo img {
+  display:block;
+  width:100%;
+  height:auto;
+  aspect-ratio:16 / 9;
+  max-height:none;
+  object-fit:cover;
+  object-position:center 45%;
+}
+
+.argus-platform-photo figcaption {
+  padding:.8rem 1rem;
+  font-size:.9rem;
+}
+
 .argus-interface-grid {
   display:grid;
   grid-template-columns:repeat(3,minmax(0,1fr));
@@ -187,7 +208,7 @@
 
 @media (max-width:900px) {
   .argus-capabilities {
-    grid-template-columns:repeat(2,minmax(0,1fr));
+    grid-template-columns:1fr;
   }
 }
 
@@ -218,7 +239,7 @@
   }
 
   .argus-capabilities {
-    grid-template-columns:repeat(2,minmax(0,1fr));
+    grid-template-columns:1fr;
   }
 
   .argus-capabilities article {
@@ -230,8 +251,8 @@
   }
 
   .argus-capabilities p {
-    font-size:.8rem;
-    line-height:1.55;
+    font-size:1rem;
+    line-height:1.65;
   }
 
   .argus-plan-figure {
@@ -240,7 +261,7 @@
   }
 
   .argus-plan-figure figcaption {
-    font-size:.8125rem;
+    font-size:.9rem;
   }
 }
 

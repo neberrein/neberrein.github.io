@@ -1,38 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="760" viewBox="0 0 1600 760" role="img" aria-labelledby="title desc">
-  <title id="title">ARGUS 추종 상태 전이와 대상 소실 대응</title>
-  <desc id="desc">정상 추종 중 대상 소실이나 수동 개입이 발생하면 추종 판단을 무효화하고 Hold를 요청하며, 실제 비행 제어 상태 확인과 재탐지 뒤 조건을 확인해 추종을 재개하는 초기 설계안</desc>
-  <defs>
-    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0 10 5 0 10z" fill="#6f8195"/></marker>
-    <marker id="arrow-teal" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0 10 5 0 10z" fill="#138a98"/></marker>
-    <style>
-      text{font-family:Pretendard,"Noto Sans KR",sans-serif;fill:#18345f}.box{fill:#fff;stroke:#cfdae5;stroke-width:2}.active{fill:#e5eff8;stroke:#9db8d0;stroke-width:2}.warn{fill:#fff;stroke:#c47719;stroke-width:3}.label{font-size:24px;font-weight:750}.sub{font-size:20px;fill:#64758b}.lane{font-size:22px;font-weight:850}.flow{fill:none;stroke:#6f8195;stroke-width:4;marker-end:url(#arrow)}
-    </style>
-  </defs>
-  <rect width="1600" height="760" fill="#fff"/>
-  <text x="70" y="48" class="sub" fill="#168ba6">초기 안전 흐름 설계안</text>
-  <text x="70" y="105" class="lane">정상 추종</text>
-  <rect x="70" y="130" width="300" height="100" rx="12" class="box"/><text x="220" y="190" text-anchor="middle" class="label">장치 점검과 시작 요청</text>
-  <rect x="485" y="130" width="300" height="100" rx="12" class="box"/><text x="635" y="190" text-anchor="middle" class="label">FC 상태 확인</text>
-  <rect x="900" y="130" width="300" height="100" rx="12" class="active"/><text x="1050" y="190" text-anchor="middle" class="label">추종 (FOLLOW)</text>
-  <path d="M370 180H485M785 180H900" class="flow"/>
-  <text x="70" y="310" class="lane" fill="#b86612">대상 소실과 수동 개입</text>
-  <rect x="70" y="335" width="300" height="120" rx="12" class="warn"/><text x="220" y="380" text-anchor="middle" class="label">대상 소실</text><text x="220" y="420" text-anchor="middle" class="sub">관측 만료 또는 수동 개입</text>
-  <rect x="485" y="335" width="300" height="120" rx="12" class="box"/><text x="635" y="385" text-anchor="middle" class="label">추종 판단 무효화</text><text x="635" y="425" text-anchor="middle" class="sub">Hold 또는 정지 요청</text>
-  <rect x="900" y="335" width="300" height="120" rx="12" class="box"/><text x="1050" y="385" text-anchor="middle" class="label">실제 FC 상태 확인</text><text x="1050" y="425" text-anchor="middle" class="sub">Hold 확인</text>
-  <path d="M1050 230V280H220V335" fill="none" stroke="#c47719" stroke-width="4" marker-end="url(#arrow)"/>
-  <path d="M370 395H485M785 395H900" class="flow"/>
-  <text x="70" y="535" class="lane" fill="#138a98">재탐지와 재추종</text>
-  <rect x="70" y="560" width="300" height="100" rx="12" class="active"/><text x="220" y="620" text-anchor="middle" class="label">추종 재개</text>
-  <rect x="485" y="560" width="300" height="100" rx="12" class="box"/><text x="635" y="620" text-anchor="middle" class="label">새 시작 조건 확인</text>
-  <rect x="900" y="560" width="300" height="100" rx="12" class="box"/><text x="1050" y="620" text-anchor="middle" class="label">대상 재탐지</text>
-  <path d="M1050 455V560" fill="none" stroke="#138a98" stroke-width="4" marker-end="url(#arrow-teal)"/>
-  <path d="M900 610H785M485 610H370" class="flow"/>
-  <rect x="1260" y="130" width="270" height="530" rx="14" fill="#eef3f7"/>
-  <text x="1395" y="205" text-anchor="middle" class="lane">운용 원칙</text>
-  <text x="1395" y="290" text-anchor="middle" class="label">수동 개입 시</text>
-  <text x="1395" y="335" text-anchor="middle" class="label">모든 상태에서</text>
-  <text x="1395" y="380" text-anchor="middle" class="label">추종 해제</text>
-  <text x="1395" y="500" text-anchor="middle" class="sub">FC 상태를 확인한 뒤</text>
-  <text x="1395" y="540" text-anchor="middle" class="sub">조건을 충족할 때만</text>
-  <text x="1395" y="580" text-anchor="middle" class="sub">재개</text>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="580" viewBox="0 0 1200 580" role="img" aria-labelledby="title desc">
+<title id="title">대상 소실과 사용자 수동 개입을 구분한 대응 설계</title><desc id="desc">화살표는 데이터 또는 명령의 전달 방향을 나타냅니다.</desc>
+<defs><marker id="blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 10 5 0 10Z" fill="#2f63b4"/></marker><marker id="teal" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 10 5 0 10Z" fill="#138a98"/></marker><marker id="gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 10 5 0 10Z" fill="#697e91"/></marker></defs>
+<style>text{font-family:Pretendard,"Noto Sans KR","Malgun Gothic",sans-serif;font-weight:650}</style>
+<rect width="1200" height="580" fill="#fff"/>
+<text x="40" y="65" text-anchor="start" font-size="26" fill="#21457c">대상을 놓친 경우</text><rect x="40" y="120" width="200" height="150" rx="12" fill="#fff" stroke="#b86612" stroke-width="2"/><text x="140" y="177" text-anchor="middle" font-size="24" fill="#18345f">대상 소실</text><text x="140" y="224" text-anchor="middle" font-size="21" fill="#53677c">일정 시간 미검출</text><path d="M240 190H270" fill="none" stroke="#2f63b4" stroke-width="3"  marker-end="url(#blue)"/><rect x="270" y="120" width="200" height="150" rx="12" fill="#fff" stroke="#cfdae5" stroke-width="2"/><text x="370" y="177" text-anchor="middle" font-size="24" fill="#18345f">자동 추종 중단</text><text x="370" y="224" text-anchor="middle" font-size="21" fill="#53677c">위치 유지 요청</text><path d="M470 190H500" fill="none" stroke="#2f63b4" stroke-width="3"  marker-end="url(#blue)"/><rect x="500" y="120" width="200" height="150" rx="12" fill="#fff" stroke="#cfdae5" stroke-width="2"/><text x="600" y="177" text-anchor="middle" font-size="24" fill="#18345f">비행 상태 확인</text><text x="600" y="224" text-anchor="middle" font-size="21" fill="#53677c">Hold 전환 확인</text><path d="M700 190H730" fill="none" stroke="#2f63b4" stroke-width="3"  marker-end="url(#blue)"/><rect x="730" y="120" width="200" height="150" rx="12" fill="#fff" stroke="#cfdae5" stroke-width="2"/><text x="830" y="177" text-anchor="middle" font-size="24" fill="#18345f">대상 재탐지</text><text x="830" y="224" text-anchor="middle" font-size="21" fill="#53677c">재개 조건 확인</text><path d="M930 190H960" fill="none" stroke="#2f63b4" stroke-width="3"  marker-end="url(#blue)"/><rect x="960" y="120" width="200" height="150" rx="12" fill="#fff" stroke="#138a98" stroke-width="2"/><text x="1060" y="177" text-anchor="middle" font-size="24" fill="#18345f">추종 재개</text><text x="1060" y="224" text-anchor="middle" font-size="21" fill="#53677c">조건 충족 시</text><rect x="40" y="365" width="1120" height="150" rx="12" fill="#edf3f8" stroke="#cfdae5" stroke-width="2"/><text x="75" y="410" text-anchor="start" font-size="26" fill="#21457c">사용자가 수동으로 개입한 경우</text><text x="205" y="470" text-anchor="middle" font-size="26" fill="#18345f">수동 개입</text><path d="M320 460H430" fill="none" stroke="#697e91" stroke-width="3"  marker-end="url(#gray)"/><text x="460" y="470" text-anchor="start" font-size="26" fill="#18345f">현재 상태와 관계없이 자동 추종 해제</text>
 </svg>

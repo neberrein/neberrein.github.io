@@ -10,7 +10,7 @@
   <meta property="og:type" content="website"><meta property="og:title" content="ARGUS 온보드 AI 드론 객체 탐지 및 추적 | 곽민재"><meta property="og:description" content="Hailo NPU, LWIR 영상, 객체 추적과 PX4 비행 제어를 연결하는 진행 중 프로젝트"><meta property="og:url" content="https://neberrein.github.io/projects/argus-drone.html"><meta property="og:image" content="https://neberrein.github.io/assets/images/argus-og.png"><meta name="twitter:card" content="summary_large_image">
   <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="../assets/site.css?readability=20260914&amp;v=project-navigation-20260913">
-  <link rel="stylesheet" href="../assets/argus-draft.css?v=20260921">
+  <link rel="stylesheet" href="../assets/argus-draft.css?v=20260927">
   <script src="../assets/site.js" defer></script>
 </head>
 <body class="argus-page" data-project-status="ongoing">
@@ -21,36 +21,36 @@
     <a class="back-link" href="../index.html#projects">← 프로젝트 목록</a>
     <div class="argus-status-row"><p class="case-label">ONBOARD AI / DRONE / OBJECT DETECTION &amp; TRACKING</p><span class="argus-draft-badge">진행 중</span></div>
     <h1>ARGUS 온보드 AI 드론 객체 탐지 및 추적 시스템</h1>
-    <p class="argus-name-note"><strong>ARGUS</strong> AI-powered Real-time Ground Object UAV Surveillance <span>AI 기반 실시간 지상 객체 무인기 감시</span></p>
-    <p class="case-subtitle">열화상 영상으로 지상 객체를 탐지하고, 같은 대상을 추적해 드론의 움직임으로 연결하는 시스템을 개발하고 있습니다. Hailo NPU는 기체 내 AI 추론을, PX4는 비행 제어를 담당하도록 설계했습니다.</p>
-    <dl class="case-facts"><div><dt>기간</dt><dd>2026.09–진행 중</dd></div><div><dt>팀</dt><dd>ARGUS 6인 팀</dd></div><div><dt>역할</dt><dd>팀장, YOLOX 학습과 Hailo NPU 적용 담당, 일정 및 통합 관리</dd></div><div><dt>주요 구성</dt><dd>Raspberry Pi 5 / Hailo NPU / LWIR / PX4</dd></div></dl>
+    <p class="argus-name-note"><strong>ARGUS</strong> AI-powered Real-time Ground Object UAV Surveillance</p>
+    <p class="case-subtitle">열화상 영상에서 지상 객체를 탐지하고, 선택한 대상을 드론이 따라가도록 하는 시스템을 개발하고 있습니다. Hailo NPU에서 객체 탐지를 수행하고, 탐지 결과를 추적과 PX4 비행 제어에 연결하도록 설계했습니다.</p>
+    <dl class="case-facts"><div><dt>기간</dt><dd>2026.09–진행 중</dd></div><div><dt>팀</dt><dd>ARGUS 6인 팀</dd></div><div><dt>역할</dt><dd>팀장<br>YOLOX 학습과 Hailo NPU 적용<br>개발 일정과 시스템 통합 관리</dd></div><div><dt>주요 구성</dt><dd>Raspberry Pi 5 / Hailo NPU / LWIR / PX4</dd></div></dl>
+    <figure class="research-figure argus-platform-photo"><img src="../assets/images/argus-drone-platform.jpg" width="4000" height="3000" alt="야외에서 가까이 본 ARGUS 드론 플랫폼의 기체와 착륙 장치" loading="lazy" decoding="async"><figcaption>프로젝트에 사용하는 드론 플랫폼</figcaption></figure>
   </section>
 
   <section class="case-section"><div class="section-shell case-layout"><div><span class="case-section-label">01 / BACKGROUND</span><h2>온보드 처리가 필요한 이유</h2></div><div class="case-body">
-    <p>무선 통신이 불안정하거나 주변이 어두운 환경에서도 대상을 관측하는 것이 목표입니다. 장파장 적외선(LWIR) 카메라의 열화상 영상을 기체 내부에서 처리하고, 탐지부터 추적과 추종 판단까지 드론 안에서 이어가도록 설계했습니다.</p>
-    <div class="argus-capabilities"><article><span>01</span><strong>온보드 처리</strong><p>Raspberry Pi 5 + Hailo NPU 온보드 구성</p></article><article><span>02</span><strong>탐지 — 객체 위치 찾기</strong><p>YOLOX 기반 LWIR 객체 탐지</p></article><article><span>03</span><strong>추적 — 같은 대상 유지하기</strong><p>프레임 간 동일 대상 ID 유지</p></article><article><span>04</span><strong>추종 판단 — 움직임 결정하기</strong><p>대상 위치 오차 기반 속도와 yaw 명령 산출 로직</p></article></div>
+    <p>지상 장비와의 통신에 의존하지 않고 기체 내부에서 영상을 처리하는 것이 목표입니다. 어두운 환경에서도 대상을 관측할 수 있도록 장파장 적외선(LWIR) 카메라를 사용하고, 객체 탐지부터 추적과 추종 판단까지 기체에서 수행하도록 설계했습니다.</p>
+    <div class="argus-capabilities"><article><span>01</span><strong>탐지 — 객체 위치 찾기</strong><p>YOLOX로 열화상 영상 속 객체 탐지</p></article><article><span>02</span><strong>추적 — 같은 대상 따라가기</strong><p>연속 영상에서 같은 대상 추적</p></article><article><span>03</span><strong>추종 판단 — 움직임 결정하기</strong><p>대상 위치에 따라 이동 속도와 기체 회전(yaw) 명령 계산</p></article></div>
   </div></div></section>
 
-  <section class="case-section alt-section"><div class="section-shell case-layout"><div><span class="case-section-label">02 / SYSTEM</span><h2>연산, AI 추론과 비행 제어의 역할 분리</h2></div><div class="case-body">
-    <p>LWIR 영상은 Raspberry Pi 5에서 수신하고 전처리하며, Hailo NPU에서 YOLOX 추론을 수행하도록 설계했습니다. 이후 추적과 추종 판단 결과를 PX4 비행 제어와 연결하고, 지상 통제기는 상태 확인과 기록, 운용 요청에 사용하도록 역할을 나눴습니다.</p>
-    <figure class="research-figure argus-plan-figure"><picture><source media="(max-width: 680px)" srcset="../assets/images/argus-system-architecture-mobile.svg"><img src="../assets/images/argus-system-architecture.svg" width="1600" height="720" alt="LWIR 카메라, Raspberry Pi 5, Hailo NPU, PX4 비행 제어기와 지상 통제기의 역할과 연결 구조" decoding="async"></picture><figcaption><strong>온보드 연산과 비행 제어 구조</strong></figcaption></figure>
+  <section class="case-section alt-section"><div class="section-shell case-layout"><div><span class="case-section-label">02 / SYSTEM</span><h2>장치별 역할과 연결 구조</h2></div><div class="case-body">
+    <p>Raspberry Pi 5는 영상 전처리와 대상 추적, 추종 판단을 맡고, Hailo NPU는 YOLOX 추론을 수행하도록 역할을 나눴습니다. 추종 명령은 PX4 비행 제어기에 전달하고, 지상 통제기에서는 영상과 상태를 확인하며 추종 시작과 중단을 요청하는 구조입니다.</p>
+    <figure class="research-figure argus-plan-figure"><picture><source media="(max-width: 680px)" srcset="../assets/images/argus-system-architecture-mobile.svg?v=20260927" width="720" height="1320"><img src="../assets/images/argus-system-architecture.svg?v=20260927" width="1200" height="760" alt="카메라 영상은 Raspberry Pi 5로 입력되고 Pi는 Hailo NPU와 추론 데이터를 교환합니다. Pi와 PX4는 명령과 상태를 주고받으며 지상 통제기는 Pi와 별도로 연결됩니다." decoding="async"></picture><figcaption><strong>온보드 연산과 비행 제어 구조</strong></figcaption></figure>
   </div></div></section>
 
-  <section class="case-section"><div class="section-shell case-layout"><div><span class="case-section-label">03 / PIPELINE</span><h2>최신 프레임 우선 처리와 모듈 인터페이스</h2></div><div class="case-body">
-    <p>제어 지연이 누적되지 않도록 프레임을 계속 쌓기보다 최신 프레임을 우선 처리하도록 설계했습니다. 탐지, 추적, 추종 판단 사이의 데이터를 분리해 각 모듈의 인터페이스를 정의했습니다.</p>
-    <figure class="research-figure argus-plan-figure"><picture><source media="(max-width: 680px)" srcset="../assets/images/argus-software-pipeline-mobile.svg"><img src="../assets/images/argus-software-pipeline.svg" width="1600" height="590" alt="영상 수신과 전처리, Hailo NPU YOLOX 추론, 후처리, ByteTrack 추적, 추종 판단, MAVSDK와 MAVLink를 통한 PX4 제어 흐름" decoding="async"></picture><figcaption><strong>영상 입력에서 추종 명령까지의 처리 흐름</strong></figcaption></figure>
-    <div class="argus-interface-grid"><article><span>DETECTION / 탐지 결과</span><strong>객체 위치와 신뢰도</strong></article><article><span>TRACK SET / 추적 결과</span><strong>대상 ID, 위치와 관측 여부</strong></article><article><span>CONTROL DECISION / 추종 판단</span><strong>명령 유효 여부, 속도와 회전 방향</strong></article></div>
+  <section class="case-section"><div class="section-shell case-layout"><div><span class="case-section-label">03 / PIPELINE</span><h2>영상에서 추종 명령까지</h2></div><div class="case-body">
+    <p>오래된 영상 때문에 제어가 늦어지지 않도록 최신 프레임을 우선 처리하는 구조로 설계했습니다. 탐지 결과는 대상 추적에, 추적 결과는 이동 속도와 회전 명령을 계산하는 데 사용하도록 모듈 사이의 전달 데이터를 정했습니다.</p>
+    <figure class="research-figure argus-plan-figure"><picture><source media="(max-width: 900px)" srcset="../assets/images/argus-software-pipeline-mobile.svg?v=20260927" width="720" height="1180"><img src="../assets/images/argus-software-pipeline.svg?v=20260927" width="1200" height="440" alt="최신 영상 수신, 전처리, Hailo NPU 추론, 후처리, ByteTrack 추적, 추종 판단, PX4 제어 순서로 이어지는 처리 흐름" decoding="async"></picture><figcaption><strong>영상 입력에서 추종 명령까지의 처리 순서</strong></figcaption></figure>
+    <div class="argus-interface-grid"><article><span>탐지 결과</span><strong>객체 위치와 신뢰도</strong></article><article><span>추적 결과</span><strong>대상 ID, 위치와 관측 여부</strong></article><article><span>추종 판단</span><strong>명령 유효 여부, 이동 속도와 회전 방향</strong></article></div>
   </div></div></section>
 
   <section class="case-section alt-section"><div class="section-shell case-layout"><div><span class="case-section-label">04 / FAIL-SAFE</span><h2>대상 소실과 사용자 개입 대응</h2></div><div class="case-body">
-    <p>대상을 놓치거나 사용자가 수동으로 개입하면 추종을 해제하고 위치 유지(Hold)를 요청하도록 설계했습니다. 다시 추종하기 전에는 비행 제어기(FC)의 실제 상태와 대상 재탐지 여부, 재시작 조건을 확인합니다.</p>
-    <p class="argus-safety-summary" aria-label="대상 소실 대응 순서">정상 추종 → 대상 소실 → 추종 해제 → FC 상태 확인 → 조건 충족 후 재개</p>
-    <figure class="research-figure argus-plan-figure"><picture><source media="(max-width: 680px)" srcset="../assets/images/argus-loss-response-mobile.svg"><img src="../assets/images/argus-loss-response.svg" width="1600" height="760" alt="정상 추종, 대상 소실, Hold 확인, 재탐지와 재추종으로 이어지는 상태 전이 설계" decoding="async"></picture><figcaption><strong>추종 상태 전이와 대상 소실 대응</strong><span>수동 개입 시에는 현재 상태와 관계없이 추종을 해제하도록 설계했습니다.</span></figcaption></figure>
+    <p>대상을 놓치면 자동 추종을 중단하고 위치 유지(Hold)를 요청하도록 설계했습니다. 추종을 재개하기 전에는 비행 제어기의 상태와 대상 재탐지 여부, 재개 조건을 확인하도록 했습니다. 사용자 수동 개입은 대상 소실과 구분하며, 현재 상태와 관계없이 자동 추종을 해제하는 조건으로 두었습니다.</p>
+    <figure class="research-figure argus-plan-figure"><picture><source media="(max-width: 680px)" srcset="../assets/images/argus-loss-response-mobile.svg?v=20260927" width="720" height="1170"><img src="../assets/images/argus-loss-response.svg?v=20260927" width="1200" height="580" alt="대상을 놓치면 자동 추종 중단과 Hold 요청 후 비행 상태 및 재개 조건을 확인합니다. 사용자 수동 개입은 별도의 자동 추종 해제 조건입니다." decoding="async"></picture><figcaption><strong>대상 소실과 수동 개입을 구분한 대응 설계</strong></figcaption></figure>
   </div></div></section>
 
-  <section class="case-section"><div class="section-shell case-layout"><div><span class="case-section-label">05 / VALIDATION</span><h2>구현 후 검증 항목</h2></div><div class="case-body">
-    <p class="argus-plan-lead">영상 처리 성능부터 실제 비행 반응까지 단계적으로 검증할 예정입니다.</p>
-    <ul class="noun-list"><li><strong>탐지와 응답</strong>탐지 정확도와 영상 입력부터 제어 명령까지의 지연시간 측정 예정</li><li><strong>기체 내 구동</strong>NPU 처리 속도, 전력과 온도 등 연속 구동 조건 검증 예정</li><li><strong>비행 연동</strong>소프트웨어 비행 시뮬레이션(SITL) 후 실기체 제어 반응 확인</li><li><strong>복구 동작</strong>대상 소실, 수동 개입과 재탐지 이후의 추종 해제 및 재개 시험</li></ul>
+  <section class="case-section"><div class="section-shell case-layout"><div><span class="case-section-label">05 / VALIDATION</span><h2>검증 계획</h2></div><div class="case-body">
+    <p>영상 처리 지연과 기체 내 구동 안정성을 확인한 뒤, 시뮬레이션과 실기체에서 추종 및 중단 동작을 검증할 계획입니다.</p>
+    <ul class="noun-list"><li><strong>탐지와 응답</strong>탐지 성능과 영상 입력부터 제어 명령까지의 지연시간</li><li><strong>기체 내 구동</strong>NPU 처리 속도, 소비 전력과 온도</li><li><strong>비행 연동</strong>소프트웨어 비행 시뮬레이션(SITL)과 실기체의 제어 반응</li><li><strong>추종 중단과 재개</strong>대상 소실, 수동 개입, 재탐지 상황의 동작</li></ul>
   </div></div></section>
 
   <nav class="project-pagination section-shell" aria-label="프로젝트 이동"><a class="project-pagination-prev" href="imu-lstm-fsm.html" rel="prev"><span>← 이전 프로젝트</span><strong>IMU 주행 상태 판별</strong></a><a class="project-pagination-all" href="../index.html#projects">전체 프로젝트</a><a class="project-pagination-next" href="stm32-tracking.html" rel="next"><span>다음 프로젝트 →</span><strong>STM32 표적 탐지 및 추적</strong></a></nav>
