@@ -60,7 +60,7 @@
       "public_page": false
     },
     "dvo-measured-trajectory.svg": {
-      "sha256": "02a9166b1eb0147218d77e0e65172312d87e08813f6a9277dd82a1830c34ef6b",
+      "sha256": "3bdb3e29629900c2ede0da8c008adb8bc248a1eb59f0835446809b61d3940861",
       "source": "kinematics.csv",
       "public_page": true
     }

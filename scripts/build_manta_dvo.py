@@ -114,29 +114,34 @@ def dvo_trajectory(rows, grouped, mobile=False):
     xmin,ymin=(max(xs)+min(xs)-span)/2,(max(ys)+min(ys)-span)/2
     left,top,size=(76,210,290) if mobile else (215,150,360)
     project=lambda x,y:(left+(x-xmin)/span*size,top+size-(y-ymin)/span*size)
-    parts=audit.svg_start("DVO 대표 조건의 이동 궤적", "ROV와 어뢰의 기록된 좌표를 XY 평면에 투영했습니다. 최근접 표본 전후 10초 구간 확대. X와 Y 동일 축척이며 3D 피격 판정과 구분합니다.",width=440 if mobile else 880,height=590 if mobile else 600)
+    parts=audit.svg_start("DVO 대표 조건의 이동 궤적", "BlueROV2와 어뢰의 수평면 이동 궤적입니다. 두 기체가 가장 가까워진 시점의 6초 전부터 4초 후까지 총 10초 구간입니다. X와 Y는 동일 축척입니다.",width=440 if mobile else 880,height=640 if mobile else 600)
     parts.append('<defs><marker id="rov-direction" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L7,3 z" fill="#23774a"/></marker><marker id="torpedo-direction" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L7,3 z" fill="#a83b38"/></marker></defs>')
     s,m,t=audit.key(chosen)
     if mobile:
-        parts += [audit.text(30,76,f'{LABEL[s]} / {LABEL[m]} / {LABEL[t]}',20),audit.text(30,108,f'최종 회피 완료, 최근접 {float(chosen["closest_m"]):.2f} m',21),audit.text(30,140,f'경과시간 {lo:.1f}–{hi:.1f} s 구간',19)]
+        parts += [audit.text(30,76,f'{LABEL[s]} / {LABEL[m]} / {LABEL[t]}',20),audit.text(30,108,f'최종 회피 완료, 최근접 {float(chosen["closest_m"]):.2f} m',21),audit.text(30,140,'가장 가까워진 시점 전후 총 10초',19)]
     else:
-        parts += [audit.text(30,73,f'{LABEL[s]} / {LABEL[m]} / {LABEL[t]} / 최종 회피 완료 / 최근접 {float(chosen["closest_m"]):.2f} m',18),audit.text(30,105,f'최근접 표본 주변 구간, 경과시간 {lo:.1f}–{hi:.1f} s',17)]
+        parts += [audit.text(30,73,f'{LABEL[s]} / {LABEL[m]} / {LABEL[t]} / 최종 회피 완료 / 최근접 {float(chosen["closest_m"]):.2f} m',18),audit.text(30,105,'두 기체가 가장 가까워진 시점 전후 총 10초',17)]
     for tick in range(5):
         f=tick/4
         x,y=left+size*f,top+size*(1-f)
         parts += [f'<path d="M{x} {top}V{top+size}M{left} {y}H{left+size}" stroke="#e1e7eb"/>',audit.text(x,top+size+25,f'{xmin+span*f:.1f}',15,anchor="middle"),audit.text(left-12,y+5,f'{ymin+span*f:.1f}',15,anchor="end")]
-    for vehicle,color,dashed,label in (("rov","#23774a",False,"ROV (실선)"),("torpedo","#a83b38",True,"어뢰 (점선)")):
+    for vehicle,color,dashed,label in (("rov","#23774a",False,"BlueROV2 (실선)"),("torpedo","#a83b38",True,"어뢰 (점선)")):
         points=[project(float(r[f"{vehicle}_x"]),float(r[f"{vehicle}_y"])) for r in window]
         line=" ".join(f'{x:.3f},{y:.3f}' for x,y in points)
         parts.append(f'<polyline points="{line}" fill="none" stroke="{color}" stroke-width="3" marker-end="url(#{vehicle}-direction)"'+(' stroke-dasharray="7 4"' if dashed else '')+'/>')
+        if vehicle == 'torpedo':
+            i=max(1,len(points)//3)
+            ax,ay=points[i-1]
+            bx,by=points[i]
+            parts.append(f'<path d="M{ax:.3f} {ay:.3f}L{bx:.3f} {by:.3f}" fill="none" stroke="{color}" stroke-width="2" marker-end="url(#torpedo-direction)"/>')
         start_x,start_y=points[0]
         parts.append(f'<circle cx="{start_x:.3f}" cy="{start_y:.3f}" r="5" fill="#fff" stroke="{color}" stroke-width="3"/>')
         x,y=project(float(closest[f"{vehicle}_x"]),float(closest[f"{vehicle}_y"]))
         parts += [f'<circle cx="{x:.3f}" cy="{y:.3f}" r="6" fill="{color}" stroke="#fff" stroke-width="2"/>',audit.text(35 if vehicle=='rov' else 233,179,label,22,color) if mobile else audit.text(622,193 if vehicle=="rov" else 225,label,18,color)]
     if mobile:
-        parts += [audit.text(left+size/2,549,'X (m)',22,anchor='middle'),audit.text(30,201,'Y (m)',17),audit.text(30,579,'○ 시작 · 화살표 진행 방향 · ● 최근접 표본',17)]
+        parts += [audit.text(left+size/2,549,'X (m)',22,anchor='middle'),audit.text(30,201,'Y (m)',17),audit.text(30,580,'○ 시작   화살표: 진행 방향',17),audit.text(30,608,'● 두 기체가 가장 가까워진 시점의 위치',17)]
     else:
-        parts += [audit.text(622,266,"○ 시작 · 화살표 진행 방향",17),audit.text(622,294,"● 최근접 표본",17),audit.text(left+size/2,555,"X (m)",17,anchor="middle"),audit.text(116,top+size/2,"Y (m)",17),audit.text(30,588,"기록된 표본의 구간 확대이며 XY 투영으로 3D 피격을 다시 판정하지 않습니다.",15)]
+        parts += [audit.text(622,266,"○ 시작   화살표: 진행 방향",17),audit.text(622,294,"● 두 기체가 가장 가까워진",17),audit.text(639,318,"시점의 위치",17),audit.text(left+size/2,555,"X (m)",17,anchor="middle"),audit.text(116,top+size/2,"Y (m)",17)]
     return audit.finish(parts),{"run_id":chosen["run_id"],"condition":{"scenario":s,"mode":m,"torpedo":t},"window_t_rel_sec":[lo,hi],"projection":"measured XY, equal X/Y aspect", "selection_rule":"First complete AVOIDED condition in configured direction/mode/torpedo order"}
 
 
@@ -154,7 +159,7 @@ def results_html(summary, figures, mobile_figures, asset_path):
         block.append(f'<tr><th scope="row">{LABEL[s]}</th>'+''.join(f'<td>{cells[f"{s}|{m}"]["avoided"]} / 3</td>' for m in MODES)+'</tr>')
     block.append('<tr class="manta-total-row"><th scope="row">합계</th>'+''.join(f'<td>{totals[m]} / 12</td>' for m in MODES)+'</tr></tbody></table>')
     block += [f'<p>직접 추종 조건에서는 12개 중 {totals[MODES[0]]}개, 비례항법 유도(PN) 조건에서는 12개 중 {totals[MODES[1]]}개에서 최종 회피를 확인했습니다.</p>',
-              '<p>모든 조건에서 회피할 수 있음을 보인 결과가 아니라, 같은 DVO에서도 상대의 유도 방식에 따라 최종 회피가 가능한 조건이 크게 달라진다는 점을 확인했습니다.</p>',
+              '<p>같은 DVO에서도 어뢰의 유도 방식에 따라 회피 결과가 크게 달라졌습니다.</p>',
               '<details class="manta-data-details" open><summary>대표 조건의 이동 궤적</summary>']
     name='dvo-measured-trajectory.svg'
     mobile_name=name.replace('.svg','-mobile.svg')
@@ -163,12 +168,12 @@ def results_html(summary, figures, mobile_figures, asset_path):
     condition=summary['trajectory']['condition']
     caption='DVO / '+ ' / '.join(LABEL[condition[k]] for k in ('scenario','mode','torpedo'))+' / 최종 회피 완료'
     block += [f'<figure class="research-figure manta-generated-figure"><picture><source media="(max-width:700px)" srcset="{mobile_url}"><img loading="lazy" decoding="async" src="{url}" alt="{html.escape(caption)}"></picture><figcaption>{caption}. 위협 접근 전후의 BlueROV2와 어뢰 이동 궤적을 비교했습니다.</figcaption><a class="back-link" href="{url}" target="_blank" rel="noopener">궤적 확대 ↗</a></figure>',
-              '<p class="method-note">최근접 표본 주변 10초의 수평면 이동 궤적입니다. 피격 여부는 3차원 최근접 거리 1.0 m 이하를 기준으로 판정했습니다.</p>',
+              '<p class="method-note">수평면 이동 궤적입니다. 피격 판정은 두 기체 사이의 3차원 거리 1.0 m 이하를 기준으로 했습니다.</p>',
               '</details>',
-              '<details class="manta-data-details"><summary>최근접 거리와 계획 비용 보기</summary><p>최신 동일 코드 기준의 A* 대조군은 없어 두 플래너의 정량 우열은 비교하지 않았습니다.</p><table class="metric-table manta-direction-table"><caption>조건별 최근접 거리 중앙값 (m), 각 칸은 어뢰 3종 기준</caption><thead><tr><th scope="col">접근 방향</th><th scope="col">직접 추종</th><th scope="col">비례항법 유도(PN)</th></tr></thead><tbody>']
+              '<details class="manta-data-details"><summary>최근접 거리와 경로 계산 시간 보기</summary><p>최신 동일 코드 기준의 A* 대조군은 없어 두 플래너의 정량 우열은 비교하지 않았습니다.</p><table class="metric-table manta-direction-table"><caption>조건별 최근접 거리 중앙값 (m), 각 칸은 어뢰 3종 기준</caption><thead><tr><th scope="col">접근 방향</th><th scope="col">직접 추종</th><th scope="col">비례항법 유도(PN)</th></tr></thead><tbody>']
     for s in SCENARIOS:
         block.append(f'<tr><th scope="row">{LABEL[s]}</th>'+''.join(f'<td>{cells[f"{s}|{m}"]["closest_m_median"]:.2f}</td>' for m in MODES)+'</tr>')
-    block += ['</tbody></table>',f'<p>완료된 계획 호출의 소요 시간 중앙값은 {summary["plan_ms"]["median"]:.3f} ms, p95는 {summary["plan_ms"]["p95"]:.3f} ms입니다. 실행당 계획 호출 수 중앙값은 {summary["plan_count"]["median"]:.1f}회입니다. 5 Hz 타이머가 초당 5회 계획 완료를 보장하지는 않습니다.</p>', '</details>']
+    block += ['</tbody></table>',f'<p>완료된 계획 호출의 소요 시간 중앙값은 {summary["plan_ms"]["median"]:.3f} ms, p95는 {summary["plan_ms"]["p95"]:.3f} ms입니다. 실행당 계획 호출 수 중앙값은 {summary["plan_count"]["median"]:.1f}회입니다.</p>', '</details>']
     return '\n'.join(block)
 
 

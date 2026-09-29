@@ -93,14 +93,23 @@ class PresentationTests(unittest.TestCase):
         self.assertIn('24개 조건 중 15개', manta)
         self.assertIn('12개 중 11개', manta)
         self.assertIn('12개 중 4개', manta)
-        self.assertIn('유도 방식에 따라 최종 회피가 가능한 조건이 크게 달라진다는 점', manta)
+        self.assertIn('어뢰의 유도 방식에 따라 회피 결과가 크게 달라졌습니다.', manta)
         self.assertNotIn('62.5%', home + manta)
         trajectory = (DIST / 'assets/generated/manta/dvo-measured-trajectory.svg').read_text(encoding='utf-8')
         mobile_trajectory = (DIST / 'assets/generated/manta/dvo-measured-trajectory-mobile.svg').read_text(encoding='utf-8')
         for figure in (trajectory, mobile_trajectory):
             self.assertIn('marker-end="url(#rov-direction)"', figure)
             self.assertIn('marker-end="url(#torpedo-direction)"', figure)
-            self.assertIn('○ 시작 · 화살표 진행 방향', figure)
+            self.assertIn('○ 시작   화살표: 진행 방향', figure)
+            self.assertIn('BlueROV2 (실선)', figure)
+            self.assertNotIn('● 최근접 표본', figure)
+            self.assertGreaterEqual(figure.count('marker-end="url(#torpedo-direction)"'), 2)
+        for name in ('manta-threat-models.svg', 'manta-threat-models-mobile.svg'):
+            figure = (DIST / 'assets/images' / name).read_text(encoding='utf-8')
+            self.assertEqual(figure.count('x="310" y="173" width="40" height="34"'), 2)
+            self.assertIn('후보별 최근접 거리 평가', figure)
+            self.assertNotIn('이동에 따른 예상 위험 영역', figure)
+            self.assertNotIn('M330 171L350 207L130 311L110 275Z', figure)
 
     def test_social_metadata_unique_and_consistent(self):
         parser = MetaTags()
