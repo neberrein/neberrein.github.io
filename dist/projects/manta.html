@@ -25,9 +25,9 @@
     </div>
   </section>
   <section class="case-section"><div class="section-shell case-layout"><div><span class="case-section-label">01 / SYSTEM</span><h2>전체 시스템에서 회피 판단과 경로 생성을 담당했습니다</h2></div><div class="case-body">
-    <p>BlueROV2와 위협의 상태를 입력받아 회피 여부를 판단하고, 선택한 플래너가 생성한 경로를 팀의 제어 모듈로 전달했습니다. 위협 판단, 경로 생성, 인터페이스 연동과 실험 자동화를 담당했습니다.</p>
+    <p>BlueROV2와 위협의 상태를 입력받아 회피 여부를 판단하고, 선택한 플래너가 생성한 경로를 제어 모듈로 전달했습니다. 위협 판단, 경로 생성, 인터페이스 연동과 실험 자동화를 담당했습니다.</p>
     <p>회피 판단과 경로 계획 검증에 집중하기 위해 BlueROV2와 어뢰의 위치 상태는 Gazebo 시뮬레이션에서 입력받았습니다.</p>
-    <figure class="research-figure manta-scope-figure"><picture><source media="(max-width:900px)" srcset="../assets/images/manta-system-scope-mobile.svg?v=scope-four-20260913" width="440" height="720"><img loading="lazy" decoding="async" width="1100" height="310" src="../assets/images/manta-system-scope.svg?v=scope-four-20260913" alt="BlueROV2와 어뢰 상태 입력, 담당 영역의 위협 판단과 A* 또는 DVO 경로 생성, 팀 제어 모듈, Gazebo 기체 동작"></picture><figcaption>시스템 흐름과 담당 범위</figcaption></figure>
+    <figure class="research-figure manta-scope-figure"><picture><source media="(max-width:900px)" srcset="../assets/images/manta-system-scope-mobile.svg?v=scope-control-20260930" width="440" height="720"><img loading="lazy" decoding="async" width="1100" height="310" src="../assets/images/manta-system-scope.svg?v=scope-control-20260930" alt="BlueROV2와 어뢰 상태 입력, 담당 영역의 위협 판단과 A* 또는 DVO 경로 생성, 제어 모듈, Gazebo 기체 동작"></picture><figcaption>시스템 흐름과 담당 범위</figcaption></figure>
   </div></div></section>
   <section class="case-section alt-section"><div class="section-shell case-layout"><div><span class="case-section-label">02 / APPROACH</span><h2>위험 공간을 우회하는 A*와 이동 후보를 비교하는 DVO</h2></div><div class="case-body">
     <p>움직이는 위협을 피하는 방법에 따라 결과가 어떻게 달라지는지 보기 위해 두 가지 접근을 구현했습니다. A*는 예측한 위험 공간을 피하는 전역 경로를 만들고, DVO는 상대 운동을 반영해 매 순간 국소 회피 방향을 다시 선택합니다.</p>
@@ -75,7 +75,7 @@
 <p>완료된 계획 호출의 소요 시간 중앙값은 1.243 ms, p95는 2.921 ms입니다. 실행당 계획 호출 수 중앙값은 412.5회입니다.</p>
 </details>
 <!-- MANTA_RESULTS_AUTO_END -->
-    <p class="manta-wrap-up">회피 판단과 경로 계획을 팀의 제어 모듈에 연동하고, 조건별 기체 동작과 최종 결과를 확인했습니다. DVO의 등속 예측 가정과 시뮬레이션 기체의 가속 및 회전 응답이 회피 결과에 미치는 영향은 추가로 구분해 확인할 과제로 남았습니다.</p>
+    <p class="manta-wrap-up">회피 판단과 경로 계획을 제어 모듈에 연동하고, 조건별 기체 동작과 최종 결과를 확인했습니다. DVO의 등속 예측 가정과 시뮬레이션 기체의 가속 및 회전 응답이 회피 결과에 미치는 영향은 추가로 구분해 확인할 과제로 남았습니다.</p>
   </div></div></section>
   <nav class="project-pagination section-shell" aria-label="프로젝트 이동"><a class="project-pagination-prev" href="stm32-tracking.html" rel="prev"><span>← 이전 프로젝트</span><strong>STM32 표적 탐지 및 추적</strong></a><a class="project-pagination-all" href="../index.html#projects">전체 프로젝트</a><a class="project-pagination-next" href="mosaic-c2.html" rel="next"><span>다음 프로젝트 →</span><strong>MOSAIC C2</strong></a></nav>
 </main><footer class="site-footer"><div class="section-shell"><span>© 2026 곽민재</span><div class="footer-links"><a href="mailto:tkkwak4@naver.com">tkkwak4@naver.com</a><a href="https://github.com/neberrein" target="_blank" rel="noopener">GitHub ↗</a></div></div></footer></body></html>

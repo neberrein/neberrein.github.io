@@ -38,7 +38,7 @@ def save(s, name):
 def scope(mobile=False):
     s = start(440 if mobile else 1100, 720 if mobile else 310,
               'MANTA 시스템 연결과 담당 범위',
-              'BlueROV2와 어뢰 상태를 받아 담당 영역에서 위협 판단, A* 또는 DVO 경로 생성, 회피 경로 출력을 수행합니다. 팀의 경로 추종과 제어 모듈이 이를 Gazebo 기체의 움직임으로 연결합니다.')
+              'BlueROV2와 어뢰 상태를 받아 담당 영역에서 위협 판단, A* 또는 DVO 경로 생성, 회피 경로 출력을 수행합니다. 경로 추종과 제어 모듈이 이를 Gazebo 기체의 움직임으로 연결합니다.')
     if mobile:
         rect(s, 20, 20, 190, 60, '#edf2f5')
         rect(s, 230, 20, 190, 60, '#edf2f5')
@@ -55,7 +55,7 @@ def scope(mobile=False):
         text(s, 220, 449, 'nav_msgs/Path', 18, MUTED, anchor='middle')
         path(s, 'M220 465V497', arrow=True)
         rect(s, 35, 500, 370, 100, '#f3f5f6')
-        text(s, 220, 532, '팀 제어 모듈', 18, MUTED, anchor='middle')
+        text(s, 220, 532, '제어 모듈', 18, MUTED, anchor='middle')
         text(s, 220, 563, '경로 추종과 제어', 23, bold=True, anchor='middle')
         text(s, 220, 588, 'PathFollower, PPID, 추진기 제어', 17, MUTED, anchor='middle')
         path(s, 'M220 600V632', arrow=True)
@@ -77,7 +77,7 @@ def scope(mobile=False):
         text(s, 641, 241, 'nav_msgs/Path', 16, MUTED, anchor='middle')
         path(s, 'M715 174H750', arrow=True)
         rect(s, 753, 115, 203, 118, '#f3f5f6')
-        text(s, 854, 146, '팀 제어 모듈', 17, MUTED, anchor='middle')
+        text(s, 854, 146, '제어 모듈', 17, MUTED, anchor='middle')
         text(s, 854, 180, '경로 추종과 제어', 21, bold=True, anchor='middle')
         text(s, 854, 208, 'PathFollower, PPID', 15, MUTED, anchor='middle')
         text(s, 854, 227, '추진기 제어', 15, MUTED, anchor='middle')
