@@ -25,9 +25,9 @@
     </div>
   </section>
   <section class="case-section"><div class="section-shell case-layout"><div><span class="case-section-label">01 / SYSTEM</span><h2>전체 시스템에서 회피 판단과 경로 생성을 담당했습니다</h2></div><div class="case-body">
-    <p>BlueROV2와 위협의 상태를 입력받아 회피 여부를 판단하고, 선택한 플래너가 생성한 경로를 제어 모듈로 전달했습니다. 위협 판단, 경로 생성, 인터페이스 연동과 실험 자동화를 담당했습니다.</p>
+    <p>BlueROV2와 위협의 상태를 입력받아 회피 여부를 판단하고, 선택한 플래너가 생성한 경로를 제어 모듈로 전달했습니다. 회피 여부 판단, 경로 생성, 인터페이스 연동과 실험 자동화를 담당했습니다.</p>
     <p>회피 판단과 경로 계획 검증에 집중하기 위해 BlueROV2와 어뢰의 위치 상태는 Gazebo 시뮬레이션에서 입력받았습니다.</p>
-    <figure class="research-figure manta-scope-figure"><picture><source media="(max-width:900px)" srcset="../assets/images/manta-system-scope-mobile.svg?v=scope-control-20260930" width="440" height="720"><img loading="lazy" decoding="async" width="1100" height="310" src="../assets/images/manta-system-scope.svg?v=scope-control-20260930" alt="BlueROV2와 어뢰 상태 입력, 담당 영역의 위협 판단과 A* 또는 DVO 경로 생성, 제어 모듈, Gazebo 기체 동작"></picture><figcaption>시스템 흐름과 담당 범위</figcaption></figure>
+    <figure class="research-figure manta-scope-figure"><picture><source media="(max-width:900px)" srcset="../assets/images/manta-system-scope-mobile.svg?v=scope-decision-20260930" width="440" height="720"><img loading="lazy" decoding="async" width="1100" height="310" src="../assets/images/manta-system-scope.svg?v=scope-decision-20260930" alt="BlueROV2와 어뢰 상태 입력, 담당 영역의 회피 여부 판단과 A* 또는 DVO 경로 생성, 제어 모듈, Gazebo 기체 동작"></picture><figcaption>시스템 흐름과 담당 범위</figcaption></figure>
   </div></div></section>
   <section class="case-section alt-section"><div class="section-shell case-layout"><div><span class="case-section-label">02 / APPROACH</span><h2>위험 공간을 우회하는 A*와 이동 후보를 비교하는 DVO</h2></div><div class="case-body">
     <p>움직이는 위협을 피하는 방법에 따라 결과가 어떻게 달라지는지 보기 위해 두 가지 접근을 구현했습니다. A*는 예측한 위험 공간을 피하는 전역 경로를 만들고, DVO는 상대 운동을 반영해 매 순간 국소 회피 방향을 다시 선택합니다.</p>

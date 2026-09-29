@@ -38,7 +38,7 @@ def save(s, name):
 def scope(mobile=False):
     s = start(440 if mobile else 1100, 720 if mobile else 310,
               'MANTA 시스템 연결과 담당 범위',
-              'BlueROV2와 어뢰 상태를 받아 담당 영역에서 위협 판단, A* 또는 DVO 경로 생성, 회피 경로 출력을 수행합니다. 경로 추종과 제어 모듈이 이를 Gazebo 기체의 움직임으로 연결합니다.')
+              'BlueROV2와 어뢰 상태를 받아 담당 영역에서 회피 여부 판단, A* 또는 DVO 경로 생성, 회피 경로 출력을 수행합니다. 경로 추종과 제어 모듈이 이를 Gazebo 기체의 움직임으로 연결합니다.')
     if mobile:
         rect(s, 20, 20, 190, 60, '#edf2f5')
         rect(s, 230, 20, 190, 60, '#edf2f5')
@@ -47,7 +47,7 @@ def scope(mobile=False):
         path(s, 'M115 80V103H220M325 80V103H220V133', arrow=True)
         rect(s, 20, 135, 400, 330, '#f4f8fb', BLUE)
         text(s, 40, 171, '담당 영역', 22, BLUE, True)
-        for y, label in ((194, '위협 판단'), (280, 'A* 또는 DVO'), (366, '회피 경로')):
+        for y, label in ((194, '회피 여부 판단'), (280, 'A* 또는 DVO'), (366, '회피 경로')):
             rect(s, 95, y, 250, 60, '#fff', BLUE)
             text(s, 220, y+38, label, 23, BLUE, True, 'middle')
         path(s, 'M220 254V277', BLUE, arrow=True)
@@ -69,11 +69,11 @@ def scope(mobile=False):
         path(s, 'M192 132H215V174M192 215H215V174H253', arrow=True)
         rect(s, 255, 55, 460, 211, '#f4f8fb', BLUE)
         text(s, 278, 92, '담당 영역', 23, BLUE, True)
-        for x, w, label in ((278, 112, '위협 판단'), (419, 143, 'A* 또는 DVO'), (591, 101, '회피 경로')):
+        for x, w, label in ((278, 140, '회피 여부 판단'), (446, 122, 'A* 또는 DVO'), (591, 101, '회피 경로')):
             rect(s, x, 137, w, 74, '#fff', BLUE)
             text(s, x+w/2, 182, label, 19, BLUE, True, 'middle')
-        path(s, 'M390 174H416', BLUE, arrow=True)
-        path(s, 'M562 174H588', BLUE, arrow=True)
+        path(s, 'M418 174H443', BLUE, arrow=True)
+        path(s, 'M568 174H588', BLUE, arrow=True)
         text(s, 641, 241, 'nav_msgs/Path', 16, MUTED, anchor='middle')
         path(s, 'M715 174H750', arrow=True)
         rect(s, 753, 115, 203, 118, '#f3f5f6')
