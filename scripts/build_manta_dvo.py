@@ -155,7 +155,6 @@ def results_html(summary, figures, mobile_figures, asset_path):
     block.append('<tr class="manta-total-row"><th scope="row">합계</th>'+''.join(f'<td>{totals[m]} / 12</td>' for m in MODES)+'</tr></tbody></table>')
     block += [f'<p>직접 추종 조건에서는 12개 중 {totals[MODES[0]]}개, 비례항법 유도(PN) 조건에서는 12개 중 {totals[MODES[1]]}개에서 최종 회피를 확인했습니다.</p>',
               '<p>모든 조건에서 회피할 수 있음을 보인 결과가 아니라, 같은 DVO에서도 상대의 유도 방식에 따라 최종 회피가 가능한 조건이 크게 달라진다는 점을 확인했습니다.</p>',
-              '<p>축척을 적용한 시뮬레이션 결과이며, 반복 실험의 신뢰구간이나 통계적 유의성을 뜻하지 않습니다.</p>',
               '<details class="manta-data-details" open><summary>대표 조건의 이동 궤적</summary>']
     name='dvo-measured-trajectory.svg'
     mobile_name=name.replace('.svg','-mobile.svg')
