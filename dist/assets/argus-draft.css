@@ -307,3 +307,7 @@
 .argus-page .case-body > .noun-list + p {
   margin-top:1.5rem;
 }
+
+.argus-page .case-body > .argus-video-pair + p {
+  margin-top:2rem;
+}
