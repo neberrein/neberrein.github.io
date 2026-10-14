@@ -6,7 +6,7 @@
 <rect x="20" y="20" width="1160" height="470" rx="14" fill="#f5f8fb" stroke="#c4d3e3" stroke-width="2"/>
 <text x="44" y="58" font-size="22" fill="#21457c">대상을 놓친 경우</text><text x="1156" y="58" text-anchor="end" font-size="16" fill="#53677c">표적 관리 상태</text>
 <path d="M950 120V92H140V118" fill="none" stroke="#2f63b4" stroke-width="3" marker-end="url(#blue)"/>
-<text x="545" y="82" text-anchor="middle" class="lb">여러 프레임 연속 관측과 이동 검증 통과</text>
+<text x="545" y="82" text-anchor="middle" class="lb">3프레임 연속 확인과 이동 검증 통과</text>
 <rect x="50" y="120" width="180" height="80" rx="12" fill="#fff" stroke="#2f63b4" stroke-width="2.5"/><text x="140" y="155" text-anchor="middle" class="st">표적 고정</text><text x="140" y="182" text-anchor="middle" class="code">LOCKED</text>
 <path d="M230 150H318" fill="none" stroke="#2f63b4" stroke-width="3" marker-end="url(#blue)"/><text x="274" y="138" text-anchor="middle" class="lb">관측 끊김</text>
 <rect x="320" y="120" width="180" height="80" rx="12" fill="#fff" stroke="#cfdae5" stroke-width="2"/><text x="410" y="155" text-anchor="middle" class="st">관측 공백 대기</text><text x="410" y="182" text-anchor="middle" class="code">GAP_HOLD</text>
@@ -18,12 +18,10 @@
 <path d="M410 200V340H588" fill="none" stroke="#b86612" stroke-width="2.5" stroke-dasharray="7 5" marker-end="url(#amber)"/>
 <path d="M650 200V298" fill="none" stroke="#b86612" stroke-width="2.5" stroke-dasharray="7 5" marker-end="url(#amber)"/>
 <path d="M950 200V340H772" fill="none" stroke="#b86612" stroke-width="2.5" stroke-dasharray="7 5" marker-end="url(#amber)"/>
-<path d="M710 300V202" fill="none" stroke="#697e91" stroke-width="2.5" marker-end="url(#gray)"/>
-<text x="638" y="262" text-anchor="end" class="lb-amber">제한 시간 초과</text>
-<text x="722" y="262" text-anchor="start" class="lb-muted">다시 시도할 때만</text>
+<text x="638" y="262" text-anchor="end" class="lb-amber">4초 초과</text>
 <rect x="590" y="300" width="180" height="80" rx="12" fill="#fff" stroke="#b86612" stroke-width="2.5"/><text x="680" y="335" text-anchor="middle" class="st">표적 상실</text><text x="680" y="362" text-anchor="middle" class="code">LOST</text>
 <rect x="50" y="412" width="1100" height="54" rx="10" fill="#fff" stroke="#cfdae5" stroke-width="2"/>
-<text x="600" y="446" text-anchor="middle" font-size="18" fill="#18345f">표적 고정 상태에서 확인된 위치만 추종 명령에 쓰고, 나머지 상태에서는 위치 유지(Hold)를 요청합니다.</text>
+<text x="600" y="434" text-anchor="middle" font-size="16" fill="#18345f">표적 고정일 때만 이동 명령을 만들고, 공백 대기, 탐색, 확인 중에는 속도 0으로 제자리에서 기다립니다.</text><text x="600" y="456" text-anchor="middle" font-size="16" fill="#18345f">4초 안에 다시 고정하지 못하면 표적 상실로 보고 PX4를 위치 유지(Hold)로 바꾸며, 사용자가 다시 골라야 재개합니다.</text>
 <rect x="20" y="510" width="1160" height="110" rx="14" fill="#edf3f8" stroke="#b8cbe0" stroke-width="2"/>
 <text x="44" y="548" font-size="20" fill="#21457c">사용자가 수동으로 개입한 경우</text>
 <rect x="50" y="562" width="200" height="44" rx="10" fill="#fff" stroke="#2f63b4" stroke-width="2"/><text x="150" y="591" text-anchor="middle" font-size="19" fill="#18345f">수동 개입</text>

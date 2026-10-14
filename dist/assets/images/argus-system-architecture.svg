@@ -27,13 +27,13 @@
 <text x="478" y="292" text-anchor="end" class="label">입력 영상</text>
 <text x="612" y="292" text-anchor="start" class="label">추론 결과</text>
 <rect x="519" y="273" width="52" height="26" rx="13" class="pill"/><text x="545" y="291" text-anchor="middle" class="pill-text">PCIe</text>
-<path d="M712 240V558" fill="none" stroke="#697e91" stroke-width="3" marker-end="url(#gray)"/>
+<path d="M700 240V558" fill="none" stroke="#697e91" stroke-width="3" marker-end="url(#gray)"/>
 <path d="M746 560V242" fill="none" stroke="#2f63b4" stroke-width="3" marker-end="url(#blue)"/>
-<rect x="697" y="477" width="64" height="26" rx="13" class="pill"/><text x="729" y="495" text-anchor="middle" class="pill-text">UDP</text>
-<text x="700" y="535" text-anchor="end" font-size="19" fill="#53677c">영상과 상태</text>
-<text x="758" y="535" text-anchor="start" class="label">선택 / 시작 / 중단</text>
+<rect x="670" y="452" width="60" height="26" rx="13" class="pill"/><text x="700" y="470" text-anchor="middle" class="pill-text">RTSP</text><rect x="719" y="496" width="54" height="26" rx="13" class="pill"/><text x="746" y="514" text-anchor="middle" class="pill-text">UDP</text>
+<text x="688" y="535" text-anchor="end" font-size="19" fill="#53677c">영상과 탐지, 추적 결과</text>
+<text x="758" y="548" text-anchor="start" class="label">박스 선택 / 시작 / 중단</text>
 <rect x="579" y="560" width="300" height="110" rx="12" fill="#fff" stroke="#cfdae5" stroke-width="2"/>
-<text x="729" y="606" text-anchor="middle" font-size="25" fill="#18345f">지상 통제기</text><text x="729" y="644" text-anchor="middle" font-size="19" fill="#53677c">영상 확인 / 기록 / 운용 요청</text>
+<text x="729" y="606" text-anchor="middle" font-size="25" fill="#18345f">지상 통제기</text><text x="729" y="644" text-anchor="middle" font-size="19" fill="#53677c">영상과 박스 확인 / 표적 선택</text>
 <rect x="40" y="602" width="80" height="26" rx="13" fill="#2f63b4"/><text x="80" y="620" text-anchor="middle" font-size="14" fill="#fff">본인 담당</text>
 <text x="132" y="621" text-anchor="start" font-size="17" fill="#18345f">YOLOX 학습, Hailo NPU 적용, 다중 추적과 표적 재획득</text>
 </svg>

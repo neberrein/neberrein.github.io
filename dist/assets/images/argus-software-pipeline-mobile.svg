@@ -10,7 +10,7 @@
 <text x="360" y="157" text-anchor="middle" font-size="25" fill="#53677c">Raspberry Pi 5</text>
 <rect x="90" y="215" width="540" height="100" rx="12" fill="#fff" stroke="#cfdae5" stroke-width="2"/>
 <text x="360" y="259" text-anchor="middle" font-size="32" fill="#18345f">영상 전처리</text>
-<text x="360" y="297" text-anchor="middle" font-size="25" fill="#53677c">Raspberry Pi 5 / 14bit → 8bit</text>
+<text x="360" y="297" text-anchor="middle" font-size="25" fill="#53677c">Raspberry Pi 5 / Double Plateau</text>
 <rect x="90" y="355" width="540" height="100" rx="12" fill="#edf3f8" stroke="#2f63b4" stroke-width="2.5"/>
 <text x="360" y="399" text-anchor="middle" font-size="32" fill="#18345f">YOLOX 추론</text>
 <text x="360" y="437" text-anchor="middle" font-size="25" fill="#53677c">Hailo NPU</text>
@@ -30,8 +30,8 @@
 <text x="360" y="1062" text-anchor="middle" font-size="25" fill="#53677c">Raspberry Pi 5</text>
 <rect x="512" y="965" width="108" height="30" rx="15" fill="#2f63b4"/><text x="566" y="986" text-anchor="middle" font-size="18" fill="#fff">본인 담당</text>
 <rect x="90" y="1120" width="540" height="100" rx="12" fill="#fff" stroke="#cfdae5" stroke-width="2"/>
-<text x="360" y="1164" text-anchor="middle" font-size="32" fill="#18345f">추종 제어 PID</text>
-<text x="360" y="1202" text-anchor="middle" font-size="25" fill="#53677c">Raspberry Pi 5 / 20Hz</text>
+<text x="360" y="1164" text-anchor="middle" font-size="32" fill="#18345f">예측 추종 제어</text>
+<text x="360" y="1202" text-anchor="middle" font-size="25" fill="#53677c">Raspberry Pi 5 / 1.2초 예측, 20Hz</text>
 <rect x="90" y="1260" width="540" height="100" rx="12" fill="#fff" stroke="#cfdae5" stroke-width="2"/>
 <text x="360" y="1304" text-anchor="middle" font-size="32" fill="#18345f">명령 검사 Guard</text>
 <text x="360" y="1342" text-anchor="middle" font-size="25" fill="#53677c">Raspberry Pi 5 / Watchdog</text>
