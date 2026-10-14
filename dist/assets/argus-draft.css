@@ -285,6 +285,10 @@
   margin-top:1.5rem;
 }
 
+.argus-page .case-body > .argus-interface-grid + p {
+  margin-top:2rem;
+}
+
 
 .argus-video-pair {
   display:grid;
