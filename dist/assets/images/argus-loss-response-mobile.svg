@@ -1,7 +1,34 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="720" height="1170" viewBox="0 0 720 1170" role="img" aria-labelledby="title desc">
-<title id="title">대상 소실과 사용자 수동 개입을 구분한 대응 설계 — 모바일</title><desc id="desc">화살표는 데이터 또는 명령의 전달 방향을 나타냅니다.</desc>
-<defs><marker id="blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 10 5 0 10Z" fill="#2f63b4"/></marker><marker id="teal" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 10 5 0 10Z" fill="#138a98"/></marker><marker id="gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 10 5 0 10Z" fill="#697e91"/></marker></defs>
-<style>text{font-family:Pretendard,"Noto Sans KR","Malgun Gothic",sans-serif;font-weight:650}</style>
-<rect width="720" height="1170" fill="#fff"/>
-<text x="60" y="50" text-anchor="start" font-size="32" fill="#21457c">대상을 놓친 경우</text><rect x="90" y="90" width="540" height="115" rx="12" fill="#fff" stroke="#b86612" stroke-width="2"/><text x="360" y="135" text-anchor="middle" font-size="34" fill="#18345f">대상 소실</text><text x="360" y="178" text-anchor="middle" font-size="30" fill="#53677c">일정 시간 미검출</text><path d="M360 205V260" fill="none" stroke="#2f63b4" stroke-width="3"  marker-end="url(#blue)"/><rect x="90" y="260" width="540" height="115" rx="12" fill="#fff" stroke="#cfdae5" stroke-width="2"/><text x="360" y="305" text-anchor="middle" font-size="34" fill="#18345f">자동 추종 중단</text><text x="360" y="348" text-anchor="middle" font-size="30" fill="#53677c">위치 유지 요청</text><path d="M360 375V430" fill="none" stroke="#2f63b4" stroke-width="3"  marker-end="url(#blue)"/><rect x="90" y="430" width="540" height="115" rx="12" fill="#fff" stroke="#cfdae5" stroke-width="2"/><text x="360" y="475" text-anchor="middle" font-size="34" fill="#18345f">비행 상태 확인</text><text x="360" y="518" text-anchor="middle" font-size="30" fill="#53677c">Hold 전환 확인</text><path d="M360 545V600" fill="none" stroke="#2f63b4" stroke-width="3"  marker-end="url(#blue)"/><rect x="90" y="600" width="540" height="115" rx="12" fill="#fff" stroke="#cfdae5" stroke-width="2"/><text x="360" y="645" text-anchor="middle" font-size="34" fill="#18345f">대상 재탐지</text><text x="360" y="688" text-anchor="middle" font-size="30" fill="#53677c">재개 조건 확인</text><path d="M360 715V770" fill="none" stroke="#2f63b4" stroke-width="3"  marker-end="url(#blue)"/><rect x="90" y="770" width="540" height="115" rx="12" fill="#fff" stroke="#138a98" stroke-width="2"/><text x="360" y="815" text-anchor="middle" font-size="34" fill="#18345f">추종 재개</text><text x="360" y="858" text-anchor="middle" font-size="30" fill="#53677c">조건 충족 시</text><rect x="55" y="980" width="610" height="145" rx="12" fill="#edf3f8" stroke="#cfdae5" stroke-width="2"/><text x="360" y="1025" text-anchor="middle" font-size="34" fill="#18345f">사용자 수동 개입</text><text x="360" y="1070" text-anchor="middle" font-size="30" fill="#53677c">현재 상태와 관계없이</text><text x="360" y="1107" text-anchor="middle" font-size="32" fill="#18345f">자동 추종 해제</text>
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="1250" viewBox="0 0 720 1250" role="img" aria-labelledby="title desc">
+<title id="title">표적 관리 상태와 수동 개입 대응 — 모바일</title><desc id="desc">대상을 놓쳤을 때 표적 관리 상태가 바뀌는 순서와 사용자 수동 개입 처리를 나타냅니다.</desc>
+<defs><marker id="blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 10 5 0 10Z" fill="#2f63b4"/></marker><marker id="amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 10 5 0 10Z" fill="#b86612"/></marker><marker id="gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 10 5 0 10Z" fill="#697e91"/></marker></defs>
+<style>text{font-family:Pretendard,"Noto Sans KR","Malgun Gothic",sans-serif;font-weight:650}.st{font-size:30px;fill:#18345f}.code{font-size:21px;fill:#53677c;letter-spacing:.04em}.lb{font-size:22px;fill:#21457c}.lb-muted{font-size:22px;fill:#53677c}.lb-amber{font-size:22px;fill:#b86612}</style>
+<rect width="720" height="1250" fill="#fff"/>
+<rect x="15" y="15" width="690" height="945" rx="14" fill="#f5f8fb" stroke="#c4d3e3" stroke-width="2"/>
+<text x="40" y="60" font-size="28" fill="#21457c">대상을 놓친 경우</text><text x="680" y="60" text-anchor="end" font-size="20" fill="#53677c">표적 관리 상태</text>
+<path d="M170 635H90V155H168" fill="none" stroke="#2f63b4" stroke-width="3" marker-end="url(#blue)"/>
+<text x="70" y="395" text-anchor="middle" class="lb" transform="rotate(-90 70 395)">연속 관측과 이동 검증 통과</text>
+<path d="M170 825H125V475H168" fill="none" stroke="#697e91" stroke-width="2.5" marker-end="url(#gray)"/>
+<rect x="170" y="110" width="380" height="90" rx="12" fill="#fff" stroke="#2f63b4" stroke-width="2.5"/><text x="360" y="152" text-anchor="middle" class="st">표적 고정</text><text x="360" y="184" text-anchor="middle" class="code">LOCKED</text>
+<path d="M360 200V268" fill="none" stroke="#2f63b4" stroke-width="3" marker-end="url(#blue)"/><text x="378" y="242" class="lb">관측 끊김</text>
+<rect x="170" y="270" width="380" height="90" rx="12" fill="#fff" stroke="#cfdae5" stroke-width="2"/><text x="360" y="312" text-anchor="middle" class="st">관측 공백 대기</text><text x="360" y="344" text-anchor="middle" class="code">GAP_HOLD</text>
+<path d="M360 360V428" fill="none" stroke="#2f63b4" stroke-width="3" marker-end="url(#blue)"/><text x="378" y="402" class="lb">후보 검색</text>
+<rect x="170" y="430" width="380" height="90" rx="12" fill="#fff" stroke="#cfdae5" stroke-width="2"/><text x="360" y="472" text-anchor="middle" class="st">재획득 후보 탐색</text><text x="360" y="504" text-anchor="middle" class="code">REACQUIRE</text>
+<path d="M320 520V588" fill="none" stroke="#2f63b4" stroke-width="3" marker-end="url(#blue)"/><text x="308" y="562" text-anchor="end" class="lb">후보 1개</text>
+<path d="M400 590V522" fill="none" stroke="#697e91" stroke-width="2.5" stroke-dasharray="7 5" marker-end="url(#gray)"/><text x="412" y="562" class="lb-muted">검증 실패</text>
+<rect x="170" y="590" width="380" height="90" rx="12" fill="#fff" stroke="#cfdae5" stroke-width="2"/><text x="360" y="632" text-anchor="middle" class="st">후보 확인</text><text x="360" y="664" text-anchor="middle" class="code">CONFIRM</text>
+<path d="M550 315H620" fill="none" stroke="#b86612" stroke-width="2.5" stroke-dasharray="7 5"/>
+<path d="M550 475H620" fill="none" stroke="#b86612" stroke-width="2.5" stroke-dasharray="7 5"/>
+<path d="M550 635H620V825H552" fill="none" stroke="#b86612" stroke-width="2.5" stroke-dasharray="7 5" marker-end="url(#amber)"/>
+<path d="M620 315V635" fill="none" stroke="#b86612" stroke-width="2.5" stroke-dasharray="7 5"/>
+<text x="605" y="745" text-anchor="end" class="lb-amber">제한 시간 초과</text>
+<text x="182" y="745" class="lb-muted">↑ 다시 시도할 때만</text>
+<rect x="170" y="780" width="380" height="90" rx="12" fill="#fff" stroke="#b86612" stroke-width="2.5"/><text x="360" y="822" text-anchor="middle" class="st">표적 상실</text><text x="360" y="854" text-anchor="middle" class="code">LOST</text>
+<rect x="40" y="884" width="640" height="64" rx="10" fill="#fff" stroke="#cfdae5" stroke-width="2"/>
+<text x="360" y="911" text-anchor="middle" font-size="21" fill="#18345f">표적 고정 상태에서 확인된 위치만 추종 명령에 쓰고,</text>
+<text x="360" y="938" text-anchor="middle" font-size="21" fill="#18345f">나머지 상태에서는 위치 유지(Hold)를 요청합니다.</text>
+<rect x="15" y="985" width="690" height="240" rx="14" fill="#edf3f8" stroke="#b8cbe0" stroke-width="2"/>
+<text x="40" y="1028" font-size="26" fill="#21457c">사용자가 수동으로 개입한 경우</text>
+<rect x="170" y="1050" width="380" height="60" rx="10" fill="#fff" stroke="#2f63b4" stroke-width="2"/><text x="360" y="1090" text-anchor="middle" font-size="28" fill="#18345f">수동 개입</text>
+<path d="M360 1110V1158" fill="none" stroke="#2f63b4" stroke-width="3" marker-end="url(#blue)"/>
+<text x="360" y="1196" text-anchor="middle" font-size="27" fill="#21457c">현재 상태와 관계없이 자동 추종 해제</text>
 </svg>

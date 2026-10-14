@@ -17,7 +17,7 @@
 <path d="M160 358V398" fill="none" stroke="#2f63b4" stroke-width="3" marker-end="url(#blue)"/>
 <rect x="176" y="363" width="68" height="30" rx="15" class="pill"/><text x="210" y="385" text-anchor="middle" class="pill-text">USB</text>
 <rect x="60" y="400" width="600" height="120" rx="12" fill="#fff" stroke="#cfdae5" stroke-width="2"/>
-<text x="360" y="450" text-anchor="middle" font-size="34" fill="#18345f">Raspberry Pi 5</text><text x="360" y="494" text-anchor="middle" font-size="25" fill="#53677c">전처리 / <tspan fill="#2f63b4" font-weight="800">추적</tspan> / 추종 판단</text>
+<text x="360" y="450" text-anchor="middle" font-size="34" fill="#18345f">Raspberry Pi 5</text><text x="360" y="494" text-anchor="middle" font-size="25" fill="#53677c">전처리 / <tspan fill="#2f63b4" font-weight="800">추적과 재획득</tspan> / 추종 판단</text>
 <path d="M130 520V638" fill="none" stroke="#2f63b4" stroke-width="3" marker-end="url(#blue)"/>
 <path d="M230 640V522" fill="none" stroke="#2f63b4" stroke-width="3" marker-end="url(#blue)"/>
 <rect x="148" y="565" width="64" height="30" rx="15" class="pill"/><text x="180" y="587" text-anchor="middle" class="pill-text">PCIe</text>
@@ -34,5 +34,5 @@
 <rect x="400" y="640" width="280" height="130" rx="12" fill="#fff" stroke="#138a98" stroke-width="2"/>
 <text x="540" y="698" text-anchor="middle" font-size="31" fill="#18345f">비행 제어기</text><text x="540" y="740" text-anchor="middle" font-size="25" fill="#138a98">PX4 / MAVLink</text>
 <rect x="40" y="830" width="92" height="30" rx="15" fill="#2f63b4"/><text x="86" y="851" text-anchor="middle" font-size="18" fill="#fff">본인 담당</text>
-<text x="146" y="853" text-anchor="start" font-size="22" fill="#18345f">YOLOX 학습, Hailo NPU 적용, 대상 추적</text>
+<text x="146" y="853" text-anchor="start" font-size="22" fill="#18345f">YOLOX 학습, Hailo NPU 적용, 다중 추적과 표적 재획득</text>
 </svg>
