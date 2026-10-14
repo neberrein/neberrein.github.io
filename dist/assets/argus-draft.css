@@ -285,22 +285,6 @@
   margin-top:1.5rem;
 }
 
-.argus-photo-figure {
-  max-width:720px;
-  margin:1.5rem auto 0;
-}
-
-.argus-photo-figure img {
-  display:block;
-  width:100%;
-  height:auto;
-  max-height:none;
-}
-
-.argus-photo-figure figcaption span {
-  display:block;
-  color:var(--slate);
-}
 
 .argus-video-pair {
   display:grid;

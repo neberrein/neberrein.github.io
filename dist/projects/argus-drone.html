@@ -22,8 +22,8 @@
     <div class="argus-status-row"><p class="case-label">ONBOARD AI / DRONE / OBJECT DETECTION &amp; TRACKING</p><span class="argus-draft-badge">진행 중</span></div>
     <h1>ARGUS 온보드 AI 드론 객체 탐지 및 추적 시스템</h1>
     <p class="argus-name-note"><strong>ARGUS</strong> AI-powered Real-time Ground Object UAV Surveillance</p>
-    <p class="case-subtitle">열화상 영상에서 지상 객체를 찾고, 선택한 대상을 드론이 따라가도록 하는 시스템을 개발하고 있습니다. YOLOX 탐지는 기체에 실은 Hailo-8 NPU에서 실행하고, 탐지 결과를 추적과 PX4 비행 제어로 연결했습니다. 탐지부터 추종까지 시뮬레이션에서 검증했고, 지금은 실기체로 시험하고 있습니다.</p>
-    <dl class="case-facts"><div><dt>기간</dt><dd>2026.09–진행 중</dd></div><div><dt>팀</dt><dd>ARGUS 6인 팀</dd></div><div><dt>역할</dt><dd>팀장<br>YOLOX 학습과 Hailo NPU 적용<br>개발 일정과 시스템 통합 관리</dd></div><div><dt>주요 구성</dt><dd>F450 / Raspberry Pi 5 / Hailo-8 / LWIR / PX4</dd></div></dl>
+    <p class="case-subtitle">열화상 영상에서 지상 객체를 찾고, 선택한 대상을 드론이 따라가도록 하는 시스템을 개발하고 있습니다. YOLOX 탐지는 기체에 실은 Hailo-8 NPU에서 실행하고, 탐지 결과를 추적과 PX4 비행 제어로 연결하도록 설계했습니다. 지금은 탑재 장비를 실은 실기체로 시험하고 있습니다.</p>
+    <dl class="case-facts"><div><dt>기간</dt><dd>2026.09–진행 중</dd></div><div><dt>팀</dt><dd>ARGUS 6인 팀</dd></div><div><dt>역할</dt><dd>팀장<br>YOLOX 학습과 Hailo NPU 적용<br>대상 추적<br>개발 일정과 시스템 통합 관리</dd></div><div><dt>주요 구성</dt><dd>F450 / Raspberry Pi 5 / Hailo-8 / LWIR / PX4</dd></div></dl>
     <figure class="research-figure argus-platform-photo"><img src="../assets/images/argus-drone-platform.jpg" width="4000" height="3000" alt="야외에서 가까이 본 ARGUS 드론 플랫폼의 기체와 착륙 장치" loading="lazy" decoding="async"><figcaption>프로젝트에 사용하는 드론 플랫폼</figcaption></figure>
   </section>
 
@@ -34,9 +34,8 @@
 
   <section class="case-section alt-section"><div class="section-shell case-layout"><div><span class="case-section-label">02 / SYSTEM</span><h2>장치별 역할과 연결 구조</h2></div><div class="case-body">
     <p>Raspberry Pi 5는 영상 전처리와 대상 추적, 추종 판단을 맡고, Hailo NPU는 YOLOX 추론만 맡도록 역할을 나눴습니다. 추종 명령은 PX4 비행 제어기로 보내고, 지상 통제기에서는 영상과 상태를 보며 추종 시작과 중단을 요청합니다. 카메라는 USB, Hailo NPU는 PCIe, PX4는 UART(MAVLink)로 Raspberry Pi 5에 연결하고, 지상 통제기와는 Wi-Fi로 통신합니다.</p>
-    <p>저는 팀장으로서 개발 일정과 시스템 통합을 관리하면서 YOLOX 학습과 Hailo NPU 적용을 담당했습니다.</p>
-    <figure class="research-figure argus-plan-figure"><picture><source media="(max-width: 680px)" srcset="../assets/images/argus-system-architecture-mobile.svg?v=20261014" width="720" height="1320"><img src="../assets/images/argus-system-architecture.svg?v=20261014" width="1200" height="760" alt="카메라 영상은 USB로 Raspberry Pi 5에 들어오고, Pi는 PCIe로 연결된 Hailo NPU와 추론 데이터를 주고받습니다. Pi와 PX4는 UART(MAVLink)로 명령과 상태를 주고받으며, 지상 통제기는 Wi-Fi로 Pi와 연결됩니다." decoding="async"></picture><figcaption><strong>온보드 연산과 비행 제어 구조</strong></figcaption></figure>
-    <figure class="research-figure argus-photo-figure"><img src="../assets/images/argus-onboard-stack.jpg" width="1600" height="1200" alt="F450 기체 중앙의 3D 프린팅 받침 위에 Hailo AI HAT+를 얹은 Raspberry Pi 5를 고정한 모습" loading="lazy" decoding="async"><figcaption><strong>기체 중앙에 탑재한 Raspberry Pi 5와 Hailo-8</strong><span>3D 프린팅으로 만든 받침에 보드를 고정했습니다.</span></figcaption></figure>
+    <p>저는 팀장으로서 개발 일정과 시스템 통합을 관리하면서 YOLOX 학습, Hailo NPU 적용과 대상 추적을 담당했습니다.</p>
+    <figure class="research-figure argus-plan-figure"><picture><source media="(max-width: 680px)" srcset="../assets/images/argus-system-architecture-mobile.svg?v=20261014b" width="720" height="900"><img src="../assets/images/argus-system-architecture.svg?v=20261014b" width="1200" height="720" alt="카메라 영상은 USB로 Raspberry Pi 5에 들어오고, Pi는 PCIe로 연결된 Hailo NPU와 추론 데이터를 주고받습니다. Pi와 PX4는 UART(MAVLink)로 명령과 상태를 주고받으며, 지상 통제기는 Wi-Fi로 Pi와 연결됩니다." decoding="async"></picture><figcaption><strong>온보드 연산과 비행 제어 구조</strong></figcaption></figure>
   </div></div></section>
 
   <section class="case-section"><div class="section-shell case-layout"><div><span class="case-section-label">03 / PIPELINE</span><h2>영상에서 추종 명령까지</h2></div><div class="case-body">
@@ -54,8 +53,8 @@
   </div></div></section>
 
   <section class="case-section"><div class="section-shell case-layout"><div><span class="case-section-label">05 / VALIDATION</span><h2>검증 계획</h2></div><div class="case-body">
-    <p>탐지, 추적, 추종은 소프트웨어 비행 시뮬레이션(SITL)에서 먼저 검증했습니다. 이어서 실기체에서 영상 처리 지연과 기체 내 구동 안정성, 추종과 중단 동작을 검증할 계획입니다.</p>
-    <ul class="noun-list"><li><strong>탐지와 응답</strong>탐지 성능과 영상 입력부터 제어 명령까지 걸리는 지연 시간</li><li><strong>기체 내 구동</strong>NPU 처리 속도, 소비 전력과 온도</li><li><strong>비행 연동</strong>시뮬레이션에서 확인한 추종 명령과 실기체의 실제 제어 반응 비교</li><li><strong>추종 중단과 재개</strong>대상 소실, 수동 개입, 재탐지 상황의 동작</li></ul>
+    <p>실기체에서 영상 처리 지연과 기체 내 구동 안정성, 추종과 중단 동작을 검증할 계획입니다.</p>
+    <ul class="noun-list"><li><strong>탐지와 응답</strong>탐지 성능과 영상 입력부터 제어 명령까지 걸리는 지연 시간</li><li><strong>기체 내 구동</strong>NPU 처리 속도, 소비 전력과 온도</li><li><strong>비행 연동</strong>추종 명령에 따른 실기체의 제어 반응</li><li><strong>추종 중단과 재개</strong>대상 소실, 수동 개입, 재탐지 상황의 동작</li></ul>
     <p>지금은 탑재 장비를 모두 실은 실기체를 실내와 야외에서 띄워 시험하고 있습니다.</p>
     <div class="argus-video-pair"><figure class="video-card"><video autoplay loop muted playsinline controls preload="auto" width="1280" height="720" poster="../assets/images/argus-indoor-hover-preview.jpg" aria-label="실내 격자 바닥 위 RC 탱크 앞에서 기체가 정지 비행하는 장면"><source src="../assets/videos/argus-indoor-hover.mp4" type="video/mp4"></video><figcaption><strong>실내 시험 비행</strong><span>RC 탱크를 둔 실내에서 기체를 띄운 장면입니다.</span></figcaption></figure><figure class="video-card"><video autoplay loop muted playsinline controls preload="auto" width="1280" height="720" poster="../assets/images/argus-park-flight-preview.jpg" aria-label="공원 잔디밭에서 이륙한 기체가 하늘로 올라가는 장면"><source src="../assets/videos/argus-park-flight.mp4" type="video/mp4"></video><figcaption><strong>야외 비행</strong><span>탑재 장비를 모두 실은 기체가 공원에서 이륙하는 장면입니다.</span></figcaption></figure></div>
   </div></div></section>

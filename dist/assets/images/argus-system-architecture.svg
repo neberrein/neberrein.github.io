@@ -1,7 +1,39 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760" role="img" aria-labelledby="title desc">
-<title id="title">온보드 장치 구성과 데이터 연결</title><desc id="desc">화살표는 데이터 또는 명령의 전달 방향을 나타냅니다.</desc>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="720" viewBox="0 0 1200 720" role="img" aria-labelledby="title desc">
+<title id="title">온보드 장치 구성과 데이터 연결</title><desc id="desc">화살표는 데이터 또는 명령의 전달 방향을, 흰 표시는 연결 방식을 나타냅니다.</desc>
 <defs><marker id="blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 10 5 0 10Z" fill="#2f63b4"/></marker><marker id="teal" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 10 5 0 10Z" fill="#138a98"/></marker><marker id="gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 10 5 0 10Z" fill="#697e91"/></marker></defs>
-<style>text{font-family:Pretendard,"Noto Sans KR","Malgun Gothic",sans-serif;font-weight:650}</style>
-<rect width="1200" height="760" fill="#fff"/>
-<rect x="30" y="70" width="1140" height="490" rx="12" fill="#edf3f8" stroke="#b8cbe0" stroke-width="2"/><text x="60" y="110" text-anchor="start" font-size="24" fill="#21457c">기체 탑재 장치</text><rect x="60" y="150" width="230" height="125" rx="12" fill="#fff" stroke="#cfdae5" stroke-width="2"/><text x="175" y="200" text-anchor="middle" font-size="26" fill="#18345f">LWIR 카메라</text><text x="175" y="240" text-anchor="middle" font-size="22" fill="#53677c">열화상 영상</text><rect x="420" y="150" width="360" height="125" rx="12" fill="#fff" stroke="#cfdae5" stroke-width="2"/><text x="600" y="195" text-anchor="middle" font-size="26" fill="#18345f">Raspberry Pi 5</text><text x="600" y="230" text-anchor="middle" font-size="22" fill="#53677c">전처리 / 추적 / 추종 판단</text><rect x="910" y="150" width="230" height="125" rx="12" fill="#fff" stroke="#138a98" stroke-width="2"/><text x="1025" y="200" text-anchor="middle" font-size="26" fill="#18345f">비행 제어기</text><text x="1025" y="240" text-anchor="middle" font-size="24" fill="#138a98">PX4</text><rect x="470" y="395" width="260" height="120" rx="12" fill="#fff" stroke="#2f63b4" stroke-width="2"/><text x="600" y="440" text-anchor="middle" font-size="26" fill="#18345f">Hailo NPU</text><text x="600" y="480" text-anchor="middle" font-size="23" fill="#2f63b4">YOLOX 추론</text><path d="M290 205H420" fill="none" stroke="#2f63b4" stroke-width="3"  marker-end="url(#blue)"/><text x="355" y="185" text-anchor="middle" font-size="22" fill="#18345f">영상 (USB)</text><path d="M780 205H910" fill="none" stroke="#138a98" stroke-width="3"  marker-end="url(#teal)"/><text x="845" y="185" text-anchor="middle" font-size="22" fill="#18345f">추종 명령</text><path d="M1025 275V320H755V275" fill="none" stroke="#138a98" stroke-width="3" stroke-dasharray="8 6" marker-end="url(#teal)"/><text x="960" y="353" text-anchor="middle" font-size="22" fill="#53677c">비행 상태</text><path d="M530 275V395" fill="none" stroke="#2f63b4" stroke-width="3"  marker-end="url(#blue)"/><text x="512" y="330" text-anchor="end" font-size="22" fill="#21457c">입력 영상</text><path d="M670 395V275" fill="none" stroke="#2f63b4" stroke-width="3"  marker-end="url(#blue)"/><text x="692" y="365" text-anchor="start" font-size="22" fill="#21457c">추론 결과</text><rect x="60" y="610" width="330" height="115" rx="12" fill="#fff" stroke="#cfdae5" stroke-width="2"/><text x="225" y="655" text-anchor="middle" font-size="26" fill="#18345f">지상 통제기</text><text x="225" y="695" text-anchor="middle" font-size="21" fill="#53677c">영상 확인 / 기록 / 운용 요청</text><path d="M420 245H315V530H155V610" fill="none" stroke="#697e91" stroke-width="3"  marker-end="url(#gray)"/><text x="145" y="500" text-anchor="middle" font-size="23" fill="#18345f">영상과 상태</text><path d="M270 610V580H375V300H455V275" fill="none" stroke="#2f63b4" stroke-width="3"  marker-end="url(#blue)"/><text x="450" y="605" text-anchor="start" font-size="22" fill="#21457c">선택 / 시작 / 중단</text><text x="665" y="655" text-anchor="middle" font-size="23" fill="#2f63b4">본인 담당</text><text x="665" y="695" text-anchor="middle" font-size="23" fill="#18345f">YOLOX 학습과 Hailo NPU 적용</text><g font-size="19" fill="#53677c"><text x="845" y="235" text-anchor="middle">UART</text><text x="845" y="259" text-anchor="middle">MAVLink</text><text x="600" y="342" text-anchor="middle">PCIe</text><text x="212" y="566" text-anchor="middle">Wi-Fi</text></g>
+<style>text{font-family:Pretendard,"Noto Sans KR","Malgun Gothic",sans-serif;font-weight:650}.pill{fill:#fff;stroke:#c4d3e3;stroke-width:1.5}.pill-text{font-size:15px;fill:#53677c;font-weight:700}.label{font-size:19px;fill:#18345f}.sub{font-size:20px;fill:#53677c}</style>
+<rect width="1200" height="720" fill="#fff"/>
+<rect x="30" y="40" width="1140" height="450" rx="14" fill="#edf3f8" stroke="#b8cbe0" stroke-width="2"/>
+<text x="60" y="82" font-size="22" fill="#21457c">기체 탑재 장치</text>
+<rect x="60" y="120" width="210" height="120" rx="12" fill="#fff" stroke="#cfdae5" stroke-width="2"/>
+<text x="165" y="170" text-anchor="middle" font-size="25" fill="#18345f">LWIR 카메라</text><text x="165" y="208" text-anchor="middle" class="sub">열화상 영상</text>
+<rect x="430" y="120" width="330" height="120" rx="12" fill="#fff" stroke="#cfdae5" stroke-width="2"/>
+<text x="595" y="168" text-anchor="middle" font-size="26" fill="#18345f">Raspberry Pi 5</text><text x="595" y="206" text-anchor="middle" class="sub">전처리 / <tspan fill="#2f63b4" font-weight="800">추적</tspan> / 추종 판단</text>
+<rect x="930" y="120" width="210" height="120" rx="12" fill="#fff" stroke="#138a98" stroke-width="2"/>
+<text x="1035" y="168" text-anchor="middle" font-size="25" fill="#18345f">비행 제어기</text><text x="1035" y="208" text-anchor="middle" font-size="22" fill="#138a98">PX4</text>
+<rect x="430" y="330" width="230" height="115" rx="12" fill="#fff" stroke="#2f63b4" stroke-width="2.5"/>
+<text x="545" y="380" text-anchor="middle" font-size="25" fill="#18345f">Hailo NPU</text><text x="545" y="417" text-anchor="middle" font-size="21" fill="#2f63b4">YOLOX 추론</text>
+<rect x="572" y="317" width="80" height="26" rx="13" fill="#2f63b4"/><text x="612" y="335" text-anchor="middle" font-size="14" fill="#fff">본인 담당</text>
+<path d="M270 180H428" fill="none" stroke="#2f63b4" stroke-width="3" marker-end="url(#blue)"/>
+<text x="350" y="166" text-anchor="middle" class="label">영상</text>
+<rect x="323" y="193" width="54" height="26" rx="13" class="pill"/><text x="350" y="211" text-anchor="middle" class="pill-text">USB</text>
+<path d="M760 160H928" fill="none" stroke="#138a98" stroke-width="3" marker-end="url(#teal)"/>
+<path d="M930 206H762" fill="none" stroke="#138a98" stroke-width="3" stroke-dasharray="8 6" marker-end="url(#teal)"/>
+<text x="845" y="146" text-anchor="middle" class="label">추종 명령</text>
+<text x="845" y="234" text-anchor="middle" font-size="19" fill="#53677c">비행 상태</text>
+<rect x="783" y="170" width="124" height="26" rx="13" class="pill"/><text x="845" y="188" text-anchor="middle" class="pill-text">UART / MAVLink</text>
+<path d="M490 240V328" fill="none" stroke="#2f63b4" stroke-width="3" marker-end="url(#blue)"/>
+<path d="M600 330V242" fill="none" stroke="#2f63b4" stroke-width="3" marker-end="url(#blue)"/>
+<text x="478" y="292" text-anchor="end" class="label">입력 영상</text>
+<text x="612" y="292" text-anchor="start" class="label">추론 결과</text>
+<rect x="519" y="273" width="52" height="26" rx="13" class="pill"/><text x="545" y="291" text-anchor="middle" class="pill-text">PCIe</text>
+<path d="M712 240V558" fill="none" stroke="#697e91" stroke-width="3" marker-end="url(#gray)"/>
+<path d="M746 560V242" fill="none" stroke="#2f63b4" stroke-width="3" marker-end="url(#blue)"/>
+<rect x="693" y="477" width="72" height="26" rx="13" class="pill"/><text x="729" y="495" text-anchor="middle" class="pill-text">Wi-Fi</text>
+<text x="700" y="535" text-anchor="end" font-size="19" fill="#53677c">영상과 상태</text>
+<text x="758" y="535" text-anchor="start" class="label">선택 / 시작 / 중단</text>
+<rect x="579" y="560" width="300" height="110" rx="12" fill="#fff" stroke="#cfdae5" stroke-width="2"/>
+<text x="729" y="606" text-anchor="middle" font-size="25" fill="#18345f">지상 통제기</text><text x="729" y="644" text-anchor="middle" font-size="19" fill="#53677c">영상 확인 / 기록 / 운용 요청</text>
+<rect x="60" y="602" width="80" height="26" rx="13" fill="#2f63b4"/><text x="100" y="620" text-anchor="middle" font-size="14" fill="#fff">본인 담당</text>
+<text x="154" y="622" text-anchor="start" font-size="19" fill="#18345f">YOLOX 학습, Hailo NPU 적용, 대상 추적</text>
 </svg>
