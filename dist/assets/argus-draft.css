@@ -270,3 +270,56 @@
     grid-template-columns:1fr;
   }
 }
+
+.argus-capabilities.argus-two {
+  grid-template-columns:repeat(2,minmax(0,1fr));
+}
+
+@media (max-width:900px) {
+  .argus-capabilities.argus-two {
+    grid-template-columns:minmax(0,1fr);
+  }
+}
+
+.argus-page .case-body > .argus-plan-figure + p {
+  margin-top:1.5rem;
+}
+
+.argus-photo-figure {
+  max-width:720px;
+  margin:1.5rem auto 0;
+}
+
+.argus-photo-figure img {
+  display:block;
+  width:100%;
+  height:auto;
+  max-height:none;
+}
+
+.argus-photo-figure figcaption span {
+  display:block;
+  color:var(--slate);
+}
+
+.argus-video-pair {
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:1rem;
+  margin-top:1rem;
+}
+
+@media (max-width:680px) {
+  .argus-video-pair {
+    grid-template-columns:minmax(0,1fr);
+  }
+}
+
+.argus-video-pair video {
+  height:auto;
+  aspect-ratio:16 / 9;
+}
+
+.argus-page .case-body > .noun-list + p {
+  margin-top:1.5rem;
+}
