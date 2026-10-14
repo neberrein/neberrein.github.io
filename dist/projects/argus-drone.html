@@ -24,7 +24,7 @@
     <p class="argus-name-note"><strong>ARGUS</strong> AI-powered Real-time Ground Object UAV Surveillance</p>
     <p class="case-subtitle">열화상 영상에서 지상 객체를 찾고, 선택한 대상을 드론이 따라가도록 하는 시스템을 개발하고 있습니다. YOLOX 탐지는 기체에 실은 Hailo-8 NPU에서 실행하고, 탐지 결과를 추적과 PX4 비행 제어로 연결하도록 설계했습니다. 지금은 시뮬레이션에서 검증한 추적, 재획득, 추종 구조를 실기체에 올려 시험하고 있습니다.</p>
     <dl class="case-facts"><div><dt>기간</dt><dd>2026.09–진행 중</dd></div><div><dt>팀</dt><dd>ARGUS 6인 팀</dd></div><div><dt>역할</dt><dd>팀장<br>YOLOX 학습과 Hailo NPU 적용<br>다중 차량 추적과 표적 재획득<br>개발 일정과 시스템 통합 관리</dd></div><div><dt>주요 구성</dt><dd>F450 / Raspberry Pi 5 / Hailo-8 / LWIR / PX4</dd></div></dl>
-    <figure class="research-figure argus-platform-photo"><img src="../assets/images/argus-drone-platform.jpg" width="4000" height="3000" alt="야외에서 가까이 본 ARGUS 드론 플랫폼의 기체와 착륙 장치" loading="lazy" decoding="async"><figcaption>프로젝트에 사용하는 드론 플랫폼</figcaption></figure>
+    <figure class="research-figure argus-platform-photo"><img src="../assets/images/argus-drone-platform.jpg?v=20261014" width="2400" height="1800" alt="잔디밭 위에 놓인 ARGUS 드론. 프롭 가드와 GPS를 단 F450 기체 위에 Raspberry Pi 5와 Hailo-8을 실었습니다" loading="lazy" decoding="async"><figcaption>프로젝트에 사용하는 드론 플랫폼</figcaption></figure>
   </section>
 
   <section class="case-section"><div class="section-shell case-layout"><div><span class="case-section-label">01 / BACKGROUND</span><h2>온보드 처리가 필요한 이유</h2></div><div class="case-body">
@@ -33,9 +33,9 @@
   </div></div></section>
 
   <section class="case-section alt-section"><div class="section-shell case-layout"><div><span class="case-section-label">02 / SYSTEM</span><h2>장치별 역할과 연결 구조</h2></div><div class="case-body">
-    <p>Raspberry Pi 5는 영상 전처리와 대상 추적, 추종 판단을 맡고, Hailo NPU는 YOLOX 추론만 맡도록 역할을 나눴습니다. 추종 명령은 PX4 비행 제어기로 보내고, 지상 통제기에서는 영상과 상태를 보며 추종 시작과 중단을 요청합니다. 카메라는 USB, Hailo NPU는 PCIe, PX4는 UART(MAVLink)로 Raspberry Pi 5에 연결하고, 지상 통제기와는 Wi-Fi로 통신합니다.</p>
+    <p>Raspberry Pi 5는 영상 전처리와 대상 추적, 추종 판단을 맡고, Hailo NPU는 YOLOX 추론만 맡도록 역할을 나눴습니다. 추종 명령은 PX4 비행 제어기로 보내고, 지상 통제기에서는 영상과 상태를 보며 추종 시작과 중단을 요청합니다. 카메라는 USB, Hailo NPU는 PCIe로 Raspberry Pi 5에 연결하고, PX4와는 MAVLink로, 지상 통제기와는 UDP로 통신합니다.</p>
     <p>저는 팀장으로서 개발 일정과 시스템 통합을 관리하면서 YOLOX 학습, Hailo NPU 적용, 다중 차량 추적과 표적 재획득을 담당했습니다.</p>
-    <figure class="research-figure argus-plan-figure"><picture><source media="(max-width: 680px)" srcset="../assets/images/argus-system-architecture-mobile.svg?v=20261014c" width="720" height="900"><img src="../assets/images/argus-system-architecture.svg?v=20261014c" width="1200" height="720" alt="카메라 영상은 USB로 Raspberry Pi 5에 들어오고, Pi는 PCIe로 연결된 Hailo NPU와 추론 데이터를 주고받습니다. Pi와 PX4는 UART(MAVLink)로 명령과 상태를 주고받으며, 지상 통제기는 Wi-Fi로 Pi와 연결됩니다." decoding="async"></picture><figcaption><strong>온보드 연산과 비행 제어 구조</strong></figcaption></figure>
+    <figure class="research-figure argus-plan-figure"><picture><source media="(max-width: 680px)" srcset="../assets/images/argus-system-architecture-mobile.svg?v=20261014d" width="720" height="900"><img src="../assets/images/argus-system-architecture.svg?v=20261014d" width="1200" height="720" alt="카메라 영상은 USB로 Raspberry Pi 5에 들어오고, Pi는 PCIe로 연결된 Hailo NPU와 추론 데이터를 주고받습니다. Pi와 PX4는 MAVLink로 명령과 상태를 주고받으며, 지상 통제기는 UDP로 Pi와 연결됩니다." decoding="async"></picture><figcaption><strong>온보드 연산과 비행 제어 구조</strong></figcaption></figure>
   </div></div></section>
 
   <section class="case-section"><div class="section-shell case-layout"><div><span class="case-section-label">03 / PIPELINE</span><h2>영상에서 추종 명령까지</h2></div><div class="case-body">

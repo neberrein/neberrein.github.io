@@ -21,7 +21,7 @@
 <path d="M930 206H762" fill="none" stroke="#138a98" stroke-width="3" stroke-dasharray="8 6" marker-end="url(#teal)"/>
 <text x="845" y="146" text-anchor="middle" class="label">추종 명령</text>
 <text x="845" y="234" text-anchor="middle" font-size="19" fill="#53677c">비행 상태</text>
-<rect x="783" y="170" width="124" height="26" rx="13" class="pill"/><text x="845" y="188" text-anchor="middle" class="pill-text">UART / MAVLink</text>
+<rect x="800" y="170" width="90" height="26" rx="13" class="pill"/><text x="845" y="188" text-anchor="middle" class="pill-text">MAVLink</text>
 <path d="M490 240V328" fill="none" stroke="#2f63b4" stroke-width="3" marker-end="url(#blue)"/>
 <path d="M600 330V242" fill="none" stroke="#2f63b4" stroke-width="3" marker-end="url(#blue)"/>
 <text x="478" y="292" text-anchor="end" class="label">입력 영상</text>
@@ -29,7 +29,7 @@
 <rect x="519" y="273" width="52" height="26" rx="13" class="pill"/><text x="545" y="291" text-anchor="middle" class="pill-text">PCIe</text>
 <path d="M712 240V558" fill="none" stroke="#697e91" stroke-width="3" marker-end="url(#gray)"/>
 <path d="M746 560V242" fill="none" stroke="#2f63b4" stroke-width="3" marker-end="url(#blue)"/>
-<rect x="693" y="477" width="72" height="26" rx="13" class="pill"/><text x="729" y="495" text-anchor="middle" class="pill-text">Wi-Fi</text>
+<rect x="697" y="477" width="64" height="26" rx="13" class="pill"/><text x="729" y="495" text-anchor="middle" class="pill-text">UDP</text>
 <text x="700" y="535" text-anchor="end" font-size="19" fill="#53677c">영상과 상태</text>
 <text x="758" y="535" text-anchor="start" class="label">선택 / 시작 / 중단</text>
 <rect x="579" y="560" width="300" height="110" rx="12" fill="#fff" stroke="#cfdae5" stroke-width="2"/>
