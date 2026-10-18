@@ -8,9 +8,9 @@
 <rect x="15" y="200" width="690" height="600" rx="14" fill="#edf3f8" stroke="#b8cbe0" stroke-width="2"/>
 <path d="M330 140V398" fill="none" stroke="#2f63b4" stroke-width="3" marker-end="url(#blue)"/>
 <path d="M390 400V142" fill="none" stroke="#697e91" stroke-width="3" marker-end="url(#gray)"/>
-<rect x="349" y="150" width="82" height="34" rx="17" class="pill"/><text x="390" y="174" text-anchor="middle" class="pill-text">RTSP</text><rect x="295" y="214" width="70" height="34" rx="17" class="pill"/><text x="330" y="238" text-anchor="middle" class="pill-text">UDP</text>
+<rect x="322" y="183" width="76" height="34" rx="17" class="pill"/><text x="360" y="207" text-anchor="middle" class="pill-text">UDP</text>
 <text x="318" y="172" text-anchor="end" class="label">박스 선택 / 시작 / 중단</text>
-<text x="442" y="172" text-anchor="start" class="muted">영상과 추적 정보</text>
+<text x="402" y="172" text-anchor="start" class="muted">영상과 추적 정보</text>
 <text x="40" y="246" font-size="26" fill="#21457c">기체 탑재 장치</text>
 <rect x="40" y="262" width="240" height="96" rx="12" fill="#fff" stroke="#cfdae5" stroke-width="2"/>
 <text x="160" y="303" text-anchor="middle" font-size="29" fill="#18345f">LWIR 카메라</text><text x="160" y="340" text-anchor="middle" font-size="23" fill="#53677c">열화상 영상</text>

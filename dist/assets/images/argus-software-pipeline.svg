@@ -14,7 +14,7 @@
 <path d="M510 210H535" fill="none" stroke="#2f63b4" stroke-width="3" marker-end="url(#blue)"/>
 <rect x="535" y="130" width="140" height="160" rx="12" fill="#fff" stroke="#cfdae5" stroke-width="2"/><text x="605" y="192" text-anchor="middle" class="t">탐지 결과</text><text x="605" y="230" text-anchor="middle" class="t">후처리</text><text x="605" y="325" text-anchor="middle" class="cap">Raspberry Pi 5</text>
 <text x="735" y="300" text-anchor="start" class="note">탐지 결과 메시지</text>
-<rect x="25" y="402" width="975" height="263" rx="14" fill="#f2f8f9" stroke="#a9cfd5" stroke-width="2" stroke-dasharray="7 6"/><text x="42" y="430" font-size="18" fill="#138a98">제어 프로세스</text>
+<rect x="25" y="402" width="375" height="263" rx="14" fill="#f2f8f9" stroke="#a9cfd5" stroke-width="2" stroke-dasharray="7 6"/><text x="42" y="421" font-size="18" fill="#138a98">추적 프로세스</text><rect x="414" y="402" width="586" height="263" rx="14" fill="#f2f8f9" stroke="#a9cfd5" stroke-width="2" stroke-dasharray="7 6"/><text x="431" y="421" font-size="18" fill="#138a98">추종 제어 프로세스</text>
 <path d="M675 210H720V385H160V438" fill="none" stroke="#2f63b4" stroke-width="3" marker-end="url(#blue)"/>
 <rect x="40" y="440" width="150" height="160" rx="12" fill="#fff" stroke="#cfdae5" stroke-width="2"/><text x="115" y="502" text-anchor="middle" class="t">지면 좌표</text><text x="115" y="540" text-anchor="middle" class="t">변환</text><text x="115" y="635" text-anchor="middle" class="cap">Raspberry Pi 5</text>
 <path d="M190 520H234" fill="none" stroke="#2f63b4" stroke-width="3" marker-end="url(#blue)"/>
@@ -29,5 +29,5 @@
 <rect x="824" y="440" width="150" height="160" rx="12" fill="#fff" stroke="#cfdae5" stroke-width="2"/><text x="899" y="502" text-anchor="middle" class="t">명령 검사</text><text x="899" y="540" text-anchor="middle" class="t">Guard</text><text x="899" y="574" text-anchor="middle" class="note">Watchdog</text><text x="899" y="635" text-anchor="middle" class="cap">Raspberry Pi 5</text>
 <path d="M974 520H1018" fill="none" stroke="#138a98" stroke-width="3" marker-end="url(#teal)"/>
 <rect x="1020" y="440" width="150" height="160" rx="12" fill="#fff" stroke="#138a98" stroke-width="2"/><text x="1095" y="502" text-anchor="middle" class="t">비행 제어</text><text x="1095" y="540" text-anchor="middle" class="t">PX4</text><text x="1095" y="635" text-anchor="middle" class="cap">비행 제어기</text>
-<text x="1095" y="672" text-anchor="middle" font-size="17" fill="#138a98">MAVSDK / MAVLink</text>
+<text x="1095" y="672" text-anchor="middle" font-size="17" fill="#138a98">onboard → MAVLink</text>
 </svg>
