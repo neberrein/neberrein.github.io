@@ -22,7 +22,7 @@
     <div class="argus-status-row"><p class="case-label">ONBOARD AI / DRONE / OBJECT DETECTION &amp; TRACKING</p><span class="argus-draft-badge">진행 중</span></div>
     <h1>ARGUS 온보드 AI 드론 객체 탐지 및 추적 시스템</h1>
     <p class="argus-name-note"><strong>ARGUS</strong> AI-powered Real-time Ground Object UAV Surveillance</p>
-    <p class="case-subtitle">열화상 영상에서 지상 객체를 찾고, 선택한 대상을 드론이 따라가도록 하는 시스템을 개발하고 있습니다. YOLOX 탐지는 기체에 실은 Hailo-8 NPU에서 실행하고, 추적과 추종은 시뮬레이션에서 먼저 검증했습니다. 실기체에서는 현재 열화상 탐지까지 동작합니다.</p>
+    <p class="case-subtitle">열화상 영상에서 지상 객체를 찾고, 선택한 대상을 드론이 따라가도록 하는 시스템을 개발하고 있습니다. YOLOX 탐지는 기체에 실은 Hailo-8 NPU에서 실행하고, 추적과 추종은 시뮬레이션에서 먼저 검증한 뒤 실기체에 올려 단일 대상의 탐지, 추적, 추종 동작을 확인했습니다.</p>
     <dl class="case-facts"><div><dt>기간</dt><dd>2026.09–진행 중</dd></div><div><dt>팀</dt><dd>ARGUS 6인 팀</dd></div><div><dt>역할</dt><dd>팀장<br>YOLOX 학습과 Hailo NPU 적용<br>다중 차량 추적과 표적 재획득<br>개발 일정과 시스템 통합 관리</dd></div><div><dt>주요 구성</dt><dd>F450 / Raspberry Pi 5 / Hailo-8 / LWIR / PX4</dd></div></dl>
     <figure class="research-figure argus-platform-photo"><img src="../assets/images/argus-drone-platform.jpg?v=20261015" width="2400" height="1350" alt="잔디밭 위에 놓인 ARGUS 드론. 프롭 가드와 GPS를 단 F450 기체 위에 Raspberry Pi 5와 Hailo-8을 실었습니다" loading="lazy" decoding="async"><figcaption>프로젝트에 사용하는 드론 플랫폼</figcaption></figure>
   </section>
@@ -57,11 +57,11 @@
   </div></div></section>
 
   <section class="case-section"><div class="section-shell case-layout"><div><span class="case-section-label">05 / VALIDATION</span><h2>검증 계획</h2></div><div class="case-body">
-    <p>추적, 재획득, 추종은 소프트웨어 비행 시뮬레이션(SITL)에서 먼저 확인했고, 코드는 Raspberry Pi 5에 올려 소프트웨어 시험까지 마쳤습니다. 다음 단계로 비행 제어기와 연결해 지연 시간, 기체 내 구동 안정성, 추종과 중단 동작을 검증할 계획입니다.</p>
+    <p>추적, 재획득, 추종은 소프트웨어 비행 시뮬레이션(SITL)에서 먼저 확인한 뒤, Raspberry Pi 5와 비행 제어기를 연결해 실기체에서 단일 대상 추종을 확인했습니다. 지연 시간, 기체 내 구동 안정성, 소비 전력은 정식으로 측정해 검증할 계획입니다.</p>
     <ul class="noun-list"><li><strong>탐지와 응답</strong>탐지 성능과 영상 입력부터 제어 명령까지 걸리는 지연 시간</li><li><strong>기체 내 구동</strong>NPU 처리 속도, 소비 전력과 온도</li><li><strong>비행 연동</strong>시뮬레이션과 실기체의 추종 제어 반응 비교</li><li><strong>추종 중단과 재개</strong>대상 소실, 수동 개입, 재탐지 상황의 동작</li></ul>
     <p>Gazebo와 PX4 SITL에서 출발과 정지, S자, U턴 기동 9회와 두 차량 교차 6회를 모두 마쳤고, 다른 차량을 따라간 경우는 없었습니다. 시뮬레이터가 주는 박스 대신 실제 탐지 모델을 연결한 시험 3회에서도 같았습니다. 모두 RGB 영상으로 진행한 시험입니다.</p>
     <div class="argus-video-pair"><figure class="video-card"><video autoplay loop muted playsinline controls preload="auto" width="1280" height="720" poster="../assets/images/argus-sim-road-crossing-preview.jpg" aria-label="Gazebo 시뮬레이션에서 다른 차량이 교차로를 지나가는 동안 선택한 차량의 추적 ID 1과 추종 상태가 유지되는 장면"><source src="../assets/videos/argus-sim-road-crossing.mp4" type="video/mp4"></video><figcaption><strong>시뮬레이션: 교차로 통과</strong><span>다른 차량이 교차로를 지나가도 선택한 차량의 추적 ID 1이 유지됩니다.</span></figcaption></figure><figure class="video-card"><video autoplay loop muted playsinline controls preload="auto" width="1280" height="720" poster="../assets/images/argus-sim-occlusion-preview.jpg?v=20261015" aria-label="Gazebo 시뮬레이션에서 차량이 지붕 아래에서 약 1초 가려졌다가 다시 나타나는 동안 표적 상태가 표적 고정, 관측 공백 대기, 후보 확인, 표적 고정 순서로 바뀌는 장면"><source src="../assets/videos/argus-sim-occlusion.mp4?v=20261015" type="video/mp4"></video><figcaption><strong>시뮬레이션: 가림 뒤 재획득</strong><span>지붕 아래에서 약 1초 가려졌던 차량을 다시 확인한 뒤 따라갑니다. 오른쪽 패널은 같은 회차의 실제 기록입니다.</span></figcaption></figure></div>
-    <p>실기체는 탑재 장비를 모두 싣고 실내와 야외에서 비행 시험을 하고 있습니다.</p>
+    <p>탑재 장비를 모두 실은 기체로 실내와 야외에서 비행 시험을 하며, 단일 대상을 탐지, 추적하며 따라가는 비행을 확인했습니다.</p>
     <div class="argus-video-pair"><figure class="video-card"><video autoplay loop muted playsinline controls preload="auto" width="1280" height="720" poster="../assets/images/argus-indoor-hover-preview.jpg" aria-label="실내 격자 바닥 위 RC 탱크 앞에서 기체가 정지 비행하는 장면"><source src="../assets/videos/argus-indoor-hover.mp4" type="video/mp4"></video><figcaption><strong>실내 시험 비행</strong><span>RC 탱크를 둔 실내에서 기체를 띄운 장면입니다.</span></figcaption></figure><figure class="video-card"><video autoplay loop muted playsinline controls preload="auto" width="1280" height="720" poster="../assets/images/argus-park-flight-preview.jpg" aria-label="공원 잔디밭에서 이륙한 기체가 하늘로 올라가는 장면"><source src="../assets/videos/argus-park-flight.mp4" type="video/mp4"></video><figcaption><strong>야외 비행</strong><span>탑재 장비를 모두 실은 기체가 공원에서 이륙하는 장면입니다.</span></figcaption></figure></div>
   </div></div></section>
 
