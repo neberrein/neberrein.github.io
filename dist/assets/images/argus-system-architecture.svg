@@ -29,7 +29,7 @@
 <rect x="519" y="273" width="52" height="26" rx="13" class="pill"/><text x="545" y="291" text-anchor="middle" class="pill-text">PCIe</text>
 <path d="M700 240V558" fill="none" stroke="#697e91" stroke-width="3" marker-end="url(#gray)"/>
 <path d="M746 560V242" fill="none" stroke="#2f63b4" stroke-width="3" marker-end="url(#blue)"/>
-<rect x="670" y="452" width="60" height="26" rx="13" class="pill"/><text x="700" y="470" text-anchor="middle" class="pill-text">RTSP</text><rect x="719" y="496" width="54" height="26" rx="13" class="pill"/><text x="746" y="514" text-anchor="middle" class="pill-text">UDP</text>
+<rect x="691" y="477" width="64" height="26" rx="13" class="pill"/><text x="723" y="495" text-anchor="middle" class="pill-text">UDP</text>
 <text x="688" y="535" text-anchor="end" font-size="19" fill="#53677c">영상과 탐지, 추적 결과</text>
 <text x="758" y="548" text-anchor="start" class="label">박스 선택 / 시작 / 중단</text>
 <rect x="579" y="560" width="300" height="110" rx="12" fill="#fff" stroke="#cfdae5" stroke-width="2"/>
