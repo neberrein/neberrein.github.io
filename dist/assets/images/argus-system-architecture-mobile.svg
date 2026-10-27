@@ -1,23 +1,26 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="720" height="900" viewBox="0 0 720 900" role="img" aria-labelledby="title desc">
-<title id="title">온보드 장치 구성과 데이터 연결 — 모바일</title><desc id="desc">화살표는 데이터 또는 명령의 전달 방향을, 흰 표시는 연결 방식을 나타냅니다.</desc>
+<title id="title">기체 탑재 장치와 지상 통제기 연결 — 모바일</title><desc id="desc">Pi는 영상과 탐지, 추적 결과를 UDP로 지상 통제기에 보냅니다. 지상 통제기는 표적 선택과 시작, 중단 요청을 MAVLink UDP로 Pi에 보냅니다. Pi와 PX4는 MAVLink UART로 명령과 상태를 주고받습니다.</desc>
 <defs><marker id="blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 10 5 0 10Z" fill="#2f63b4"/></marker><marker id="teal" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 10 5 0 10Z" fill="#138a98"/></marker><marker id="gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 10 5 0 10Z" fill="#697e91"/></marker></defs>
 <style>text{font-family:Pretendard,"Noto Sans KR","Malgun Gothic",sans-serif;font-weight:650}.pill{fill:#fff;stroke:#c4d3e3;stroke-width:2}.pill-text{font-size:21px;fill:#53677c;font-weight:700}.label{font-size:23px;fill:#18345f}.muted{font-size:23px;fill:#53677c}</style>
 <rect width="720" height="900" fill="#fff"/>
 <rect x="210" y="30" width="300" height="110" rx="12" fill="#fff" stroke="#cfdae5" stroke-width="2"/>
 <text x="360" y="78" text-anchor="middle" font-size="32" fill="#18345f">지상 통제기</text><text x="360" y="117" text-anchor="middle" font-size="24" fill="#53677c">영상 확인 / 표적 선택</text>
-<rect x="15" y="200" width="690" height="600" rx="14" fill="#edf3f8" stroke="#b8cbe0" stroke-width="2"/>
+<rect x="15" y="220" width="690" height="580" rx="14" fill="#edf3f8" stroke="#b8cbe0" stroke-width="2"/>
 <path d="M330 140V398" fill="none" stroke="#2f63b4" stroke-width="3" marker-end="url(#blue)"/>
 <path d="M390 400V142" fill="none" stroke="#697e91" stroke-width="3" marker-end="url(#gray)"/>
-<rect x="322" y="183" width="76" height="34" rx="17" class="pill"/><text x="360" y="207" text-anchor="middle" class="pill-text">UDP</text>
-<text x="318" y="172" text-anchor="end" class="label">박스 선택 / 시작 / 중단</text>
-<text x="402" y="172" text-anchor="start" class="muted">영상과 추적 정보</text>
-<text x="40" y="246" font-size="26" fill="#21457c">기체 탑재 장치</text>
+<text x="318" y="172" text-anchor="end" class="label">표적 선택 / 시작 / 중단</text>
+<text x="402" y="172" text-anchor="start" class="muted">영상과 탐지, 추적 결과</text>
+<text x="318" y="211" text-anchor="end" class="pill-text">MAVLink (UDP)</text>
+<text x="402" y="211" text-anchor="start" class="pill-text">UDP (무선)</text>
+<text x="40" y="250" font-size="26" fill="#21457c">기체 탑재 장치</text>
 <rect x="40" y="262" width="240" height="96" rx="12" fill="#fff" stroke="#cfdae5" stroke-width="2"/>
 <text x="160" y="303" text-anchor="middle" font-size="29" fill="#18345f">LWIR 카메라</text><text x="160" y="340" text-anchor="middle" font-size="23" fill="#53677c">열화상 영상</text>
 <path d="M160 358V398" fill="none" stroke="#2f63b4" stroke-width="3" marker-end="url(#blue)"/>
 <rect x="176" y="363" width="68" height="30" rx="15" class="pill"/><text x="210" y="385" text-anchor="middle" class="pill-text">USB</text>
 <rect x="60" y="400" width="600" height="120" rx="12" fill="#fff" stroke="#cfdae5" stroke-width="2"/>
-<text x="360" y="450" text-anchor="middle" font-size="34" fill="#18345f">Raspberry Pi 5</text><text x="360" y="494" text-anchor="middle" font-size="25" fill="#53677c">전처리 / <tspan fill="#2f63b4" font-weight="800">추적과 재획득</tspan> / 추종 판단</text>
+<text x="360" y="440" text-anchor="middle" font-size="34" fill="#18345f">Raspberry Pi 5</text>
+<text x="360" y="475" text-anchor="middle" font-size="24" fill="#53677c">영상 전처리와 추종 판단</text>
+<text x="360" y="506" text-anchor="middle" font-size="24" fill="#2f63b4">UCMC 다중 표적 추적과 재획득</text>
 <path d="M130 520V638" fill="none" stroke="#2f63b4" stroke-width="3" marker-end="url(#blue)"/>
 <path d="M230 640V522" fill="none" stroke="#2f63b4" stroke-width="3" marker-end="url(#blue)"/>
 <rect x="148" y="565" width="64" height="30" rx="15" class="pill"/><text x="180" y="587" text-anchor="middle" class="pill-text">PCIe</text>
@@ -25,14 +28,15 @@
 <text x="242" y="620" text-anchor="start" class="label">추론 결과</text>
 <path d="M490 520V638" fill="none" stroke="#138a98" stroke-width="3" marker-end="url(#teal)"/>
 <path d="M590 640V522" fill="none" stroke="#138a98" stroke-width="3" stroke-dasharray="8 6" marker-end="url(#teal)"/>
-<rect x="486" y="565" width="108" height="30" rx="15" class="pill"/><text x="540" y="587" text-anchor="middle" class="pill-text">MAVLink</text>
+<rect x="446" y="565" width="188" height="30" rx="15" class="pill"/><text x="540" y="587" text-anchor="middle" class="pill-text">MAVLink (UART)</text>
 <text x="478" y="620" text-anchor="end" class="label">추종 명령</text>
 <text x="602" y="620" text-anchor="start" class="muted">비행 상태</text>
 <rect x="40" y="640" width="280" height="130" rx="12" fill="#fff" stroke="#2f63b4" stroke-width="2.5"/>
-<text x="180" y="698" text-anchor="middle" font-size="31" fill="#18345f">Hailo NPU</text><text x="180" y="740" text-anchor="middle" font-size="25" fill="#2f63b4">YOLOX 추론</text>
-<rect x="226" y="626" width="92" height="30" rx="15" fill="#2f63b4"/><text x="272" y="647" text-anchor="middle" font-size="18" fill="#fff">본인 담당</text>
+<text x="180" y="715" text-anchor="middle" font-size="31" fill="#18345f">Hailo-8 NPU</text><text x="180" y="750" text-anchor="middle" font-size="25" fill="#2f63b4">YOLOX 추론</text>
+<rect x="218" y="650" width="92" height="30" rx="15" fill="#2f63b4"/><text x="264" y="671" text-anchor="middle" font-size="18" fill="#fff">본인 담당</text>
 <rect x="400" y="640" width="280" height="130" rx="12" fill="#fff" stroke="#138a98" stroke-width="2"/>
 <text x="540" y="698" text-anchor="middle" font-size="31" fill="#18345f">비행 제어기</text><text x="540" y="740" text-anchor="middle" font-size="25" fill="#138a98">PX4</text>
 <rect x="40" y="830" width="92" height="30" rx="15" fill="#2f63b4"/><text x="86" y="851" text-anchor="middle" font-size="18" fill="#fff">본인 담당</text>
-<text x="146" y="853" text-anchor="start" font-size="22" fill="#18345f">YOLOX 학습, Hailo NPU 적용, 다중 추적과 표적 재획득</text>
+<text x="146" y="843" text-anchor="start" font-size="22" fill="#18345f">YOLOX 학습과 NPU 최적화</text>
+<text x="146" y="877" text-anchor="start" font-size="22" fill="#18345f">다중 표적 추적과 재획득</text>
 </svg>

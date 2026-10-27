@@ -3,14 +3,14 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="description" content="Hailo NPU와 LWIR 카메라를 사용하는 ARGUS 온보드 AI 드론 객체 탐지 및 추적 시스템">
-  <title>ARGUS 온보드 AI 드론 객체 탐지 및 추적 | 곽민재</title>
+  <meta name="description" content="열화상 데이터 28,935장 구축, YOLOX 학습과 Hailo-8 NPU 최적화로 탐지 지연 44% 단축. ARGUS 드론 표적 탐지 및 추적 프로젝트">
+  <title>ARGUS 온보드 AI 드론 열화상 표적 탐지 및 추적 | 곽민재</title>
   <meta name="robots" content="noindex,follow">
   <link rel="canonical" href="https://neberrein.github.io/projects/argus-drone.html">
-  <meta property="og:type" content="website"><meta property="og:title" content="ARGUS 온보드 AI 드론 객체 탐지 및 추적 | 곽민재"><meta property="og:description" content="Hailo NPU, LWIR 영상, 객체 추적과 PX4 비행 제어를 연결하는 진행 중 프로젝트"><meta property="og:url" content="https://neberrein.github.io/projects/argus-drone.html"><meta property="og:image" content="https://neberrein.github.io/assets/images/argus-og.png"><meta name="twitter:card" content="summary_large_image">
+  <meta property="og:type" content="website"><meta property="og:title" content="ARGUS 온보드 AI 드론 열화상 표적 탐지 및 추적 | 곽민재"><meta property="og:description" content="열화상 데이터 구축과 Hailo-8 NPU 최적화로 탐지 지연 44% 단축. SITL과 실내 비행에서 탐지, 추적, 추종 동작 검증"><meta property="og:url" content="https://neberrein.github.io/projects/argus-drone.html"><meta property="og:image" content="https://neberrein.github.io/assets/images/argus-og.png"><meta name="twitter:card" content="summary_large_image">
   <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="../assets/site.css?readability=20260914&amp;v=project-navigation-20260913">
-  <link rel="stylesheet" href="../assets/argus-draft.css?v=20261015a">
+  <link rel="stylesheet" href="../assets/argus-draft.css?v=20261027-layout">
   <script src="../assets/site.js" defer></script>
 </head>
 <body class="argus-page" data-project-status="ongoing">
@@ -20,10 +20,10 @@
   <section class="case-hero section-shell">
     <a class="back-link" href="../index.html#projects">← 프로젝트 목록</a>
     <div class="argus-status-row"><p class="case-label">ONBOARD AI / DRONE / OBJECT DETECTION &amp; TRACKING</p><span class="argus-draft-badge">진행 중</span></div>
-    <h1>ARGUS 온보드 AI 드론 객체 탐지 및 추적 시스템</h1>
+    <h1>ARGUS 온보드 AI 드론 열화상 표적 탐지 및 추적 시스템</h1>
     <p class="argus-name-note"><strong>ARGUS</strong> AI-powered Real-time Ground Object UAV Surveillance</p>
-    <p class="case-subtitle">열화상 영상에서 지상 객체를 찾고, 선택한 대상을 드론이 따라가도록 하는 시스템을 개발하고 있습니다. YOLOX 탐지는 기체에 실은 Hailo-8 NPU에서 실행하고, 추적과 추종은 시뮬레이션에서 먼저 검증한 뒤 실기체에 올려 단일 대상의 탐지, 추적, 추종 동작을 확인했습니다.</p>
-    <dl class="case-facts"><div><dt>기간</dt><dd>2026.09–진행 중</dd></div><div><dt>팀</dt><dd>ARGUS 6인 팀</dd></div><div><dt>역할</dt><dd>팀장<br>YOLOX 학습과 Hailo NPU 적용<br>다중 차량 추적과 표적 재획득<br>개발 일정과 시스템 통합 관리</dd></div><div><dt>주요 구성</dt><dd>F450 / Raspberry Pi 5 / Hailo-8 / LWIR / PX4</dd></div></dl>
+    <p class="case-subtitle">열화상 영상에서 지상 표적을 탐지하고, 선택한 표적을 드론이 추종하는 시스템을 개발하고 있습니다. 직접 구축한 열화상 데이터로 YOLOX를 학습하고 Hailo-8 NPU에 적용했습니다. 영상 입력부터 탐지까지의 지연 시간을 23.5 ms에서 13.2 ms로 줄였으며, SITL과 실내 비행에서 탐지, 추적, 추종 동작을 확인했습니다.</p>
+    <dl class="case-facts"><div><dt>기간</dt><dd>2026.09–진행 중</dd></div><div><dt>팀</dt><dd>ARGUS 6인 팀</dd></div><div><dt>역할</dt><dd>팀장<br>열화상 데이터 수집과 라벨링<br>YOLOX 학습과 Hailo NPU 최적화<br>다중 표적 추적과 재획득<br>개발 일정과 시스템 통합 관리</dd></div><div><dt>주요 구성</dt><dd>F450 / Raspberry Pi 5 / Hailo-8 / LWIR V2-mini / PX4</dd></div></dl>
     <figure class="research-figure argus-platform-photo"><img src="../assets/images/argus-drone-platform.jpg?v=20261015" width="2400" height="1350" alt="잔디밭 위에 놓인 ARGUS 드론. 프롭 가드와 GPS를 단 F450 기체 위에 Raspberry Pi 5와 Hailo-8을 실었습니다" loading="lazy" decoding="async"><figcaption>프로젝트에 사용하는 드론 플랫폼</figcaption></figure>
   </section>
 
@@ -33,36 +33,57 @@
   </div></div></section>
 
   <section class="case-section alt-section"><div class="section-shell case-layout"><div><span class="case-section-label">02 / SYSTEM</span><h2>장치별 역할과 연결 구조</h2></div><div class="case-body">
-    <p>Raspberry Pi 5가 영상 전처리, 대상 추적, 추종 판단을 맡고 Hailo NPU는 YOLOX 추론만 맡습니다. 카메라는 USB, NPU는 PCIe로 연결하고, 추종 명령은 MAVLink로 PX4 비행 제어기에 보냅니다.</p>
-    <p>지상 통제기에는 영상과 박스 위치, 추적 ID를 UDP로 보내고, 이 형식을 표준 RTSP/RTP 방식(ONVIF 메타데이터)으로 바꾸고 있습니다. 표준 형식에서는 영상과 박스가 한 세션의 트랙으로 함께 가서 화면의 박스가 영상과 어긋나지 않습니다. 통제기에서 박스를 눌러 고른 표적과 시작, 중단 요청은 MAVLink(UDP)로 받습니다.</p>
-    <p>저는 팀장으로서 개발 일정과 시스템 통합을 관리하면서 YOLOX 학습, Hailo NPU 적용, 다중 차량 추적과 표적 재획득을 담당했습니다.</p>
-    <figure class="research-figure argus-plan-figure"><picture><source media="(max-width: 680px)" srcset="../assets/images/argus-system-architecture-mobile.svg?v=20261018b" width="720" height="900"><img src="../assets/images/argus-system-architecture.svg?v=20261018b" width="1200" height="720" alt="카메라 영상은 USB로 Raspberry Pi 5에 들어오고, Pi는 PCIe로 연결된 Hailo NPU와 추론 데이터를 주고받습니다. Pi와 PX4는 MAVLink로 명령과 상태를 주고받습니다. Pi는 영상과 탐지, 추적 결과를 UDP로 지상 통제기에 보내고, 통제기는 박스 선택과 시작, 중단 요청을 MAVLink(UDP)로 보냅니다." decoding="async"></picture><figcaption><strong>온보드 연산과 비행 제어 구조</strong></figcaption></figure>
+    <p>Raspberry Pi 5가 영상 전처리, 대상 추적, 추종 판단을 맡고 Hailo NPU는 YOLOX 추론만 맡습니다. 카메라는 USB, NPU는 PCIe로 연결하고, 추종 명령은 MAVLink(UART)로 PX4 비행 제어기에 보냅니다. 지상 통제기에서는 기체가 보낸 영상과 탐지 결과를 확인하고 추종할 표적을 선택합니다.</p>
+    <p>영상과 탐지 박스, 추적 ID는 UDP로 지상 통제기에 보냅니다. 사용자가 화면에서 표적을 선택하거나 추종을 시작, 중단하면 해당 요청을 MAVLink(UDP)로 기체에 전달합니다.</p>
+    <p>저는 팀장으로서 개발 일정과 시스템 통합을 관리하면서 열화상 데이터 수집과 라벨링, YOLOX 학습, Hailo NPU 최적화, 다중 표적 추적과 재획득을 담당했습니다.</p>
+    <figure class="research-figure argus-plan-figure"><picture><source media="(max-width: 680px)" srcset="../assets/images/argus-system-architecture-mobile.svg?v=20261027-gcs" width="720" height="900"><img src="../assets/images/argus-system-architecture.svg?v=20261027-gcs" width="1200" height="800" alt="기체 내부에는 LWIR 카메라, Raspberry Pi 5, Hailo-8 NPU와 PX4가 연결됩니다. 기체 밖의 지상 통제기는 Pi에서 영상과 탐지, 추적 결과를 UDP로 받고, 선택한 표적과 시작, 중단 요청을 MAVLink(UDP)로 Pi에 보냅니다. Pi와 PX4는 MAVLink(UART)로 명령과 상태를 주고받습니다." decoding="async"></picture><figcaption><strong>기체 탑재 장치와 지상 통제기 연결</strong> 지상 통제기는 영상 확인과 표적 선택을, 기체는 탐지부터 추적과 추종 판단까지 처리합니다.</figcaption></figure>
   </div></div></section>
 
-  <section class="case-section"><div class="section-shell case-layout"><div><span class="case-section-label">03 / PIPELINE</span><h2>영상에서 추종 명령까지</h2></div><div class="case-body">
-    <p>오래된 영상 때문에 제어가 늦어지지 않도록 최신 프레임을 우선 처리합니다. 탐지, 추적, 추종 제어는 각각 별도 프로세스로 나눴고, 프로세스 사이에는 영상 대신 탐지와 추적 결과 같은 작은 메시지만 오갑니다. PX4와 MAVLink로 통신하는 것은 onboard 프로세스 하나로 정해, 여러 프로세스가 비행 제어기에 직접 명령하지 않도록 했습니다.</p>
-    <p>추적 프로세스는 탐지 박스를 지면 좌표로 바꾼 뒤 UCMC로 여러 차량을 추적합니다. 드론이 움직이면 화면 속 위치에 카메라 움직임이 섞이기 때문입니다.</p>
-    <p>추종 제어 프로세스는 사용자가 고른 표적을 추적 ID와 따로 관리해, ID가 바뀌어도 위치와 궤적이 이어질 때만 같은 차량으로 다시 연결합니다. 추종은 20Hz로 차량 측면 후방 2m 지점을 따라가며, 1.2초 앞을 예측해 고정 카메라 화면에서 차량이 벗어나지 않도록 높이와 방향을 조정합니다.</p>
-    <figure class="research-figure argus-plan-figure"><picture><source media="(max-width: 900px)" srcset="../assets/images/argus-software-pipeline-mobile.svg?v=20261018a" width="720" height="1650"><img src="../assets/images/argus-software-pipeline.svg?v=20261018a" width="1200" height="700" alt="인지 프로세스의 최신 영상 수신, Double Plateau 전처리, Hailo NPU 추론, 후처리를 거쳐 추적 프로세스의 지면 좌표 변환과 UCMC 다중 차량 추적, 추종 제어 프로세스의 표적 관리와 재획득, 예측 추종 제어, 명령 검사를 지나 onboard 프로세스가 MAVLink로 PX4에 전달하는 처리 흐름" decoding="async"></picture><figcaption><strong>영상 입력에서 추종 명령까지의 처리 순서</strong></figcaption></figure>
-    <div class="argus-interface-grid"><article><span>탐지 결과</span><strong>객체 위치와 신뢰도</strong></article><article><span>추적 결과</span><strong>추적 ID, 지면 위치와 관측 시각</strong></article><article><span>추종 판단</span><strong>명령 유효 여부, 이동 속도와 회전 방향</strong></article></div>
-    <p>열화상 카메라의 14bit 원본을 8bit로 바꾸는 방식은 Double Plateau, CLAHE, Min-Max를 같은 조건으로 각각 학습해 비교했습니다. Min-Max는 아주 뜨겁거나 차가운 점이 있으면 화면 전체가 흐려지고, CLAHE는 풀이 밝아져 풀밭의 탱크가 묻혔습니다. 어느 장면에서도 크게 떨어지지 않은 Double Plateau를 계속 쓰고 있습니다.</p>
+  <section class="case-section"><div class="section-shell case-layout"><div><span class="case-section-label">03 / DETECTION</span><h2>열화상 탐지와 처리 최적화</h2></div><div class="case-body">
+    <h3 class="argus-subheading">직접 수집한 열화상 데이터와 전처리 비교</h3>
+    <p>LWIR 카메라(V2-mini)로 RC 탱크를 직접 촬영해 <strong>28,935장 데이터셋</strong>을 구축하고, X-AnyLabeling을 활용해 라벨링을 자동화했습니다. 열화상 카메라의 14비트 원본을 8비트로 바꾸는 전처리 세 가지를 같은 조건으로 각각 학습해 비교했습니다.</p>
+    <p>Min-Max는 아주 뜨겁거나 차가운 점이 있으면 화면 전체의 대비가 낮아졌고, CLAHE는 풀밭 배경까지 강조해 탱크를 놓치는 장면이 있었습니다. 탐지 정확도와 Raspberry Pi 5의 처리시간을 함께 고려해 Double Plateau를 선택했습니다.</p>
     <figure class="research-figure argus-plan-figure"><img src="../assets/images/argus-preprocess-compare.jpg?v=20261015b" width="1440" height="792" alt="같은 열화상 프레임을 Double Plateau, CLAHE, Min-Max로 변환해 탐지한 결과. 위쪽 야외 잔디 장면에서는 Min-Max만, 아래쪽 풀밭 장면에서는 CLAHE만 탱크를 놓쳤습니다." decoding="async"><figcaption><strong>같은 프레임의 전처리 3종 비교</strong> 초록은 정답 박스, 빨강은 모델이 탐지한 박스와 신뢰도 점수(0.3 이상만 표시)입니다. 빨간 박스가 없는 칸은 모델이 탱크를 놓친 경우입니다.</figcaption></figure>
+    <div class="table-wrap argus-result-table"><table class="metric-table"><caption>전처리별 탐지 정확도와 Raspberry Pi 5 처리시간</caption><thead><tr><th scope="col">전처리</th><th scope="col">mAP50</th><th scope="col">mAP50–95</th><th scope="col">전처리 시간</th></tr></thead><tbody><tr><th scope="row">Min-Max</th><td>0.900</td><td>0.706</td><td>0.99 ms</td></tr><tr><th scope="row">CLAHE</th><td>0.978</td><td>0.740</td><td>10.01 ms</td></tr><tr class="argus-chosen"><th scope="row">Double Plateau <span class="argus-choice">채택</span></th><td><strong>0.979</strong></td><td><strong>0.751</strong></td><td><strong>1.12 ms</strong></td></tr></tbody></table></div>
+    <p>사람과 전등을 탱크로 잘못 탐지하는 문제는 비표적 장면을 추가 학습해 개선했습니다. 오탐률은 <strong>8.7%에서 0%로 감소</strong>했습니다.</p>
+    <h3 class="argus-subheading">C++ 전처리와 NPU 입력 최적화</h3>
+    <p>Python 전처리를 C++로 옮기고 정수 히스토그램과 OpenMP 병렬화를 적용했습니다. Hailo-8 모델은 기존 3채널 입력을 1채널로 변경해 추론 시간을 줄였습니다.</p>
+    <div class="table-wrap argus-result-table"><table class="metric-table"><caption>최적화 전후 처리시간</caption><thead><tr><th scope="col">측정 구간</th><th scope="col">개선 전</th><th scope="col">개선 후</th></tr></thead><tbody><tr><th scope="row">전처리</th><td>6.74 ms</td><td><strong>1.12 ms</strong></td></tr><tr><th scope="row">NPU 추론</th><td>11.12 ms</td><td><strong>10.22 ms</strong></td></tr><tr class="argus-chosen"><th scope="row">영상 입력부터 탐지까지</th><td>23.5 ms</td><td><strong>13.2 ms</strong></td></tr></tbody></table></div>
+    <p class="argus-result-emphasis">영상 입력부터 탐지까지의 지연 시간을 <strong>44% 단축</strong>했습니다.</p>
   </div></div></section>
 
-  <section class="case-section alt-section"><div class="section-shell case-layout"><div><span class="case-section-label">04 / FAIL-SAFE</span><h2>대상 소실과 사용자 개입 대응</h2></div><div class="case-body">
+  <section class="case-section alt-section"><div class="section-shell case-layout"><div><span class="case-section-label">04 / TRACKING</span><h2>다중 표적 추적과 가림 대응</h2></div><div class="case-body">
+    <h3 class="argus-subheading">기체 움직임을 고려한 다중 표적 추적</h3>
+    <p>Gazebo에서 세 가지 추적 알고리즘의 처리시간을 비교하고, 비교한 후보 중 가장 빠른 UCMC를 적용했습니다. 후보별 SITL 25회, 각 약 2만 프레임으로 비교했습니다.</p>
+    <p>기체 자세를 반영해 탐지 박스를 지면 좌표로 바꾸고, 칼만 필터로 표적 위치를 예측합니다. 드론의 움직임이 영상 속 표적 위치에 미치는 영향을 고려해 여러 차량의 ID를 유지합니다.</p>
+    <h3 class="argus-subheading">추적 ID와 선택 표적을 별도로 관리</h3>
+    <p>사용자가 고른 표적을 추적 ID와 따로 관리해, ID가 바뀌어도 위치와 궤적이 이어질 때만 같은 차량으로 다시 연결합니다. 추종은 20 Hz로 차량 측면 후방 2 m 지점을 따라가며, 1.2초 앞을 예측해 고정 카메라 화면에서 차량이 벗어나지 않도록 높이와 방향을 조정합니다.</p>
+    <h3 class="argus-subheading">표적 소실과 사용자 개입 대응</h3>
     <p>표적을 놓치면 관측 공백 대기, 재획득 후보 탐색, 후보 확인을 거치는 동안 제자리에서 기다리고, 후보가 3프레임 연속 확인될 때만 다시 따라갑니다. 4초 안에 찾지 못하면 PX4를 위치 유지(Hold)로 바꾸고, 그 뒤에는 사용자가 표적을 다시 골라야 합니다. 수동 조작이 들어오면 상태와 관계없이 자동 추종을 끕니다.</p>
     <figure class="research-figure argus-plan-figure"><picture><source media="(max-width: 680px)" srcset="../assets/images/argus-loss-response-mobile.svg?v=20261014f" width="720" height="1310"><img src="../assets/images/argus-loss-response.svg?v=20261014f" width="1200" height="640" alt="대상을 놓치면 관측 공백 대기, 재획득 후보 탐색, 후보 확인을 거치는 동안 제자리에서 기다리고, 4초를 넘기면 표적 상실로 보고 Hold로 바꿉니다. 사용자가 수동으로 개입하면 상태와 관계없이 자동 추종을 해제합니다." decoding="async"></picture><figcaption><strong>표적 관리 상태와 수동 개입 대응</strong></figcaption></figure>
     <p>영상 처리와 비행 명령을 다른 프로세스로 나눴기 때문에, 한쪽이 멈추면 다른 쪽이 감지해 기체를 안전한 상태로 돌립니다.</p>
     <div class="argus-capabilities argus-two"><article><span>장애 01</span><strong>영상 처리가 멈춘 경우</strong><p>관측이 250ms 안에 새로 들어오지 않으면 이동을 멈추고, 4초가 지나면 위치 유지(Hold)로 바꿉니다.</p></article><article><span>장애 02</span><strong>추종 제어가 멈춘 경우</strong><p>명령의 유효 시간(100ms)이 지나면 onboard가 바로 속도를 0으로 보내고 위치 유지(Hold)를 요청합니다. 복구되어도 자동으로 다시 따라가지 않습니다.</p></article></div>
+    <details class="argus-implementation-details"><summary>프로세스 연결과 추종 명령 흐름</summary>
+      <p>오래된 영상 때문에 제어가 늦어지지 않도록 최신 프레임을 우선 처리합니다. 탐지, 추적, 추종 제어를 별도 프로세스로 나누고, 프로세스 사이에는 탐지와 추적 결과 같은 작은 메시지를 전달합니다. 비행 제어기와 통신하는 onboard 프로세스가 PX4로 보낼 명령을 모아 전달합니다.</p>
+      <figure class="research-figure argus-plan-figure"><picture><source media="(max-width: 900px)" srcset="../assets/images/argus-software-pipeline-mobile.svg?v=20261018a" width="720" height="1650"><img src="../assets/images/argus-software-pipeline.svg?v=20261018a" width="1200" height="700" alt="인지 프로세스의 최신 영상 수신, Double Plateau 전처리, Hailo NPU 추론, 후처리를 거쳐 추적 프로세스의 지면 좌표 변환과 UCMC 다중 차량 추적, 추종 제어 프로세스의 표적 관리와 재획득, 예측 추종 제어, 명령 검사를 지나 onboard 프로세스가 MAVLink로 PX4에 전달하는 처리 흐름" loading="lazy" decoding="async"></picture><figcaption><strong>영상 입력에서 추종 명령까지의 처리 순서</strong></figcaption></figure>
+      <div class="argus-interface-grid"><article><span>탐지 결과</span><strong>객체 위치와 신뢰도</strong></article><article><span>추적 결과</span><strong>추적 ID, 지면 위치와 관측 시각</strong></article><article><span>추종 판단</span><strong>명령 유효 여부, 이동 속도와 회전 방향</strong></article></div>
+      <p>지상 통제기 영상 전송은 RTSP/RTP와 ONVIF 메타데이터를 사용하는 표준 형식으로 전환하고 있습니다.</p>
+    </details>
   </div></div></section>
 
-  <section class="case-section"><div class="section-shell case-layout"><div><span class="case-section-label">05 / VALIDATION</span><h2>검증 계획</h2></div><div class="case-body">
-    <p>추적, 재획득, 추종은 소프트웨어 비행 시뮬레이션(SITL)에서 먼저 확인한 뒤, Raspberry Pi 5와 비행 제어기를 연결해 실기체에서 단일 대상 추종을 확인했습니다. 지연 시간, 기체 내 구동 안정성, 소비 전력은 정식으로 측정해 검증할 계획입니다.</p>
-    <ul class="noun-list"><li><strong>탐지와 응답</strong>탐지 성능과 영상 입력부터 제어 명령까지 걸리는 지연 시간</li><li><strong>기체 내 구동</strong>NPU 처리 속도, 소비 전력과 온도</li><li><strong>비행 연동</strong>시뮬레이션과 실기체의 추종 제어 반응 비교</li><li><strong>추종 중단과 재개</strong>대상 소실, 수동 개입, 재탐지 상황의 동작</li></ul>
-    <p>Gazebo와 PX4 SITL에서 출발과 정지, S자, U턴 기동 9회와 두 차량 교차 6회를 모두 마쳤고, 다른 차량을 따라간 경우는 없었습니다. 시뮬레이터가 주는 박스 대신 실제 탐지 모델을 연결한 시험 3회에서도 같았습니다. 모두 RGB 영상으로 진행한 시험입니다.</p>
+  <section class="case-section"><div class="section-shell case-layout"><div><span class="case-section-label">05 / VALIDATION</span><h2>검증 결과</h2></div><div class="case-body">
+    <p>Gazebo와 PX4를 연결한 소프트웨어 비행 시뮬레이션(SITL)에서 단일 표적과 다중 표적의 탐지, 추적, 추종을 시험했습니다. 이후 알고리즘을 실제 드론에 탑재해 실내 비행에서 단일 표적의 탐지, 추적, 추종 동작을 확인했습니다.</p>
+    <div class="table-wrap argus-result-table"><table class="metric-table"><caption>시뮬레이션 시험 결과</caption><thead><tr><th scope="col">시험</th><th scope="col">조건</th><th scope="col">결과</th></tr></thead><tbody><tr><th scope="row">표적 추종</th><td>S자 주행, 급정지와 후진, 교차 주행</td><td><strong>15회 모두 추종 성공</strong></td></tr><tr><th scope="row">가림 대응</th><td>2초 완전 가림</td><td><strong>29회 모두 동일 표적 유지</strong></td></tr></tbody></table></div>
+    <figure class="research-figure argus-plan-figure"><img src="../assets/images/argus-sitl-occlusion-sequence.png?v=20261027" width="1720" height="1020" alt="Gazebo에서 탱크 ID 1을 추적하다가 바위에 일부 가려지고, 완전히 가려진 동안 표적 위치를 유지한 뒤, 다시 나타난 탱크를 같은 표적으로 연결하는 네 장면" loading="lazy" decoding="async"><figcaption><strong>가림 전후 동일 표적 유지</strong> 1. 표적 추적 → 2. 부분 가림 → 3. 완전 가림 → 4. 재관측 후 같은 표적으로 연결</figcaption></figure>
+    <h3 class="argus-subheading">이전 RGB 시뮬레이션 주행 영상</h3>
+    <p>교차 주행과 가림 뒤 추종 재개 과정을 확인한 영상입니다.</p>
     <div class="argus-video-pair"><figure class="video-card"><video autoplay loop muted playsinline controls preload="auto" width="1280" height="720" poster="../assets/images/argus-sim-road-crossing-preview.jpg" aria-label="Gazebo 시뮬레이션에서 다른 차량이 교차로를 지나가는 동안 선택한 차량의 추적 ID 1과 추종 상태가 유지되는 장면"><source src="../assets/videos/argus-sim-road-crossing.mp4" type="video/mp4"></video><figcaption><strong>시뮬레이션: 교차로 통과</strong><span>다른 차량이 교차로를 지나가도 선택한 차량의 추적 ID 1이 유지됩니다.</span></figcaption></figure><figure class="video-card"><video autoplay loop muted playsinline controls preload="auto" width="1280" height="720" poster="../assets/images/argus-sim-occlusion-preview.jpg?v=20261015" aria-label="Gazebo 시뮬레이션에서 차량이 지붕 아래에서 약 1초 가려졌다가 다시 나타나는 동안 표적 상태가 표적 고정, 관측 공백 대기, 후보 확인, 표적 고정 순서로 바뀌는 장면"><source src="../assets/videos/argus-sim-occlusion.mp4?v=20261015" type="video/mp4"></video><figcaption><strong>시뮬레이션: 가림 뒤 재획득</strong><span>지붕 아래에서 약 1초 가려졌던 차량을 다시 확인한 뒤 따라갑니다. 오른쪽 패널은 같은 회차의 실제 기록입니다.</span></figcaption></figure></div>
-    <p>탑재 장비를 모두 실은 기체로 실내와 야외에서 비행 시험을 하며, 단일 대상을 탐지, 추적하며 따라가는 비행을 확인했습니다.</p>
-    <div class="argus-video-pair"><figure class="video-card"><video autoplay loop muted playsinline controls preload="auto" width="1280" height="720" poster="../assets/images/argus-indoor-hover-preview.jpg" aria-label="실내 격자 바닥 위 RC 탱크 앞에서 기체가 정지 비행하는 장면"><source src="../assets/videos/argus-indoor-hover.mp4" type="video/mp4"></video><figcaption><strong>실내 시험 비행</strong><span>RC 탱크를 둔 실내에서 기체를 띄운 장면입니다.</span></figcaption></figure><figure class="video-card"><video autoplay loop muted playsinline controls preload="auto" width="1280" height="720" poster="../assets/images/argus-park-flight-preview.jpg" aria-label="공원 잔디밭에서 이륙한 기체가 하늘로 올라가는 장면"><source src="../assets/videos/argus-park-flight.mp4" type="video/mp4"></video><figcaption><strong>야외 비행</strong><span>탑재 장비를 모두 실은 기체가 공원에서 이륙하는 장면입니다.</span></figcaption></figure></div>
+    <h3 class="argus-subheading">온보드 탐지와 실내 비행</h3>
+    <p>Hailo-8 NPU에서 YOLOX를 실행해 열화상 영상의 RC 탱크를 탐지했습니다. Raspberry Pi 5와 PX4를 연결한 실기체에서 탐지, 추적, 추종 동작을 확인했습니다.</p>
+    <div class="argus-evidence-pair"><figure class="research-figure"><img src="../assets/images/argus-onboard-thermal-detection.png?v=20261027" width="640" height="480" alt="온보드 Hailo-8 NPU에서 YOLOX로 RC 탱크를 탐지한 열화상 화면. 초록색 박스와 tank 0.96 표시" loading="lazy" decoding="async"><figcaption><strong>온보드 열화상 탐지</strong> Hailo-8에서 실행한 YOLOX의 탐지 결과</figcaption></figure><figure class="research-figure"><img src="../assets/images/argus-indoor-flight-test.png?v=20261027" width="1920" height="1080" alt="실내 시험 공간에서 바닥의 RC 탱크 위로 비행 중인 F450 드론. 드론과 탐지 목표에 각각 라벨이 표시되어 있습니다" loading="lazy" decoding="async"><figcaption><strong>실내 비행 시험</strong> 실제 드론과 RC 탱크를 사용한 탐지, 추적, 추종 시험</figcaption></figure></div>
+    <details class="argus-implementation-details"><summary>초기 실내 시험 비행과 야외 이륙 영상</summary>
+      <div class="argus-video-pair"><figure class="video-card"><video muted playsinline controls preload="metadata" width="1280" height="720" poster="../assets/images/argus-indoor-hover-preview.jpg" aria-label="실내 격자 바닥 위 RC 탱크 앞에서 기체가 정지 비행하는 장면"><source src="../assets/videos/argus-indoor-hover.mp4" type="video/mp4"></video><figcaption><strong>실내 시험 비행</strong><span>RC 탱크를 둔 실내에서 기체를 띄운 장면입니다.</span></figcaption></figure><figure class="video-card"><video muted playsinline controls preload="metadata" width="1280" height="720" poster="../assets/images/argus-park-flight-preview.jpg" aria-label="공원 잔디밭에서 이륙한 기체가 하늘로 올라가는 장면"><source src="../assets/videos/argus-park-flight.mp4" type="video/mp4"></video><figcaption><strong>야외 비행</strong><span>탑재 장비를 모두 실은 기체가 공원에서 이륙하는 장면입니다.</span></figcaption></figure></div>
+    </details>
   </div></div></section>
 
   <nav class="project-pagination section-shell" aria-label="프로젝트 이동"><a class="project-pagination-prev" href="imu-lstm-fsm.html" rel="prev"><span>← 이전 프로젝트</span><strong>IMU 주행 상태 판별</strong></a><a class="project-pagination-all" href="../index.html#projects">전체 프로젝트</a><a class="project-pagination-next" href="stm32-tracking.html" rel="next"><span>다음 프로젝트 →</span><strong>STM32 표적 탐지 및 추적</strong></a></nav>

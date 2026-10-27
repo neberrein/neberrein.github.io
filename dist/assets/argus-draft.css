@@ -315,3 +315,135 @@
 .argus-page .case-body > .argus-video-pair + p {
   margin-top:2rem;
 }
+
+.argus-page .argus-subheading {
+  margin:2.5rem 0 .85rem;
+  color:var(--argus-blue);
+  font-size:1.2rem;
+  line-height:1.5;
+}
+
+.argus-page .case-body > .argus-subheading:first-child {
+  margin-top:0;
+}
+
+.argus-implementation-details {
+  margin-top:1.75rem;
+  padding:1rem 0;
+  border-block:1px solid var(--rule);
+}
+
+.argus-implementation-details summary {
+  min-height:44px;
+  padding:.5rem 0;
+  color:var(--argus-blue);
+  font-weight:750;
+  cursor:pointer;
+  line-height:1.6;
+}
+
+.argus-implementation-details summary:focus-visible {
+  outline:2px solid var(--argus-blue);
+  outline-offset:4px;
+}
+
+.argus-implementation-details > p {
+  max-width:78ch;
+  margin-top:1rem;
+  color:var(--slate);
+  line-height:1.75;
+}
+
+.argus-result-table {
+  margin:1.5rem 0;
+}
+
+.argus-result-table table {
+  width:100%;
+  table-layout:fixed;
+  font-size:.95rem;
+}
+
+.argus-result-table caption {
+  margin-bottom:.75rem;
+  color:var(--deep);
+  font-weight:750;
+  text-align:left;
+}
+
+.argus-result-table th,
+.argus-result-table td {
+  white-space:normal;
+  overflow-wrap:break-word;
+  vertical-align:middle;
+}
+
+.argus-result-table tbody th {
+  color:var(--deep);
+  font-weight:650;
+}
+
+.argus-result-table .argus-chosen > * {
+  background:#edf4fa;
+}
+
+.argus-choice {
+  display:block;
+  margin-top:.2rem;
+  color:var(--argus-blue);
+  font-size:.8rem;
+}
+
+.argus-page .argus-result-emphasis {
+  color:var(--argus-blue);
+  font-weight:650;
+}
+
+.argus-evidence-pair {
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:1rem;
+  margin:1.5rem 0;
+}
+
+.argus-evidence-pair figure {
+  min-width:0;
+  margin:0;
+}
+
+.argus-evidence-pair img {
+  display:block;
+  width:100%;
+  height:auto;
+  aspect-ratio:4 / 3;
+  max-height:none;
+  object-fit:contain;
+  background:#f0f3f6;
+}
+
+.argus-evidence-pair figcaption {
+  padding:.9rem 1rem;
+  font-size:.9rem;
+  line-height:1.6;
+}
+
+.argus-evidence-pair figcaption strong {
+  display:block;
+  color:var(--deep);
+}
+
+@media (max-width:680px) {
+  .argus-result-table table {
+    min-width:0;
+    font-size:.875rem;
+  }
+
+  .argus-result-table th,
+  .argus-result-table td {
+    padding:.75rem .4rem;
+  }
+
+  .argus-evidence-pair {
+    grid-template-columns:minmax(0,1fr);
+  }
+}
