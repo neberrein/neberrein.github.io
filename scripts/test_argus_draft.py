@@ -22,10 +22,10 @@ class ArgusPageTests(unittest.TestCase):
         self.assertIn('og:url', page)
         self.assertIn('argus-og.png', page)
 
-    def test_draft_describes_plan_without_claiming_results(self):
+    def test_ongoing_project_describes_verified_results(self):
         page = PAGE.read_text(encoding='utf-8')
         for text in ('ARGUS 6인 팀', '팀장', 'YOLOX 학습', 'Hailo NPU',
-                     'AI-powered Real-time Ground Object UAV Surveillance', '검증 계획', '검증할 계획입니다'):
+                     'AI-powered Real-time Ground Object UAV Surveillance', '검증 결과'):
             self.assertIn(text, page)
         for unsupported in ('실기체 검증을 완료', '탐지 정확도 달성', 'FPS를 달성', '자율 추종에 성공'):
             self.assertNotIn(unsupported, page)
@@ -46,7 +46,7 @@ class ArgusPageTests(unittest.TestCase):
         for name in ('argus-system-architecture.svg', 'argus-system-architecture-mobile.svg',
                      'argus-software-pipeline.svg', 'argus-software-pipeline-mobile.svg'):
             source = (DIST / 'assets' / 'images' / name).read_text(encoding='utf-8')
-            self.assertIn('Hailo NPU', source)
+            self.assertRegex(source, r'Hailo(?:-8)? NPU')
             self.assertNotIn('DX-M1', source)
 
     def test_diagrams_have_explicit_direction_and_valid_dimensions(self):
@@ -64,6 +64,19 @@ class ArgusPageTests(unittest.TestCase):
         self.assertIn('M345 210H370', source)  # Preprocessing -> NPU.
         self.assertIn('M510 210H535', source)  # NPU -> postprocessing.
         self.assertNotIn('M345 210H535', source)
+
+    def test_npu_badge_is_inside_box_and_clear_of_arrows(self):
+        ns = '{http://www.w3.org/2000/svg}'
+        for name, box_top in (('argus-system-architecture.svg', 360),
+                              ('argus-system-architecture-mobile.svg', 640)):
+            root = ET.parse(DIST / 'assets/images' / name).getroot()
+            badges = [r for r in root.iter(ns + 'rect')
+                      if r.get('fill') == '#2f63b4']
+            badge = min(badges, key=lambda r: float(r.get('y')))
+            self.assertGreaterEqual(float(badge.get('y')), box_top + 10)
+            title = next(t for t in root.iter(ns + 'text') if t.text in ('Hailo NPU', 'Hailo-8 NPU'))
+            title_top = float(title.get('y')) - float(title.get('font-size'))
+            self.assertGreater(title_top, float(badge.get('y')) + float(badge.get('height')))
 
     def test_manual_override_is_separate_from_target_loss(self):
         for name in ('argus-loss-response.svg', 'argus-loss-response-mobile.svg'):
