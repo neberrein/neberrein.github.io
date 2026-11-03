@@ -59,6 +59,7 @@
   </div></div></section>
 
   <section class="case-section alt-section"><div class="section-shell case-layout"><div><span class="case-section-label">06 / TRACK TEST</span><h2>실차 주행</h2></div><div class="case-body">
+    <p>장애물과 충돌하지 않으면서 트랙 10바퀴를 빠르게 완주하는 것을 목표로 했습니다. 실차 주행 로그를 분석해 벽과 장애물의 안전 여유, 재계획 주기를 조정했습니다.</p>
     <figure class="video-card wide-video"><video controls muted playsinline preload="metadata" poster="../assets/images/robo-track-video-poster.jpg"><source src="../assets/videos/roboracer-track-wide.mp4" type="video/mp4">브라우저에서 영상을 재생할 수 없습니다.</video><figcaption><strong>대회장 트랙 시험</strong> 트랙 전체와 MSCLAB 차량의 실차 주행을 함께 확인할 수 있는 영상</figcaption></figure>
   </div></div></section>
 
@@ -68,6 +69,7 @@
 
   <section class="case-section alt-section"><div class="section-shell case-layout"><div><span class="case-section-label">08 / RESULT</span><h2>경기 결과와 실패 분석</h2></div><div class="case-body">
     <div class="result-callout"><strong>16강</strong><div><h3>56개 팀 참가 국제 자율주행 경주</h3><p>2026년 8월 24–27일, 부산 BEXCO</p></div></div>
+    <p>대회에서 회피가 작동한 구간의 충돌은 <strong>0회</strong>였습니다. 16강 경기에서는 충돌 이후 위치 추정이 무너지며 주행을 이어가지 못했고, 대회 후 위치 복구 방식을 구현해 시험했습니다.</p>
     <figure class="research-figure robo-team-figure"><img loading="lazy" decoding="async" src="../assets/images/robo-team-result.jpg" alt="IFAC 2026 RoboRacer에 출전한 MSCLAB 팀의 단체사진"><figcaption>MSCLAB 5인 팀으로 IFAC 2026 RoboRacer에 출전해 56개 팀 중 16강에 진출했습니다. 본인은 사진 왼쪽에서 두 번째로 MSCLAB 팻말을 들고 있습니다.</figcaption></figure>
     <ul class="noun-list"><li><strong>경기 결과</strong>56개 팀 중 16강 진출</li><li><strong>결정적 실패</strong>16강 경기 중 충돌 이후 Cartographer의 pose 추정이 무너지며 기준 경로상의 차량 위치를 계산하지 못했고, 경로 추종을 지속하지 못했습니다.</li><li><strong>대회 후 개선 시도</strong>충돌 이후 위치 추정 실패의 복구 방식을 대회 후 연구실에서 구현하고 시험했습니다.</li><li><strong>배운 점</strong>정상 주행 성능뿐 아니라 위치 추정 실패 이후 주행을 재개할 수 있는 복구 구조도 중요한 설계 기준임을 확인했습니다.</li></ul>
     <div class="robo-failure-flow" aria-label="충돌 이후 위치 추정 실패가 경로 추종에 미친 영향"><article><span>01</span><strong>충돌</strong></article><b aria-hidden="true">→</b><article><span>02</span><strong>Cartographer pose 추정 붕괴</strong></article><b aria-hidden="true">→</b><article><span>03</span><strong>기준 경로상의 차량 위치 계산 불가</strong></article><b aria-hidden="true">→</b><article><span>04</span><strong>위치 기반 경로 생성과 경로 추종을 지속하지 못함</strong></article></div>
