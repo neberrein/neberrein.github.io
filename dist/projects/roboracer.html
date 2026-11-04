@@ -69,9 +69,9 @@
 
   <section class="case-section alt-section"><div class="section-shell case-layout"><div><span class="case-section-label">08 / RESULT</span><h2>경기 결과와 실패 분석</h2></div><div class="case-body">
     <div class="result-callout"><strong>16강</strong><div><h3>56개 팀 참가 국제 자율주행 경주</h3><p>2026년 8월 24–27일, 부산 BEXCO</p></div></div>
-    <p>대회에서 회피가 작동한 구간의 충돌은 <strong>0회</strong>였습니다. 16강 경기에서는 충돌 이후 위치 추정이 무너지며 주행을 이어가지 못했고, 대회 후 위치 복구 방식을 구현해 시험했습니다.</p>
+    <div class="decision-strip"><article><span>회피 동작 구간</span><strong>충돌 0회</strong></article><article><span>16강 경기</span><strong>충돌 이후 위치 추정 실패로 주행 중단</strong></article></div>
     <figure class="research-figure robo-team-figure"><img loading="lazy" decoding="async" src="../assets/images/robo-team-result.jpg" alt="IFAC 2026 RoboRacer에 출전한 MSCLAB 팀의 단체사진"><figcaption>MSCLAB 5인 팀으로 IFAC 2026 RoboRacer에 출전해 56개 팀 중 16강에 진출했습니다. 본인은 사진 왼쪽에서 두 번째로 MSCLAB 팻말을 들고 있습니다.</figcaption></figure>
-    <ul class="noun-list"><li><strong>경기 결과</strong>56개 팀 중 16강 진출</li><li><strong>결정적 실패</strong>16강 경기 중 충돌 이후 Cartographer의 pose 추정이 무너지며 기준 경로상의 차량 위치를 계산하지 못했고, 경로 추종을 지속하지 못했습니다.</li><li><strong>대회 후 개선 시도</strong>충돌 이후 위치 추정 실패의 복구 방식을 대회 후 연구실에서 구현하고 시험했습니다.</li><li><strong>배운 점</strong>정상 주행 성능뿐 아니라 위치 추정 실패 이후 주행을 재개할 수 있는 복구 구조도 중요한 설계 기준임을 확인했습니다.</li></ul>
+    <h3>충돌 이후 위치 추정 실패</h3>
     <div class="robo-failure-flow" aria-label="충돌 이후 위치 추정 실패가 경로 추종에 미친 영향"><article><span>01</span><strong>충돌</strong></article><b aria-hidden="true">→</b><article><span>02</span><strong>Cartographer pose 추정 붕괴</strong></article><b aria-hidden="true">→</b><article><span>03</span><strong>기준 경로상의 차량 위치 계산 불가</strong></article><b aria-hidden="true">→</b><article><span>04</span><strong>위치 기반 경로 생성과 경로 추종을 지속하지 못함</strong></article></div>
     <div class="robo-recovery-trial" aria-label="대회 후 시도한 위치 추정 전환"><span>대회 후 개선 시도</span><strong>Particle Filter 기반 초기 위치 추정 → Cartographer 재전환</strong><p>대회 후 연구실에서 Particle Filter로 초기 위치를 다시 추정한 뒤 Cartographer로 전환해 경로 추종을 재개하는 복구 방식을 구현하고 시험했습니다.</p></div>
   </div></div></section>

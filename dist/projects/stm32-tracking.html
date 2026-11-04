@@ -9,7 +9,7 @@
   <title>STM32 기반 초음파 표적 탐지 및 추적 | 곽민재</title>
   <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="../assets/site.css?readability=20260914&amp;v=project-navigation-20260913">
-  <link rel="stylesheet" href="../assets/stm32-evidence.css?v=log-comparison-20260914">
+  <link rel="stylesheet" href="../assets/stm32-evidence.css?v=20261104-frame-evidence">
   <script src="../assets/site.js" defer></script>
 </head>
 <body class="stm32-page">
@@ -32,7 +32,7 @@
   </section>
 
   <section class="case-section"><div class="section-shell case-layout"><div><span class="case-section-label">01 / PURPOSE</span><h2>구현 목표</h2></div><div class="case-body">
-    <p>단일 거리 측정값을 화면에 표시하는 데서 끝내지 않고, 제한된 센서와 MCU 자원으로 주변 탐색부터 표적 확정, 추적, 소실 판정, 재탐색까지 하나의 운용 사이클로 완성하는 것을 목표로 했습니다.</p>
+    <p>제한된 센서와 MCU 자원으로 주변 탐색, 표적 확정과 추적, 소실 판단 후 재탐색까지 자동으로 이어지는 시스템을 구현하는 것이 목표였습니다.</p>
     <div class="issue-grid"><article><span>센서</span><strong>넓은 빔과 반사 노이즈</strong><p>한 각도의 거리 변화만으로는 실제 물체와 단발 이상치를 구분하기 어려웠습니다.</p></article><article><span>구동</span><strong>서보 위치 피드백 부재</strong><p>이동 중 측정하면 실제 각도와 거리 데이터의 시점이 일치하지 않는 문제가 있었습니다.</p></article><article><span>동시성</span><strong>측정, 구동, 화면 갱신의 충돌</strong><p>여러 기능이 GPIO와 타이머를 동시에 제어할 가능성을 고려했습니다.</p></article><article><span>운용</span><strong>현재 상태의 즉시 확인</strong><p>스캔, 추적, 소실 상태와 거리값을 실시간으로 표시할 필요가 있었습니다.</p></article></div>
   </div></div></section>
 
@@ -42,7 +42,7 @@
   </div></div></section>
 
   <section class="case-section"><div class="section-shell case-layout"><div><span class="case-section-label">03 / STATE MACHINE</span><h2>탐지와 추적 흐름</h2></div><div class="case-body">
-    <div class="state-flow" aria-label="표적 탐지와 추적 상태 흐름"><article><span>01</span><strong>SCANNING</strong><small>20–160도, 15포인트 왕복 스캔</small></article><b>→</b><article><span>02</span><strong>CANDIDATE</strong><small>인접 각도에서 접근 변화 확인</small></article><b>→</b><article><span>03</span><strong>DETECTED</strong><small>후보 위치 반복 측정으로 표적 확정</small></article><b>→</b><article><span>04</span><strong>TRACKING</strong><small>좌, 중, 우 거리 비교로 추적</small></article><b>→</b><article><span>05</span><strong>LOST</strong><small>표적 소실 판단 후 SCANNING으로 복귀</small></article></div>
+    <div class="state-flow" aria-label="표적 탐지와 추적 상태 흐름"><article><span>01</span><strong>SCANNING</strong><small>주변을 왕복 스캔해 거리 프레임 생성</small></article><b>→</b><article><span>02</span><strong>CANDIDATE</strong><small>인접 각도에서 접근 변화 확인</small></article><b>→</b><article><span>03</span><strong>DETECTED</strong><small>후보 위치 반복 측정으로 표적 확정</small></article><b>→</b><article><span>04</span><strong>TRACKING</strong><small>좌, 중, 우 거리 비교로 추적</small></article><b>→</b><article><span>05</span><strong>LOST</strong><small>표적 소실 판단 후 SCANNING으로 복귀</small></article></div>
     <div class="mode-note"><strong>운용 상태</strong><span>STOPPED, MANUAL은 자동 탐지 흐름과 별도의 사용자 운용 상태로 분리했습니다.</span></div>
     <div class="decision-strip"><article><span>각도 범위</span><strong>20–160도</strong></article><article><span>해상도</span><strong>10도 간격, 15포인트</strong></article><article><span>후보 검증</span><strong>3회 중 2회</strong></article><article><span>상태 표시</span><strong>GUI와 RGB LED 동기</strong></article></div>
   </div></div></section>
@@ -52,7 +52,7 @@
   </div></div></section>
 
   <section class="case-section"><div class="section-shell case-layout"><div><span class="case-section-label">05 / EVIDENCE</span><h2>기능별 결과</h2></div><div class="case-body">
-    <div class="vehicle-grid evidence-photos stm32-state-evidence"><figure><div class="stm32-state-frame scanning-frame"><img src="../assets/images/stm32-evidence-scanning.webp" width="1600" height="900" alt="SCANNING 상태의 TouchGFX 화면" loading="lazy" decoding="async"></div><figcaption><small>AUTO / SCANNING</small><strong>자동 스캔</strong><span>20–160° 범위를 왕복하며 현재 센서 각도를 표시하고 거리 프레임을 생성했습니다.</span></figcaption></figure><figure><div class="stm32-state-frame tracking-frame"><img src="../assets/images/stm32-evidence-tracking.webp" width="1600" height="900" alt="실제 TRACKING 상태의 표적 각도와 거리 표시 화면" loading="lazy" decoding="async"></div><figcaption><small>AUTO / TRACKING</small><strong>표적 추적</strong><span>확정된 표적을 기준으로 추적 각도와 실시간 거리를 표시했습니다.</span></figcaption></figure><figure><div class="stm32-state-frame manual-frame"><img src="../assets/images/stm32-evidence-manual.webp" width="1600" height="900" alt="TouchGFX 버튼을 누르는 MANUAL 상태 화면" loading="lazy" decoding="async"></div><figcaption><small>MANUAL</small><strong>수동 운용</strong><span>TouchGFX 버튼 입력을 RTOS 큐로 전달해 서보 각도를 직접 제어했습니다.</span></figcaption></figure></div>
+    <div class="vehicle-grid evidence-photos stm32-state-evidence"><figure><div class="stm32-state-frame scanning-frame"><img src="../assets/images/stm32-evidence-scanning.webp" width="1600" height="900" alt="SCANNING 상태의 TouchGFX 화면" loading="lazy" decoding="async"></div><figcaption><small>AUTO / SCANNING</small><strong>자동 스캔</strong><span>현재 센서 각도와 자동 스캔 상태를 화면에 표시했습니다.</span></figcaption></figure><figure><div class="stm32-state-frame tracking-frame"><img src="../assets/images/stm32-evidence-tracking.webp" width="1600" height="900" alt="실제 TRACKING 상태의 표적 각도와 거리 표시 화면" loading="lazy" decoding="async"></div><figcaption><small>AUTO / TRACKING</small><strong>표적 추적</strong><span>확정된 표적을 기준으로 추적 각도와 실시간 거리를 표시했습니다.</span></figcaption></figure><figure><div class="stm32-state-frame manual-frame"><img src="../assets/images/stm32-evidence-manual.webp" width="1600" height="900" alt="TouchGFX 버튼을 누르는 MANUAL 상태 화면" loading="lazy" decoding="async"></div><figcaption><small>MANUAL</small><strong>수동 운용</strong><span>TouchGFX 버튼 입력을 RTOS 큐로 전달해 서보 각도를 직접 제어했습니다.</span></figcaption></figure></div>
     <figure class="research-figure stm32-uart-evidence">
       <img src="../assets/images/stm32-uart-detection-tracking.png" width="2880" height="2440" alt="실제 UART 로그: 110도에서 거리 감소량 57 mm인 후보 검출, 3회 재측정, 후보 확정과 추적 시작, 추적 거리 10.6 cm와 8.3 cm 및 6.1 cm 기록" loading="lazy" decoding="async">
       <figcaption><strong>접근 후보 검출 및 추적 UART 로그</strong><span>110°에서 접근 후보를 검출하고 3회 재측정한 뒤, 후보 확정과 추적에 진입한 실제 실행 기록입니다.</span></figcaption>
@@ -71,7 +71,7 @@ TRACK TARGET: angle=110, distance=10.6 cm
 TRACK TARGET: angle=110, distance=8.3 cm
 TRACK TARGET: angle=110, distance=6.1 cm</code></pre></div><p>추적 거리는 세 기록을 발췌했으며 중간 로그는 생략했습니다.</p></details>
     <h3 class="simulation-group-title">스캔 프레임 구성과 비교 규칙</h3>
-    <div class="uart-evidence" aria-label="UART 로그 항목 설명"><article><strong>20–160도</strong><p>초음파 센서가 좌우로 탐색하는 전체 각도 범위를 20–160도로 설정했습니다.</p></article><article><strong>15포인트</strong><p>10도 간격으로 한 프레임에 15개의 거리값을 취득했습니다.</p></article><article><strong>valid 15/15</strong><p>15개 각도에서 모두 Echo 응답을 받은 정상 프레임을 확인했습니다.</p></article><article><strong>FORWARD ↔ FORWARD</strong><p>스캔 방향이 같은 프레임끼리 비교해 동일 각도의 접근 변화량을 계산했습니다.</p></article></div>
+    <div class="uart-evidence" aria-label="UART 로그 항목 설명"><article><strong>valid 15/15</strong><p>15개 각도에서 모두 Echo 응답을 받은 정상 프레임을 확인했습니다.</p></article><article><strong>FORWARD ↔ FORWARD</strong><p>스캔 방향이 같은 프레임끼리 비교해 동일 각도의 접근 변화량을 계산했습니다.</p></article></div>
   </div></div></section>
 
   <section class="case-section alt-section"><div class="section-shell case-layout"><div><span class="case-section-label">06 / DESIGN DECISIONS</span><h2>오동작을 줄인 네 가지 설계</h2></div><div class="case-body">

@@ -1,4 +1,8 @@
 /* Original hardware photograph with aligned callouts; no synthesized components. */
+.stm32-page .uart-evidence { grid-template-columns:repeat(2,minmax(0,1fr)); }
+@media (max-width:680px) {
+  .stm32-page .uart-evidence { grid-template-columns:minmax(0,1fr); }
+}
 .stm32-page .stm32-hardware-photo { position:relative; aspect-ratio:3/2; overflow:hidden; background:#fff; }
 .stm32-page .stm32-hardware-photo img { display:block; width:133.333333%; max-width:none; height:auto; max-height:none; aspect-ratio:auto; margin-left:-13.333333%; margin-top:-23.333333%; }
 .stm32-hardware-connectors { position:absolute; inset:0; width:100%; height:100%; pointer-events:none; }
