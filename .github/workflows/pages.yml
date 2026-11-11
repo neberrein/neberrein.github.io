@@ -39,6 +39,7 @@ jobs:
         run: |
           python scripts/test_portfolio_presentation.py
           python scripts/test_sensor_evidence.py
+          python scripts/test_home_languages.py
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:

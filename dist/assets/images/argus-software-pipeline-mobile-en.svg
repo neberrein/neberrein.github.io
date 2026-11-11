@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="1650" viewBox="0 0 720 1650" role="img" aria-labelledby="title desc">
+<title id="title">Processing order from the latest frame to PX4 flight control (mobile)</title><desc id="desc">Arrows show the direction in which data or commands are passed.</desc>
+<defs><marker id="blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 10 5 0 10Z" fill="#2f63b4"/></marker><marker id="teal" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 10 5 0 10Z" fill="#138a98"/></marker></defs>
+<style>text{font-family:Pretendard,"Segoe UI",Arial,sans-serif;font-weight:650}</style>
+<rect width="720" height="1650" fill="#fff"/>
+<rect x="30" y="20" width="660" height="595" rx="14" fill="#f5f8fb" stroke="#c4d3e3" stroke-width="2" stroke-dasharray="7 6"/><text x="52" y="58" font-size="26" fill="#21457c">Perception process</text>
+<rect x="30" y="640" width="660" height="320" rx="14" fill="#f2f8f9" stroke="#a9cfd5" stroke-width="2" stroke-dasharray="7 6"/><text x="52" y="678" font-size="26" fill="#138a98">Tracking process</text>
+<rect x="30" y="980" width="660" height="440" rx="14" fill="#f2f8f9" stroke="#a9cfd5" stroke-width="2" stroke-dasharray="7 6"/><text x="52" y="1018" font-size="26" fill="#138a98">Follow-control process</text>
+<rect x="90" y="75" width="540" height="100" rx="12" fill="#fff" stroke="#cfdae5" stroke-width="2"/>
+<text x="360" y="119" text-anchor="middle" font-size="32" fill="#18345f">Receive latest frame</text>
+<text x="360" y="157" text-anchor="middle" font-size="25" fill="#53677c">Raspberry Pi 5</text>
+<rect x="90" y="215" width="540" height="100" rx="12" fill="#fff" stroke="#cfdae5" stroke-width="2"/>
+<text x="360" y="259" text-anchor="middle" font-size="32" fill="#18345f">Image preprocessing</text>
+<text x="360" y="297" text-anchor="middle" font-size="25" fill="#53677c">Raspberry Pi 5 / Double Plateau</text>
+<rect x="90" y="355" width="540" height="100" rx="12" fill="#edf3f8" stroke="#2f63b4" stroke-width="2.5"/>
+<text x="360" y="399" text-anchor="middle" font-size="32" fill="#18345f">YOLOX inference</text>
+<text x="360" y="437" text-anchor="middle" font-size="25" fill="#53677c">Hailo NPU</text>
+<rect x="512" y="340" width="108" height="30" rx="15" fill="#2f63b4"/><text x="566" y="361" text-anchor="middle" font-size="18" fill="#fff">My work</text>
+<rect x="90" y="495" width="540" height="100" rx="12" fill="#fff" stroke="#cfdae5" stroke-width="2"/>
+<text x="360" y="539" text-anchor="middle" font-size="32" fill="#18345f">Detection postprocessing</text>
+<text x="360" y="577" text-anchor="middle" font-size="25" fill="#53677c">Raspberry Pi 5</text>
+<rect x="90" y="700" width="540" height="100" rx="12" fill="#fff" stroke="#cfdae5" stroke-width="2"/>
+<text x="360" y="744" text-anchor="middle" font-size="32" fill="#18345f">Ground projection</text>
+<text x="360" y="782" text-anchor="middle" font-size="25" fill="#53677c">Raspberry Pi 5</text>
+<rect x="90" y="840" width="540" height="100" rx="12" fill="#edf3f8" stroke="#2f63b4" stroke-width="2.5"/>
+<text x="360" y="884" text-anchor="middle" font-size="32" fill="#18345f">Multi-vehicle tracking (UCMC)</text>
+<text x="360" y="922" text-anchor="middle" font-size="25" fill="#53677c">Raspberry Pi 5</text>
+<rect x="512" y="825" width="108" height="30" rx="15" fill="#2f63b4"/><text x="566" y="846" text-anchor="middle" font-size="18" fill="#fff">My work</text>
+<rect x="90" y="1040" width="540" height="100" rx="12" fill="#edf3f8" stroke="#2f63b4" stroke-width="2.5"/>
+<text x="360" y="1084" text-anchor="middle" font-size="28" fill="#18345f">Target management and reacquisition</text>
+<text x="360" y="1122" text-anchor="middle" font-size="25" fill="#53677c">Raspberry Pi 5</text>
+<rect x="512" y="1025" width="108" height="30" rx="15" fill="#2f63b4"/><text x="566" y="1046" text-anchor="middle" font-size="18" fill="#fff">My work</text>
+<rect x="90" y="1180" width="540" height="100" rx="12" fill="#fff" stroke="#cfdae5" stroke-width="2"/>
+<text x="360" y="1224" text-anchor="middle" font-size="32" fill="#18345f">Predictive follow control</text>
+<text x="360" y="1262" text-anchor="middle" font-size="25" fill="#53677c">Raspberry Pi 5 / 1.2 s prediction, 20Hz</text>
+<rect x="90" y="1320" width="540" height="100" rx="12" fill="#fff" stroke="#cfdae5" stroke-width="2"/>
+<text x="360" y="1364" text-anchor="middle" font-size="32" fill="#18345f">Command guard</text>
+<text x="360" y="1402" text-anchor="middle" font-size="25" fill="#53677c">Raspberry Pi 5 / Watchdog</text>
+<rect x="90" y="1480" width="540" height="100" rx="12" fill="#fff" stroke="#138a98" stroke-width="2"/>
+<text x="360" y="1524" text-anchor="middle" font-size="32" fill="#18345f">PX4 flight control</text>
+<text x="360" y="1562" text-anchor="middle" font-size="25" fill="#53677c">Flight controller</text>
+<path d="M360 175V213" fill="none" stroke="#2f63b4" stroke-width="3" marker-end="url(#blue)"/>
+<path d="M360 315V353" fill="none" stroke="#2f63b4" stroke-width="3" marker-end="url(#blue)"/>
+<path d="M360 455V493" fill="none" stroke="#2f63b4" stroke-width="3" marker-end="url(#blue)"/>
+<path d="M360 595V698" fill="none" stroke="#2f63b4" stroke-width="3" marker-end="url(#blue)"/>
+<path d="M360 800V838" fill="none" stroke="#2f63b4" stroke-width="3" marker-end="url(#blue)"/>
+<path d="M360 940V1038" fill="none" stroke="#2f63b4" stroke-width="3" marker-end="url(#blue)"/>
+<path d="M360 1140V1178" fill="none" stroke="#2f63b4" stroke-width="3" marker-end="url(#blue)"/>
+<path d="M360 1280V1318" fill="none" stroke="#2f63b4" stroke-width="3" marker-end="url(#blue)"/>
+<path d="M360 1420V1478" fill="none" stroke="#138a98" stroke-width="3" marker-end="url(#teal)"/>
+<text x="378" y="633" font-size="20" fill="#53677c">Detection messages</text>
+<text x="360" y="1625" text-anchor="middle" font-size="28" fill="#138a98">FC link: onboard → MAVLink</text>
+</svg>

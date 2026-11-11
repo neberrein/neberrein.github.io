@@ -1,0 +1,53 @@
+/* Language controls and English typography for project detail pages. */
+.detail-header { gap: 1rem; }
+.detail-header .brand { flex-shrink: 0; margin-right: auto; }
+.detail-header .language-switch {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+  border: 1px solid var(--rule);
+  border-radius: 4px;
+  padding: 2px;
+}
+.detail-header .language-switch a {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 44px;
+  min-height: 44px;
+  padding: .4rem .55rem;
+  color: var(--slate);
+  font-size: .75rem;
+  font-weight: 750;
+  text-decoration: none;
+  border-radius: 2px;
+}
+.detail-header .language-switch a[aria-current="page"] { background: var(--deep); color: #fff; }
+.detail-header .language-switch a:not([aria-current]):hover { background: #e8eef3; color: var(--deep); }
+.detail-header .language-switch a:focus-visible { outline: 2px solid var(--blue); outline-offset: 3px; }
+
+/* English copy should break between words, not inside them. */
+html[lang="en"] body,
+html[lang="en"] .case-hero h1,
+html[lang="en"] .case-body p,
+html[lang="en"] .decision-strip article,
+html[lang="en"] .decision-grid article,
+html[lang="en"] .project-pagination strong,
+html[lang="en"] .robo-failure-flow article strong { word-break: normal; overflow-wrap: break-word; }
+html[lang="en"] .case-hero h1 { letter-spacing: -.04em; text-wrap: balance; }
+html[lang="en"] .case-label { letter-spacing: .06em; }
+
+@media (max-width: 680px) {
+  .detail-header { gap: .45rem; }
+  .detail-header .brand { font-size: 1rem; }
+  .detail-header .brand span { display: none; }
+  .detail-header .primary-nav { gap: .6rem; }
+  html[lang="en"] .case-hero h1 { font-size: 2rem; line-height: 1.18; }
+}
+@media (max-width: 360px) {
+  .detail-header { gap: .3rem; }
+  .detail-header .brand { font-size: .92rem; }
+  .detail-header .primary-nav { gap: .45rem; }
+  .detail-header .primary-nav a { font-size: .68rem; }
+  .detail-header .language-switch a { min-width: 40px; padding-inline: .4rem; }
+}

@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Ultrasonic target detection, tracking and rescanning on an STM32F429 with FreeRTOS.">
+  <link rel="canonical" href="https://neberrein.github.io/en/projects/stm32-tracking.html">
+  <link rel="alternate" hreflang="ko" href="https://neberrein.github.io/projects/stm32-tracking.html">
+  <link rel="alternate" hreflang="en" href="https://neberrein.github.io/en/projects/stm32-tracking.html">
+  <link rel="alternate" hreflang="x-default" href="https://neberrein.github.io/projects/stm32-tracking.html">
+  <meta property="og:locale" content="en_US"><meta property="og:locale:alternate" content="ko_KR"><meta property="og:type" content="website"><meta property="og:title" content="STM32 Ultrasonic Target Detection and Tracking | Minjae Kwak Portfolio"><meta property="og:description" content="Automatic scanning and target tracking with an HC-SR04, SG90, FreeRTOS and TouchGFX."><meta property="og:url" content="https://neberrein.github.io/en/projects/stm32-tracking.html"><meta property="og:image" content="https://neberrein.github.io/assets/images/stm32-hero-tracking.webp"><meta name="twitter:card" content="summary_large_image">
+  <title>STM32 Ultrasonic Target Detection and Tracking | Minjae Kwak</title>
+  <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../../assets/site.css?readability=20260914&amp;v=project-navigation-20260913">
+  <link rel="stylesheet" href="../../assets/stm32-evidence.css?v=20261104-frame-evidence">
+  <script src="../../assets/site.js?v=languages-20261109b" defer></script>
+  <link rel="stylesheet" href="../../assets/project-languages.css?v=20261109">
+</head>
+<body class="stm32-page">
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header detail-header"><a class="brand" href="../index.html">Minjae Kwak <span>PORTFOLIO</span></a><nav class="primary-nav" aria-label="Project page menu"><a href="../index.html#projects">Projects</a><a href="../index.html#research">Research</a></nav><nav class="language-switch" aria-label="Language"><a href="../../projects/stm32-tracking.html" hreflang="ko" lang="ko" aria-label="한국어" data-language-link>KOR</a><a href="stm32-tracking.html" hreflang="en" lang="en" aria-label="English" data-language-link aria-current="page">ENG</a></nav></header>
+<main id="main">
+  <section class="case-hero section-shell">
+    <a class="back-link" href="../index.html#projects">← All projects</a>
+    <p class="case-label">EMBEDDED SOFTWARE, REAL-TIME SYSTEM</p>
+    <h1>STM32 ultrasonic target detection and tracking</h1>
+    <p class="case-subtitle">In this personal FreeRTOS project, a servo sweeps a single HC-SR04 back and forth to build distance frames by angle. Only approaching objects that pass spatial-continuity and repeated-measurement checks are confirmed as targets.</p>
+    <dl class="case-facts"><div><dt>Period</dt><dd>2026.06–2026.08</dd></div><div><dt>Platform</dt><dd>STM32F429, HC-SR04, SG90</dd></div><div><dt>Role</dt><dd>Personal project; full design and implementation</dd></div><div><dt>Stack</dt><dd>C, FreeRTOS / CMSIS-RTOS2, HAL, TouchGFX</dd></div></dl>
+    <figure class="detail-cover editorial-cover stm32-hero">
+      <div class="stm32-hardware-photo"><img src="../../assets/images/stm32-system-overview.jpg" width="4000" height="3000" alt="Full system showing the front of the ultrasonic sensor, the STM32F429 board, the SG90 servo and the RGB LED" fetchpriority="high">
+        <svg class="stm32-hardware-connectors" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><path d="M 14 70 L 48.3 70"/><circle cx="48.3" cy="70" r=".65"/><path d="M 92 28 L 78.3 33.5"/><circle cx="78.3" cy="33.5" r=".65"/><path d="M 95 58 L 77.7 45"/><circle cx="77.7" cy="45" r=".65"/><path d="M 51 13 L 73 25"/><circle cx="73" cy="25" r=".65"/></svg>
+        <span class="stm32-hardware-label hardware-board">STM32F429<br><small>TouchGFX board</small></span><span class="stm32-hardware-label hardware-sensor">HC-SR04<br><small>Ultrasonic sensor</small></span><span class="stm32-hardware-label hardware-servo">SG90<br><small>Servo</small></span><span class="stm32-hardware-label hardware-led">RGB LED</span>
+      </div>
+      <figcaption>An ultrasonic target-tracking system on the STM32F429. The SG90 servo rotates the HC-SR04, and TouchGFX and an RGB LED show the operating state.</figcaption>
+    </figure>
+  </section>
+
+  <section class="case-section"><div class="section-shell case-layout"><div><span class="case-section-label">01 / PURPOSE</span><h2>Goal</h2></div><div class="case-body">
+    <p>The goal was a system that runs the full loop automatically on a limited sensor and MCU budget: scan the surroundings, confirm and track a target, decide when it is lost, and scan again.</p>
+    <div class="issue-grid"><article><span>Sensor</span><strong>Wide beam and reflection noise</strong><p>A distance change at one angle could not separate a real object from a one-off outlier.</p></article><article><span>Actuation</span><strong>No servo position feedback</strong><p>Measuring while the servo moved meant the actual angle and the distance reading did not line up in time.</p></article><article><span>Concurrency</span><strong>Measurement, motion and display in conflict</strong><p>Several functions could try to drive the same GPIO and timers at once.</p></article><article><span>Operation</span><strong>State visible at a glance</strong><p>Scan, tracking and lost states and the distance had to be shown in real time.</p></article></div>
+  </div></div></section>
+
+  <section class="case-section alt-section"><div class="section-shell case-layout"><div><span class="case-section-label">02 / ARCHITECTURE</span><h2>RTOS architecture</h2></div><div class="case-body">
+    <div class="rtos-map" aria-label="STM32 FreeRTOS tasks and message queues"><div class="rtos-input"><span>INPUT</span><strong>TouchGFX</strong><strong>HC-SR04 Echo</strong></div><div class="rtos-core"><span>CONTROL</span><strong>ScanControllerTask</strong><small>State transitions and overall sequencing</small></div><div class="rtos-workers"><span>WORKERS</span><strong>ServoTask</strong><strong>UltrasonicTask</strong><strong>TrackingTask</strong><strong>LedTask</strong></div><div class="rtos-output"><span>OUTPUT</span><strong>PWM / GPIO</strong><strong>GUI / UART</strong></div></div>
+    <ul class="noun-list"><li><strong>Tasks</strong>Five separate tasks: Scan, Servo, Ultrasonic, Tracking and Led.</li><li><strong>Messages</strong>Requests and responses travel through ten queues and are matched by sequence number.</li><li><strong>Ownership</strong>Only the task dedicated to each peripheral touches its GPIO, PWM or input capture.</li><li><strong>GUI policy</strong>Stale states are dropped; TouchGFX shows only the latest state.</li></ul>
+  </div></div></section>
+
+  <section class="case-section"><div class="section-shell case-layout"><div><span class="case-section-label">03 / STATE MACHINE</span><h2>Detection and tracking flow</h2></div><div class="case-body">
+    <div class="state-flow" aria-label="Target detection and tracking state flow"><article><span>01</span><strong>SCANNING</strong><small>Sweep back and forth to build distance frames</small></article><b>→</b><article><span>02</span><strong>CANDIDATE</strong><small>Check for approach at adjacent angles</small></article><b>→</b><article><span>03</span><strong>DETECTED</strong><small>Confirm the target by re-measuring the candidate</small></article><b>→</b><article><span>04</span><strong>TRACKING</strong><small>Track by comparing left, center and right distances</small></article><b>→</b><article><span>05</span><strong>LOST</strong><small>Declare the target lost and return to SCANNING</small></article></div>
+    <div class="mode-note"><strong>Operator states</strong><span>STOPPED and MANUAL are user-operated states, separate from the automatic detection flow.</span></div>
+    <div class="decision-strip"><article><span>Angle range</span><strong>20–160°</strong></article><article><span>Resolution</span><strong>10° steps, 15 points</strong></article><article><span>Candidate check</span><strong>2 of 3 measurements</strong></article><article><span>State display</span><strong>GUI and RGB LED in sync</strong></article></div>
+  </div></div></section>
+
+  <section class="case-section alt-section"><div class="section-shell case-layout"><div><span class="case-section-label">04 / DEMO</span><h2>Integrated operation</h2></div><div class="case-body">
+    <figure class="video-card wide-video"><video controls muted playsinline preload="metadata" poster="../../assets/images/stm32-demo-poster.webp" aria-label="30-second integrated operation demo"><source src="../../assets/videos/stm32-demo-highlight.mp4" type="video/mp4">Your browser cannot play this video.</video><figcaption><strong>Integrated demo</strong><span>Automatic scanning, target tracking, manual TouchGFX control and UART logging, verified as one operating sequence.</span></figcaption></figure>
+  </div></div></section>
+
+  <section class="case-section"><div class="section-shell case-layout"><div><span class="case-section-label">05 / EVIDENCE</span><h2>Results by function</h2></div><div class="case-body">
+    <div class="vehicle-grid evidence-photos stm32-state-evidence"><figure><div class="stm32-state-frame scanning-frame"><img src="../../assets/images/stm32-evidence-scanning.webp" width="1600" height="900" alt="TouchGFX screen in the SCANNING state" loading="lazy" decoding="async"></div><figcaption><small>AUTO / SCANNING</small><strong>Automatic scan</strong><span>The screen shows the current sensor angle and the scanning state.</span></figcaption></figure><figure><div class="stm32-state-frame tracking-frame"><img src="../../assets/images/stm32-evidence-tracking.webp" width="1600" height="900" alt="Screen in the TRACKING state showing the target angle and distance" loading="lazy" decoding="async"></div><figcaption><small>AUTO / TRACKING</small><strong>Target tracking</strong><span>The screen shows the tracking angle and live distance to the confirmed target.</span></figcaption></figure><figure><div class="stm32-state-frame manual-frame"><img src="../../assets/images/stm32-evidence-manual.webp" width="1600" height="900" alt="MANUAL state with a TouchGFX button being pressed" loading="lazy" decoding="async"></div><figcaption><small>MANUAL</small><strong>Manual control</strong><span>TouchGFX button presses go through an RTOS queue to set the servo angle directly.</span></figcaption></figure></div>
+    <figure class="research-figure stm32-uart-evidence">
+      <img src="../../assets/images/stm32-uart-detection-tracking-en.png" width="2880" height="2440" alt="Real UART log: a candidate at 110 degrees with a 57 mm distance drop, three re-measurements, candidate confirmation and tracking start, then tracking distances of 10.6 cm, 8.3 cm and 6.1 cm" loading="lazy" decoding="async">
+      <figcaption><strong>UART log: approaching candidate to tracking</strong><span>A real run: an approaching candidate is detected at 110°, re-measured three times, confirmed, and tracked.</span></figcaption>
+    </figure>
+    <details class="stm32-log-details"><summary>Show log text</summary><div class="stm32-log-terminal"><div class="stm32-log-title">UART / CANDIDATE → TRACKING</div><pre><code>CANDIDATE: frame=23, angle=110, distance=108 mm, delta=57 mm
+
+LOCK START: angle=110, reference=108 mm
+LOCK SAMPLE: 1/3, angle=110, distance=9.4 cm
+LOCK SAMPLE: 2/3, angle=110, distance=14.8 cm
+LOCK SAMPLE: 3/3, angle=110, distance=10.4 cm
+
+CANDIDATE CONFIRMED: angle=110
+TRACKING START: angle=110
+
+TRACK TARGET: angle=110, distance=10.6 cm
+TRACK TARGET: angle=110, distance=8.3 cm
+TRACK TARGET: angle=110, distance=6.1 cm</code></pre></div><p>Three tracking records are excerpted; intermediate lines are omitted.</p></details>
+    <h3 class="simulation-group-title">Scan frames and comparison rules</h3>
+    <div class="uart-evidence" aria-label="UART log fields explained"><article><strong>valid 15/15</strong><p>A valid frame: an echo was received at all 15 angles.</p></article><article><strong>FORWARD ↔ FORWARD</strong><p>Only frames from the same sweep direction are compared to compute the approach change at each angle.</p></article></div>
+  </div></div></section>
+
+  <section class="case-section alt-section"><div class="section-shell case-layout"><div><span class="case-section-label">06 / DESIGN DECISIONS</span><h2>Four design choices that reduced false behavior</h2></div><div class="case-body">
+    <div class="failure-grid"><article><span>01</span><h3>Measure after the servo settles</h3><p>The SG90 has no angle feedback, so instead of measuring right after a PWM change, the echo is read after a 100 ms settling time.</p></article><article><span>02</span><h3>Compare frames from the same direction</h3><p>Forward and reverse sweeps are never mixed; only the distance change at the same angle is computed.</p><strong>Approach changes are judged on a consistent basis.</strong></article><article><span>03</span><h3>Spatial continuity plus repeated measurement</h3><p>A candidate is created only when the change continues across two adjacent angles, and confirmed as a target when 2 of 3 measurements at that position agree.</p><strong>This suppresses false detections from the wide beam and one-off reflections.</strong></article><article><span>04</span><h3>Send only the latest state to the display</h3><p>When the GUI queue backs up, old screen data is dropped and the current state goes first.</p></article></div>
+  </div></div></section>
+
+  <section class="case-section"><div class="section-shell case-layout"><div><span class="case-section-label">07 / RESULT</span><h2>What was completed</h2></div><div class="case-body"><div class="result-callout"><strong>AUTO</strong><div><h3>Detection, tracking, loss and rescanning run automatically</h3><p>The SCANNING → CANDIDATE → DETECTED → TRACKING → LOST → SCANNING loop is automated; STOPPED and MANUAL are separate operator states.</p></div></div><ul class="noun-list"><li><strong>Sensor drivers</strong>HC-SR04 input capture and distance conversion; SG90 PWM control.</li><li><strong>Real-time structure</strong>Five main FreeRTOS control tasks and ten message queues, with timeouts and sequence-number response matching.</li><li><strong>Decision logic</strong>Sweep-frame comparison, approach-candidate verification, target tracking and loss detection.</li><li><strong>Operator screen</strong>TouchGFX AUTO, MANUAL, START and STOP commands with state display.</li><li><strong>Verification</strong>Confirmed with a 30-second integrated demo, per-state screenshots and real UART logs.</li></ul></div></div></section>
+  <nav class="project-pagination section-shell" aria-label="Project navigation"><a class="project-pagination-prev" href="argus-drone.html" rel="prev"><span>← Previous project</span><strong>ARGUS Onboard AI Drone</strong></a><a class="project-pagination-all" href="../index.html#projects">All projects</a><a class="project-pagination-next" href="manta.html" rel="next"><span>Next project →</span><strong>MANTA</strong></a></nav>
+</main>
+<footer class="site-footer"><div class="section-shell"><span>© 2026 Minjae Kwak</span><div class="footer-links"><a href="mailto:tkkwak4@naver.com">tkkwak4@naver.com</a><a href="https://github.com/neberrein" target="_blank" rel="noopener">GitHub ↗</a></div></div></footer>
+</body>
+</html>

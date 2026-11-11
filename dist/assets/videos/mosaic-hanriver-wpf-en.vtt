@@ -1,0 +1,117 @@
+WEBVTT
+
+00:00:03.000 --> 00:00:04.000
+[DETECT] New target T-SEA-01 detected, UAV-02 / UAV-mounted multifunction surveillance radar (project model)
+[C2] T-SEA-01 automatic countermeasure recommendation started, mandatory-engagement target, threat-threshold exception applied
+
+00:00:04.000 --> 00:00:05.000
+[COMMAND] Auto-response decision: USV-01 / LIG Bigung 2.75-inch guided rocket → T-SEA-01
+[LAUNCH] USV-01 launched LIG Bigung 2.75-inch guided rocket → T-SEA-01, rounds left 5
+
+00:00:06.000 --> 00:00:07.000
+[HIT] T-SEA-01 hit, LIG Bigung 2.75-inch guided rocket hit probability 92%, remaining health 15%
+[C2] T-SEA-01 remaining health 15%, follow-up engagement scheduled automatically
+
+00:00:07.000 --> 00:00:08.000
+[COMMAND] Auto-response decision: UAV-03 / LIG Cheongeom precision-guided missile → T-SEA-01
+[LAUNCH] UAV-03 launched LIG Cheongeom precision-guided missile → T-SEA-01, rounds left 3
+
+00:00:09.000 --> 00:00:10.000
+[HIT] T-AIR-01 hit, LIG Singung man-portable surface-to-air missile hit probability 91%, remaining health 15%
+[C2] T-AIR-01 remaining health 15%, follow-up engagement scheduled automatically
+
+00:00:10.000 --> 00:00:11.000
+[LAUNCH] UGV-01 launched LIG Singung man-portable surface-to-air missile → T-AIR-01, rounds left 1
+[HIT] T-SEA-01 hit, LIG Cheongeom precision-guided missile hit probability 95%, remaining health 0%
+
+00:00:12.000 --> 00:00:13.000
+[HIT] T-AIR-01 hit, LIG Singung man-portable surface-to-air missile hit probability 91%, remaining health 0%
+
+00:00:21.000 --> 00:00:22.000
+[DETECT] New target T-SEA-02 detected, RADAR-S01 / LIG Coastal Surveillance Radar-II
+[C2] T-SEA-02 automatic countermeasure recommendation started, mandatory-engagement target, threat-threshold exception applied
+
+00:00:22.000 --> 00:00:23.000
+[LAUNCH] UGV-03 launched LIG Cheongeom precision-guided missile → T-GROUND-01, rounds left 3
+[COMMAND] Auto-response decision: USV-01 / LIG Bigung 2.75-inch guided rocket → T-SEA-02
+
+00:00:24.000 --> 00:00:25.000
+[LAUNCH] USV-01 launched LIG Bigung 2.75-inch guided rocket → T-SEA-02, rounds left 4
+
+00:00:25.000 --> 00:00:26.000
+[C2] T-GROUND-01 re-engagement, best option: UGV-03 / LIG Cheongeom precision-guided missile, hit probability 95%, one shot can neutralize, must move into range, current distance 57 MapUnit
+[COMMAND] Auto-response decision: UGV-03 / LIG Cheongeom precision-guided missile → T-GROUND-01
+
+00:00:26.000 --> 00:00:27.000
+[HIT] T-SEA-02 hit, LIG Bigung 2.75-inch guided rocket hit probability 92%, remaining health 15%
+[C2] T-SEA-02 remaining health 15%, follow-up engagement scheduled automatically
+
+00:00:27.000 --> 00:00:28.000
+[C2] T-SEA-02 re-engagement, best option: UAV-03 / LIG Cheongeom precision-guided missile, hit probability 95%, one shot can neutralize, must move into range, current distance 819 MapUnit
+[COMMAND] Auto-response decision: UAV-03 / LIG Cheongeom precision-guided missile → T-SEA-02
+
+00:00:32.000 --> 00:00:33.000
+[LAUNCH] UAV-03 launched LIG Cheongeom precision-guided missile → T-SEA-02, rounds left 2
+[LAUNCH] UGV-02 launched LIG Singung man-portable surface-to-air missile → T-AIR-02, rounds left 5
+
+00:00:33.000 --> 00:00:34.000
+[COMMAND] Auto-response decision: UGV-01 / LIG Singung man-portable surface-to-air missile → T-AIR-03
+
+00:00:34.000 --> 00:00:35.000
+[LAUNCH] UGV-01 launched LIG Singung man-portable surface-to-air missile → T-AIR-03, rounds left 0
+
+00:00:35.000 --> 00:00:36.000
+[C2] T-AIR-02 remaining health 15%, follow-up engagement scheduled automatically
+[HIT] T-SEA-02 hit, LIG Cheongeom precision-guided missile hit probability 95%, remaining health 0%
+
+00:00:36.000 --> 00:00:37.000
+[HIT] T-AIR-03 hit, LIG Singung man-portable surface-to-air missile hit probability 91%, remaining health 15%
+[C2] T-AIR-03 remaining health 15%, follow-up engagement scheduled automatically
+
+00:00:38.000 --> 00:00:39.000
+[C2] T-AIR-03 re-engagement, best option: UGV-02 / LIG Singung man-portable surface-to-air missile, hit probability 91%, one shot can neutralize, must move into range, current distance 656 MapUnit
+[COMMAND] Auto-response decision: UGV-02 / LIG Singung man-portable surface-to-air missile → T-AIR-03
+
+00:00:40.000 --> 00:00:41.000
+[LAUNCH] UGV-03 launched LIG Cheongeom precision-guided missile → T-GROUND-01, rounds left 2
+
+00:00:43.000 --> 00:00:44.000
+[HIT] T-GROUND-01 hit, LIG Cheongeom precision-guided missile hit probability 95%, remaining health 0%
+
+00:00:45.000 --> 00:00:46.000
+[DETECT] New target T-GROUND-02 detected, UGV-03 / UGV-mounted ground surveillance radar (project model)
+[C2] T-GROUND-02 automatic countermeasure recommendation started, mandatory-engagement target, threat-threshold exception applied
+
+00:00:46.000 --> 00:00:47.000
+[COMMAND] Auto-response decision: UGV-03 / LIG Hyeongung anti-tank guided missile → T-GROUND-02
+[LAUNCH] UGV-03 launched LIG Hyeongung anti-tank guided missile → T-GROUND-02, rounds left 3
+
+00:00:47.000 --> 00:00:48.000
+[COMMAND] Auto-response decision: USV-01 / LIG Bigung 2.75-inch guided rocket → T-SEA-03
+
+00:00:48.000 --> 00:00:49.000
+[C2] T-GROUND-02 remaining health 10%, follow-up engagement scheduled automatically
+[LAUNCH] USV-01 launched LIG Bigung 2.75-inch guided rocket → T-SEA-03, rounds left 3
+
+00:00:49.000 --> 00:00:50.000
+[COMMAND] Auto-response decision: UGV-03 / LIG Cheongeom precision-guided missile → T-GROUND-02
+[LAUNCH] UGV-03 launched LIG Cheongeom precision-guided missile → T-GROUND-02, rounds left 1
+
+00:00:51.000 --> 00:00:52.000
+[C2] T-SEA-03 remaining health 15%, follow-up engagement scheduled automatically
+[LAUNCH] UGV-02 launched LIG Singung man-portable surface-to-air missile → T-AIR-03, rounds left 3
+
+00:00:52.000 --> 00:00:53.000
+[COMMAND] Auto-response decision: UAV-03 / LIG Cheongeom precision-guided missile → T-SEA-03
+[HIT] T-GROUND-02 hit, LIG Cheongeom precision-guided missile hit probability 95%, remaining health 0%
+
+00:00:54.000 --> 00:00:55.000
+[LAUNCH] UAV-03 launched LIG Cheongeom precision-guided missile → T-SEA-03, rounds left 1
+[HIT] T-AIR-03 hit, LIG Singung man-portable surface-to-air missile hit probability 91%, remaining health 0%
+
+00:00:57.000 --> 00:00:58.000
+[HIT] T-SEA-03 hit, LIG Cheongeom precision-guided missile hit probability 95%, remaining health 0%
+
+00:01:10.000 --> 00:01:15.000
+Mission complete, results: 8 targets neutralized, 16 hits, 0 misses
+

@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 555" role="img" aria-labelledby="title desc"><title id="title">A* and DVO path generation in the same situation</title><desc id="desc">Concept diagram of the two avoidance methods. The current torpedo box is the same in both panels. A* routes around risk boxes placed at predicted positions. DVO evaluates the closest distance for each motion candidate using the torpedo size and relative velocity. Illustrative plan view, not experiment coordinates or scale.</desc>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10" fill="context-stroke"/></marker></defs>
+<rect width="1100" height="555" fill="white"/><g font-family="Pretendard, Arial, sans-serif" fill="#193044">
+<g transform="translate(45 30)">
+<rect x="0" y="0" width="460" height="470" rx="8" fill="#f7f9fb" stroke="#d5e1e8" stroke-width="1.5" stroke-dasharray=""/>
+<text x="24" y="38" font-size="22" fill="#2b73b8" font-weight="700" text-anchor="start">A* / Path to the mission goal</text>
+<path d="M65 315L390 95" fill="none" stroke="#8795a1" stroke-width="2" stroke-dasharray="7 6"/>
+<text x="270" y="291" font-size="18" fill="#536574" font-weight="400" text-anchor="start">Mission path</text>
+<path d="M350 274H425V145L355 119" fill="none" stroke="#8795a1" stroke-width="1" stroke-dasharray=""/>
+<circle cx="390" cy="95" r="8" fill="#193044"/>
+<text x="390" y="76" font-size="18" fill="#193044" font-weight="700" text-anchor="middle">Mission goal</text>
+<rect x="245" y="204" width="40" height="34" rx="8" fill="#f6d9d6" stroke="#c7776b" stroke-width="1.5" stroke-dasharray="4 3"/>
+<rect x="190" y="230" width="40" height="34" rx="8" fill="#f6d9d6" stroke="#c7776b" stroke-width="1.5" stroke-dasharray="4 3"/>
+<rect x="135" y="256" width="40" height="34" rx="8" fill="#f6d9d6" stroke="#c7776b" stroke-width="1.5" stroke-dasharray="4 3"/>
+<text x="202" y="365" font-size="19" fill="#a83b38" font-weight="400" text-anchor="start">Predicted risk zones</text>
+<path d="M257 343L210 266" fill="none" stroke="#a83b38" stroke-width="1" stroke-dasharray=""/>
+<path d="M65 315C87 248 93 160 156 97S278 54 390 95" fill="none" stroke="#2b73b8" stroke-width="4" stroke-dasharray="" marker-end="url(#arrow)"/>
+<text x="24" y="80" font-size="19" fill="#2b73b8" font-weight="700" text-anchor="start">A* path</text>
+<path d="M60 92V143L112 162" fill="none" stroke="#2b73b8" stroke-width="1" stroke-dasharray=""/>
+<path d="M310 199L92 302" fill="none" stroke="#a83b38" stroke-width="2.5" stroke-dasharray="6 5" marker-end="url(#arrow)"/>
+<rect x="310" y="173" width="40" height="34" rx="8" fill="none" stroke="#a83b38" stroke-width="1.5" stroke-dasharray=""/>
+<rect x="46" y="303" width="38" height="25" rx="8" fill="#dbe9f3" stroke="#2b73b8" stroke-width="1.5" stroke-dasharray=""/>
+<text x="25" y="355" font-size="18" fill="#2b73b8" font-weight="700" text-anchor="start">BlueROV2</text>
+<g transform="translate(330 190) rotate(154.75)"><rect x="-17" y="-7" width="34" height="14" rx="7" fill="#a83b38"/><path d="M-16 -7L-23 -13V13L-16 7" fill="#a83b38"/></g>
+<text x="270" y="146" font-size="18" fill="#a83b38" font-weight="700" text-anchor="start">Approaching</text><text x="270" y="167" font-size="18" fill="#a83b38" font-weight="700" text-anchor="start">torpedo</text>
+</g>
+<g transform="translate(595 30)">
+<rect x="0" y="0" width="460" height="470" rx="8" fill="#f6f9f7" stroke="#d5e1e8" stroke-width="1.5" stroke-dasharray=""/>
+<text x="24" y="38" font-size="22" fill="#23774a" font-weight="700" text-anchor="start">DVO / Short-range avoidance path</text>
+<path d="M65 315L390 95" fill="none" stroke="#8795a1" stroke-width="2" stroke-dasharray="7 6"/>
+<text x="270" y="291" font-size="18" fill="#536574" font-weight="400" text-anchor="start">Mission path</text>
+<path d="M350 274H425V145L355 119" fill="none" stroke="#8795a1" stroke-width="1" stroke-dasharray=""/>
+<circle cx="390" cy="95" r="8" fill="#193044"/>
+<text x="390" y="76" font-size="18" fill="#193044" font-weight="700" text-anchor="middle">Mission goal</text>
+<text x="170" y="365" font-size="18" fill="#23774a" font-weight="400" text-anchor="start">Closest distance per candidate</text>
+<text x="170" y="389" font-size="16" fill="#536574" font-weight="400" text-anchor="start">Uses torpedo size and relative velocity</text>
+<path d="M65 315L170 278" fill="none" stroke="#a1adb5" stroke-width="2" stroke-dasharray="" marker-end="url(#arrow)"/>
+<path d="M65 315L183 321" fill="none" stroke="#a1adb5" stroke-width="2" stroke-dasharray="" marker-end="url(#arrow)"/>
+<path d="M65 315C56 281 57 245 72 214" fill="none" stroke="#23774a" stroke-width="4" stroke-dasharray="" marker-end="url(#arrow)"/>
+<text x="188" y="315" font-size="18" fill="#536574" font-weight="400" text-anchor="start">Motion candidates</text>
+<text x="24" y="80" font-size="19" fill="#23774a" font-weight="700" text-anchor="start">Selected avoidance path</text>
+<path d="M80 92V184L72 214" fill="none" stroke="#23774a" stroke-width="1" stroke-dasharray=""/>
+<path d="M310 199L92 302" fill="none" stroke="#a83b38" stroke-width="2.5" stroke-dasharray="6 5" marker-end="url(#arrow)"/>
+<rect x="310" y="173" width="40" height="34" rx="8" fill="none" stroke="#a83b38" stroke-width="1.5" stroke-dasharray=""/>
+<rect x="46" y="303" width="38" height="25" rx="8" fill="#dbe9f3" stroke="#2b73b8" stroke-width="1.5" stroke-dasharray=""/>
+<text x="25" y="355" font-size="18" fill="#2b73b8" font-weight="700" text-anchor="start">BlueROV2</text>
+<g transform="translate(330 190) rotate(154.75)"><rect x="-17" y="-7" width="34" height="14" rx="7" fill="#a83b38"/><path d="M-16 -7L-23 -13V13L-16 7" fill="#a83b38"/></g>
+<text x="270" y="146" font-size="18" fill="#a83b38" font-weight="700" text-anchor="start">Approaching</text><text x="270" y="167" font-size="18" fill="#a83b38" font-weight="700" text-anchor="start">torpedo</text>
+</g>
+<text x="550" y="535" font-size="21" fill="#a83b38" font-weight="400" text-anchor="middle">Red dashed line: expected torpedo approach toward BlueROV2</text>
+</g></svg>

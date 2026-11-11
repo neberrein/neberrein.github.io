@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800" role="img" aria-labelledby="title desc">
+<title id="title">Onboard hardware and ground control station links</title><desc id="desc">The Pi sends video, detections and tracks to the ground control station, which sends the selected target and start or stop requests back to the Pi. The Pi and PX4 exchange commands and status over MAVLink UART.</desc>
+<defs><marker id="blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 10 5 0 10Z" fill="#2f63b4"/></marker><marker id="teal" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 10 5 0 10Z" fill="#138a98"/></marker><marker id="gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 10 5 0 10Z" fill="#697e91"/></marker></defs>
+<style>text{font-family:Pretendard,"Segoe UI",Arial,sans-serif;font-weight:650}.pill{fill:#fff;stroke:#c4d3e3;stroke-width:1.5}.pill-text{font-size:15px;fill:#53677c;font-weight:700}.label{font-size:19px;fill:#18345f}.sub{font-size:20px;fill:#53677c}</style>
+<rect width="1200" height="720" fill="#fff"/>
+<rect x="30" y="40" width="1140" height="470" rx="14" fill="#edf3f8" stroke="#b8cbe0" stroke-width="2"/>
+<text x="60" y="82" font-size="22" fill="#21457c">Onboard hardware</text>
+<rect x="60" y="120" width="210" height="120" rx="12" fill="#fff" stroke="#cfdae5" stroke-width="2"/>
+<text x="165" y="170" text-anchor="middle" font-size="25" fill="#18345f">LWIR camera</text><text x="165" y="208" text-anchor="middle" class="sub">Thermal video</text>
+<rect x="430" y="120" width="330" height="160" rx="12" fill="#fff" stroke="#cfdae5" stroke-width="2"/>
+<text x="595" y="160" text-anchor="middle" font-size="26" fill="#18345f">Raspberry Pi 5</text>
+<text x="595" y="195" text-anchor="middle" font-size="19" fill="#53677c">Preprocessing and follow logic</text>
+<text x="595" y="226" text-anchor="middle" font-size="21" fill="#2f63b4">UCMC multi-target tracking</text>
+<text x="595" y="257" text-anchor="middle" font-size="21" fill="#2f63b4">Selected-target relinking</text>
+<rect x="930" y="120" width="210" height="120" rx="12" fill="#fff" stroke="#138a98" stroke-width="2"/>
+<text x="1035" y="168" text-anchor="middle" font-size="22" fill="#18345f">Flight controller</text><text x="1035" y="208" text-anchor="middle" font-size="22" fill="#138a98">PX4</text>
+<rect x="430" y="360" width="230" height="115" rx="12" fill="#fff" stroke="#2f63b4" stroke-width="2.5"/>
+<text x="545" y="427" text-anchor="middle" font-size="25" fill="#18345f">Hailo-8 NPU</text><text x="545" y="459" text-anchor="middle" font-size="21" fill="#2f63b4">YOLOX inference</text>
+<rect x="572" y="370" width="80" height="26" rx="13" fill="#2f63b4"/><text x="612" y="388" text-anchor="middle" font-size="14" fill="#fff">My work</text>
+<path d="M270 180H428" fill="none" stroke="#2f63b4" stroke-width="3" marker-end="url(#blue)"/>
+<text x="350" y="166" text-anchor="middle" class="label">Video</text>
+<rect x="323" y="193" width="54" height="26" rx="13" class="pill"/><text x="350" y="211" text-anchor="middle" class="pill-text">USB</text>
+<path d="M760 160H928" fill="none" stroke="#138a98" stroke-width="3" marker-end="url(#teal)"/>
+<path d="M930 206H762" fill="none" stroke="#138a98" stroke-width="3" stroke-dasharray="8 6" marker-end="url(#teal)"/>
+<text x="845" y="146" text-anchor="middle" class="label">Follow commands</text>
+<text x="845" y="234" text-anchor="middle" font-size="19" fill="#53677c">Flight status</text>
+<rect x="777" y="170" width="136" height="26" rx="13" class="pill"/><text x="845" y="188" text-anchor="middle" class="pill-text">MAVLink (UART)</text>
+<path d="M490 280V358" fill="none" stroke="#2f63b4" stroke-width="3" marker-end="url(#blue)"/>
+<path d="M600 360V282" fill="none" stroke="#2f63b4" stroke-width="3" marker-end="url(#blue)"/>
+<text x="478" y="322" text-anchor="end" class="label">Input frames</text>
+<text x="610" y="322" text-anchor="start" font-size="16" fill="#18345f">Detections</text>
+<rect x="519" y="303" width="52" height="26" rx="13" class="pill"/><text x="545" y="321" text-anchor="middle" class="pill-text">PCIe</text>
+<path d="M700 280V588" fill="none" stroke="#697e91" stroke-width="3" marker-end="url(#gray)"/>
+<path d="M746 590V282" fill="none" stroke="#2f63b4" stroke-width="3" marker-end="url(#blue)"/>
+<text x="688" y="535" text-anchor="end" font-size="19" fill="#53677c">Video, detections and tracks</text>
+<text x="758" y="548" text-anchor="start" class="label">Target select / start / stop</text>
+<text x="688" y="567" text-anchor="end" font-size="17" fill="#53677c">UDP (wireless)</text>
+<text x="758" y="580" text-anchor="start" font-size="17" fill="#53677c">MAVLink (UDP)</text>
+<rect x="579" y="590" width="300" height="110" rx="12" fill="#fff" stroke="#cfdae5" stroke-width="2"/>
+<text x="729" y="636" text-anchor="middle" font-size="23" fill="#18345f">Ground control station</text><text x="729" y="674" text-anchor="middle" font-size="19" fill="#53677c">Monitor video, select target</text>
+<rect x="40" y="745" width="80" height="26" rx="13" fill="#2f63b4"/><text x="80" y="763" text-anchor="middle" font-size="14" fill="#fff">My work</text>
+<text x="132" y="764" text-anchor="start" font-size="19" fill="#18345f">YOLOX training, NPU optimization, multi-target tracking and reacquisition</text>
+</svg>

@@ -1,0 +1,48 @@
+WEBVTT
+
+00:00:07.000 --> 00:00:08.000
+[COMMAND] Auto-response decision: USV-P1 / LIG Bigung 2.75-inch guided rocket → T-PORT-SEA-01
+[LAUNCH] USV-P1 launched LIG Bigung 2.75-inch guided rocket → T-PORT-SEA-01, rounds left 5
+
+00:00:10.000 --> 00:00:11.000
+[HIT] T-PORT-SEA-01 hit, LIG Bigung 2.75-inch guided rocket hit probability 92%, remaining health 15%
+[C2] T-PORT-SEA-01 remaining health 15%, follow-up engagement scheduled automatically
+
+00:00:13.000 --> 00:00:14.000
+[C2] T-PORT-SEA-01 re-engagement, best option: UGV-P2 / LIG Cheongeom precision-guided missile, hit probability 95%, one shot can neutralize, must move into range, current distance 959 MapUnit
+[COMMAND] Auto-response decision: UGV-P2 / LIG Cheongeom precision-guided missile → T-PORT-SEA-01
+
+00:00:25.000 --> 00:00:26.000
+[C2] T-PORT-AIR-01 automatic countermeasure recommendation started, mandatory-engagement target, threat-threshold exception applied
+[COMMAND] Auto-response decision: UGV-P1 / LIG Singung man-portable surface-to-air missile → T-PORT-AIR-01
+
+00:00:31.000 --> 00:00:32.000
+[LAUNCH] UGV-P1 launched LIG Singung man-portable surface-to-air missile → T-PORT-AIR-01, rounds left 1
+
+00:00:32.000 --> 00:00:33.000
+[LAUNCH] UGV-P2 launched LIG Cheongeom precision-guided missile → T-PORT-SEA-01, rounds left 3
+
+00:00:34.000 --> 00:00:35.000
+[COMMAND] Auto-response decision: UGV-P1 / LIG Singung man-portable surface-to-air missile → T-PORT-AIR-01
+[LAUNCH] UGV-P1 launched LIG Singung man-portable surface-to-air missile → T-PORT-AIR-01, rounds left 0
+
+00:00:35.000 --> 00:00:36.000
+[HIT] T-PORT-SEA-01 hit, LIG Cheongeom precision-guided missile hit probability 95%, remaining health 0%
+
+00:00:36.000 --> 00:00:37.000
+[HIT] T-PORT-AIR-01 hit, LIG Singung man-portable surface-to-air missile hit probability 91%, remaining health 0%
+
+00:00:43.000 --> 00:00:44.000
+[COMMAND] Auto-response decision: UGV-P2 / LIG Cheongeom precision-guided missile → T-PORT-GROUND-01
+[LAUNCH] UGV-P2 launched LIG Cheongeom precision-guided missile → T-PORT-GROUND-01, rounds left 2
+
+00:00:46.000 --> 00:00:47.000
+[COMMAND] Auto-response decision: UGV-P2 / LIG Cheongeom precision-guided missile → T-PORT-GROUND-01
+[LAUNCH] UGV-P2 launched LIG Cheongeom precision-guided missile → T-PORT-GROUND-01, rounds left 1
+
+00:00:49.000 --> 00:00:50.000
+[HIT] T-PORT-GROUND-01 hit, LIG Cheongeom precision-guided missile hit probability 95%, remaining health 0%
+
+00:01:10.000 --> 00:01:15.000
+Mission complete, results: 3 targets neutralized, 6 hits, 0 misses
+

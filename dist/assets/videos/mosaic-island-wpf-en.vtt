@@ -1,0 +1,56 @@
+WEBVTT
+
+00:00:09.000 --> 00:00:10.000
+[DETECT] New target T-SEA-02 detected, UAV-A2 / UAV-mounted multifunction surveillance radar (project model)
+[C2] T-SEA-02 automatic countermeasure recommendation started, threat level 68, auto-response criteria met
+
+00:00:10.000 --> 00:00:11.000
+[COMMAND] Auto-response decision: USV-S1 / LIG Bigung 2.75-inch guided rocket → T-SEA-02
+
+00:00:11.000 --> 00:00:12.000
+[C2] T-AIR-03 automatic countermeasure recommendation started, mandatory-engagement target, threat-threshold exception applied
+[LAUNCH] USV-S1 launched LIG Bigung 2.75-inch guided rocket → T-SEA-02, rounds left 4
+
+00:00:12.000 --> 00:00:13.000
+[C2] T-AIR-01 automatic countermeasure recommendation started, threat level 91, auto-response criteria met
+[COMMAND] Auto-response decision: UGV-G2 / LIG Singung man-portable surface-to-air missile → T-AIR-03
+
+00:00:14.000 --> 00:00:15.000
+[HIT] T-SEA-02 hit, LIG Bigung 2.75-inch guided rocket hit probability 92%, remaining health 15%
+[C2] T-SEA-02 remaining health 15%, follow-up engagement scheduled automatically
+
+00:00:15.000 --> 00:00:16.000
+[COMMAND] Auto-response decision: UAV-A2 / LIG Cheongeom precision-guided missile → T-SEA-02
+[LAUNCH] UAV-A2 launched LIG Cheongeom precision-guided missile → T-SEA-02, rounds left 1
+
+00:00:18.000 --> 00:00:19.000
+[HIT] T-SEA-02 hit, LIG Cheongeom precision-guided missile hit probability 95%, remaining health 0%
+
+00:00:20.000 --> 00:00:21.000
+[LAUNCH] UGV-G1 launched LIG Singung man-portable surface-to-air missile → T-AIR-01, rounds left 1
+[LAUNCH] UGV-G2 launched LIG Singung man-portable surface-to-air missile → T-AIR-03, rounds left 3
+
+00:00:22.000 --> 00:00:23.000
+[HIT] T-AIR-01 hit, LIG Singung man-portable surface-to-air missile hit probability 91%, remaining health 15%
+[C2] T-AIR-01 remaining health 15%, follow-up engagement scheduled automatically
+
+00:00:23.000 --> 00:00:24.000
+[HIT] T-AIR-03 hit, LIG Singung man-portable surface-to-air missile hit probability 91%, remaining health 15%
+[C2] T-AIR-03 remaining health 15%, follow-up engagement scheduled automatically
+
+00:00:24.000 --> 00:00:25.000
+[COMMAND] Auto-response decision: UGV-G2 / LIG Singung man-portable surface-to-air missile → T-AIR-03
+[LAUNCH] UGV-G2 launched LIG Singung man-portable surface-to-air missile → T-AIR-03, rounds left 2
+
+00:00:25.000 --> 00:00:26.000
+[HIT] T-AIR-01 hit, LIG Singung man-portable surface-to-air missile hit probability 91%, remaining health 0%
+
+00:00:26.000 --> 00:00:27.000
+[HIT] T-AIR-03 hit, LIG Singung man-portable surface-to-air missile hit probability 91%, remaining health 0%
+
+00:00:40.000 --> 00:00:41.000
+[ALERT] UAV-A2 disabled, damage 75%
+
+00:01:05.000 --> 00:01:10.000
+Mission complete, results: 3 targets neutralized, 6 hits, 0 misses
+

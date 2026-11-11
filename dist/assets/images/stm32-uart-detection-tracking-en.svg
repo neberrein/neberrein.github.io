@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="1220" viewBox="0 0 1440 1220">
+  <title>STM32 UART execution log: from candidate detection to tracking</title>
+  <desc>Excerpts from a real execution log in four stages. The candidate at 110 degrees showed a 57 mm drop in distance; after three re-measurements the log records candidate confirmation and tracking start. The three tracking distances are separate, non-consecutive records.</desc>
+  <style>
+    .ko { font-family: Pretendard, 'Segoe UI', Arial, sans-serif; }
+    .log { font-family: Consolas, 'DejaVu Sans Mono', monospace; font-size: 24px; fill: #172b42; }
+    .heading { font-size: 27px; font-weight: 700; fill: #132b45; }
+    .note { font-size: 22px; fill: #43576b; }
+    .num { font-size: 22px; font-weight: 700; fill: #fff; text-anchor: middle; }
+  </style>
+  <rect width="1440" height="1220" fill="#f3f6fa"/>
+  <text class="ko" x="64" y="66" font-size="18" font-weight="700" letter-spacing="2" fill="#2563a6">STM32 / UART EXECUTION LOG</text>
+  <text class="ko" x="64" y="116" font-size="39" font-weight="700" fill="#132b45">Candidate detected → confirmed → tracking started</text>
+
+  <rect x="48" y="154" width="1344" height="198" rx="14" fill="#fff" stroke="#d4deea"/>
+  <rect x="76" y="180" width="48" height="40" rx="8" fill="#2563a6"/>
+  <text class="ko num" x="100" y="208">01</text>
+  <text class="ko heading" x="142" y="209">Approaching candidate detected</text>
+  <text class="log" data-verbatim="true" x="80" y="263">CANDIDATE: frame=23, angle=110, distance=108 mm, delta=57 mm</text>
+  <text class="ko note" x="80" y="316">An approaching candidate was detected at 110° with a 57 mm drop in distance.</text>
+
+  <rect x="48" y="370" width="1344" height="282" rx="14" fill="#fff" stroke="#d4deea"/>
+  <rect x="76" y="396" width="48" height="40" rx="8" fill="#2563a6"/>
+  <text class="ko num" x="100" y="424">02</text>
+  <text class="ko heading" x="142" y="425">Three re-measurements at the candidate angle</text>
+  <text class="log" data-verbatim="true" x="80" y="477">LOCK START: angle=110, reference=108 mm</text>
+  <text class="log" data-verbatim="true" x="80" y="512">LOCK SAMPLE: 1/3, angle=110, distance=9.4 cm</text>
+  <text class="log" data-verbatim="true" x="80" y="547">LOCK SAMPLE: 2/3, angle=110, distance=14.8 cm</text>
+  <text class="log" data-verbatim="true" x="80" y="582">LOCK SAMPLE: 3/3, angle=110, distance=10.4 cm</text>
+  <text class="ko note" x="80" y="625">Verification measurements at the candidate angle. Each value is shown exactly as logged.</text>
+
+  <rect x="48" y="670" width="1344" height="192" rx="14" fill="#eef5fd" stroke="#a9c4e2"/>
+  <rect x="76" y="696" width="48" height="40" rx="8" fill="#2563a6"/>
+  <text class="ko num" x="100" y="724">03</text>
+  <text class="ko heading" x="142" y="725">Candidate confirmed, tracking started</text>
+  <text class="log" data-verbatim="true" x="80" y="777">CANDIDATE CONFIRMED: angle=110</text>
+  <text class="log" data-verbatim="true" x="80" y="814">TRACKING START: angle=110</text>
+
+  <rect x="48" y="880" width="1344" height="252" rx="14" fill="#fff" stroke="#d4deea"/>
+  <rect x="76" y="906" width="48" height="40" rx="8" fill="#2563a6"/>
+  <text class="ko num" x="100" y="934">04</text>
+  <text class="ko heading" x="142" y="935">Distance measured during tracking</text>
+  <text class="log" data-verbatim="true" x="80" y="985">TRACK TARGET: angle=110, distance=10.6 cm</text>
+  <text class="log" data-verbatim="true" x="80" y="1020">TRACK TARGET: angle=110, distance=8.3 cm</text>
+  <text class="log" data-verbatim="true" x="80" y="1055">TRACK TARGET: angle=110, distance=6.1 cm</text>
+  <text class="ko note" x="80" y="1100">Three tracking records excerpted. Intermediate lines are omitted; the records are not consecutive.</text>
+
+  <text class="ko" x="64" y="1180" font-size="21" fill="#43576b">Log excerpts arranged by stage. Measured values and log text are unchanged.</text>
+</svg>

@@ -1,10 +1,13 @@
 const navToggle = document.querySelector('[data-nav-toggle]');
 const nav = document.querySelector('[data-nav]');
 const navLabel = navToggle?.querySelector('.sr-only');
+const englishPage = document.documentElement.lang === 'en';
 const setNavOpen = (open) => {
   navToggle?.setAttribute('aria-expanded', String(open));
   nav?.classList.toggle('is-open', open);
-  if (navLabel) navLabel.textContent = open ? '메뉴 닫기' : '메뉴 열기';
+  if (navLabel) navLabel.textContent = englishPage
+    ? (open ? 'Close menu' : 'Open menu')
+    : (open ? '메뉴 닫기' : '메뉴 열기');
 };
 
 navToggle?.addEventListener('click', () => {
@@ -23,6 +26,38 @@ document.addEventListener('keydown', (event) => {
     setNavOpen(false);
     navToggle.focus();
   }
+});
+
+// Images without fixed heights can grow after a jump to #section and push the
+// section down. Realign when the page height changes until the reader scrolls.
+const keepHashTarget = (onLoad = false) => {
+  let id = '';
+  try { id = decodeURIComponent(window.location.hash.slice(1)); } catch { return; }
+  const target = id && document.getElementById(id);
+  if (!target || !('ResizeObserver' in window)) return;
+  let active = true;
+  // An in-page link keeps its smooth scroll; a fresh load is aligned at once.
+  let initial = !onLoad;
+  const observer = new ResizeObserver(() => {
+    if (initial) { initial = false; return; }
+    if (active) target.scrollIntoView({ block: 'start', behavior: 'instant' });
+  });
+  const stop = () => { active = false; observer.disconnect(); };
+  ['wheel', 'touchstart', 'keydown', 'pointerdown'].forEach((type) => {
+    window.addEventListener(type, stop, { once: true, passive: true });
+  });
+  observer.observe(document.body);
+  window.setTimeout(stop, 5000);
+};
+window.addEventListener('hashchange', () => keepHashTarget());
+if (window.location.hash) keepHashTarget(true);
+
+document.querySelectorAll('[data-language-link]').forEach((link) => {
+  link.addEventListener('click', () => {
+    const destination = new URL(link.href);
+    destination.hash = window.location.hash;
+    link.href = destination.href;
+  });
 });
 
 document.querySelectorAll('[data-filter]').forEach((button) => {

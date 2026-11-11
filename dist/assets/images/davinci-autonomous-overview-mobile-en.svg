@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 1800" role="img" aria-labelledby="title desc">
+<title id="title">From lane detection to an A* avoidance path tracked by PID</title><desc id="desc">The original lane-following drive, which tracked the center between both lanes, is blocked by an obstacle that hides the left lane. YOLO detects lanes and obstacles separately, and PID tracks an A* path that detours around the obstacle and returns to the reference path. The gray dashed line is the computed reference path, not the actual road centerline. This is an explanatory diagram, not a measured path.</desc>
+<defs>
+<marker id="arrow-blue" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#2563b9"/></marker>
+<marker id="arrow-gray" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#526673"/></marker>
+<g id="car"><rect x="-19" y="-30" width="38" height="60" rx="7" fill="#183a53"/><rect x="-13" y="-19" width="26" height="14" rx="3" fill="#e2edf5"/><rect x="-12" y="15" width="24" height="7" rx="2" fill="#8198a8"/><path d="M-21-19V-5M21-19V-5M-21 12V24M21 12V24" stroke="#183a53" stroke-width="5"/></g>
+</defs><rect width="600" height="1800" fill="white"/>
+<g font-family="Arial, Helvetica, sans-serif" fill="#183a53">
+<text x="18" y="31" font-size="28" font-weight="700">From lanes to obstacle avoidance</text>
+<text x="18" y="56" font-size="18" fill="#526673">Gray dashes: reference path (not the road centerline)</text>
+<g id="lane-only-panel" transform="translate(18 76)">
+<rect width="564" height="610" rx="8" fill="white" stroke="#d7e0e6"/>
+<text x="24" y="38" font-size="26" font-weight="700">Original lane-based driving</text>
+<rect x="38" y="91" width="268" height="464" rx="4" fill="#edf2f5"/>
+<text x="62" y="80" font-size="18" text-anchor="middle">Left lane</text><text x="278" y="80" font-size="18" text-anchor="middle">Right lane</text>
+<path d="M62 105V540M278 105V540" stroke="#183a53" stroke-width="5" fill="none"/>
+
+<path d="M170 105V540" stroke="#81919d" stroke-width="4" stroke-dasharray="10 9" fill="none"/>
+<rect x="51" y="230" width="154" height="86" rx="4" fill="#b95040"/>
+<text x="128" y="280" font-size="22" text-anchor="middle" font-weight="700" fill="white">Obstacle</text>
+<path d="M157 335L183 361M183 335L157 361" stroke="#b95040" stroke-width="5" stroke-linecap="round"/>
+<path d="M170 446V386" stroke="#526673" stroke-width="3" fill="none" marker-end="url(#arrow-gray)"/>
+<use href="#car" transform="translate(170 483)"/>
+<g stroke="#81919d" stroke-width="2" fill="none"><path d="M170 143H316V129"/><path d="M278 184H316"/><path d="M62 230V213H306V271H316"/><path d="M185 348H302L316 365"/></g>
+<text x="326" y="127" font-size="22" >Lane-center</text><text x="326" y="155" font-size="22" >reference path</text><text x="326" y="193" font-size="22" >Detected lanes</text><text x="326" y="270" font-size="22" >Left lane hidden</text><text x="326" y="298" font-size="22" >by the obstacle</text><text x="326" y="377" font-size="22" font-weight="700">Cannot avoid</text>
+<text x="24" y="588" font-size="20" fill="#526673">Lane-center following is blocked by the obstacle</text>
+</g><g id="avoidance-panel" transform="translate(18 714)">
+<rect width="564" height="610" rx="8" fill="white" stroke="#d7e0e6"/>
+<text x="24" y="38" font-size="26" font-weight="700">Separating lanes and obstacles</text>
+<rect x="38" y="91" width="268" height="464" rx="4" fill="#edf2f5"/>
+<text x="62" y="80" font-size="18" text-anchor="middle">Left lane</text><text x="278" y="80" font-size="18" text-anchor="middle">Right lane</text>
+<path d="M62 105V540M278 105V540" stroke="#183a53" stroke-width="5" fill="none"/>
+<path d="M170 105V540" stroke="#81919d" stroke-width="4" stroke-dasharray="10 9" fill="none"/>
+<rect x="51" y="230" width="154" height="86" rx="4" fill="#b95040"/>
+<text x="128" y="280" font-size="22" text-anchor="middle" font-weight="700" fill="white">Obstacle</text>
+<rect x="43" y="222" width="170" height="102" rx="2" fill="none" stroke="#b95040" stroke-width="3"/>
+<path d="M170 540V456Q170 431 207 415Q236 402 236 372V227Q236 204 210 192Q170 176 170 152V105" stroke="#2563b9" stroke-width="5" fill="none"/>
+<use href="#car" transform="translate(236 385)"/>
+<path d="M236 350V315" stroke="#183a53" stroke-width="3" fill="none" marker-end="url(#arrow-gray)"/>
+<g stroke="#81919d" stroke-width="2" fill="none"><path d="M278 184H316"/><path d="M213 273H316"/><path d="M260 391H304V447H316"/></g>
+<path d="M326 336H382" stroke="#2563b9" stroke-width="5" fill="none"/>
+<path d="M326 108H382" stroke="#81919d" stroke-width="4" stroke-dasharray="10 9" fill="none"/><text x="326" y="136" font-size="22">Reference path</text><text x="326" y="193" font-size="22" >Lanes (YOLO)</text><text x="326" y="282" font-size="22" >Obstacle (YOLO)</text><text x="326" y="360" font-size="22" font-weight="700" fill="#2563b9">A* path</text><text x="326" y="456" font-size="22" font-weight="700">PID path tracking</text>
+<text x="24" y="588" font-size="20" fill="#526673">Blue line: A* detour and return path</text>
+</g>
+<text x="18" y="1370" font-size="24" font-weight="700">Perception → Planning → Control</text><rect x="60" y="1390" width="480" height="48" rx="5" stroke="#d7e0e6" fill="#f4f7fa"/><text x="300" y="1421" font-size="24" text-anchor="middle" font-weight="700">Camera</text><path d="M300 1440V1453" stroke="#526673" stroke-width="2" marker-end="url(#arrow-gray)"/><rect x="60" y="1457" width="480" height="48" rx="5" stroke="#d7e0e6" fill="#f4f7fa"/><text x="300" y="1488" font-size="24" text-anchor="middle" font-weight="700">YOLO</text><path d="M300 1507V1520" stroke="#526673" stroke-width="2" marker-end="url(#arrow-gray)"/><rect x="60" y="1524" width="480" height="48" rx="5" stroke="#d7e0e6" fill="#f4f7fa"/><text x="300" y="1555" font-size="24" text-anchor="middle" font-weight="700">Reference path, obstacle position</text><path d="M300 1574V1587" stroke="#526673" stroke-width="2" marker-end="url(#arrow-gray)"/><rect x="60" y="1591" width="480" height="48" rx="5" stroke="#d7e0e6" fill="#f4f7fa"/><text x="300" y="1622" font-size="24" text-anchor="middle" font-weight="700">A*</text><path d="M300 1641V1654" stroke="#526673" stroke-width="2" marker-end="url(#arrow-gray)"/><rect x="60" y="1658" width="480" height="48" rx="5" stroke="#d7e0e6" fill="#f4f7fa"/><text x="300" y="1689" font-size="24" text-anchor="middle" font-weight="700">PID</text><path d="M300 1708V1721" stroke="#526673" stroke-width="2" marker-end="url(#arrow-gray)"/><rect x="60" y="1725" width="480" height="48" rx="5" stroke="#d7e0e6" fill="#f4f7fa"/><text x="300" y="1756" font-size="24" text-anchor="middle" font-weight="700">Steering</text>
+</g></svg>

@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="1310" viewBox="0 0 720 1310" role="img" aria-labelledby="title desc">
+<title id="title">Target-management states and manual override (mobile)</title><desc id="desc">How the target-management state changes after the target is lost, and how manual user input is handled.</desc>
+<defs><marker id="blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 10 5 0 10Z" fill="#2f63b4"/></marker><marker id="amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 10 5 0 10Z" fill="#b86612"/></marker><marker id="gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 10 5 0 10Z" fill="#697e91"/></marker></defs>
+<style>text{font-family:Pretendard,"Segoe UI",Arial,sans-serif;font-weight:650}.st{font-size:30px;fill:#18345f}.code{font-size:21px;fill:#53677c;letter-spacing:.04em}.lb{font-size:22px;fill:#21457c}.lb-muted{font-size:22px;fill:#53677c}.lb-amber{font-size:22px;fill:#b86612}</style>
+<rect width="720" height="1310" fill="#fff"/>
+<rect x="15" y="15" width="690" height="1005" rx="14" fill="#f5f8fb" stroke="#c4d3e3" stroke-width="2"/>
+<text x="40" y="60" font-size="26" fill="#21457c">When the target is lost</text><text x="680" y="60" text-anchor="end" font-size="20" fill="#53677c">Target-management states</text>
+<path d="M170 635H90V155H168" fill="none" stroke="#2f63b4" stroke-width="3" marker-end="url(#blue)"/>
+<text x="70" y="395" text-anchor="middle" class="lb" transform="rotate(-90 70 395)">Confirmed for 3 consecutive frames</text>
+<rect x="170" y="110" width="380" height="90" rx="12" fill="#fff" stroke="#2f63b4" stroke-width="2.5"/><text x="360" y="152" text-anchor="middle" class="st">Target locked</text><text x="360" y="184" text-anchor="middle" class="code">LOCKED</text>
+<path d="M360 200V268" fill="none" stroke="#2f63b4" stroke-width="3" marker-end="url(#blue)"/><text x="378" y="242" class="lb">Dropout</text>
+<rect x="170" y="270" width="380" height="90" rx="12" fill="#fff" stroke="#cfdae5" stroke-width="2"/><text x="360" y="312" text-anchor="middle" class="st">Observation gap</text><text x="360" y="344" text-anchor="middle" class="code">GAP_HOLD</text>
+<path d="M360 360V428" fill="none" stroke="#2f63b4" stroke-width="3" marker-end="url(#blue)"/><text x="378" y="402" class="lb">Search</text>
+<rect x="170" y="430" width="380" height="90" rx="12" fill="#fff" stroke="#cfdae5" stroke-width="2"/><text x="360" y="472" text-anchor="middle" class="st">Find candidates</text><text x="360" y="504" text-anchor="middle" class="code">REACQUIRE</text>
+<path d="M320 520V588" fill="none" stroke="#2f63b4" stroke-width="3" marker-end="url(#blue)"/><text x="308" y="562" text-anchor="end" class="lb">1 candidate</text>
+<path d="M400 590V522" fill="none" stroke="#697e91" stroke-width="2.5" stroke-dasharray="7 5" marker-end="url(#gray)"/><text x="412" y="562" class="lb-muted">Rejected</text>
+<rect x="170" y="590" width="380" height="90" rx="12" fill="#fff" stroke="#cfdae5" stroke-width="2"/><text x="360" y="632" text-anchor="middle" class="st">Confirming</text><text x="360" y="664" text-anchor="middle" class="code">CONFIRM</text>
+<path d="M550 315H620" fill="none" stroke="#b86612" stroke-width="2.5" stroke-dasharray="7 5"/>
+<path d="M550 475H620" fill="none" stroke="#b86612" stroke-width="2.5" stroke-dasharray="7 5"/>
+<path d="M550 635H620V825H552" fill="none" stroke="#b86612" stroke-width="2.5" stroke-dasharray="7 5" marker-end="url(#amber)"/>
+<path d="M620 315V635" fill="none" stroke="#b86612" stroke-width="2.5" stroke-dasharray="7 5"/>
+<text x="605" y="745" text-anchor="end" class="lb-amber">Over 4 s</text>
+<rect x="170" y="780" width="380" height="90" rx="12" fill="#fff" stroke="#b86612" stroke-width="2.5"/><text x="360" y="822" text-anchor="middle" class="st">Target lost</text><text x="360" y="854" text-anchor="middle" class="code">LOST</text>
+<rect x="40" y="884" width="640" height="124" rx="10" fill="#fff" stroke="#cfdae5" stroke-width="2"/>
+<text x="360" y="914" text-anchor="middle" font-size="20" fill="#18345f">Move commands are sent only while locked.</text>
+<text x="360" y="941" text-anchor="middle" font-size="20" fill="#18345f">While waiting, searching or confirming, it stays in place.</text>
+<text x="360" y="968" text-anchor="middle" font-size="20" fill="#18345f">After 4 s the target is declared lost and PX4 switches to Hold.</text>
+<text x="360" y="995" text-anchor="middle" font-size="20" fill="#18345f">Following resumes only after the user selects a target again.</text>
+<rect x="15" y="1045" width="690" height="240" rx="14" fill="#edf3f8" stroke="#b8cbe0" stroke-width="2"/>
+<text x="40" y="1088" font-size="26" fill="#21457c">When the user takes manual control</text>
+<rect x="170" y="1110" width="380" height="60" rx="10" fill="#fff" stroke="#2f63b4" stroke-width="2"/><text x="360" y="1150" text-anchor="middle" font-size="28" fill="#18345f">Manual override</text>
+<path d="M360 1170V1218" fill="none" stroke="#2f63b4" stroke-width="3" marker-end="url(#blue)"/>
+<text x="360" y="1256" text-anchor="middle" font-size="27" fill="#21457c">Auto-follow disengages in any state</text>
+</svg>

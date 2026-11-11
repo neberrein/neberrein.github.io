@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 310" role="img" aria-labelledby="title desc"><title id="title">MANTA system connections and my scope</title><desc id="desc">My module takes BlueROV2 and torpedo states, decides whether to evade, generates a path with A* or DVO, and outputs the avoidance path. The path-following and control module turns it into Gazebo vehicle motion.</desc>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10" fill="context-stroke"/></marker></defs>
+<rect width="1100" height="310" fill="white"/><g font-family="Pretendard, Arial, sans-serif" fill="#193044">
+<rect x="20" y="102" width="172" height="60" rx="8" fill="#edf2f5" stroke="#bccbd5" stroke-width="1.5" stroke-dasharray=""/>
+<rect x="20" y="185" width="172" height="60" rx="8" fill="#edf2f5" stroke="#bccbd5" stroke-width="1.5" stroke-dasharray=""/>
+<text x="106" y="139" font-size="18" fill="#193044" font-weight="700" text-anchor="middle">BlueROV2 state</text>
+<text x="106" y="222" font-size="18" fill="#193044" font-weight="700" text-anchor="middle">Torpedo state</text>
+<path d="M192 132H215V174M192 215H215V174H253" fill="none" stroke="#536574" stroke-width="3" stroke-dasharray="" marker-end="url(#arrow)"/>
+<rect x="255" y="55" width="460" height="211" rx="8" fill="#f4f8fb" stroke="#2b73b8" stroke-width="1.5" stroke-dasharray=""/>
+<text x="278" y="92" font-size="23" fill="#2b73b8" font-weight="700" text-anchor="start">My scope</text>
+<rect x="278" y="137" width="140" height="74" rx="8" fill="#fff" stroke="#2b73b8" stroke-width="1.5" stroke-dasharray=""/>
+<text x="348.0" y="170" font-size="19" fill="#2b73b8" font-weight="700" text-anchor="middle">Evade or</text><text x="348.0" y="194" font-size="19" fill="#2b73b8" font-weight="700" text-anchor="middle">continue</text>
+<rect x="446" y="137" width="122" height="74" rx="8" fill="#fff" stroke="#2b73b8" stroke-width="1.5" stroke-dasharray=""/>
+<text x="507.0" y="182" font-size="19" fill="#2b73b8" font-weight="700" text-anchor="middle">A* or DVO</text>
+<rect x="591" y="137" width="101" height="74" rx="8" fill="#fff" stroke="#2b73b8" stroke-width="1.5" stroke-dasharray=""/>
+<text x="641.5" y="170" font-size="17" fill="#2b73b8" font-weight="700" text-anchor="middle">Avoidance</text><text x="641.5" y="193" font-size="17" fill="#2b73b8" font-weight="700" text-anchor="middle">path</text>
+<path d="M418 174H443" fill="none" stroke="#2b73b8" stroke-width="3" stroke-dasharray="" marker-end="url(#arrow)"/>
+<path d="M568 174H588" fill="none" stroke="#2b73b8" stroke-width="3" stroke-dasharray="" marker-end="url(#arrow)"/>
+<text x="641" y="241" font-size="16" fill="#536574" font-weight="400" text-anchor="middle">nav_msgs/Path</text>
+<path d="M715 174H750" fill="none" stroke="#536574" stroke-width="3" stroke-dasharray="" marker-end="url(#arrow)"/>
+<rect x="753" y="115" width="203" height="118" rx="8" fill="#f3f5f6" stroke="#bccbd5" stroke-width="1.5" stroke-dasharray=""/>
+<text x="854" y="146" font-size="17" fill="#536574" font-weight="400" text-anchor="middle">Control module</text>
+<text x="854" y="180" font-size="19" fill="#193044" font-weight="700" text-anchor="middle">Path following</text>
+<text x="854" y="208" font-size="15" fill="#536574" font-weight="400" text-anchor="middle">PathFollower, PPID</text>
+<text x="854" y="227" font-size="15" fill="#536574" font-weight="400" text-anchor="middle">Thruster control</text>
+<path d="M956 174H987" fill="none" stroke="#536574" stroke-width="3" stroke-dasharray="" marker-end="url(#arrow)"/>
+<rect x="990" y="137" width="90" height="74" rx="8" fill="#edf2f5" stroke="#bccbd5" stroke-width="1.5" stroke-dasharray=""/>
+<text x="1035" y="166" font-size="19" fill="#193044" font-weight="700" text-anchor="middle">Gazebo</text>
+<text x="1035" y="188" font-size="15" fill="#536574" font-weight="400" text-anchor="middle">Vehicle</text><text x="1035" y="205" font-size="15" fill="#536574" font-weight="400" text-anchor="middle">motion</text>
+</g></svg>

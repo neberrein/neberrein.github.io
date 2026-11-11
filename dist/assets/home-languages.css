@@ -1,0 +1,68 @@
+/* Shared controls for the two home pages. */
+.home-header { gap: 1.25rem; }
+.home-header .brand { flex-shrink: 0; margin-right: auto; }
+.home-header .primary-nav { gap: 1.25rem; }
+.header-actions { display: flex; align-items: center; gap: .5rem; }
+.language-switch {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+  border: 1px solid var(--rule);
+  border-radius: 4px;
+  padding: 2px;
+}
+.language-switch a {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 44px;
+  min-height: 44px;
+  padding: .4rem .55rem;
+  color: var(--slate);
+  font-size: .75rem;
+  font-weight: 750;
+  text-decoration: none;
+  border-radius: 2px;
+}
+.language-switch a[aria-current="page"] { background: var(--deep); color: #fff; }
+.language-switch a:not([aria-current]):hover { background: #e8eef3; color: var(--deep); }
+.language-switch a:focus-visible { outline: 2px solid var(--blue); outline-offset: 3px; }
+html[lang="en"] .portfolio-home { word-break: normal; overflow-wrap: break-word; }
+html[lang="en"] .portfolio-home .intro h1 {
+  font-family: Pretendard, system-ui, sans-serif;
+  font-size: clamp(2.2rem, 3.6vw, 3.25rem);
+  line-height: 1.15;
+  letter-spacing: -.035em;
+  word-break: normal;
+  text-wrap: balance;
+}
+html[lang="en"] .portfolio-home .intro-name span { display: block; margin-left: 0; }
+html[lang="en"] .portfolio-home .project-row strong { line-height: 1.35; }
+.publication-language-note { color: var(--slate); font-size: .875rem; }
+@media (min-width: 681px) and (max-width: 1100px) {
+  .home-header { gap: .8rem; }
+  .home-header .brand span { display: none; }
+  .home-header .primary-nav { gap: .8rem; }
+  .home-header .primary-nav a { font-size: .82rem; }
+}
+@media (max-width: 900px) {
+  .home-header .nav-toggle { display: block; }
+  .home-header .primary-nav {
+    position: absolute;
+    inset: 72px 0 auto;
+    display: none;
+    padding: 1rem 14px;
+    background: var(--paper);
+    border-bottom: 1px solid var(--rule);
+  }
+  .home-header .primary-nav.is-open { display: grid; gap: .2rem; }
+  .home-header .primary-nav a { display: flex; align-items: center; min-height: 44px; }
+}
+@media (max-width: 680px) {
+  .home-header { gap: .25rem; }
+  .home-header .brand { font-size: 1rem; }
+  .home-header .brand span { display: none; }
+  .header-actions { gap: .25rem; }
+  .home-header .primary-nav { top: 62px; }
+  html[lang="en"] .portfolio-home .intro h1 { font-size: clamp(1.9rem, 7.8vw, 2.2rem); }
+}
