@@ -27,7 +27,7 @@
 <text x="360" y="922" text-anchor="middle" font-size="25" fill="#53677c">Raspberry Pi 5</text>
 <rect x="512" y="825" width="108" height="30" rx="15" fill="#2f63b4"/><text x="566" y="846" text-anchor="middle" font-size="18" fill="#fff">본인 담당</text>
 <rect x="90" y="1040" width="540" height="100" rx="12" fill="#edf3f8" stroke="#2f63b4" stroke-width="2.5"/>
-<text x="360" y="1084" text-anchor="middle" font-size="32" fill="#18345f">표적 관리와 재획득</text>
+<text x="360" y="1084" text-anchor="middle" font-size="32" fill="#18345f">표적 관리와 재탐지</text>
 <text x="360" y="1122" text-anchor="middle" font-size="25" fill="#53677c">Raspberry Pi 5</text>
 <rect x="512" y="1025" width="108" height="30" rx="15" fill="#2f63b4"/><text x="566" y="1046" text-anchor="middle" font-size="18" fill="#fff">본인 담당</text>
 <rect x="90" y="1180" width="540" height="100" rx="12" fill="#fff" stroke="#cfdae5" stroke-width="2"/>

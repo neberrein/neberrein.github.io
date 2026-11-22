@@ -22,8 +22,8 @@
 <text x="605" y="745" text-anchor="end" class="lb-amber">Over 4 s</text>
 <rect x="170" y="780" width="380" height="90" rx="12" fill="#fff" stroke="#b86612" stroke-width="2.5"/><text x="360" y="822" text-anchor="middle" class="st">Target lost</text><text x="360" y="854" text-anchor="middle" class="code">LOST</text>
 <rect x="40" y="884" width="640" height="124" rx="10" fill="#fff" stroke="#cfdae5" stroke-width="2"/>
-<text x="360" y="914" text-anchor="middle" font-size="20" fill="#18345f">Move commands are sent only while locked.</text>
-<text x="360" y="941" text-anchor="middle" font-size="20" fill="#18345f">While waiting, searching or confirming, it stays in place.</text>
+<text x="360" y="914" text-anchor="middle" font-size="20" fill="#18345f">It follows the predicted position for up to 3 s,</text>
+<text x="360" y="941" text-anchor="middle" font-size="20" fill="#18345f">then holds still while searching or confirming.</text>
 <text x="360" y="968" text-anchor="middle" font-size="20" fill="#18345f">After 4 s the target is declared lost and PX4 switches to Hold.</text>
 <text x="360" y="995" text-anchor="middle" font-size="20" fill="#18345f">Following resumes only after the user selects a target again.</text>
 <rect x="15" y="1045" width="690" height="240" rx="14" fill="#edf3f8" stroke="#b8cbe0" stroke-width="2"/>

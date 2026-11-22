@@ -421,6 +421,10 @@
   background:#f0f3f6;
 }
 
+.argus-test-setups img {
+  aspect-ratio:auto;
+}
+
 .argus-evidence-pair figcaption {
   padding:.9rem 1rem;
   font-size:.9rem;
@@ -446,4 +450,36 @@
   .argus-evidence-pair {
     grid-template-columns:minmax(0,1fr);
   }
+}
+
+/* 2026-11-23: final presentation videos */
+.argus-video-pair.argus-video-4x3 video {
+  aspect-ratio:4 / 3;
+  object-fit:contain;
+  background:#070b0e;
+}
+
+.argus-video-single {
+  margin-top:1.25rem;
+}
+
+.argus-page .video-card.argus-video-single video,
+.argus-follow-stack .video-card video {
+  height:auto;
+  aspect-ratio:auto;
+  object-fit:contain;
+  background:#070b0e;
+}
+
+.argus-follow-stack {
+  display:grid;
+  gap:.75rem;
+  margin-top:1rem;
+}
+
+.argus-page .case-body > .argus-video-single + p,
+.argus-page .case-body > .argus-video-single + h3,
+.argus-page .case-body > .argus-follow-stack + details,
+.argus-page .case-body > .argus-video-pair + h3 {
+  margin-top:2rem;
 }

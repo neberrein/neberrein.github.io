@@ -11,7 +11,7 @@
 <path d="M230 150H318" fill="none" stroke="#2f63b4" stroke-width="3" marker-end="url(#blue)"/><text x="274" y="138" text-anchor="middle" class="lb">관측 끊김</text>
 <rect x="320" y="120" width="180" height="80" rx="12" fill="#fff" stroke="#cfdae5" stroke-width="2"/><text x="410" y="155" text-anchor="middle" class="st">관측 공백 대기</text><text x="410" y="182" text-anchor="middle" class="code">GAP_HOLD</text>
 <path d="M500 150H588" fill="none" stroke="#2f63b4" stroke-width="3" marker-end="url(#blue)"/><text x="544" y="138" text-anchor="middle" class="lb">후보 검색</text>
-<rect x="590" y="120" width="180" height="80" rx="12" fill="#fff" stroke="#cfdae5" stroke-width="2"/><text x="680" y="155" text-anchor="middle" class="st">재획득 후보 탐색</text><text x="680" y="182" text-anchor="middle" class="code">REACQUIRE</text>
+<rect x="590" y="120" width="180" height="80" rx="12" fill="#fff" stroke="#cfdae5" stroke-width="2"/><text x="680" y="155" text-anchor="middle" class="st">재탐지 후보 탐색</text><text x="680" y="182" text-anchor="middle" class="code">REACQUIRE</text>
 <path d="M770 145H858" fill="none" stroke="#2f63b4" stroke-width="3" marker-end="url(#blue)"/><text x="814" y="133" text-anchor="middle" class="lb">후보 1개</text>
 <path d="M860 180H772" fill="none" stroke="#697e91" stroke-width="2.5" stroke-dasharray="7 5" marker-end="url(#gray)"/><text x="814" y="206" text-anchor="middle" class="lb-muted">검증 실패</text>
 <rect x="860" y="120" width="180" height="80" rx="12" fill="#fff" stroke="#cfdae5" stroke-width="2"/><text x="950" y="155" text-anchor="middle" class="st">후보 확인</text><text x="950" y="182" text-anchor="middle" class="code">CONFIRM</text>
@@ -21,7 +21,7 @@
 <text x="638" y="262" text-anchor="end" class="lb-amber">4초 초과</text>
 <rect x="590" y="300" width="180" height="80" rx="12" fill="#fff" stroke="#b86612" stroke-width="2.5"/><text x="680" y="335" text-anchor="middle" class="st">표적 상실</text><text x="680" y="362" text-anchor="middle" class="code">LOST</text>
 <rect x="50" y="412" width="1100" height="54" rx="10" fill="#fff" stroke="#cfdae5" stroke-width="2"/>
-<text x="600" y="434" text-anchor="middle" font-size="16" fill="#18345f">표적 고정일 때만 이동 명령을 만들고, 공백 대기, 탐색, 확인 중에는 속도 0으로 제자리에서 기다립니다.</text><text x="600" y="456" text-anchor="middle" font-size="16" fill="#18345f">4초 안에 다시 고정하지 못하면 표적 상실로 보고 PX4를 위치 유지(Hold)로 바꾸며, 사용자가 다시 골라야 재개합니다.</text>
+<text x="600" y="434" text-anchor="middle" font-size="16" fill="#18345f">가려진 뒤 최대 3초는 직전 속도로 예측 위치를 따라가고, 그 뒤 탐색과 확인 중에는 제자리에서 기다립니다.</text><text x="600" y="456" text-anchor="middle" font-size="16" fill="#18345f">4초 안에 다시 고정하지 못하면 표적 상실로 보고 PX4를 위치 유지(Hold)로 바꾸며, 사용자가 다시 골라야 재개합니다.</text>
 <rect x="20" y="510" width="1160" height="110" rx="14" fill="#edf3f8" stroke="#b8cbe0" stroke-width="2"/>
 <text x="44" y="548" font-size="20" fill="#21457c">사용자가 수동으로 개입한 경우</text>
 <rect x="50" y="562" width="200" height="44" rx="10" fill="#fff" stroke="#2f63b4" stroke-width="2"/><text x="150" y="591" text-anchor="middle" font-size="19" fill="#18345f">수동 개입</text>

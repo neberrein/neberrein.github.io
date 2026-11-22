@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="720" height="900" viewBox="0 0 720 900" role="img" aria-labelledby="title desc">
-<title id="title">Onboard hardware and ground control station links (mobile)</title><desc id="desc">The Pi sends video, detections and tracks to the ground control station over UDP. The station sends target selection and start or stop requests to the Pi over MAVLink UDP. The Pi and PX4 exchange commands and status over MAVLink UART.</desc>
+<title id="title">Onboard hardware and ground control station links (mobile)</title><desc id="desc">The Pi sends video, detections and tracks to the ground control station over a wireless link. The station sends target selection and start or stop requests to the Pi over MAVLink. The Pi and PX4 exchange commands and status over MAVLink.</desc>
 <defs><marker id="blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 10 5 0 10Z" fill="#2f63b4"/></marker><marker id="teal" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 10 5 0 10Z" fill="#138a98"/></marker><marker id="gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 10 5 0 10Z" fill="#697e91"/></marker></defs>
 <style>text{font-family:Pretendard,"Segoe UI",Arial,sans-serif;font-weight:650}.pill{fill:#fff;stroke:#c4d3e3;stroke-width:2}.pill-text{font-size:21px;fill:#53677c;font-weight:700}.label{font-size:21px;fill:#18345f}.muted{font-size:21px;fill:#53677c}</style>
 <rect width="720" height="900" fill="#fff"/>
@@ -10,8 +10,8 @@
 <path d="M390 400V142" fill="none" stroke="#697e91" stroke-width="3" marker-end="url(#gray)"/>
 <text x="318" y="172" text-anchor="end" class="label">Target select / start / stop</text>
 <text x="402" y="172" text-anchor="start" class="muted">Video, detections and tracks</text>
-<text x="318" y="211" text-anchor="end" class="pill-text">MAVLink (UDP)</text>
-<text x="402" y="211" text-anchor="start" class="pill-text">UDP (wireless)</text>
+<text x="318" y="211" text-anchor="end" class="pill-text">MAVLink</text>
+<text x="402" y="211" text-anchor="start" class="pill-text">Wireless video</text>
 <text x="40" y="250" font-size="26" fill="#21457c">Onboard hardware</text>
 <rect x="40" y="262" width="240" height="96" rx="12" fill="#fff" stroke="#cfdae5" stroke-width="2"/>
 <text x="160" y="303" text-anchor="middle" font-size="29" fill="#18345f">LWIR camera</text><text x="160" y="340" text-anchor="middle" font-size="23" fill="#53677c">Thermal video</text>
@@ -28,7 +28,7 @@
 <text x="242" y="620" text-anchor="start" class="label">Detections</text>
 <path d="M490 520V638" fill="none" stroke="#138a98" stroke-width="3" marker-end="url(#teal)"/>
 <path d="M590 640V522" fill="none" stroke="#138a98" stroke-width="3" stroke-dasharray="8 6" marker-end="url(#teal)"/>
-<rect x="446" y="565" width="188" height="30" rx="15" class="pill"/><text x="540" y="587" text-anchor="middle" class="pill-text">MAVLink (UART)</text>
+<rect x="446" y="565" width="188" height="30" rx="15" class="pill"/><text x="540" y="587" text-anchor="middle" class="pill-text">MAVLink</text>
 <text x="478" y="620" text-anchor="end" class="label">Commands</text>
 <text x="602" y="620" text-anchor="start" class="muted">Status</text>
 <rect x="40" y="640" width="280" height="130" rx="12" fill="#fff" stroke="#2f63b4" stroke-width="2.5"/>

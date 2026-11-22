@@ -145,7 +145,7 @@ class HomeLanguagesTests(unittest.TestCase):
         self.assertEqual(projects(ko), projects(en))
         self.assertEqual(projects(en), [f'projects/{name}' for name in PROJECTS])
         english = (DIST / 'en/index.html').read_text(encoding='utf-8')
-        for value in ('20.6%', '99.50%', '44%', '99.91%', '21,054', '10-2025-0136289'):
+        for value in ('20.6%', '99.50%', '61.3%', '99.91%', '21,054', '10-2025-0136289'):
             self.assertIn(value, english)
         self.assertNotIn('currently in Korean', english)
         self.assertNotIn('(Korean)"', english)
@@ -165,7 +165,7 @@ class HomeLanguagesTests(unittest.TestCase):
             'sensor-fusion.html': ('20.6%', 'Python', 'MATLAB', '0.126 m', '0.100 m'),
             'roboracer.html': ('56', '16'),
             'imu-lstm-fsm.html': ('99.50%',),
-            'argus-drone.html': ('8.7%', '0%', '44%', 'Hailo-8'),
+            'argus-drone.html': ('34,155', '8.7%', '0%', '0.13%', '61.3%', '9.1 ms', 'Hailo-8'),
             'manta.html': ('A*', 'DVO', '24', 'PN'),
             'rgb-classification.html': ('99.91%', '2,106'),
             'crosswalk-gap.html': ('15.33 m', '16.16 m', '3.27 s', '3.93 s', '916', '675', '241'),

@@ -21,7 +21,7 @@
 <text x="638" y="262" text-anchor="end" class="lb-amber">Over 4 s</text>
 <rect x="590" y="300" width="180" height="80" rx="12" fill="#fff" stroke="#b86612" stroke-width="2.5"/><text x="680" y="335" text-anchor="middle" class="st">Target lost</text><text x="680" y="362" text-anchor="middle" class="code">LOST</text>
 <rect x="50" y="412" width="1100" height="54" rx="10" fill="#fff" stroke="#cfdae5" stroke-width="2"/>
-<text x="600" y="434" text-anchor="middle" font-size="15" fill="#18345f">Move commands are sent only while the target is locked. While waiting, searching or confirming, the drone stays in place at zero velocity.</text><text x="600" y="456" text-anchor="middle" font-size="15" fill="#18345f">If it is not locked again within 4 s, the target is declared lost and PX4 switches to Hold. Following resumes only after the user selects a target again.</text>
+<text x="600" y="434" text-anchor="middle" font-size="15" fill="#18345f">After the target is hidden, the drone follows its predicted position for up to 3 s, then holds still while searching or confirming.</text><text x="600" y="456" text-anchor="middle" font-size="15" fill="#18345f">If it is not locked again within 4 s, the target is declared lost and PX4 switches to Hold. Following resumes only after the user selects a target again.</text>
 <rect x="20" y="510" width="1160" height="110" rx="14" fill="#edf3f8" stroke="#b8cbe0" stroke-width="2"/>
 <text x="44" y="548" font-size="20" fill="#21457c">When the user takes manual control</text>
 <rect x="50" y="562" width="200" height="44" rx="10" fill="#fff" stroke="#2f63b4" stroke-width="2"/><text x="150" y="591" text-anchor="middle" font-size="19" fill="#18345f">Manual override</text>

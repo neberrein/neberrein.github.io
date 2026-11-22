@@ -11,7 +11,7 @@
 <path d="M360 200V268" fill="none" stroke="#2f63b4" stroke-width="3" marker-end="url(#blue)"/><text x="378" y="242" class="lb">관측 끊김</text>
 <rect x="170" y="270" width="380" height="90" rx="12" fill="#fff" stroke="#cfdae5" stroke-width="2"/><text x="360" y="312" text-anchor="middle" class="st">관측 공백 대기</text><text x="360" y="344" text-anchor="middle" class="code">GAP_HOLD</text>
 <path d="M360 360V428" fill="none" stroke="#2f63b4" stroke-width="3" marker-end="url(#blue)"/><text x="378" y="402" class="lb">후보 검색</text>
-<rect x="170" y="430" width="380" height="90" rx="12" fill="#fff" stroke="#cfdae5" stroke-width="2"/><text x="360" y="472" text-anchor="middle" class="st">재획득 후보 탐색</text><text x="360" y="504" text-anchor="middle" class="code">REACQUIRE</text>
+<rect x="170" y="430" width="380" height="90" rx="12" fill="#fff" stroke="#cfdae5" stroke-width="2"/><text x="360" y="472" text-anchor="middle" class="st">재탐지 후보 탐색</text><text x="360" y="504" text-anchor="middle" class="code">REACQUIRE</text>
 <path d="M320 520V588" fill="none" stroke="#2f63b4" stroke-width="3" marker-end="url(#blue)"/><text x="308" y="562" text-anchor="end" class="lb">후보 1개</text>
 <path d="M400 590V522" fill="none" stroke="#697e91" stroke-width="2.5" stroke-dasharray="7 5" marker-end="url(#gray)"/><text x="412" y="562" class="lb-muted">검증 실패</text>
 <rect x="170" y="590" width="380" height="90" rx="12" fill="#fff" stroke="#cfdae5" stroke-width="2"/><text x="360" y="632" text-anchor="middle" class="st">후보 확인</text><text x="360" y="664" text-anchor="middle" class="code">CONFIRM</text>
@@ -22,8 +22,8 @@
 <text x="605" y="745" text-anchor="end" class="lb-amber">4초 초과</text>
 <rect x="170" y="780" width="380" height="90" rx="12" fill="#fff" stroke="#b86612" stroke-width="2.5"/><text x="360" y="822" text-anchor="middle" class="st">표적 상실</text><text x="360" y="854" text-anchor="middle" class="code">LOST</text>
 <rect x="40" y="884" width="640" height="124" rx="10" fill="#fff" stroke="#cfdae5" stroke-width="2"/>
-<text x="360" y="914" text-anchor="middle" font-size="20" fill="#18345f">표적 고정일 때만 이동 명령을 만들고,</text>
-<text x="360" y="941" text-anchor="middle" font-size="20" fill="#18345f">공백 대기, 탐색, 확인 중에는 제자리에서 기다립니다.</text>
+<text x="360" y="914" text-anchor="middle" font-size="20" fill="#18345f">가려진 뒤 최대 3초는 예측 위치를 따라가고,</text>
+<text x="360" y="941" text-anchor="middle" font-size="20" fill="#18345f">그 뒤 탐색과 확인 중에는 제자리에서 기다립니다.</text>
 <text x="360" y="968" text-anchor="middle" font-size="20" fill="#18345f">4초를 넘기면 표적 상실로 보고 PX4를 Hold로 바꾸며,</text>
 <text x="360" y="995" text-anchor="middle" font-size="20" fill="#18345f">사용자가 다시 골라야 재개합니다.</text>
 <rect x="15" y="1045" width="690" height="240" rx="14" fill="#edf3f8" stroke="#b8cbe0" stroke-width="2"/>
