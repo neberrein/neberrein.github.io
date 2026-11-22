@@ -7,7 +7,7 @@ from urllib.parse import unquote, urlsplit
 
 DIST = Path(__file__).resolve().parents[1] / 'dist'
 SITE = 'https://neberrein.github.io'
-PROJECTS = ['sensor-fusion.html', 'roboracer.html', 'imu-lstm-fsm.html', 'argus-drone.html',
+PROJECTS = ['sensor-fusion.html', 'argus-drone.html', 'roboracer.html', 'imu-lstm-fsm.html',
             'stm32-tracking.html', 'manta.html', 'mosaic-c2.html', 'davinci-autonomous.html',
             'rgb-classification.html', 'crosswalk-gap.html']
 HANGUL = re.compile('[가-힣]')
@@ -179,7 +179,7 @@ class HomeLanguagesTests(unittest.TestCase):
         self.assertNotIn('99.52', imu)
         argus = (DIST / 'en/projects/argus-drone.html').read_text(encoding='utf-8')
         self.assertIn('<meta name="robots" content="noindex,follow">', argus)
-        self.assertIn('data-project-status="ongoing"', argus)
+        self.assertIn('data-project-status="completed"', argus)
         self.assertNotIn('separate demo', argus.lower())
 
 

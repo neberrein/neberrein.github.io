@@ -483,3 +483,14 @@
 .argus-page .case-body > .argus-video-pair + h3 {
   margin-top:2rem;
 }
+
+/* 2026-11-23: larger small text for readability */
+.argus-page .metric-table th { font-size:.875rem; }
+.argus-page .metric-table td,
+.argus-page .metric-table caption { font-size:.94rem; }
+.argus-page .case-facts dt { font-size:.78rem; }
+.argus-page .case-facts dd { font-size:.94rem; }
+.argus-page .research-figure figcaption,
+.argus-page .video-card figcaption,
+.argus-page .video-card figcaption span,
+.argus-page .noun-list li { font-size:.94rem; }

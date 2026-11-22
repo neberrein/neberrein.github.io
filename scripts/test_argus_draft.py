@@ -15,14 +15,14 @@ class ArgusPageTests(unittest.TestCase):
         page = PAGE.read_text(encoding='utf-8')
         home = (DIST / 'index.html').read_text(encoding='utf-8')
         self.assertIn('<meta name="robots" content="noindex,follow">', page)
-        self.assertIn('data-project-status="ongoing"', page)
-        self.assertIn('argus-draft-badge">진행 중</span>', page)
+        self.assertIn('data-project-status="completed"', page)
+        self.assertIn('argus-draft-badge">완료</span>', page)
         self.assertIn('projects/argus-drone.html', home)
         self.assertIn('rel="canonical"', page)
         self.assertIn('og:url', page)
         self.assertIn('argus-og.png', page)
 
-    def test_ongoing_project_describes_verified_results(self):
+    def test_completed_project_describes_verified_results(self):
         page = PAGE.read_text(encoding='utf-8')
         for text in ('ARGUS 6인 팀', '팀장', 'YOLOX 학습', 'Hailo NPU',
                      'AI-powered Real-time Ground Object UAV Surveillance', '검증 결과'):
